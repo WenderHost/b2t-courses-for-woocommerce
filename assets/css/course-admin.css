@@ -1,0 +1,13 @@
+#woocommerce-product-data ul.wc-tabs li.course_data_options a:before{content:'\e003'}
+#woocommerce-product-data ul.wc-tabs li.course_links_options a:before{content:'\e00d'}
+#woocommerce-product-data ul.wc-tabs li.course_outline_options a:before{content:'\e02b'}
+#woocommerce-product-data ul.wc-tabs li.course_classes_options a:before{content:'\e026'}
+
+.wc-metaboxes-wrapper#course_outline_data .expand-close,
+.wc-metaboxes-wrapper#course_classes_data .expand-close{float:right; line-height:28px}
+.wc-metaboxes-wrapper#course_outline_data .quicktags-toolbar input,
+.wc-metaboxes-wrapper#course_classes_data .quicktags-toolbar input{width:auto; min-width:inherit}
+
+
+.wc-metaboxes-wrapper#course_classes_data .wc-metabox table td input.course_date{float:none; display:inline-block; width:auto}
+.wc-metaboxes-wrapper#course_classes_data .wc-metabox table td .seperator{padding:0 10px}

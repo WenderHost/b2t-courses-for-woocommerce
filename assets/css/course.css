@@ -1,0 +1,56 @@
+.course_meta td:first-child{width:35%}
+.course_meta td{padding:0.5em 0}
+
+.course_schedule{
+	clear:both;
+	margin:1em 0;
+	padding:1em;
+	box-shadow:2px 2px 8px rgba(0,0,0,0.2);
+}
+.course_schedule > *:last-child{margin-bottom:0}
+.schedule_header .course_title{width:70%; float:left}
+.schedule_header .course_cost{width:30%; float:right; text-align:center}
+.schedule_header:after{content:''; clear:both; display:table}
+
+.course_classes{
+	margin:1em 0;
+	width:100%;
+}
+.course_classes tr:nth-child(odd){background:#f3f3f3}
+.course_classes tr:hover{background:#bfd6ea}
+.course_classes td{
+	padding:0 1em;
+	border:2px solid #fff;
+	width:30%;
+	line-height:2;
+}
+.course_classes td.select{width:10%; text-align:center}
+.course_classes td.date{width:40%}
+.course_classes td.location, .course_classes td.register{text-align:center}
+.course_classes .full{color:#800; line-height:3}
+
+
+.outline_duration{float:right; font-size:80%; font-weight:normal; line-height:2em}
+
+
+.course_registration label{min-width:160px}
+.course_registration label.checkbox{font-weight:normal}
+.course_registration input[type=checkbox]{position:relative}
+.course_registration .form-field{margin:1em 0}
+
+.course_registration_form_fields{
+	width:70%;
+	float:left;
+	margin:1em 0;
+	padding:1em;
+	box-shadow:2px 2px 8px rgba(0,0,0,0.2);
+}
+.course_registration .product-info{
+	width:26%;
+	float:right;
+	margin:1em 0;
+}
+
+@media only screen and (max-width : 800px) {
+	.course_registration_form_fields, .course_registration .product-info{width:auto;float:none}
+}
