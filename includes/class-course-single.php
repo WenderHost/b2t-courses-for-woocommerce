@@ -378,8 +378,7 @@ class Andalu_Woo_Courses_Single {
 				// If start/end months are ==, allow filtering of start date format:
 				$start_month = date( 'M', $class->start_timestamp );
 				$end_month = date( 'M', $class->end_timestamp );
-				if( $start_month == $end_month )
-					$start_date_format = apply_filters( 'andalu_woo_courses_start_date_format', $date_format );
+				$start_date_format = ( $start_month == $end_month )? apply_filters( 'andalu_woo_courses_start_date_format', $date_format ) : $date_format;
 
 				$class_dates = date( $start_date_format, $class->start_timestamp );
 				if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
