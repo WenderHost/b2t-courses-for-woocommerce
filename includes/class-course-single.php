@@ -336,7 +336,7 @@ class Andalu_Woo_Courses_Single {
 		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
 
 		require_once( Andalu_Woo_Courses::$dir . '/lib/http_build_url.php' );
-		$date_format = apply_filters( 'andalu_woo_courses_date_format', get_option( 'date_format' ) );
+		$date_format = get_option( 'date_format' );
 		$locations = Andalu_Woo_Courses_Class::get_locations();
 
 	?>
@@ -375,13 +375,9 @@ class Andalu_Woo_Courses_Single {
 				$class = wc_get_product( $class_id );
 				if ( empty( $class ) ) continue;
 
-				// If start/end months are ==, allow filtering of start date format:
-				$start_month = date( 'M', $class->start_timestamp );
-				$end_month = date( 'M', $class->end_timestamp );
-				$start_date_format = ( $start_month == $end_month )? apply_filters( 'andalu_woo_courses_start_date_format', $date_format ) : $date_format;
-
-				$class_dates = date( $start_date_format, $class->start_timestamp );
+				$class_dates = date( $date_format, $class->start_timestamp );
 				if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
+				$class_dates = apply_filters( 'andalu_woo_courses_class_dates', $class_dates, $class->start_timestamp, $class->end_timestamp, $date_format );
 
 				$url = parse_url( get_the_permalink( $product->id ) );
 				$url['path'] = trailingslashit( $url['path'] ) . 'register/' . $class->post->post_name;
