@@ -78,7 +78,7 @@ class Andalu_Woo_Courses_Admin {
 
 		$endorsements = array();
 		foreach ( Andalu_Woo_Courses::$endorsements as $endorsement ) {
-			$endorsements[ $endorsement ] = empty( $_REQUEST['_course_endorsement_' . $endorsement] ? true : false );
+			$endorsements[ $endorsement ] = empty( $_REQUEST['_course_endorsement_' . $endorsement] ? false : true );
 		}
 		update_post_meta( $post_id, '_course_endorsements', $endorsements );
 		
