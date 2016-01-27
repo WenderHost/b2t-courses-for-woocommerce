@@ -396,9 +396,9 @@ class Andalu_Woo_Courses_Single {
 
 				<td class="location"><?php if ( ! empty( $locations[ $class->location ] ) ) { echo $locations[ $class->location ]; } ?></td>
 
-				<?php /*if ( ! empty( $class->time ) ) : ?>
+				<?php if ( ! empty( $class->time ) ) : ?>
 				<td class="time"><?php echo $class->time; ?></td>
-				<?php endif;*/ ?>
+				<?php endif; ?>
 
 				<?php if ( ! $select ) : ?>
 				<td class="register">
