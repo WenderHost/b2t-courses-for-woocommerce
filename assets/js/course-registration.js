@@ -10,6 +10,9 @@ jQuery( function( $ ) {
 			// Inline validation
 			this.$registration_form.on( 'blur change', '.input-text, select', this.validate_field );
 
+			// Class row select
+			this.$registration_form.on( 'click', '.course_schedule.selectable tr', this.select_row );
+
 		},
 		validate_field: function() {
 			var $this     = $( this ),
@@ -38,6 +41,11 @@ jQuery( function( $ ) {
 
 			if ( validated ) {
 				$parent.removeClass( 'woocommerce-invalid woocommerce-invalid-required-field' ).addClass( 'woocommerce-validated' );
+			}
+		},
+		select_row: function( event ) {
+			if ( ! $( event.target ).is( ':radio' ) ) {
+				$( ':radio', this ).trigger( 'click' );
 			}
 		},
 	};

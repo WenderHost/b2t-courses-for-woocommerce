@@ -12,6 +12,8 @@
 .schedule_header .course_cost{width:30%; float:right; text-align:center}
 .schedule_header:after{content:''; clear:both; display:table}
 
+.course_schedule.selectable tr, .course_schedule.selectable input[type=radio]{cursor:pointer}
+
 .course_classes{
 	margin:1em 0;
 	width:100%;

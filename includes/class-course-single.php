@@ -339,8 +339,10 @@ class Andalu_Woo_Courses_Single {
 		$date_format = get_option( 'date_format' );
 		$locations = Andalu_Woo_Courses_Class::get_locations();
 
+		$css_classes = $select ? ' selectable' : '';
+
 	?>
-	<div class="course_schedule">
+	<div class="course_schedule<?php echo $css_classes; ?>">
 		<div class="schedule_header">
 			<div class="course_title">
 				<a href="<?php echo get_the_permalink( $product->id ); ?>"><h2><?php echo get_the_title( $product->id ); ?></h2></a>
