@@ -75,6 +75,7 @@ class Andalu_Woo_Courses_Admin {
 
 		wp_update_post( array( 'ID' => $post_id, 'post_parent' => empty( $_REQUEST[ '_course_parent' ] ) ? 0 : intval( $_REQUEST[ '_course_parent' ] ) ) );
 		update_post_meta( $post_id, '_course_study_guide', empty( $_REQUEST[ '_course_study_guide' ] ) ? '' : $_REQUEST[ '_course_study_guide' ] );
+		update_post_meta( $post_id, '_course_exam', empty( $_REQUEST[ '_course_exam' ] ) ? '' : $_REQUEST[ '_course_exam' ] );
 
 		$endorsements = array();
 		foreach ( Andalu_Woo_Courses::$endorsements as $endorsement ) {
@@ -236,6 +237,22 @@ class Andalu_Woo_Courses_Admin {
 							echo esc_attr( $guide_title );
 						}
 					?>" value="<?php echo $guide_id ? $guide_id : ''; ?>" />
+				</p>
+
+				<p class="form-field">
+					<label for="_course_exam"><?php _e( 'Exam', 'andalu_woo_courses' ); ?></label>
+					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_exam" name="_course_exam" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
+						$exam_id = absint( get_post_meta( $post->ID, '_course_exam', true ) );
+			
+						if ( $exam_id ) {
+							$exam = wc_get_product( $exam_id );
+							if ( is_object( $exam ) ) {
+								$exam_title = wp_kses_post( html_entity_decode( $exam->get_formatted_name(), ENT_QUOTES, get_bloginfo( 'charset' ) ) );
+							}
+			
+							echo esc_attr( $exam_title );
+						}
+					?>" value="<?php echo $exam_id ? $exam_id : ''; ?>" />
 				</p>
 			</div>
 		</div>
