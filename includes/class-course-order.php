@@ -66,11 +66,25 @@ class Andalu_Woo_Courses_Order {
 		
 		if ( 1 != get_post_meta( $order->id, '_order_seats_reduced', true ) && sizeof( $order->get_items() ) > 0 ) {
 			foreach ( $order->get_items() as $item ) {
+
+				// Reduce a single class
 				if ( ! empty( $item['item_meta']['_class_id'][0] ) ) {
 					$class = wc_get_product( $item['item_meta']['_class_id'][0] );
-					if ( $class && 'Virtual' != $class->get_location() ) {
+					if ( $class ) {
 						$new_stock = $class->reduce_seats( $item['qty'] );
 						$order->add_order_note( sprintf( __( 'Class "%s" seats reduced from %s to %s.', 'andalu_woo_courses' ), $class->post->post_title, $new_stock + $item['qty'], $new_stock) );
+					}
+				}
+
+				// Reduce a list of classes
+				if ( ! empty( $item['item_meta']['_courses'][0] ) ) {
+					$courses = maybe_unserialize( $item['item_meta']['_courses'][0] );
+					foreach( $courses as $class_id ) {
+						$class = wc_get_product( $class_id );
+						if ( $class ) {
+							$new_stock = $class->reduce_seats( $item['qty'] );
+							$order->add_order_note( sprintf( __( 'Class "%s" seats reduced from %s to %s.', 'andalu_woo_courses' ), $class->post->post_title, $new_stock + $item['qty'], $new_stock) );
+						}
 					}
 				}
 			}

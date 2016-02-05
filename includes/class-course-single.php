@@ -390,7 +390,11 @@ class Andalu_Woo_Courses_Single {
 			<tr>
 				<?php if ( $select ) : ?>
 				<td class="select">
+					<?php if ( $class->is_available() ) : ?>
 					<input type="radio" name="course_select[<?php echo $product->id; ?>]" value="<?php echo $class_id; ?>" <?php checked( $selected_class, $class_id ); ?> />
+					<?php else : ?>
+					<span class="full"><?php _e( 'Full', 'andalu_woo_courses' ); ?></span>
+					<?php endif; ?>
 				</td>
 				<?php endif; ?>
 
@@ -637,7 +641,7 @@ class Andalu_Woo_Courses_Single {
 				if ( $class && 'Virtual' != $class->get_location() ) {
 					$other_data[] = array(
 						'name'    => __( 'Location', 'andalu_woo_courses' ),
-						'display' => $location,
+						'display' => $class->get_location(),
 					);
 				}
 			}

@@ -190,23 +190,11 @@ jQuery(document).ready(function($) {
 		wrapper.find( 'strong.class_date' ).text( start + ( end ? ' - ' + end : '' ) );
 	});
 
-	// Toggle seats when virtual is selected 
-	$( '.course_classes' ).on( 'change', 'select.class_location', function() {
-		var t = $(this), label = t.find('option:selected').text(), seats = t.parents('table').find('td.class_seats').parent();
-		
-		if ( 'Virtual' == label ) {
-			seats.slideUp();
-		} else {
-			seats.slideDown();
-		}
-	}).find( 'select.class_location' ).change();
-
 	// Remove class
 	$( '.course_classes' ).on( 'click', '.remove_row', function() {
 		if ( window.confirm( Andalu_Woo_Courses.remove_class ) ) {
 			var $parent = $( this ).parent().parent();
 			var class_id = $parent.find('[name*="[id]"]').val(), class_ids = [], data = { action: 'woocommerce_remove_course_class' };
-			console.debug( $parent, class_id );
 
 			$parent.block();
 

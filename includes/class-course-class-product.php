@@ -72,10 +72,6 @@ class WC_Product_Course_Class extends WC_Product {
 
 	// Is class available for purchasing
 	public function is_available( $ignore_own_cart = false ) {
-		if ( $this->virtual ) {
-			return true;
-		}
-
 		return apply_filters( 'andalu_woo_courses_class_availability', $this->seats > 0, $this, $ignore_own_cart );
 	}
 
