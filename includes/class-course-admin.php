@@ -315,7 +315,8 @@ class Andalu_Woo_Courses_Admin {
 	
 	public static function output_classes( $post_id ) {
 		if ( ! empty( $post_id ) ) {
-			$product = wc_get_product( $post_id );
+			// Specify product type in case the post is saved as auto-draft
+			$product = wc_get_product( $post_id, array( 'product_type' => Andalu_Woo_Courses::$product_type ) );
 
 			if ( ! empty( $product->course_classes ) ) {
 				$class_ids  = array_values( $product->course_classes );
