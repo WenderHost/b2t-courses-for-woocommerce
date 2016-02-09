@@ -26,7 +26,7 @@ class Andalu_Woo_Courses_Order {
 				wc_add_order_item_meta( $item_id, '_class_id', $values['course_registration']['class'] );
 				wc_add_order_item_meta( $item_id, __( 'Class', 'andalu_woo_courses' ), get_the_title( $values['course_registration']['class'] ) );
 
-				$class = wc_get_product( $cart_item['course_registration']['class'] );
+				$class = wc_get_product( $values['course_registration']['class'] );
 				if ( $class && 'Virtual' != $class->get_location() ) {
 					wc_add_order_item_meta( $item_id, __( 'Location', 'andalu_woo_courses' ), $class->get_location() );
 				}
