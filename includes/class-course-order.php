@@ -4,7 +4,7 @@
 
 
 class Andalu_Woo_Courses_Order {
-	
+
 	static function init() {
 
 		// Add meta to order
@@ -12,11 +12,8 @@ class Andalu_Woo_Courses_Order {
 
 		// Reduce seats when stock is reduced
 		add_action( 'woocommerce_payment_complete', __CLASS__ . '::reduce_order_seats' );
-		
-		// Courses do not need to be processed when purchased
-		add_filter( 'woocommerce_order_item_needs_processing', __CLASS__ . '::needs_processing', 10, 3 ); 
 	}
-	
+
 
 	// Add meta to order
 	static function order_item_meta( $item_id, $values ) {
@@ -37,17 +34,17 @@ class Andalu_Woo_Courses_Order {
 				foreach( $values['course_registration']['courses'] as $course_id => $class_id ) {
 					$classes[] = get_the_title( $course_id ) . ' - ' . get_the_title( $class_id );
 				}
-				
+
 				wc_add_order_item_meta( $item_id, '_courses', $values['course_registration']['courses'] );
 				wc_add_order_item_meta( $item_id, __( 'Classes', 'andalu_woo_courses' ), implode( '<br/>', $classes ) );
 			}
-			
-			
+
+
 			foreach ( Andalu_Woo_Courses_Single::registration_fields() as $key => $field ) {
 
-				// Skip display of several fields		
+				// Skip display of several fields
 				if ( in_array( $key, array( 'email_again', 'optin' ) ) ) { continue; }
-				
+
 				if ( ! empty( $values['course_registration'][ $key ] ) ) {
 					wc_add_order_item_meta( $item_id, $field['label'], $values['course_registration'][ $key ] );
 				}
@@ -63,7 +60,7 @@ class Andalu_Woo_Courses_Order {
 	// Reduce seats when classes are ordered
 	public function reduce_order_seats( $order ) {
 		if ( ! is_object( $order ) ) { $order = wc_get_order( $order ); }
-		
+
 		if ( 1 != get_post_meta( $order->id, '_order_seats_reduced', true ) && sizeof( $order->get_items() ) > 0 ) {
 			foreach ( $order->get_items() as $item ) {
 
@@ -93,13 +90,5 @@ class Andalu_Woo_Courses_Order {
 		}
 	}
 
-
-	public function needs_processing( $needs_processing, $product, $order_id ) {
-		if ( $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
-			return false;
-		}
-		return $needs_processing;
-	}
-	
 }
 Andalu_Woo_Courses_Order::init();
