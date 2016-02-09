@@ -362,7 +362,7 @@ class Andalu_Woo_Courses_Single {
 			<tr>
 				<td class="date"><?php _e( 'Various dates', 'andalu_woo_courses' ); ?></td>
 				<td class="location"><?php _e( 'Live Virtual Course', 'andalu_woo_courses' ); ?></td>
-				<td class="register"><a href="<?php echo $select_dates; ?>" class="btn btn-default"><?php _e( 'Select Dates', 'andalu_woo_courses' ); ?></a></td>
+				<td class="register"><a href="<?php echo $select_dates; ?>" class="button button-default"><?php _e( 'Select Dates', 'andalu_woo_courses' ); ?></a></td>
 			</tr>
 		</table>
 		<?php endif; ?>
@@ -409,7 +409,7 @@ class Andalu_Woo_Courses_Single {
 				<?php if ( ! $select ) : ?>
 				<td class="register">
 					<?php if ( $class->is_available() ) : ?>
-					<a href="<?php echo $class_registration; ?>" class="btn btn-default"><?php _e( 'Register', 'andalu_woo_courses' ); ?></a>
+					<a href="<?php echo $class_registration; ?>" class="button button-default"><?php _e( 'Register', 'andalu_woo_courses' ); ?></a>
 					<?php else : ?>
 					<span class="full"><?php _e( 'This class is full', 'andalu_woo_courses' ); ?></span>
 					<?php endif; ?>

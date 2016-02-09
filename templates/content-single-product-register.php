@@ -38,14 +38,14 @@ do_action( 'woocommerce_before_single_course_register' );
 		 		<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 
 				<div class="pull-right">
-					<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e( 'Back', 'andalu_woo_courses' ); ?></a>
+					<a href="<?php the_permalink(); ?>" class="button button-default"><?php _e( 'Back', 'andalu_woo_courses' ); ?></a>
 				 	<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 				</div>
 
 			<?php else : ?>
-			
+
 				<p><?php _e( 'This class is not available for registration', 'andalu_woo_courses' ); ?>
-			
+
 			<?php endif; ?>
 		</div>
 
