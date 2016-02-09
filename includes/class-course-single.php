@@ -144,6 +144,21 @@ class Andalu_Woo_Courses_Single {
 				'class'       => array( 'form-row-last' ),
 				'clear'       => true,
 			),
+			'email' => array(
+				'label'       => __( 'Email', 'andalu_woo_courses' ),
+				'required'    => true,
+				'type'        => 'email',
+				'class'       => array( 'form-row-first' ),
+				'validate'    => array( 'email' ),
+			),
+			'email_again' => array(
+				'label'       => __( 'Email Again', 'andalu_woo_courses' ),
+				'required'    => true,
+				'type'        => 'email',
+				'class'       => array( 'form-row-last' ),
+				'validate'    => array( 'email' ),
+				'clear'       => true,
+			),
 			'company' => array(
 				'label'       => __( 'Company', 'andalu_woo_courses' ),
 				'class'       => array( 'form-row-wide' ),
@@ -195,21 +210,6 @@ class Andalu_Woo_Courses_Single {
 				'type'        => 'tel',
 				'class'       => array( 'form-row-wide' ),
 				'validate'    => array( 'phone' ),
-			),
-			'email' => array(
-				'label'       => __( 'Email', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'email',
-				'class'       => array( 'form-row-first' ),
-				'validate'    => array( 'email' ),
-			),
-			'email_again' => array(
-				'label'       => __( 'Email Again', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'email',
-				'class'       => array( 'form-row-last' ),
-				'validate'    => array( 'email' ),
-				'clear'       => true,
 			),
 			'optin' => array(
 				'label'       => __( 'I am interested in participating in the B2T Business Analyst Certification Program.', 'andalu_woo_courses' ),
