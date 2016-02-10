@@ -41,6 +41,8 @@ class Andalu_Woo_Courses_Single {
 		// Check for unavailable items in the cart
 		add_action( 'woocommerce_cart_loaded_from_session', __CLASS__ . '::unavailable' );
 
+		// Override add to cart message
+		add_filter( 'wc_add_to_cart_message', __CLASS__ . '::add_to_cart_message', 20, 2 );
 	}
 
 	// Register rewrite rules for course registration
@@ -710,6 +712,35 @@ class Andalu_Woo_Courses_Single {
 		WC()->session->set( 'cart', $cart->cart_contents );
 	}
 
+	// Override add to cart message
+	public static function add_to_cart_message( $message, $product ) {
+		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+
+		if ( $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
+			$cart_redirect = ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) );
+
+			$name = empty( self::$posted['first_name'] ) ? '' : self::$posted['first_name'];
+			$name .= empty( self::$posted['last_name'] ) ? '' : ' ' . self::$posted['last_name'];
+
+			$added_text = sprintf( __( 'A "%s" registration for %s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->id ), $name );
+			if ( ! $cart_redirect ) {
+				$added_text .= __( ' Add another student by entering his or her details below:', 'andalu_woo_courses' );
+			}
+
+			// Allow filtering of add course to cart message
+			$added_text = apply_filters( 'andalu_add_course_to_cart_message', $added_text, $product, $name );
+
+			// Output success messages
+			if ( $cart_redirect ) {
+				$return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wp_get_referer() ? wp_get_referer() : home_url() );
+				$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( $return_to ), esc_html__( 'Continue Shopping', 'woocommerce' ), esc_html( $added_text ) );
+			} else {
+				$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View Cart', 'woocommerce' ), esc_html( $added_text ) );
+			}
+
+		}
+		return $message;
+	}
 
 }
 Andalu_Woo_Courses_Single::init();
