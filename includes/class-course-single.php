@@ -146,6 +146,21 @@ class Andalu_Woo_Courses_Single {
 				'class'       => array( 'form-row-last' ),
 				'clear'       => true,
 			),
+			'email' => array(
+				'label'       => __( 'Email', 'andalu_woo_courses' ),
+				'required'    => true,
+				'type'        => 'email',
+				'class'       => array( 'form-row-first' ),
+				'validate'    => array( 'email' ),
+			),
+			'email_again' => array(
+				'label'       => __( 'Email Again', 'andalu_woo_courses' ),
+				'required'    => true,
+				'type'        => 'email',
+				'class'       => array( 'form-row-last' ),
+				'validate'    => array( 'email' ),
+				'clear'       => true,
+			),
 			'company' => array(
 				'label'       => __( 'Company', 'andalu_woo_courses' ),
 				'class'       => array( 'form-row-wide' ),
@@ -197,21 +212,6 @@ class Andalu_Woo_Courses_Single {
 				'type'        => 'tel',
 				'class'       => array( 'form-row-wide' ),
 				'validate'    => array( 'phone' ),
-			),
-			'email' => array(
-				'label'       => __( 'Email', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'email',
-				'class'       => array( 'form-row-first' ),
-				'validate'    => array( 'email' ),
-			),
-			'email_again' => array(
-				'label'       => __( 'Email Again', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'email',
-				'class'       => array( 'form-row-last' ),
-				'validate'    => array( 'email' ),
-				'clear'       => true,
 			),
 			'optin' => array(
 				'label'       => __( 'I am interested in participating in the B2T Business Analyst Certification Program.', 'andalu_woo_courses' ),
@@ -364,7 +364,7 @@ class Andalu_Woo_Courses_Single {
 			<tr>
 				<td class="date"><?php _e( 'Various dates', 'andalu_woo_courses' ); ?></td>
 				<td class="location"><?php _e( 'Live Virtual Course', 'andalu_woo_courses' ); ?></td>
-				<td class="register"><a href="<?php echo $select_dates; ?>" class="btn btn-default"><?php _e( 'Select Dates', 'andalu_woo_courses' ); ?></a></td>
+				<td class="register"><a href="<?php echo $select_dates; ?>" class="button button-default"><?php _e( 'Select Dates', 'andalu_woo_courses' ); ?></a></td>
 			</tr>
 		</table>
 		<?php endif; ?>
@@ -411,7 +411,7 @@ class Andalu_Woo_Courses_Single {
 				<?php if ( ! $select ) : ?>
 				<td class="register">
 					<?php if ( $class->is_available() ) : ?>
-					<a href="<?php echo $class_registration; ?>" class="btn btn-default"><?php _e( 'Register', 'andalu_woo_courses' ); ?></a>
+					<a href="<?php echo $class_registration; ?>" class="button button-default"><?php _e( 'Register', 'andalu_woo_courses' ); ?></a>
 					<?php else : ?>
 					<span class="full"><?php _e( 'This class is full', 'andalu_woo_courses' ); ?></span>
 					<?php endif; ?>
