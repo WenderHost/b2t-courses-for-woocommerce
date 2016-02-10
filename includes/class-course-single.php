@@ -595,6 +595,11 @@ class Andalu_Woo_Courses_Single {
 			if ( ! wc_notice_count( 'error' ) ) {
 				$cart_item_meta['course_registration'] = self::$posted;
 				if ( $class_id ) { $cart_item_meta['course_registration']['class'] = $class_id; }
+
+				// Clear course registration fields
+				foreach( array( 'first_name', 'last_name', 'email', 'email_again' ) as $key ) {
+					unset( $_POST[ $key ] );
+				}
 			}
 
 		}
