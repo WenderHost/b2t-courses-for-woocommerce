@@ -233,17 +233,8 @@ class Andalu_Woo_Courses_Single {
 		<input type="hidden" name="course_registration" value="<?php echo get_query_var( 'course_register' ); ?>" />
 
 		<?php
-			$empty_fields = array( 'first_name', 'last_name', 'email', 'email_again' );
-			if( $_POST ){
-				$quantity = empty( $_REQUEST['quantity'] ) ? 1 : wc_stock_amount( $_REQUEST['quantity'] );
-				$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
-			}
-
 			foreach ( self::registration_fields() as $key => $field ) {
 				$value = ( isset( $_POST[ $key ] ) ? $_POST[ $key ] : ( $key == 'country' ? WC()->checkout->get_value( 'billing_country' ) : '' ) );
-				// Don't re-populate name and email fields after customer has added a student to the cart
-				if( $passed_validation && in_array( $key, $empty_fields ) )
-					unset( $value );
 				woocommerce_form_field( $key, $field, $value );
 			}
 		?>
