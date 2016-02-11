@@ -9,7 +9,7 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 ?>
 <div class="product-info clearfix">
 
-	<h2><?php the_title(); ?></h2>
+	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
 	<?php if ( $virtual ) : ?>
 
@@ -22,7 +22,6 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 		}
 
 		if ( ! empty( $address ) ) {
-			echo '<br/>';
 			echo wpautop( $address );
 		}
 
@@ -30,17 +29,18 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 
 	<?php elseif ( $class_id ) : ?>
 
-	<p><?php echo get_the_title( $class_id ); ?></p>
-	<p><?php printf( '<strong>%s</strong>: %s', __( 'Metro Area', 'andalu_woo_courses' ), $class->get_location() ); ?></p>
-	<p><?php printf( '<strong>%d</strong> %s', $class->seats, _n( 'seat available', 'seats available', $class->seats, 'andalu_woo_courses' ) ); ?></p>
-	<p><?php printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $product->get_price_html(), __( 'student', 'andalu_woo_courses' ) ); ?></p>
+	<p><?php echo get_the_title( $class_id ); ?><br />
+	<?php printf( '<strong>%s</strong>: %s', __( 'Metro Area', 'andalu_woo_courses' ), $class->get_location() ); ?><br />
+	<?php printf( '<strong>%d</strong> %s', $class->seats, _n( 'seat available', 'seats available', $class->seats, 'andalu_woo_courses' ) ); ?><br />
+	<?php printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $product->get_price_html(), __( 'student', 'andalu_woo_courses' ) ); ?></p>
 
 	<?php
+		$location = get_term( $class->location );
+		$location_name = $location->name;
 		$address = get_term_meta( $class->location, 'address', true );
 
 		if ( ! empty( $address ) ) {
-			echo '<br/><h4>' . __( 'Location:', 'andalu_woo_courses' ) . '</h4>';
-			echo wpautop( $address );
+			echo  wpautop( '<strong>' . __( 'Location:', 'andalu_woo_courses' ) . '</strong><br />' . $location_name . '<br />' . $address );
 		}
 
 	?>
