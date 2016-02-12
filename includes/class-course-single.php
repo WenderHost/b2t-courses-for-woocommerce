@@ -279,25 +279,25 @@ class Andalu_Woo_Courses_Single {
 		global $product;
 	?>
 		<table class="course_meta product_meta">
-			<tr>
+			<tr class="length">
 				<td class="meta_label"><?php _e( 'Length', 'andalu_woo_courses' ); ?></td>
-				<td class="meat_value"><?php echo $product->course_duration; ?></td>
+				<td class="meat_value length"><?php echo $product->course_duration; ?></td>
 			</tr>
-			<tr>
-				<td class="meta_label"><?php _e( 'PDUs', 'andalu_woo_courses' ); ?></td>
+			<tr class="cdu_pdu">
+				<td class="meta_label"><?php _e( 'CDU/PDU', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php echo $product->course_pdus; ?></td>
 			</tr>
-			<tr>
+			<tr class="intended_audience">
 				<td class="meta_label"><?php _e( 'Intended Audience', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php echo wpautop( $product->course_audience ); ?></td>
 			</tr>
-			<tr>
+			<tr class="prerequisites">
 				<td class="meta_label"><?php _e( 'Prerequisites', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php echo $product->course_prerequisites; ?></td>
 			</tr>
 
 			<?php if ( ! empty( $product->course_study_guide ) ) : ?>
-			<tr>
+			<tr class="study_guide">
 				<td class="meta_label"><?php _e( 'Study Guide', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php printf( '<a href="%s">%s</a>', get_permalink( $product->course_study_guide ), get_the_title( $product->course_study_guide ) ); ?></td>
 			</tr>
