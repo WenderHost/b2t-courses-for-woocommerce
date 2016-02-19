@@ -314,13 +314,18 @@ class Andalu_Woo_Courses_Single {
 	<?php
 	}
 
-	public static function sub_class_table( $select = false ) {
-		global $product;
+	public static function sub_class_table( $select = false, $product = false ) {
+
+		// Use global product if one is not provided
+		if ( ! $product ) { global $product; }
+
+		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+		if ( empty( $product ) ) { return; }
 
 		if ( $product->has_child() ) : ?>
 
 		<div class="sub_courses_schedule">
-			<h2><?php the_title(); ?></h2>
+			<h2><?php echo get_the_title( $product->id ); ?></h2>
 			<h3><?php _e( 'Sub Courses', 'andalu_woo_courses' ); ?></h3>
 
 			<?php foreach( $product->get_children() as $child_id ) { self::class_table( $select, $child_id ); } ?>
@@ -336,6 +341,7 @@ class Andalu_Woo_Courses_Single {
 		if ( ! $product ) { global $product; }
 
 		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+		if ( empty( $product ) ) { return; }
 
 		require_once( Andalu_Woo_Courses::$dir . '/lib/http_build_url.php' );
 		$date_format = get_option( 'date_format' );

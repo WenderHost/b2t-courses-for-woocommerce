@@ -2,13 +2,13 @@
 
 // Handles course classes
 class Andalu_Woo_Courses_Class {
-	
+
 	static $location_taxonomy = 'class_location';
 
 	static function init() {
 		add_action( 'init', __CLASS__ . '::register_class', 5 );
 
-		// Load the correct product type		
+		// Load the correct product type
 		add_filter( 'woocommerce_product_class', __CLASS__ . '::product_class', 10, 4 );
 
 		// Create location taxonomy
@@ -21,6 +21,9 @@ class Andalu_Woo_Courses_Class {
 		add_action( self::$location_taxonomy . '_edit_form_fields', __CLASS__ . '::edit_location_fields', 10, 2 );
 		add_action( 'created_' . self::$location_taxonomy, __CLASS__ . '::save_location_fields', 10, 2 );
 		add_action( 'edited_' . self::$location_taxonomy, __CLASS__ . '::save_location_fields', 10, 2 );
+
+		// Add shortcode for displaying class table
+		add_shortcode( 'public_classes', __CLASS__ . '::public_classes' );
 	}
 
 	public static function register_class() {
@@ -37,9 +40,9 @@ class Andalu_Woo_Courses_Class {
 		if ( 'course_class' == $post_type ) {
 			return 'WC_Product_Course_Class';
 		}
-		
+
 		return $classname;
-	}	
+	}
 
 	public static function location_taxonomy() {
 		$labels = array(
@@ -60,7 +63,7 @@ class Andalu_Woo_Courses_Class {
 			'not_found'                  => __( 'No locations found.', 'andalu_woo_courses' ),
 			'menu_name'                  => __( 'Class Locations' ),
 		);
-	
+
 		$args = array(
 			'hierarchical'          => false,
 			'labels'                => $labels,
@@ -70,10 +73,10 @@ class Andalu_Woo_Courses_Class {
 			'query_var'             => true,
 			'rewrite'               => array( 'slug' => 'class-location' ),
 		);
-	
+
 		register_taxonomy( self::$location_taxonomy, 'course_class', $args );
 	}
-	
+
 	public static function location_page() {
 		$name = __( 'Class Locations', 'andalu_woo_courses' );
 		add_submenu_page( 'edit.php?post_type=product', $name, $name, 'manage_options', 'edit-tags.php?taxonomy=' . self::$location_taxonomy . '&post_type=course_class' );
@@ -84,13 +87,13 @@ class Andalu_Woo_Courses_Class {
 	// Set the correct parent menu item when opening the edit location page
 	public static function location_parent_page( $file ) {
 		$screen = get_current_screen();
-		if ( 'edit-tags' === $screen->base && 'course_class' === $screen->post_type) {           
-			$file = 'edit.php?post_type=product';  
+		if ( 'edit-tags' === $screen->base && 'course_class' === $screen->post_type) {
+			$file = 'edit.php?post_type=product';
 		}
 		return $file;
 	}
 
-	// Add taxonomy fields	
+	// Add taxonomy fields
 	public static function add_location_fields( $taxonomy ) { ?>
 		<style type="text/css">.form-field.term-description-wrap{display:none}</style>
 
@@ -111,7 +114,7 @@ class Andalu_Woo_Courses_Class {
 			<?php wp_editor( '', 'location_lodging', array( 'textarea_name' => 'location_lodging', 'media_buttons' => false ) ); ?>
 			<p><?php _e( 'Enter the location lodging links (HTML tags are allowed) ', 'andalu_woo_courses' ); ?></p>
 		</div>
-		
+
 		<script type="text/javascript">
 			jQuery( function() {
 				// Trigger save to force content to be saved before being submitted
@@ -159,7 +162,7 @@ class Andalu_Woo_Courses_Class {
 			</td>
 		</tr>
     <?php
-	}	
+	}
 
 	// Save location fields
 	public static function save_location_fields( $term_id, $tt_id ) {
@@ -183,11 +186,11 @@ class Andalu_Woo_Courses_Class {
 				$locations[ $term->term_id ] = $term->name;
 			}
 		}
-		
-		return $locations;
-	}	
 
-	// Retrieve a class from slug	
+		return $locations;
+	}
+
+	// Retrieve a class from slug
 	public static function get_class_id( $slug, $post_type = 'course_class' ) {
 		global $wpdb;
 		$class_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type= %s", $slug, $post_type ) );
@@ -204,10 +207,59 @@ class Andalu_Woo_Courses_Class {
 			if ( $class && ! $class->is_available() ) {
 				return false;
 			}
-		}		
-		
+		}
+
 		return true;
 	}
-	
+
+	// Add shortcode for displaying class table
+	public static function public_classes( $atts, $content = "", $name ) {
+		ob_start();
+		echo '<div class="public_classes woocommerce">';
+
+		$atts = shortcode_atts( array(
+			'id'         => 0,
+			'categories' => '',
+		), $atts, $name );
+
+		$args = array(
+			'post_type' => 'product',
+			'posts_per_page' => -1,
+			'fields' => 'ids',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'product_type',
+					'field'    => 'slug',
+					'terms'    => Andalu_Woo_Courses::$product_type,
+				),
+			),
+		);
+
+		// Filter courses
+		if ( ! empty( $atts['id'] ) ) {
+			$args['post__in'] = explode( ',', $atts['id'] );
+		} elseif ( ! empty( $atts['categories'] ) ) {
+			$args['tax_query'][] = array(
+				'taxonomy' => 'product_cat',
+				'field' => 'slug',
+				'terms' => explode( ',', $atts['categories'] ),
+			);
+		}
+
+		$products = get_posts( $args );
+		if ( ! empty( $products ) ) {
+			foreach( $products as $product_id ) {
+				$product = wc_get_product( $product_id );
+				if ( ! empty( $product ) ) {
+					Andalu_Woo_Courses_Single::class_table( false, $product );
+					Andalu_Woo_Courses_Single::sub_class_table( false, $product );
+				}
+			}
+		}
+
+		echo '</div>';
+		return ob_get_clean();
+	}
+
 }
 Andalu_Woo_Courses_Class::init();
