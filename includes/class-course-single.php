@@ -306,8 +306,11 @@ class Andalu_Woo_Courses_Single {
 
 			<?php foreach( $product->course_endorsements as $label => $value ) : ?>
 			<?php if ( ! $value ) continue; ?>
+			<?php $logo_widths = array( 'PMI' => 150, 'IIBA' => 250 ) ?>
 			<tr>
-				<td class="meta_label" colspan="2"><?php printf( __( '%s endorsement', 'andalu_woo_courses' ), $label ); ?></td>
+				<td class="meta_label" colspan="2">
+					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" class="alignleft" width="<?php echo $logo_widths[$label] ?>" />
+					<?php if( 'PMI' == $label ) echo __( 'This class is endorsed by the Project Management Institute.', 'andalu_woo_courses' ) ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
