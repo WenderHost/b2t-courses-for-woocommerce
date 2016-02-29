@@ -41,6 +41,8 @@ class Andalu_Woo_Courses_Single {
 		// Check for unavailable items in the cart
 		add_action( 'woocommerce_cart_loaded_from_session', __CLASS__ . '::unavailable' );
 
+		// Override add to cart message
+		add_filter( 'wc_add_to_cart_message', __CLASS__ . '::add_to_cart_message', 20, 2 );
 	}
 
 	// Register rewrite rules for course registration
@@ -277,25 +279,25 @@ class Andalu_Woo_Courses_Single {
 		global $product;
 	?>
 		<table class="course_meta product_meta">
-			<tr>
+			<tr class="length">
 				<td class="meta_label"><?php _e( 'Length', 'andalu_woo_courses' ); ?></td>
-				<td class="meat_value"><?php echo $product->course_duration; ?></td>
+				<td class="meat_value length"><?php echo $product->course_duration; ?></td>
 			</tr>
-			<tr>
-				<td class="meta_label"><?php _e( 'PDUs', 'andalu_woo_courses' ); ?></td>
+			<tr class="cdu_pdu">
+				<td class="meta_label"><?php _e( 'CDU/PDU', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php echo $product->course_pdus; ?></td>
 			</tr>
-			<tr>
+			<tr class="intended_audience">
 				<td class="meta_label"><?php _e( 'Intended Audience', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php echo wpautop( $product->course_audience ); ?></td>
 			</tr>
-			<tr>
+			<tr class="prerequisites">
 				<td class="meta_label"><?php _e( 'Prerequisites', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php echo $product->course_prerequisites; ?></td>
 			</tr>
 
 			<?php if ( ! empty( $product->course_study_guide ) ) : ?>
-			<tr>
+			<tr class="study_guide">
 				<td class="meta_label"><?php _e( 'Study Guide', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php printf( '<a href="%s">%s</a>', get_permalink( $product->course_study_guide ), get_the_title( $product->course_study_guide ) ); ?></td>
 			</tr>
@@ -304,21 +306,29 @@ class Andalu_Woo_Courses_Single {
 
 			<?php foreach( $product->course_endorsements as $label => $value ) : ?>
 			<?php if ( ! $value ) continue; ?>
+			<?php $logo_widths = array( 'PMI' => 150, 'IIBA' => 250 ) ?>
 			<tr>
-				<td class="meta_label" colspan="2"><?php printf( __( '%s endorsement', 'andalu_woo_courses' ), $label ); ?></td>
+				<td class="meta_label" colspan="2">
+					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" class="alignleft" width="<?php echo $logo_widths[$label] ?>" />
+					<?php if( 'PMI' == $label ) echo __( 'This class is endorsed by the Project Management Institute.', 'andalu_woo_courses' ) ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
 	<?php
 	}
 
-	public static function sub_class_table( $select = false ) {
-		global $product;
+	public static function sub_class_table( $select = false, $product = false ) {
+
+		// Use global product if one is not provided
+		if ( ! $product ) { global $product; }
+
+		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+		if ( empty( $product ) ) { return; }
 
 		if ( $product->has_child() ) : ?>
 
 		<div class="sub_courses_schedule">
-			<h2><?php the_title(); ?></h2>
+			<h2><?php echo get_the_title( $product->id ); ?></h2>
 			<h3><?php _e( 'Sub Courses', 'andalu_woo_courses' ); ?></h3>
 
 			<?php foreach( $product->get_children() as $child_id ) { self::class_table( $select, $child_id ); } ?>
@@ -334,6 +344,7 @@ class Andalu_Woo_Courses_Single {
 		if ( ! $product ) { global $product; }
 
 		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+		if ( empty( $product ) ) { return; }
 
 		require_once( Andalu_Woo_Courses::$dir . '/lib/http_build_url.php' );
 		$date_format = get_option( 'date_format' );
@@ -595,6 +606,11 @@ class Andalu_Woo_Courses_Single {
 			if ( ! wc_notice_count( 'error' ) ) {
 				$cart_item_meta['course_registration'] = self::$posted;
 				if ( $class_id ) { $cart_item_meta['course_registration']['class'] = $class_id; }
+
+				// Clear course registration fields
+				foreach( array( 'first_name', 'last_name', 'email', 'email_again' ) as $key ) {
+					unset( $_POST[ $key ] );
+				}
 			}
 
 		}
@@ -705,6 +721,35 @@ class Andalu_Woo_Courses_Single {
 		WC()->session->set( 'cart', $cart->cart_contents );
 	}
 
+	// Override add to cart message
+	public static function add_to_cart_message( $message, $product ) {
+		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+
+		if ( $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
+			$cart_redirect = ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) );
+
+			$name = empty( self::$posted['first_name'] ) ? '' : self::$posted['first_name'];
+			$name .= empty( self::$posted['last_name'] ) ? '' : ' ' . self::$posted['last_name'];
+
+			$added_text = sprintf( __( 'A "%s" registration for %s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->id ), $name );
+			if ( ! $cart_redirect ) {
+				$added_text .= __( ' Add another student by entering his or her details below:', 'andalu_woo_courses' );
+			}
+
+			// Allow filtering of add course to cart message
+			$added_text = apply_filters( 'andalu_add_course_to_cart_message', $added_text, $product, $name );
+
+			// Output success messages
+			if ( $cart_redirect ) {
+				$return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wp_get_referer() ? wp_get_referer() : home_url() );
+				$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( $return_to ), esc_html__( 'Continue Shopping', 'woocommerce' ), esc_html( $added_text ) );
+			} else {
+				$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View Cart', 'woocommerce' ), esc_html( $added_text ) );
+			}
+
+		}
+		return $message;
+	}
 
 }
 Andalu_Woo_Courses_Single::init();
