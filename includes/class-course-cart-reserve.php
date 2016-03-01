@@ -65,7 +65,10 @@ class Andalu_Woo_Courses_Cart_Reserve {
 		$quantity = 0;
 		$id = intval( $id );
 
-		if ( empty( self::$sessions ) && is_object( WC ) ) {
+		if( ! WC()->session )
+			return $quantity;
+
+		if ( empty( self::$sessions ) ) {
 
 			// Force the session to save in case we just added something to the cart
 			WC()->session->save_data();
