@@ -224,6 +224,7 @@ class Andalu_Woo_Courses_Class {
 
 		$args = array(
 			'post_type' => 'product',
+			'post_parent' => 0,
 			'posts_per_page' => -1,
 			'fields' => 'ids',
 			'tax_query' => array(
