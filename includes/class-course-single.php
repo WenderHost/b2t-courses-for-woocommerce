@@ -365,7 +365,7 @@ class Andalu_Woo_Courses_Single {
 		</div>
 
 		<?php if ( $product->has_child() ) :
-			$url = parse_url( get_permalink() );
+			$url = parse_url( get_permalink( $product->id ) );
 			$url['path'] = trailingslashit( $url['path'] ) . 'register/';
 			$select_dates = http_build_url( $url );
 		?>
