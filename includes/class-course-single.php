@@ -346,6 +346,9 @@ class Andalu_Woo_Courses_Single {
 		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
 		if ( empty( $product ) ) { return; }
 
+		if( ! $product->has_classes() )
+			return;
+
 		require_once( Andalu_Woo_Courses::$dir . '/lib/http_build_url.php' );
 		$date_format = get_option( 'date_format' );
 		$locations = Andalu_Woo_Courses_Class::get_locations();
@@ -356,10 +359,9 @@ class Andalu_Woo_Courses_Single {
 	<div class="course_schedule<?php echo $css_classes; ?>">
 		<div class="schedule_header">
 			<div class="course_title">
-				<a href="<?php echo get_the_permalink( $product->id ); ?>"><h2><?php echo get_the_title( $product->id ); ?></h2></a>
-				<?php if ( ! empty( $product->course_duration ) ) : ?>
+				<h3><a href="<?php echo get_the_permalink( $product->id ); ?>"><?php echo get_the_title( $product->id ); ?></a><?php if ( ! empty( $product->course_duration ) ) : ?>
 					<span class="course_duration"><?php printf( __( 'Course Length: %s', 'andalu_woo_courses' ), $product->course_duration ); ?></span>
-				<?php endif; ?>
+				<?php endif; ?></h3>
 			</div>
 			<div class="course_cost"><?php echo $product->get_price_html(); ?></div>
 		</div>
@@ -378,7 +380,7 @@ class Andalu_Woo_Courses_Single {
 		</table>
 		<?php endif; ?>
 
-		<?php if ( ! $select && $product->has_child() ) : ?>
+		<?php if ( ! $select && $product->has_child() && $product->has_classes() ) : ?>
 		<h4><?php _e( 'On site classes', 'andalu_woo_courses' ); ?></h4>
 		<?php endif; ?>
 
