@@ -378,7 +378,7 @@ class Andalu_Woo_Courses_Single {
 		</table>
 		<?php endif; ?>
 
-		<?php if ( ! $select && $product->has_child() && ! empty( $product->course_classes ) ) : ?>
+		<?php if ( ! $select && $product->has_child() && $product->has_classes() ) : ?>
 		<h4><?php _e( 'On site classes', 'andalu_woo_courses' ); ?></h4>
 		<?php endif; ?>
 
