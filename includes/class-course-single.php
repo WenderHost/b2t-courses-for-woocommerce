@@ -303,6 +303,13 @@ class Andalu_Woo_Courses_Single {
 			</tr>
 			<?php endif; ?>
 
+			<?php if ( ! empty( $product->course_exam ) ) : ?>
+			<tr class="study_guide">
+				<td class="meta_label"><?php _e( 'Course Exam', 'andalu_woo_courses' ); ?></td>
+				<td class="meta_value"><?php printf( '<a href="%s">%s</a>', get_permalink( $product->course_exam ), get_the_title( $product->course_exam ) ); ?></td>
+			</tr>
+			<?php endif; ?>
+
 			<?php $logo_widths = array( 'PMI' => 150, 'IIBA' => 250 ) ?>
 			<?php if( $product->course_endorsements ) : ?>
 			<tr>
