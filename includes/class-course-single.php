@@ -279,6 +279,9 @@ class Andalu_Woo_Courses_Single {
 		global $product;
 	?>
 		<table class="course_meta product_meta">
+			<tr class="request-info">
+				<td colspan="2"><a class="et_pb_button et_pb_module et_pb_bg_layout_dark" href="mailto:info@b2ttraining.com?Subject=<?php echo rawurlencode( 'Onsite Request for ' . $product->post->post_title ) ?>"><?php _e( 'Request Onsite', 'andalu_woo_courses' ); ?></a></td>
+			</tr>
 			<tr class="length">
 				<td class="meta_label"><?php _e( 'Length', 'andalu_woo_courses' ); ?></td>
 				<td class="meat_value length"><?php echo $product->course_duration; ?></td>
@@ -312,11 +315,11 @@ class Andalu_Woo_Courses_Single {
 
 			<?php $logo_widths = array( 'PMI' => 150, 'IIBA' => 250 ) ?>
 			<?php if( $product->course_endorsements ) : ?>
-			<tr>
+			<tr class="endorsements">
 				<td colspan="2">Endorsed by:<br />
 				<?php foreach( $product->course_endorsements as $label => $value ) : ?>
 					<?php if ( ! $value ) continue; ?>
-					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" style="height: 30px; width: auto; margin-right: 8px; margin-top: 4px;" />
+					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" style="" />
 				<?php endforeach; ?>
 				</td>
 			</tr>
