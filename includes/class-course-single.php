@@ -254,6 +254,7 @@ class Andalu_Woo_Courses_Single {
 		if ( ! $product->is_type( Andalu_Woo_Courses::$product_type ) ) return;
 
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price' );
+		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 		add_action( 'woocommerce_single_product_summary', __CLASS__ . '::product_meta', 7 );
 		add_action( 'woocommerce_after_single_product_summary', __CLASS__ . '::class_table', 7 );
