@@ -11,3 +11,4 @@
 
 .wc-metaboxes-wrapper#course_classes_data .wc-metabox table td input.course_date{float:none; display:inline-block; width:auto}
 .wc-metaboxes-wrapper#course_classes_data .wc-metabox table td .seperator{padding:0 10px}
+.wc-metaboxes-wrapper#course_classes_data .wc-metabox table td input[type=checkbox]{float:none; display:inline-block; width:16px; min-width:initial; margin:-1px 6px 0 0}

@@ -10,6 +10,7 @@ class WC_Product_Course_Class extends WC_Product {
 	var $time = '';
 	
 	var $seats = 0;
+	var $confirmed = false;
 
 	var $location = 0;
 	var $location_term = false;
@@ -43,6 +44,10 @@ class WC_Product_Course_Class extends WC_Product {
 
 		if ( ! empty( $this->product_custom_fields['_seats'][0] ) ) {
 			$this->seats = $this->product_custom_fields['_seats'][0];
+		}
+
+		if ( ! empty( $this->product_custom_fields['_confirmed'][0] ) ) {
+			$this->confirmed = 'yes' == $this->product_custom_fields['_confirmed'][0] ? true : false;
 		}
 
 		// Load terms

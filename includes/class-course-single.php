@@ -411,8 +411,10 @@ class Andalu_Woo_Courses_Single {
 				$class_registration = http_build_url( $url );
 
 				$selected_class = empty( $_REQUEST['course_select'][ $product->id ] ) ? 0 : $_REQUEST['course_select'][ $product->id ];
+
+				$row_class = $class->confirmed ? 'confirmed' : '';
 			?>
-			<tr>
+			<tr<?php if ( ! empty( $row_class ) ) { echo ' class="' . $row_class . '"'; } ?>>
 				<?php if ( $select ) : ?>
 				<td class="select">
 					<?php if ( $class->is_available() ) : ?>

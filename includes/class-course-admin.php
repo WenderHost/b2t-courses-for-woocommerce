@@ -398,6 +398,7 @@ class Andalu_Woo_Courses_Admin {
 		$class->time       = '';
 		$class->location   = 0;
 		$class->seats      = '';
+		$class->confirmed  = false;
 
 		$locations = Andalu_Woo_Courses_Class::get_locations();
 		include( 'views/html-course-class.php' );
@@ -525,6 +526,8 @@ class Andalu_Woo_Courses_Admin {
 
 			update_post_meta( $class_id, '_seats', $class['seats'] );
 			update_post_meta( $class_id, '_availability', $class['seats'] > 0 ? 'available' : 'full' );
+
+			update_post_meta( $class_id, '_confirmed', $class['confirmed'] ? 'yes' : 'no' );
 
 			// Update terms
 			wp_set_object_terms( $class_id, intval( $class['location'] ), Andalu_Woo_Courses_Class::$location_taxonomy );

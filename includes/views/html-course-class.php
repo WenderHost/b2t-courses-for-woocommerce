@@ -39,6 +39,12 @@
 						<input type="number" class="class_seats" name="classes[<?php echo $i; ?>][seats]" value="<?php echo esc_attr( $class->seats ); ?>" />
 					</td>
 				</tr>
+				<tr>
+					<td class="class_confirmed">
+						<input type="checkbox" class="class_confirmed" name="classes[<?php echo $i; ?>][confirmed]" <?php checked( $class->confirmed ); ?> />
+						<span><?php _e( 'Has this class been confirmed?', 'andalu_woo_courses' ); ?></span>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
