@@ -255,6 +255,7 @@ class Andalu_Woo_Courses_Single {
 
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price' );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 		add_action( 'woocommerce_single_product_summary', __CLASS__ . '::product_meta', 7 );
 		add_action( 'woocommerce_after_single_product_summary', __CLASS__ . '::class_table', 7 );
@@ -322,6 +323,14 @@ class Andalu_Woo_Courses_Single {
 					<?php if ( ! $value ) continue; ?>
 					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" style="" />
 				<?php endforeach; ?>
+				</td>
+			</tr>
+			<?php endif; ?>
+			<?php if( $course_list = ( wp_nav_menu( array( 'menu' => 'Course List', 'echo' => false, 'theme_location' => '__no_such_location', 'fallback_cb' => false ) ) ) ) : ?>
+			<tr class="course-list">
+				<td colspan="2">
+					<h5>Course List</h5>
+					<?php echo $course_list; ?>
 				</td>
 			</tr>
 			<?php endif; ?>
