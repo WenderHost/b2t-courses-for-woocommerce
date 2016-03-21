@@ -318,7 +318,7 @@ class Andalu_Woo_Courses_Single {
 			<?php $logo_widths = array( 'PMI' => 150, 'IIBA' => 250 ) ?>
 			<?php if( $product->course_endorsements ) : ?>
 			<tr class="endorsements">
-				<td colspan="2">Endorsed by:<br />
+				<td colspan="2">Endorsed by<br />
 				<?php foreach( $product->course_endorsements as $label => $value ) : ?>
 					<?php if ( ! $value ) continue; ?>
 					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" style="" />
@@ -329,7 +329,7 @@ class Andalu_Woo_Courses_Single {
 			<?php if( $course_list = ( wp_nav_menu( array( 'menu' => 'Course List', 'echo' => false, 'theme_location' => '__no_such_location', 'fallback_cb' => false ) ) ) ) : ?>
 			<tr class="course-list">
 				<td colspan="2">
-					<h5>Course List</h5>
+					<h4>Course List</h4>
 					<?php echo $course_list; ?>
 				</td>
 			</tr>
