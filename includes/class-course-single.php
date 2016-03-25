@@ -251,7 +251,7 @@ class Andalu_Woo_Courses_Single {
 	// Customize product view for courses
 	public static function course_product() {
 		global $product;
-		if ( ! $product->is_type( Andalu_Woo_Courses::$product_type ) ) return;
+		if ( is_null( $product ) || ! $product->is_type( Andalu_Woo_Courses::$product_type ) ) return;
 
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price' );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
