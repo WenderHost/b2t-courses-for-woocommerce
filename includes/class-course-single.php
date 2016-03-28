@@ -383,7 +383,7 @@ class Andalu_Woo_Courses_Single {
 				<h3><a href="<?php echo get_the_permalink( $product->id ); ?>"><?php echo get_the_title( $product->id ); ?></a><?php if ( ! empty( $product->course_duration ) ) : ?>
 					<span class="course_duration"><?php printf( __( 'Course Length: %s', 'andalu_woo_courses' ), $product->course_duration ); ?></span>
 				<?php endif; ?>
-				<div class="confirmed_note"><?php _e( 'class is confirmed.', 'andalu_woo_courses' ) ?></div></h3>
+				</h3>
 			</div>
 			<div class="course_cost"><?php echo $product->get_price_html(); ?></div>
 
