@@ -264,8 +264,8 @@ class Andalu_Woo_Courses_Single {
 		// Add course outline tab
 		add_filter( 'woocommerce_product_tabs', __CLASS__ . '::product_tabs' );
 
-		// Change product description heading
-		add_filter( 'woocommerce_product_description_heading', __CLASS__ . '::description_tab_heading' );
+		// Remove product description heading
+		add_filter( 'woocommerce_product_description_heading', function(){ return false; } );
 	}
 
 	// Customize product view for courses registration
