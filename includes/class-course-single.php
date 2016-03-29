@@ -413,6 +413,11 @@ class Andalu_Woo_Courses_Single {
 				$class = wc_get_product( $class_id );
 				if ( empty( $class ) ) continue;
 
+				// Don't show classes whose start_date is <= $today
+				$today = date( 'Y-m-d', current_time( 'timestamp' ) );
+				$class_start_date = date( 'Y-m-d', $class->start_timestamp );
+				if( $today >= $class_start_date ) continue;
+
 				$class_dates = date( $date_format, $class->start_timestamp );
 				if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
 				$class_dates = apply_filters( 'andalu_woo_courses_class_dates', $class_dates, $class->start_timestamp, $class->end_timestamp, $date_format );
