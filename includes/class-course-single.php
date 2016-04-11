@@ -679,7 +679,7 @@ class Andalu_Woo_Courses_Single {
 		if ( ! empty( $cart_item['course_registration'] ) ) {
 
 			if ( ! empty( $cart_item['course_registration']['class'] ) ) {
-				$other_data[] = array(
+				$data = array(
 					'name'    => __( 'Class', 'andalu_woo_courses' ),
 					'value'   => $cart_item['course_registration']['class'],
 					'display' => get_the_title( $cart_item['course_registration']['class'] ),
@@ -687,11 +687,10 @@ class Andalu_Woo_Courses_Single {
 
 				$class = wc_get_product( $cart_item['course_registration']['class'] );
 				if ( $class && 'Virtual' != $class->get_location() ) {
-					$other_data[] = array(
-						'name'    => __( 'Location', 'andalu_woo_courses' ),
-						'display' => $class->get_location(),
-					);
+					$data['display'].= ' (' . $class->get_location() . ')';
 				}
+
+				$other_data[] = $data;
 			}
 
 			if ( ! empty( $cart_item['course_registration']['courses'] ) ) {
@@ -707,19 +706,17 @@ class Andalu_Woo_Courses_Single {
 				);
 			}
 
-			foreach ( self::registration_fields() as $key => $field ) {
+			$data = array(
+				'name'	=> __( 'Student', 'andalu_woo_courses' ),
+			);
+			$student_data_format = '%1$s %2$s<br />%3$s<br />%4$s<br /><br />%5$s%6$s<br />%7$s, %8$s %9$s<br />%10$s';
 
-				// Skip display of several fields
-				if ( in_array( $key, array( 'email_again', 'optin' ) ) ) { continue; }
+			$sd = $cart_item['course_registration'];
+			$address2 = ( ! empty( $sd['address_2'] ) )? '<br />' . $sd['address_2'] : '';
 
-				if ( ! empty( $cart_item['course_registration'][ $key ] ) ) {
-					$other_data[] = array(
-						'name'  => $field['label'],
-						'value' => $cart_item['course_registration'][ $key ],
-					);
-				}
-			}
+			$data['value'] = sprintf( $student_data_format, $sd['first_name'], $sd['last_name'], $sd['email'], $sd['company'], $sd['address_1'], $address2, $sd['billing_city'], $sd['billing_state'], $sd['billing_postcode'], $sd['phone'] );
 
+			$other_data[] = $data;
 		}
 		return $other_data;
 	}
