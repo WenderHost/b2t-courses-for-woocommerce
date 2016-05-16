@@ -1,6 +1,8 @@
 <?php
 class Andalu_Woo_Courses_Admin {
 
+	private static $list_table;
+
 	static function init() {
 
 		// Check page before include
@@ -27,6 +29,9 @@ class Andalu_Woo_Courses_Admin {
 
 		// Load all necessary admin styles and scripts
 		add_action( 'admin_enqueue_scripts', __CLASS__ . '::enqueue_styles_scripts' );
+
+		// Add Financed Products menu page
+		add_action( 'admin_menu', __CLASS__ . '::add_menu_pages', 15 );
 
 	}
 
@@ -607,7 +612,7 @@ class Andalu_Woo_Courses_Admin {
 
 		// Get admin screen id
 		$screen = get_current_screen();
-		$is_woocommerce_screen = ( in_array( $screen->id, array( 'product', 'edit-shop_order', 'shop_order', 'edit-shop_subscription', 'shop_subscription', 'users', 'woocommerce_page_wc-settings' ) ) ) ? true : false;
+		$is_woocommerce_screen = ( in_array( $screen->id, array( 'product', 'edit-shop_order', 'shop_order', 'edit-shop_subscription', 'shop_subscription', 'users', 'woocommerce_page_wc-settings', 'woocommerce_page_class_rosters' ) ) ) ? true : false;
 
 		if ( $is_woocommerce_screen ) {
 
@@ -638,6 +643,50 @@ class Andalu_Woo_Courses_Admin {
 			wp_enqueue_style( 'andalu_woo_courses_admin', Andalu_Woo_Courses::$url . '/assets/css/course-admin.css', array(), '1.0' );
 		}
 
+	}
+
+	public static function add_menu_pages() {
+		$title = __( 'Class Rosters', 'andalu_woo_courses' );
+		$page_hook = add_submenu_page( 'woocommerce', $title, $title, 'manage_woocommerce', 'class_rosters', __CLASS__ . '::roster_page' );
+
+		// Make sure the list table is constructed (and actions processed) before the page's headers are sent
+		add_action( 'load-' . $page_hook, __CLASS__ . '::get_list_table' );
+	}
+
+	public static function roster_page() {
+		$table = self::get_list_table();
+
+		if ( isset( $_POST['s'] ) ) {
+			$table->prepare_items( $_POST['s'] );
+		} else {
+			$table->prepare_items();
+		}
+	?>
+	<div class="wrap">
+		<div id="icon-woocommerce" class="icon32-woocommerce-users icon32"><br/></div>
+		<h2><?php _e( 'Class Rosters', 'andalu_woo_courses' ); ?></h2>
+		<?php $table->messages(); ?>
+		<?php $table->views(); ?>
+		<form method="post">
+			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+			<?php $table->search_box( __( 'Search Courses', 'andalu_woo_courses' ), 'andalu_woo_courses_search' ); ?>
+		</form>
+		<form id="class-roster-filter" action="" method="get">
+			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+			<?php $table->display(); ?>
+		</form>
+	</div>
+	<?php
+	}
+
+	public static function get_list_table() {
+		if ( ! isset( self::$list_table ) ) {
+			if ( ! class_exists( 'Andalu_Roster_List_Table' ) ) {
+				require_once( 'class-rosters.php' );
+			}
+			self::$list_table = new Andalu_Roster_List_Table();
+		}
+		return self::$list_table;
 	}
 	
 }
