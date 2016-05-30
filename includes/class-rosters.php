@@ -148,7 +148,7 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 		$sql .= ' GROUP BY oim.meta_value';
 
 		// Get orderby
-		$order = empty( $_GET['order'] ) ? 'desc' : $_GET['order'];
+		$order = empty( $_GET['order'] ) ? 'ASC' : $_GET['order'];
 		$orderby = empty( $_GET['orderby'] ) ? 'course' : $_GET['orderby'];
 		switch( $orderby ) {
 			case 'dates':
