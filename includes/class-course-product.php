@@ -109,15 +109,17 @@ class WC_Product_Course extends WC_Product {
         			'fields'        => 'ids',
         			'post_status'	=> 'inherit',
         			'numberposts'	=> -1,
-        			'meta_query'	=> array(
+        		) );
+        		if( ! is_admin() ){
+        			$args['meta_query'] = array(
 						array(
 							'key' => '_start_date',
 							'value' => date( 'Y-m-d H:i:s', current_time( 'timestamp' ) ),
 							'compare' => '>=',
 							'type' => 'DATE',
 						),
-    				),
-        		) );
+    				);
+	        	}
 				$this->course_classes = get_posts( $args );
 				set_transient( $transient_name, $this->course_classes, DAY_IN_SECONDS * 30 );
 			}
