@@ -1,16 +1,16 @@
 <?php
 
 class WC_Product_Course extends WC_Product {
-	
+
 	var $course_duration;
 	var $course_pdus;
 	var $course_audience;
 	var $course_prerequisites;
 	var $course_endorsements;
-	
+
 	var $course_outlines;
 	var $course_classes;
-	
+
 	var $children;
 
 	public function __construct( $product ) {
@@ -37,7 +37,7 @@ class WC_Product_Course extends WC_Product {
 		$this->course_endorsements = ( ! isset( $this->product_custom_fields['_course_endorsements'][0] ) ) ? array() : maybe_unserialize( $this->product_custom_fields['_course_endorsements'][0] );
 
 		$this->course_outlines = ( ! isset( $this->product_custom_fields['_course_outlines'][0] ) ) ? array() : maybe_unserialize( $this->product_custom_fields['_course_outlines'][0] );
-		
+
 		// Load course classes
 		$this->get_classes();
 
@@ -86,7 +86,10 @@ class WC_Product_Course extends WC_Product {
 	}
 
 	/**
-	 * Return the products classes posts.
+	 * Return the product's `course_class` CPTs.
+	 *
+	 * Will only return classes that have a `_start_date`
+	 * >= NOW.
 	 *
 	 * @access public
 	 * @return array
@@ -103,11 +106,18 @@ class WC_Product_Course extends WC_Product {
         			'post_type'		=> 'course_class',
         			'orderby'		=> 'menu_order',
         			'order'			=> 'ASC',
-        			'fields'       => 'ids',
+        			'fields'        => 'ids',
         			'post_status'	=> 'inherit',
         			'numberposts'	=> -1,
+        			'meta_query'	=> array(
+						array(
+							'key' => '_start_date',
+							'value' => date( 'Y-m-d H:i:s', current_time( 'timestamp' ) ),
+							'compare' => '>=',
+							'type' => 'DATE',
+						),
+    				),
         		) );
-
 				$this->course_classes = get_posts( $args );
 				set_transient( $transient_name, $this->course_classes, DAY_IN_SECONDS * 30 );
 			}
@@ -124,5 +134,5 @@ class WC_Product_Course extends WC_Product {
 	public function has_classes() {
 		return sizeof( $this->get_classes() ) ? true : false;
 	}
-	
+
 }
