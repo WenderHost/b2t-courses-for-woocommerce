@@ -33,6 +33,10 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 				$students = $item->students;
 				$available = $item->course_class->seats;
 				$column_content = sprintf( __( '%d of %d', 'andalu_woo_courses' ), $students, $students + $available );
+				if ( $students ) {
+					$url = admin_url( 'admin.php?page=class_rosters&class_id=' . $item->class_id );
+					$column_content .= sprintf( ' <a href="%s">%s</a>', $url, __( 'View roster', 'andalu_woo_courses' ) );
+				}
 				break;
 
 		}
@@ -121,7 +125,7 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 
 				case 'upcoming':
 				default:
-					$sql .= $wpdb->prepare( ' AND cd.meta_value > %s AND cd.meta_value <= %s', date( 'Y-m-d H:i:s' ), date( 'Y-m-d H:i:s', strtotime( '+7 days' ) ) );
+					$sql .= $wpdb->prepare( ' AND cd.meta_value > %s', date( 'Y-m-d H:i:s' ) );
 				break;
 			}
 

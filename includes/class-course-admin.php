@@ -18,7 +18,7 @@ class Andalu_Woo_Courses_Admin {
 		// Save data fields on edit product page
 		add_action( 'woocommerce_process_product_meta_' . Andalu_Woo_Courses::$product_type, __CLASS__ . '::save_data_fields' );
 
-		// Add ajax events	
+		// Add ajax events
 		add_action( 'wp_ajax_woocommerce_add_course_outline', __CLASS__ . '::add_course_outline' );
 		add_action( 'wp_ajax_woocommerce_save_course_outlines', __CLASS__ . '::save_course_outlines' );
 		add_action( 'wp_ajax_woocommerce_add_course_class', __CLASS__ . '::add_course_class' );
@@ -44,23 +44,23 @@ class Andalu_Woo_Courses_Admin {
 			break;
 		}
 	}
-	
+
 	// Save product permalink regex to use for sub pages
 	static function save_permalinks() {
 		if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['category_base'] ) && isset( $_POST['product_permalink'] ) ) {
 			$permalinks = get_option( 'woocommerce_permalinks' );
 			if ( ! empty( $permalinks['product_base'] ) ) {
-				$permalinks['product_regex_parts'] = ( substr_count( $permalinks['product_base'], '%' ) / 2 ) + 1; 
+				$permalinks['product_regex_parts'] = ( substr_count( $permalinks['product_base'], '%' ) / 2 ) + 1;
 				$permalinks['product_regex'] = trailingslashit( preg_replace( '/%([^%]+)%/', '([^/]+)', trim( $permalinks['product_base'], '/' ) ) ) . '([^/]+)/';
 				update_option( 'woocommerce_permalinks', $permalinks );
 			} elseif ( isset( $permalinks['product_base'] ) ) {
 				unset( $permalinks['product_regex'] );
-				unset( $permalinks['product_regex_parts'] ); 
+				unset( $permalinks['product_regex_parts'] );
 				update_option( 'woocommerce_permalinks', $permalinks );
 			}
 		}
 	}
-	
+
 
 	// Add new product type to the product select box
 	static function product_types( $types ) {
@@ -68,7 +68,7 @@ class Andalu_Woo_Courses_Admin {
 		return $types;
 	}
 
-	
+
 	// Save general fields on edit product page
 	static function save_data_fields( $post_id ) {
 
@@ -87,11 +87,11 @@ class Andalu_Woo_Courses_Admin {
 			$endorsements[ $endorsement ] = empty( $_REQUEST['_course_endorsement_' . $endorsement] ? false : true );
 		}
 		update_post_meta( $post_id, '_course_endorsements', $endorsements );
-		
+
 		self::save_course_outline_data( $post_id, $_REQUEST );
 		self::save_course_classes_data( $post_id, $_REQUEST );
 
-		self::fix_parent_price();		
+		self::fix_parent_price();
 	}
 
 	// Fix product parent price (WC resets it to lowest child price in WC_Meta_Box_Product_Data::save)
@@ -105,7 +105,7 @@ class Andalu_Woo_Courses_Admin {
 		if ( ! empty( $sale_price ) ) {
 			$date_from = get_post_meta( $parent_id, '_sale_price_dates_from', true );
 			$date_to   = get_post_meta( $parent_id, '_sale_price_dates_to', true );
-			
+
 			// Update price if on sale
 			if ( '' == $date_to && '' == $date_from ) {
 				update_post_meta( $parent_id, '_price', $sale_price );
@@ -117,7 +117,7 @@ class Andalu_Woo_Courses_Admin {
 			} elseif ( ! empty( $regular_price ) ) {
 				update_post_meta( $parent_id, '_price', $regular_price );
 			}
-		
+
 		} elseif ( ! empty( $regular_price ) ) {
 			update_post_meta( $parent_id, '_price', $regular_price );
 		}
@@ -126,11 +126,11 @@ class Andalu_Woo_Courses_Admin {
 
 	// Add additional tabs
 	static function data_tabs( $tabs ) {
-		
+
 		foreach( array( 'inventory', 'attribute', 'linked_product' ) as $tab ) {
 			if ( isset( $tabs[ $tab ] ) ) { $tabs[ $tab ]['class'][] = 'hide_if_course'; }
 		}
-		
+
 		// Extract first tabs
 		$first_tabs = array();
 		$first_tabs['general'] = $tabs['general'];
@@ -149,19 +149,19 @@ class Andalu_Woo_Courses_Admin {
 			'target' => 'course_links_data',
 			'class'  => array( 'show_if_course' ),
 		);
-	
+
 		$new_tabs['course_outline'] = array(
 			'label'  => __( 'Course Outlines', 'andalu_woo_courses' ),
 			'target' => 'course_outline_data',
 			'class'  => array( 'show_if_course' ),
 		);
-		
+
 		$new_tabs['course_classes'] = array(
 			'label'  => __( 'Classes', 'andalu_woo_courses' ),
 			'target' => 'course_classes_data',
 			'class'  => array( 'show_if_course' ),
 		);
-		
+
 		// Return new set of tabs
 		return array_merge( $first_tabs, $new_tabs, $tabs );
 	}
@@ -202,7 +202,7 @@ class Andalu_Woo_Courses_Admin {
 						woocommerce_wp_checkbox( array(
 							'id'    => '_course_endorsement_' . $endorsement,
 							'label' => sprintf( __( '%s Endorsement', 'andalu_woo_courses' ), $endorsement ),
-							'value' => empty( $endorsements[ $endorsement ] ) ? 'no' : 'yes',   
+							'value' => empty( $endorsements[ $endorsement ] ) ? 'no' : 'yes',
 						) );
 					}
 
@@ -216,13 +216,13 @@ class Andalu_Woo_Courses_Admin {
 					<label for="_course_parent"><?php _e( 'Parent Course', 'andalu_woo_courses' ); ?></label>
 					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_parent" name="_course_parent" data-placeholder="<?php esc_attr_e( 'Search for a course product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_course_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
 						$parent_id = absint( $post->post_parent );
-			
+
 						if ( $parent_id ) {
 							$parent = wc_get_product( $parent_id );
 							if ( is_object( $parent ) ) {
 								$parent_title = wp_kses_post( html_entity_decode( $parent->get_formatted_name(), ENT_QUOTES, get_bloginfo( 'charset' ) ) );
 							}
-			
+
 							echo esc_attr( $parent_title );
 						}
 					?>" value="<?php echo $parent_id ? $parent_id : ''; ?>" />
@@ -232,13 +232,13 @@ class Andalu_Woo_Courses_Admin {
 					<label for="_course_study_guide"><?php _e( 'Study Guide', 'andalu_woo_courses' ); ?></label>
 					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_study_guide" name="_course_study_guide" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
 						$guide_id = absint( get_post_meta( $post->ID, '_course_study_guide', true ) );
-			
+
 						if ( $guide_id ) {
 							$guide = wc_get_product( $guide_id );
 							if ( is_object( $guide ) ) {
 								$guide_title = wp_kses_post( html_entity_decode( $guide->get_formatted_name(), ENT_QUOTES, get_bloginfo( 'charset' ) ) );
 							}
-			
+
 							echo esc_attr( $guide_title );
 						}
 					?>" value="<?php echo $guide_id ? $guide_id : ''; ?>" />
@@ -248,13 +248,13 @@ class Andalu_Woo_Courses_Admin {
 					<label for="_course_exam"><?php _e( 'Exam', 'andalu_woo_courses' ); ?></label>
 					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_exam" name="_course_exam" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
 						$exam_id = absint( get_post_meta( $post->ID, '_course_exam', true ) );
-			
+
 						if ( $exam_id ) {
 							$exam = wc_get_product( $exam_id );
 							if ( is_object( $exam ) ) {
 								$exam_title = wp_kses_post( html_entity_decode( $exam->get_formatted_name(), ENT_QUOTES, get_bloginfo( 'charset' ) ) );
 							}
-			
+
 							echo esc_attr( $exam_title );
 						}
 					?>" value="<?php echo $exam_id ? $exam_id : ''; ?>" />
@@ -315,9 +315,9 @@ class Andalu_Woo_Courses_Admin {
 				<button type="button" class="button save_course_classes button-primary"><?php _e( 'Save Classes', 'andalu_woo_courses' ); ?></button>
 			</div>
 		</div>
-	<?php	
+	<?php
 	}
-	
+
 	public static function output_classes( $post_id ) {
 		if ( ! empty( $post_id ) ) {
 			// Specify product type in case the post is saved as auto-draft
@@ -366,7 +366,7 @@ class Andalu_Woo_Courses_Admin {
 
 		die();
 	}
-	
+
 	// Save Course Outlines
 	private static function save_course_outline_data( $post_id, $data ) {
 		$outlines = array();
@@ -378,7 +378,7 @@ class Andalu_Woo_Courses_Admin {
 				$outline['name']     = stripslashes( $outline['name'] );
 				$outline['duration'] = stripslashes( $outline['duration'] );
 				$outline['content']  = stripslashes( $outline['content'] );
-				
+
 				if ( ! empty( $outline['name'] ) ) {
 					$outlines[] = $outline;
 				}
@@ -388,7 +388,7 @@ class Andalu_Woo_Courses_Admin {
 		uasort( $outlines, __CLASS__ . '::items_cmp' );
 		update_post_meta( $post_id, '_course_outlines', $outlines );
 	}
-	
+
 	public static function add_course_class() {
 		ob_start();
 
@@ -418,7 +418,7 @@ class Andalu_Woo_Courses_Admin {
 
 		$product_id = absint( $_POST['product_id'] );
 		self::output_classes( $product_id );
-		
+
 		echo ob_get_clean();
 		die();
 	}
@@ -455,7 +455,7 @@ class Andalu_Woo_Courses_Admin {
 
 		die();
 	}
-	
+
 	// Save Course Classes
 	private static function save_course_classes_data( $post_id, $data ) {
 		$classes = array();
@@ -472,13 +472,13 @@ class Andalu_Woo_Courses_Admin {
 				$class['time']       = stripslashes( $class['time'] );
 				$class['seats']      = stripslashes( $class['seats'] );
 				$class['location']   = intval( $class['location'] );
-				
+
 				if ( ! empty( $class['start_date'] ) ) {
 
 					// Set class title
 					$class['title'] = date( $date_format, $class['start_date'] );
 					if ( ! empty( $class['end_date'] ) ) { $class['title'].= ' - ' . date( $date_format, $class['end_date'] ); }
-					
+
 					$classes[] = $class;
 				}
 			}
@@ -537,11 +537,11 @@ class Andalu_Woo_Courses_Admin {
 			// Update terms
 			wp_set_object_terms( $class_id, intval( $class['location'] ), Andalu_Woo_Courses_Class::$location_taxonomy );
 		}
-		
+
 		// Clear transients
 		delete_transient( 'wc_product_classes_' . $post_id );
 	}
-	
+
 	// Sort items
 	private static function items_cmp( $a, $b ) {
 		if ( $a['position'] == $b['position'] ) { return 0; }
@@ -583,9 +583,9 @@ class Andalu_Woo_Courses_Admin {
 				array(
 					'taxonomy' => 'product_type',
 					'field'    => 'slug',
-					'terms'    => Andalu_Woo_Courses::$product_type, 
+					'terms'    => Andalu_Woo_Courses::$product_type,
 				),
-			),		
+			),
 		);
 
 		$posts = get_posts( $args );
@@ -654,6 +654,8 @@ class Andalu_Woo_Courses_Admin {
 	}
 
 	public static function roster_page() {
+		if ( ! empty( $_GET['class_id'] ) && intval( $_GET['class_id'] ) ) { return self::single_roster_page( intval( $_GET['class_id'] ) ); }
+
 		$table = self::get_list_table();
 
 		if ( isset( $_POST['s'] ) ) {
@@ -688,6 +690,49 @@ class Andalu_Woo_Courses_Admin {
 		}
 		return self::$list_table;
 	}
-	
+
+	public static function single_roster_page( $class_id ) {
+		$course_class = new WC_Product_Course_Class( $class_id );
+		if ( ! empty( $course_class ) && ! empty( $course_class->post ) ) {
+	?>
+		<div class="wrap">
+			<h2><?php _e( 'Class Roster', 'andalu_woo_courses' ); ?></h2>
+			<p><?php printf( __( 'Course: %s', 'andalu_woo_courses' ), get_the_title( $course_class->post->post_parent ) ); ?></p>
+			<p><?php printf( __( 'Dates: %s', 'andalu_woo_courses' ), get_the_title( $course_class->id ) ); ?></p>
+
+			<?php
+				global $wpdb;
+				$sql = 'SELECT oi.order_item_id FROM ' . $wpdb->posts . ' o';
+				$sql .= ' INNER JOIN ' . $wpdb->prefix . 'woocommerce_order_items oi ON oi.order_id = o.ID AND oi.order_item_type = "line_item"';
+				$sql .= ' INNER JOIN ' . $wpdb->prefix . 'woocommerce_order_itemmeta oim ON oi.order_item_id = oim.order_item_id AND oim.meta_key = "_class_id"';
+				$sql .= ' WHERE o.post_type = "shop_order" AND o.post_status = "wc-completed" AND oim.meta_value = ' . $class_id;
+				$items = $wpdb->get_col( $sql );
+				if ( ! empty( $items ) ) : ?>
+					<table class="widefat fixed striped">
+						<thead>
+							<tr>
+								<th><?php _e( 'Name', 'andalu_woo_courses' ); ?></th>
+								<th><?php _e( 'Company', 'andalu_woo_courses' ); ?></th>
+								<th><?php _e( 'Phone', 'andalu_woo_courses' ); ?></th>
+								<th><?php _e( 'Email', 'andalu_woo_courses' ); ?></th>
+							</tr>
+						</thead>
+						<?php foreach( $items as $item_id ) : ?>
+						<tr>
+							<td><?php echo wc_get_order_item_meta( $item_id, 'First Name', true ) . ' ' . wc_get_order_item_meta( $item_id, 'Last Name', true ); ?></td>
+							<td><?php echo wc_get_order_item_meta( $item_id, 'Company', true ); ?></td>
+							<td><?php echo wc_get_order_item_meta( $item_id, 'Phone', true ); ?></td>
+							<td><?php echo wc_get_order_item_meta( $item_id, 'Email', true ); ?></td>
+						</tr>
+						<?php endforeach; ?>
+					</table>
+				<?php endif; ?>
+		</div>
+	<?php
+		} else {
+			echo '<p>' . __( 'No class roster found', 'andalu_woo_courses' ) . '</p>';
+		}
+	}
+
 }
 Andalu_Woo_Courses_Admin::init();
