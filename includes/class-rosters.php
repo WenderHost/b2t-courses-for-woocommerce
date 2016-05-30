@@ -33,12 +33,15 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 				$students = $item->students;
 				$available = $item->course_class->seats;
 				$column_content = sprintf( __( '%d of %d', 'andalu_woo_courses' ), $students, $students + $available );
-				if ( $students ) {
-					$url = admin_url( 'admin.php?page=class_rosters&class_id=' . $item->class_id );
-					$column_content .= sprintf( ' <a href="%s">%s</a>', $url, __( 'View roster', 'andalu_woo_courses' ) );
-				}
 				break;
 
+			case 'options':
+				$students = $item->students;
+				if ( $students ) {
+					$url = admin_url( 'admin.php?page=class_rosters&class_id=' . $item->class_id );
+					$column_content .= sprintf( ' <a href="%s" class="">%s</a>', $url, __( 'View roster', 'andalu_woo_courses' ) );
+				}
+				break;
 		}
 
 		return $column_content;
@@ -51,6 +54,7 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 			'dates'            => __( 'Dates', 'andalu_woo_courses' ),
 			'location'         => __( 'Location', 'andalu_woo_courses' ),
 			'students'         => __( 'Students', 'andalu_woo_courses' ),
+			'options'		   => __( 'Options', 'andalu_woo_courses' ),
 		);
 
 		return $columns;
