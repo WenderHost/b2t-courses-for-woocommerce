@@ -696,17 +696,17 @@ class Andalu_Woo_Courses_Admin {
 		if ( ! empty( $course_class ) && ! empty( $course_class->post ) ) {
 	?>
 		<div class="wrap">
-			<h2><?php _e( 'Class Roster', 'andalu_woo_courses' ); ?></h2>
+			<h2><?php _e( 'Class Roster', 'andalu_woo_courses' ); ?> <span style="font-size: 14px;">(<a href="<?php menu_page_url( 'class_rosters', true ) ?>">&larr; All Rosters</a>)</span></h2>
 			<p><?php printf( __( 'Course: %s', 'andalu_woo_courses' ), get_the_title( $course_class->post->post_parent ) ); ?></p>
 			<p><?php printf( __( 'Dates: %s', 'andalu_woo_courses' ), get_the_title( $course_class->id ) ); ?></p>
 
 			<?php
 				global $wpdb;
-				$sql = 'SELECT oi.order_item_id FROM ' . $wpdb->posts . ' o';
+				$sql = 'SELECT oi.order_item_id, oi.order_id FROM ' . $wpdb->posts . ' o';
 				$sql .= ' INNER JOIN ' . $wpdb->prefix . 'woocommerce_order_items oi ON oi.order_id = o.ID AND oi.order_item_type = "line_item"';
 				$sql .= ' INNER JOIN ' . $wpdb->prefix . 'woocommerce_order_itemmeta oim ON oi.order_item_id = oim.order_item_id AND oim.meta_key = "_class_id"';
 				$sql .= ' WHERE o.post_type = "shop_order" AND o.post_status = "wc-completed" AND oim.meta_value = ' . $class_id;
-				$items = $wpdb->get_col( $sql );
+				$items = $wpdb->get_results( $sql );
 				if ( ! empty( $items ) ) : ?>
 					<table class="widefat fixed striped">
 						<thead>
@@ -715,14 +715,18 @@ class Andalu_Woo_Courses_Admin {
 								<th><?php _e( 'Company', 'andalu_woo_courses' ); ?></th>
 								<th><?php _e( 'Phone', 'andalu_woo_courses' ); ?></th>
 								<th><?php _e( 'Email', 'andalu_woo_courses' ); ?></th>
+								<th><?php _e( 'Options', 'andalu_woo_courses' ); ?></th>
 							</tr>
 						</thead>
-						<?php foreach( $items as $item_id ) : ?>
+						<?php foreach( $items as $item ) :
+							$email = wc_get_order_item_meta( $item->order_item_id, 'Email', true );
+						?>
 						<tr>
-							<td><?php echo wc_get_order_item_meta( $item_id, 'First Name', true ) . ' ' . wc_get_order_item_meta( $item_id, 'Last Name', true ); ?></td>
-							<td><?php echo wc_get_order_item_meta( $item_id, 'Company', true ); ?></td>
-							<td><?php echo wc_get_order_item_meta( $item_id, 'Phone', true ); ?></td>
-							<td><?php echo wc_get_order_item_meta( $item_id, 'Email', true ); ?></td>
+							<td><?php echo wc_get_order_item_meta( $item->order_item_id, 'First Name', true ) . ' ' . wc_get_order_item_meta( $item->order_item_id, 'Last Name', true ); ?></td>
+							<td><?php echo wc_get_order_item_meta( $item->order_item_id, 'Company', true ); ?></td>
+							<td><?php echo wc_get_order_item_meta( $item->order_item_id, 'Phone', true ); ?></td>
+							<td><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></td>
+							<td><a href="<?php echo get_edit_post_link( $item->order_id ); ?>" target="_blank">View Order #<?php echo $item->order_id ?></a></td>
 						</tr>
 						<?php endforeach; ?>
 					</table>
