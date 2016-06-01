@@ -17,10 +17,10 @@ class Andalu_Woo_Courses_Class {
 
 		// Add taxonomy fields
 		add_action( self::$location_taxonomy . '_term_new_form_tag', __CLASS__ . '::add_new_location' );
-		add_action( self::$location_taxonomy . '_add_form_fields', __CLASS__ . '::add_location_fields', 10, 2 );
-		add_action( self::$location_taxonomy . '_edit_form_fields', __CLASS__ . '::edit_location_fields', 10, 2 );
-		add_action( 'created_' . self::$location_taxonomy, __CLASS__ . '::save_location_fields', 10, 2 );
-		add_action( 'edited_' . self::$location_taxonomy, __CLASS__ . '::save_location_fields', 10, 2 );
+		//add_action( self::$location_taxonomy . '_add_form_fields', __CLASS__ . '::add_location_fields', 10, 2 );
+		//add_action( self::$location_taxonomy . '_edit_form_fields', __CLASS__ . '::edit_location_fields', 10, 2 );
+		//add_action( 'created_' . self::$location_taxonomy, __CLASS__ . '::save_location_fields', 10, 2 );
+		//add_action( 'edited_' . self::$location_taxonomy, __CLASS__ . '::save_location_fields', 10, 2 );
 
 		// Add shortcode for displaying class table
 		add_shortcode( 'public_classes', __CLASS__ . '::public_classes' );
@@ -139,7 +139,6 @@ class Andalu_Woo_Courses_Class {
 		$directions = get_term_meta( $term->term_id, 'directions', true );
 		$lodging    = get_term_meta( $term->term_id, 'lodging', true );
 	?>
-		<style type="text/css">.form-field.term-description-wrap{display:none}</style>
 		<tr class="form-field term-address-wrap">
 			<th scope="row"><label for="location_address"><?php _e( 'Address', 'andalu_woo_courses' ); ?></label></th>
 			<td>
@@ -190,6 +189,27 @@ class Andalu_Woo_Courses_Class {
 		return $locations;
 	}
 
+	/**
+	 * Echos inline JS for class location table rows.
+	 *
+	 * @since 1.x.x
+	 *
+	 * @return void
+	 */
+	public static function get_location_js(){
+		$script = array();
+		$script[] = '<script type="text/javascript">';
+		$script[] = "jQuery(document).ready(function($){
+			$('.location-link').click(function(e){
+				e.preventDefault();
+				$(this).closest('tr').next().slideToggle();
+			});
+		});";
+		$script[] = '</script>';
+
+		echo implode( "\n", $script );
+	}
+
 	// Retrieve a class from slug
 	public static function get_class_id( $slug, $post_type = 'course_class' ) {
 		global $wpdb;
@@ -214,6 +234,7 @@ class Andalu_Woo_Courses_Class {
 
 	// Add shortcode for displaying class table
 	public static function public_classes( $atts, $content = "", $name ) {
+		add_action( 'wp_footer', array( get_called_class(), 'get_location_js' ) );
 		ob_start();
 		echo '<div class="public_classes woocommerce">';
 
