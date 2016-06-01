@@ -409,7 +409,9 @@ class Andalu_Woo_Courses_Single {
 
 		<?php	if ( ! empty( $product->course_classes ) ) : ?>
 		<table class="course_classes onsite_classes">
-			<?php foreach( $product->course_classes as $class_id ) :
+			<?php
+			$x = 0;
+			foreach( $product->course_classes as $class_id ) :
 				$class = wc_get_product( $class_id );
 				if ( empty( $class ) ) continue;
 
@@ -428,9 +430,14 @@ class Andalu_Woo_Courses_Single {
 
 				$selected_class = empty( $_REQUEST['course_select'][ $product->id ] ) ? 0 : $_REQUEST['course_select'][ $product->id ];
 
-				$row_class = $class->confirmed ? 'confirmed' : '';
+				$row_classes = array();
+				if( $class->confirmed ) $row_classes[] = 'confirmed';
+				if( $x % 2 ) $row_classes[] = 'alt';
+				$x++;
+
+				$location_desc = term_description( $class->location, 'class_location' );
 			?>
-			<tr<?php if ( ! empty( $row_class ) ) { echo ' class="' . $row_class . '"'; } ?>>
+			<tr<?php if ( 0 < count( $row_classes ) ) { echo ' class="' . implode( ' ', $row_classes ) . '"'; } ?>>
 				<?php if ( $select ) : ?>
 				<td class="select">
 					<?php if ( $class->is_available() ) : ?>
@@ -442,8 +449,17 @@ class Andalu_Woo_Courses_Single {
 				<?php endif; ?>
 
 				<td class="date"><?php echo $class_dates; ?></td>
-
-				<td class="location"><?php if ( ! empty( $locations[ $class->location ] ) ) { echo $locations[ $class->location ]; } ?></td>
+				<?php
+				if( ! empty( $locations[ $class->location ] ) ){
+					$location_link = $locations[ $class->location ];
+					if( ! empty( $location_desc ) ){
+						$location_link = '<a href="#" class="location-link">' . $location_link . '</a>';
+					}
+				} else {
+					$location_link = '&nbsp;';
+				}
+				?>
+				<td class="location"><?php echo $location_link; ?></td>
 
 				<?php if ( ! empty( $class->time ) ) : ?>
 				<td class="time"><?php echo $class->time; ?></td>
@@ -459,6 +475,16 @@ class Andalu_Woo_Courses_Single {
 				</td>
 				<?php endif; ?>
 			</tr>
+			<?php
+
+				if( ! empty( $location_desc ) ){
+					?>
+			<tr class="location-details" style="display: none;">
+				<td colspan="5"><p><strong><?php echo $locations[ $class->location ] ?> Location Details</strong></p><?php echo $location_desc; ?></td>
+			</tr>
+					<?php
+				}
+			?>
 			<?php endforeach; ?>
 		</table>
 		<?php endif; ?>
