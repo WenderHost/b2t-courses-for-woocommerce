@@ -35,6 +35,13 @@ class WC_Product_Course extends WC_Product {
 		}
 
 		$this->course_endorsements = ( ! isset( $this->product_custom_fields['_course_endorsements'][0] ) ) ? array() : maybe_unserialize( $this->product_custom_fields['_course_endorsements'][0] );
+		// Unset any array keys with empty values
+		if( is_array( $this->course_endorsements ) && ! empty( $this->course_endorsements ) ){
+			foreach( $this->course_endorsements as $key => $value ){
+				if( empty( $value ) )
+					unset( $this->course_endorsements[$key] );
+			}
+		}
 
 		$this->course_outlines = ( ! isset( $this->product_custom_fields['_course_outlines'][0] ) ) ? array() : maybe_unserialize( $this->product_custom_fields['_course_outlines'][0] );
 
