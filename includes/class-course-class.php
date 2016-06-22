@@ -268,19 +268,23 @@ class Andalu_Woo_Courses_Class {
 			);
 		}
 
+		$has_classes = false;
 		$products = get_posts( $args );
 		if ( ! empty( $products ) ) {
 			foreach( $products as $product_id ) {
 				$product = wc_get_product( $product_id );
-				if ( ! empty( $product ) ) {
+				if ( ! empty( $product ) && $product->has_classes() ) {
 					Andalu_Woo_Courses_Single::class_table( false, $product );
 					Andalu_Woo_Courses_Single::sub_class_table( false, $product );
+					$has_classes = true;
 				}
 			}
 		}
 
 		echo '</div>';
-		return ob_get_clean();
+
+		if( true == $has_classes )
+			return ob_get_clean();
 	}
 
 }
