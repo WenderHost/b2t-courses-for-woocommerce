@@ -35,7 +35,7 @@ class Andalu_Woo_Courses_Admin {
 
 	}
 
-	public function conditional_includes() {
+	static public function conditional_includes() {
 		$screen = get_current_screen();
 
 		switch ( $screen->id ) {
