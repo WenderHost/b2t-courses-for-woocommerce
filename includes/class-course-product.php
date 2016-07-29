@@ -128,7 +128,7 @@ class WC_Product_Course extends WC_Product {
     				);
 	        	}
 				$this->course_classes = get_posts( $args );
-				set_transient( $transient_name, $this->course_classes, HOUR_IN_SECONDS * 2 );
+				set_transient( $transient_name, $this->course_classes, HOUR_IN_SECONDS * 12 );
 			}
 		}
 		return (array) $this->course_classes;
