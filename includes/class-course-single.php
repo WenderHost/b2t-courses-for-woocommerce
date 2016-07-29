@@ -531,7 +531,9 @@ class Andalu_Woo_Courses_Single {
 	public static function enqueue_styles_scripts() {
 		global $post, $product;
 
-		$product = wc_get_product( $post->ID );
+		if( is_object( $post ) )
+			$product = wc_get_product( $post->ID );
+
 		if ( ! empty( $product ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
 			wp_enqueue_style( 'andalu_woo_courses', Andalu_Woo_Courses::$url . '/assets/css/course.css', array(), '1.0' );
 			wp_register_script( 'andalu_woo_courses_registration', Andalu_Woo_Courses::$url . '/assets/js/course-registration.js', array( 'wc-country-select', 'wc-address-i18n' ), '1.0' );
