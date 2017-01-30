@@ -620,6 +620,7 @@ class Andalu_Woo_Courses_Admin {
 
 			$woocommerce_admin_script_handle = 'wc-admin-meta-boxes';
 
+			$script_params = [];
 			if ( $screen->id == 'product' ) {
 				$dependencies[] = $woocommerce_admin_script_handle;
 				$dependencies[] = 'wc-admin-product-meta-boxes';
