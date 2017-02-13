@@ -1,7 +1,7 @@
-#woocommerce-product-data ul.wc-tabs li.course_data_options a:before{content:'\e003'}
-#woocommerce-product-data ul.wc-tabs li.course_links_options a:before{content:'\e00d'}
-#woocommerce-product-data ul.wc-tabs li.course_outline_options a:before{content:'\e02b'}
-#woocommerce-product-data ul.wc-tabs li.course_classes_options a:before{content:'\e026'}
+#woocommerce-product-data ul.wc-tabs li.course_data_options a:before{content:"\f184"}
+#woocommerce-product-data ul.wc-tabs li.course_links_options a:before{content:"\f503"}
+#woocommerce-product-data ul.wc-tabs li.course_outline_options a:before{content:"\f163"}
+#woocommerce-product-data ul.wc-tabs li.course_classes_options a:before{content:"\f508"}
 
 .wc-metaboxes-wrapper#course_outline_data .expand-close,
 .wc-metaboxes-wrapper#course_classes_data .expand-close{float:right; line-height:28px}
