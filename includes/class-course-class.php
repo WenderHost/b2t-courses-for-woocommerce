@@ -227,6 +227,8 @@ class Andalu_Woo_Courses_Class {
 			if ( $class && ! $class->is_available() ) {
 				return false;
 			}
+		} elseif ( 'virtual' != get_query_var( 'course_register' ) && ! self::get_class_id( get_query_var( 'course_register' ) ) ) {
+			return false;
 		}
 
 		return true;
