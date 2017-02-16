@@ -17,6 +17,7 @@ do_action( 'woocommerce_before_single_course_register' );
 	<?php do_action( 'woocommerce_course_before_registration_form' ); ?>
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
+	<?php if ( Andalu_Woo_Courses_Class::can_register() ) : ?>
 	<form class="course_registration clearfix" method="post" enctype="multipart/form-data">
 		<?php wc_print_notices(); ?>
 
@@ -31,7 +32,7 @@ do_action( 'woocommerce_before_single_course_register' );
 		?>
 
 		<div class="course_registration_form_fields clearfix">
-			<?php if ( Andalu_Woo_Courses_Class::can_register() ) : ?>
+
 
 				<?php do_action( 'woocommerce_course_registration_form' ); ?>
 
@@ -42,18 +43,18 @@ do_action( 'woocommerce_before_single_course_register' );
 				 	<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 				</div>
 
-			<?php else : ?>
-
-				<p><?php _e( 'This class is not available for registration', 'andalu_woo_courses' ); ?>
-
-			<?php endif; ?>
 		</div>
 
 		<?php wc_get_template( 'single-product/course-info.php' ); ?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
-
+	<?php else : ?>
+		<div class="alert alert-info">
+			<h3>Class No Longer Available &ndash; <a href="<?php the_permalink() ?>">Please choose another session &rarr;</a></h3>
+			<p><?php _e( 'The <em>' . get_the_title() . '</em> class you\'re trying to register for is no longer available. Please check the <a href="' . get_permalink() . '">' . get_the_title() . ' page</a> for an updated list of available classes for this course.', 'andalu_woo_courses' ); ?>
+		</div>
+	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_course_after_registration_form' ); ?>
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
