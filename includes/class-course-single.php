@@ -349,7 +349,7 @@ class Andalu_Woo_Courses_Single {
 		if ( $product->has_child() ) : ?>
 
 		<div class="sub_courses_schedule">
-			<h2><?php echo get_the_title( $product->id ); ?></h2>
+			<h2><?php echo get_the_title( $product->get_id() ); ?></h2>
 			<h3><?php _e( 'Sub Courses', 'andalu_woo_courses' ); ?></h3>
 
 			<?php foreach( $product->get_children() as $child_id ) { self::class_table( $select, $child_id ); } ?>
@@ -380,7 +380,7 @@ class Andalu_Woo_Courses_Single {
 	<div class="course_schedule<?php echo $css_classes; ?>">
 		<div class="schedule_header">
 			<div class="course_title">
-				<h3><a href="<?php echo get_the_permalink( $product->id ); ?>"><?php echo get_the_title( $product->id ); ?></a><?php if ( ! empty( $product->course_duration ) ) : ?>
+				<h3><a href="<?php echo get_the_permalink( $product->get_id() ); ?>"><?php echo get_the_title( $product->get_id() ); ?></a><?php if ( ! empty( $product->course_duration ) ) : ?>
 					<span class="course_duration"><?php printf( __( 'Course Length: %s', 'andalu_woo_courses' ), $product->course_duration ); ?></span>
 				<?php endif; ?>
 				</h3>
@@ -390,7 +390,7 @@ class Andalu_Woo_Courses_Single {
 		</div>
 
 		<?php if ( $product->has_child() ) :
-			$url = parse_url( get_permalink( $product->id ) );
+			$url = parse_url( get_permalink( $product->get_id() ) );
 			$url['path'] = trailingslashit( $url['path'] ) . 'register/';
 			$select_dates = http_build_url( $url );
 		?>
@@ -424,11 +424,11 @@ class Andalu_Woo_Courses_Single {
 				if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
 				$class_dates = apply_filters( 'andalu_woo_courses_class_dates', $class_dates, $class->start_timestamp, $class->end_timestamp, $date_format );
 
-				$url = parse_url( get_the_permalink( $product->id ) );
+				$url = parse_url( get_the_permalink( $product->get_id() ) );
 				$url['path'] = trailingslashit( $url['path'] ) . 'register/' . $class->post->post_name;
 				$class_registration = http_build_url( $url );
 
-				$selected_class = empty( $_REQUEST['course_select'][ $product->id ] ) ? 0 : $_REQUEST['course_select'][ $product->id ];
+				$selected_class = empty( $_REQUEST['course_select'][ $product->get_id() ] ) ? 0 : $_REQUEST['course_select'][ $product->get_id() ];
 
 				$row_classes = array();
 				if( $class->confirmed ) $row_classes[] = 'confirmed';
@@ -441,7 +441,7 @@ class Andalu_Woo_Courses_Single {
 				<?php if ( $select ) : ?>
 				<td class="select">
 					<?php if ( $class->is_available() ) : ?>
-					<input type="radio" name="course_select[<?php echo $product->id; ?>]" value="<?php echo $class_id; ?>" <?php checked( $selected_class, $class_id ); ?> />
+					<input type="radio" name="course_select[<?php echo $product->get_id(); ?>]" value="<?php echo $class_id; ?>" <?php checked( $selected_class, $class_id ); ?> />
 					<?php else : ?>
 					<span class="full"><?php _e( 'Full', 'andalu_woo_courses' ); ?></span>
 					<?php endif; ?>
@@ -530,6 +530,9 @@ class Andalu_Woo_Courses_Single {
 	// Load all necessary styles and scripts
 	public static function enqueue_styles_scripts() {
 		global $post, $product;
+
+		if( ! is_object( $post ) )
+			return;
 
 		$product = wc_get_product( $post->ID );
 		if ( ! empty( $product ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
@@ -786,7 +789,7 @@ class Andalu_Woo_Courses_Single {
 			$name = empty( self::$posted['first_name'] ) ? '' : self::$posted['first_name'];
 			$name .= empty( self::$posted['last_name'] ) ? '' : ' ' . self::$posted['last_name'];
 
-			$added_text = sprintf( __( 'A "%s" registration for %s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->id ), $name );
+			$added_text = sprintf( __( 'A "%s" registration for %s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->get_id() ), $name );
 			if ( ! $cart_redirect ) {
 				$added_text .= __( ' Add another student by entering his or her details below:', 'andalu_woo_courses' );
 			}

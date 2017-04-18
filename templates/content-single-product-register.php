@@ -36,7 +36,7 @@ do_action( 'woocommerce_before_single_course_register' );
 
 				<?php do_action( 'woocommerce_course_registration_form' ); ?>
 
-		 		<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
+		 		<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" />
 
 				<div class="pull-right">
 					<a href="<?php the_permalink(); ?>" class="button button-default"><?php _e( 'Back', 'andalu_woo_courses' ); ?></a>
