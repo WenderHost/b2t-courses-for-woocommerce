@@ -1,14 +1,14 @@
 <?php
 
 class WC_Product_Course_Class extends WC_Product {
-	
+
 	var $position = 0;
 	var $start_timestamp = 0;
 	var $start_date = '';
 	var $end_timestamp = 0;
 	var $end_date = '';
 	var $time = '';
-	
+
 	var $seats = 0;
 	var $confirmed = false;
 
@@ -16,16 +16,32 @@ class WC_Product_Course_Class extends WC_Product {
 	var $location_term = false;
 
 	var $virtual = false;
-	
+
 	public function __construct( $product ) {
 		$this->product_type = 'course_class';
-		parent::__construct( $product );
-		
+		//parent::__construct( $product ); // ???
+		if ( is_numeric( $product ) && $product > 0 ) {
+			$this->set_id( $product );
+		} elseif ( $product instanceof self ) {
+			$this->set_id( absint( $product->get_id() ) );
+		} elseif ( ! empty( $product->ID ) ) {
+			$this->set_id( absint( $product->ID ) );
+		} else {
+			$this->set_object_read( true );
+		}
+
+		// Set Data Store
+		$this->data_store = WC_Data_Store::load( 'course_class' );
+		if ( $this->get_id() > 0 ) {
+			$this->data_store->read( $this );
+		}
+
 		// Load position from post menu_order
-		$this->position = empty( $this->post->menu_order ) ? 0 : $this->post->menu_order;
-		
+		$post = get_post( $this->get_id() );
+		$this->position = empty( $post->menu_order ) ? 0 : $post->menu_order;
+
 		// Load all meta fields
-		$this->product_custom_fields = get_post_meta( $this->id );
+		$this->product_custom_fields = get_post_meta( $this->get_id() );
 
 		// Convert selected meta fields for easy access
 		if ( ! empty( $this->product_custom_fields['_start_date'][0] ) ) {
@@ -55,19 +71,19 @@ class WC_Product_Course_Class extends WC_Product {
 
 		// Is this a virtual class
 		$this->virtual = ( $this->location_term && 'Virtual' == $this->location_term->name );
-		
+
 	}
 
 	// Get location
 	public function get_location( $field = 'name' ) {
 
-		if ( empty( $this->location_term ) ) {		
-			$terms = get_the_terms( $this->id, Andalu_Woo_Courses_Class::$location_taxonomy );
+		if ( empty( $this->location_term ) ) {
+			$terms = get_the_terms( $this->get_id(), Andalu_Woo_Courses_Class::$location_taxonomy );
 			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 				foreach( $terms as $this->location_term ) { break; } // Only get first term
 			}
 		}
-		
+
 		if ( ! empty( $this->location_term ) && isset( $this->location_term->$field ) ) {
 			return $this->location_term->$field;
 		}
@@ -86,26 +102,26 @@ class WC_Product_Course_Class extends WC_Product {
 		if ( ! is_null( $amount ) ) {
 
 			// Ensure key exists
-			add_post_meta( $this->id, '_seats', 0, true );
+			add_post_meta( $this->get_id(), '_seats', 0, true );
 
 			// Update seats in DB directly
 			switch ( $mode ) {
 				case 'add' :
-					$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = meta_value + %f WHERE post_id = %d AND meta_key='_seats'", $amount, $this->id ) );
+					$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = meta_value + %f WHERE post_id = %d AND meta_key='_seats'", $amount, $this->get_id() ) );
 				break;
 				case 'subtract' :
-					$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = meta_value - %f WHERE post_id = %d AND meta_key='_seats'", $amount, $this->id ) );
+					$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = meta_value - %f WHERE post_id = %d AND meta_key='_seats'", $amount, $this->get_id() ) );
 				break;
 				default :
-					$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = %f WHERE post_id = %d AND meta_key='_seats'", $amount, $this->id ) );
+					$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = %f WHERE post_id = %d AND meta_key='_seats'", $amount, $this->get_id() ) );
 				break;
 			}
-			
+
 			// Clear caches
-			wp_cache_delete( $this->id, 'post_meta' );
+			wp_cache_delete( $this->get_id(), 'post_meta' );
 
 			// Get updated value from DB
-			$this->seats = get_post_meta( $this->id, '_seats', true );
+			$this->seats = get_post_meta( $this->get_id(), '_seats', true );
 		}
 
 		return $this->seats;

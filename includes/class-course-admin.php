@@ -214,7 +214,7 @@ class Andalu_Woo_Courses_Admin {
 			<div class="options_group">
 				<p class="form-field">
 					<label for="_course_parent"><?php _e( 'Parent Course', 'andalu_woo_courses' ); ?></label>
-					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_parent" name="_course_parent" data-placeholder="<?php esc_attr_e( 'Search for a course product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_course_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
+					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_parent" name="_course_parent" data-placeholder="<?php esc_attr_e( 'Search for a course product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_course_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post_id ); ?>" data-selected="<?php
 						$parent_id = absint( $post->post_parent );
 
 						if ( $parent_id ) {
@@ -230,8 +230,8 @@ class Andalu_Woo_Courses_Admin {
 
 				<p class="form-field">
 					<label for="_course_study_guide"><?php _e( 'Study Guide', 'andalu_woo_courses' ); ?></label>
-					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_study_guide" name="_course_study_guide" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
-						$guide_id = absint( get_post_meta( $post->ID, '_course_study_guide', true ) );
+					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_study_guide" name="_course_study_guide" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post_id ); ?>" data-selected="<?php
+						$guide_id = absint( get_post_meta( $post_id, '_course_study_guide', true ) );
 
 						if ( $guide_id ) {
 							$guide = wc_get_product( $guide_id );
@@ -246,8 +246,8 @@ class Andalu_Woo_Courses_Admin {
 
 				<p class="form-field">
 					<label for="_course_exam"><?php _e( 'Exam', 'andalu_woo_courses' ); ?></label>
-					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_exam" name="_course_exam" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
-						$exam_id = absint( get_post_meta( $post->ID, '_course_exam', true ) );
+					<input type="hidden" class="wc-product-search" style="width: 50%;" id="_course_exam" name="_course_exam" data-placeholder="<?php esc_attr_e( 'Search for a product&hellip;', 'andalu_woo_courses' ); ?>" data-action="woocommerce_json_search_products" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post_id ); ?>" data-selected="<?php
+						$exam_id = absint( get_post_meta( $post_id, '_course_exam', true ) );
 
 						if ( $exam_id ) {
 							$exam = wc_get_product( $exam_id );
@@ -321,7 +321,12 @@ class Andalu_Woo_Courses_Admin {
 	public static function output_classes( $post_id ) {
 		if ( ! empty( $post_id ) ) {
 			// Specify product type in case the post is saved as auto-draft
-			$product = wc_get_product( $post_id, array( 'product_type' => Andalu_Woo_Courses::$product_type ) );
+			// Passing args to wc_get_product is deprecated. If you need to force a type, construct the product class directly.
+			//$product = wc_get_product( $post_id, array( 'product_type' => Andalu_Woo_Courses::$product_type ) );
+			$product = wc_get_product( $post_id );
+
+			if( ! is_object( $product ) && 'course' != $product->get_type() )
+				return;
 
 			if ( ! empty( $product->course_classes ) ) {
 				$class_ids  = array_values( $product->course_classes );
@@ -330,7 +335,8 @@ class Andalu_Woo_Courses_Admin {
 
 				for ( $i = 0; $i < $class_total; $i++ ) {
 					$class = wc_get_product( $class_ids[ $i ] );
-					include( 'views/html-course-class.php' );
+					if( is_object( $class ) )
+						include( 'views/html-course-class.php' );
 				}
 			}
 		}

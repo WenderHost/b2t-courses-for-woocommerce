@@ -294,21 +294,21 @@ class Andalu_Woo_Courses_Single {
 			</tr>
 			<tr class="intended_audience">
 				<td class="meta_label"><?php _e( 'Intended Audience', 'andalu_woo_courses' ); ?></td>
-				<td class="meta_value"><?php echo wpautop( $product->course_audience ); ?></td>
+				<td class="meta_value"><?php echo wpautop( $product->__get('course_audience') ); ?></td>
 			</tr>
 			<tr class="prerequisites">
 				<td class="meta_label"><?php _e( 'Prerequisites', 'andalu_woo_courses' ); ?></td>
-				<td class="meta_value"><?php echo $product->course_prerequisites; ?></td>
+				<td class="meta_value"><?php echo $product->__get('course_prerequisites'); ?></td>
 			</tr>
 
-			<?php if ( ! empty( $product->course_study_guide ) ) : ?>
+			<?php if ( ! empty( $product->__get('course_study_guide') ) ) : ?>
 			<tr class="study_guide">
 				<td class="meta_label"><?php _e( 'Study Guide', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php printf( '<a href="%s">%s</a>', get_permalink( $product->course_study_guide ), get_the_title( $product->course_study_guide ) ); ?></td>
 			</tr>
 			<?php endif; ?>
 
-			<?php if ( ! empty( $product->course_exam ) ) : ?>
+			<?php if ( ! empty( $product->__get('course_exam') ) ) : ?>
 			<tr class="study_guide">
 				<td class="meta_label"><?php _e( 'Course Exam', 'andalu_woo_courses' ); ?></td>
 				<td class="meta_value"><?php printf( '<a href="%s">%s</a>', get_permalink( $product->course_exam ), get_the_title( $product->course_exam ) ); ?></td>

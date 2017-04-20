@@ -30,6 +30,9 @@ class Andalu_Woo_Courses {
 			require_once( 'includes/class-course-admin.php' );
 		}
 
+		add_filter( 'woocommerce_product_type_query', [ 'Andalu_Woo_Courses', 'filter_product_type_query'], 10, 2 );
+		add_filter( 'woocommerce_data_stores', [ 'Andalu_Woo_Courses', 'set_course_class_data_store'] );
+
 		require_once( 'includes/class-course-class.php' );
 		require_once( 'includes/class-course-single.php' );
 		require_once( 'includes/class-course-order.php' );
@@ -41,6 +44,18 @@ class Andalu_Woo_Courses {
 	static function create_product_types() {
 		require_once( 'includes/class-course-product.php' );
 		require_once( 'includes/class-course-class-product.php' );
+		require_once( 'includes/class-course-class-product-data-store.php' );
+	}
+
+	static function filter_product_type_query( $bool = false, $product_id ){
+		$post_type = get_post_type( $product_id );
+		if( 'course_class' == $post_type )
+			return 'course_class';
+	}
+
+	static function set_course_class_data_store( $stores ){
+		$stores['course_class'] = 'WC_Product_Course_Class_Data_Store';
+		return $stores;
 	}
 
 }

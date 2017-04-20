@@ -117,7 +117,7 @@ class WC_Product_Course extends WC_Product {
         			'post_status'	=> 'inherit',
         			'numberposts'	=> -1,
         		) );
-        		if( ! is_admin() ){
+        		//if( ! is_admin() ){
         			$args['meta_query'] = array(
 						array(
 							'key' => '_start_date',
@@ -126,7 +126,7 @@ class WC_Product_Course extends WC_Product {
 							'type' => 'DATE',
 						),
     				);
-	        	}
+	        	//}
 				$this->course_classes = get_posts( $args );
 				set_transient( $transient_name, $this->course_classes, HOUR_IN_SECONDS * 12 );
 			}

@@ -14,7 +14,7 @@
 						<span class="seperator">&ndash;</span>
 						<input type="text" class="class_end_date course_date" name="classes[<?php echo $i; ?>][end_date]" value="<?php echo esc_attr( $class->end_date ); ?>" placeholder="YYYY-MM-DD" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" />
 						<input type="hidden" name="classes[<?php echo $i; ?>][position]" class="class_position" value="<?php echo esc_attr( $class->position ); ?>" />
-						<input type="hidden" name="classes[<?php echo $i; ?>][id]" value="<?php echo esc_attr( $class->id ); ?>" />
+						<input type="hidden" name="classes[<?php echo $i; ?>][id]" value="<?php echo esc_attr( $class->get_id() ); ?>" />
 					</td>
 				</tr>
 				<tr>
