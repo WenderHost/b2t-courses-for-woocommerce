@@ -6,7 +6,7 @@ Plugin URI: http://anda.lu/design
 
 Description: Add a custom WC Product type called Courses
 
-Version: 1.0
+Version: 2.0.0
 Author: ANDA.lu
 Author URI: http://anda.lu/design
 
