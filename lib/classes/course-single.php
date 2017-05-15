@@ -370,7 +370,7 @@ class Andalu_Woo_Courses_Single {
 		if( ! $product->has_classes() )
 			return;
 
-		require_once( Andalu_Woo_Courses::$dir . '/lib/http_build_url.php' );
+		require_once( Andalu_Woo_Courses::$dir . '/lib/fns/http_build_url.php' );
 		$date_format = get_option( 'date_format' );
 		$locations = Andalu_Woo_Courses_Class::get_locations();
 

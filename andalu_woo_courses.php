@@ -27,24 +27,24 @@ class Andalu_Woo_Courses {
 		load_plugin_textdomain( 'andalu_woo_courses', false, self::$dir . '/languages' );
 
 		if ( is_admin() ) {
-			require_once( 'includes/class-course-admin.php' );
+			require_once( 'lib/classes/admin.php' );
 		}
 
 		add_filter( 'woocommerce_product_type_query', [ 'Andalu_Woo_Courses', 'filter_product_type_query'], 10, 2 );
 		add_filter( 'woocommerce_data_stores', [ 'Andalu_Woo_Courses', 'set_course_class_data_store'] );
 
-		require_once( 'includes/class-course-class.php' );
-		require_once( 'includes/class-course-single.php' );
-		require_once( 'includes/class-course-order.php' );
-		require_once( 'includes/class-course-cart-reserve.php' );
+		require_once( 'lib/classes/course-class.php' );
+		require_once( 'lib/classes/course-single.php' );
+		require_once( 'lib/classes/course-order.php' );
+		require_once( 'lib/classes/cart-reserve.php' );
 
 		add_action( 'plugins_loaded', __CLASS__ . '::create_product_types' );
 	}
 
 	static function create_product_types() {
-		require_once( 'includes/class-course-product.php' );
-		require_once( 'includes/class-course-class-product.php' );
-		require_once( 'includes/class-course-class-product-data-store.php' );
+		require_once( 'lib/classes/course-product.php' );
+		require_once( 'lib/classes/course-class-product.php' );
+		require_once( 'lib/classes/class-data-store.php' );
 	}
 
 	static function filter_product_type_query( $bool = false, $product_id ){
