@@ -285,7 +285,7 @@ class Andalu_Woo_Courses_Admin {
 							$outline['duration'] = empty( $outline['duration'] ) ? '' : $outline['duration'];
 							$outline['content']  = empty( $outline['content'] )  ? '' : $outline['content'];
 
-							include( '../views/course-outline.php' );
+							include( plugin_dir_path( __FILE__ ) . '/../views/course-outline.php' );
 						}
 					}
 				?>
@@ -336,7 +336,7 @@ class Andalu_Woo_Courses_Admin {
 				for ( $i = 0; $i < $class_total; $i++ ) {
 					$class = wc_get_product( $class_ids[ $i ] );
 					if( is_object( $class ) )
-						include( '../views/course-class.php' );
+						include( plugin_dir_path( __FILE__ ) . '/../views/course-class.php' );
 				}
 			}
 		}
@@ -356,7 +356,7 @@ class Andalu_Woo_Courses_Admin {
 			'content'  => '',
 		);
 
-		include( '../views/course-outline.php' );
+		include( plugin_dir_path( __FILE__ ) . '/../views/course-outline.php' );
 		die();
 	}
 
@@ -412,7 +412,7 @@ class Andalu_Woo_Courses_Admin {
 		$class->confirmed  = false;
 
 		$locations = Andalu_Woo_Courses_Class::get_locations();
-		include( '../views/course-class.php' );
+		include( plugin_dir_path( __FILE__ ) . '/../views/course-class.php' );
 		die();
 	}
 
