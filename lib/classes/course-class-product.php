@@ -91,6 +91,17 @@ class WC_Product_Course_Class extends WC_Product {
 		return false;
 	}
 
+	/**
+	 * Get the start date for a class
+	 *
+	 * @param      int  $class_id  The class ID
+	 *
+	 * @return     string  The start date.
+	 */
+	public static function get_start_date( $class_id ){
+		return get_post_meta( $class_id, '_start_date', true );
+	}
+
 	// Is class available for purchasing
 	public function is_available( $ignore_own_cart = false ) {
 		return apply_filters( 'andalu_woo_courses_class_availability', $this->seats > 0, $this, $ignore_own_cart );

@@ -21,7 +21,14 @@ class Andalu_Woo_Courses_Cart_Reserve {
 	}
 
 	public static function available( $available, $class, $ignore_own_cart ) {
-		$quantity_in_cart = self::quantity_in_carts( $class->id, $ignore_own_cart );
+		// Are we past the class's start date?
+		$class_id = $class->get_id();
+		$start_date = strtotime( $class->get_start_date( $class_id ) );
+		$current_date = current_time( 'timestamp' );
+		if( $start_date < $current_date )
+			return false;
+
+		$quantity_in_cart = self::quantity_in_carts( $class_id, $ignore_own_cart );
 		return ( $class->seats - $quantity_in_cart ) > 0;
 	}
 
