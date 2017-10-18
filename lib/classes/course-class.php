@@ -241,9 +241,12 @@ class Andalu_Woo_Courses_Class {
 		echo '<div class="public_classes woocommerce">';
 
 		$atts = shortcode_atts( array(
-			'id'         => 0,
-			'categories' => '',
+			'id'         	=> 0,
+			'categories' 	=> '',
+			'target'		=> '',
 		), $atts, $name );
+
+		$atts['target'] = str_replace( '_', '', $atts['target'] );
 
 		$args = array(
 			'post_type' => 'product',
@@ -276,7 +279,7 @@ class Andalu_Woo_Courses_Class {
 			foreach( $products as $product_id ) {
 				$product = wc_get_product( $product_id );
 				if ( ! empty( $product ) && $product->has_classes() ) {
-					Andalu_Woo_Courses_Single::class_table( false, $product );
+					Andalu_Woo_Courses_Single::class_table( false, $product, $atts['target'] );
 					Andalu_Woo_Courses_Single::sub_class_table( false, $product );
 					$has_classes = true;
 				}

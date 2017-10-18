@@ -359,7 +359,7 @@ class Andalu_Woo_Courses_Single {
 		<?php endif;
 	}
 
-	public static function class_table( $select = false, $product = false ) {
+	public static function class_table( $select = false, $product = false, $target = false ) {
 
 		// Use global product if one is not provided
 		if ( ! $product ) { global $product; }
@@ -380,7 +380,7 @@ class Andalu_Woo_Courses_Single {
 	<div class="course_schedule<?php echo $css_classes; ?>">
 		<div class="schedule_header">
 			<div class="course_title">
-				<h3><a href="<?php echo get_the_permalink( $product->get_id() ); ?>"><?php echo get_the_title( $product->get_id() ); ?></a><?php if ( ! empty( $product->course_duration ) ) : ?>
+				<h3><a href="<?php echo get_the_permalink( $product->get_id() ); ?>"<?php if( 'blank' == $target ) echo ' target="_blank"' ?>><?php echo get_the_title( $product->get_id() ); ?></a><?php if ( ! empty( $product->course_duration ) ) : ?>
 					<span class="course_duration"><?php printf( __( 'Course Length: %s', 'andalu_woo_courses' ), $product->course_duration ); ?></span>
 				<?php endif; ?>
 				</h3>
@@ -398,7 +398,7 @@ class Andalu_Woo_Courses_Single {
 			<tr>
 				<td class="date"><?php _e( 'Various dates', 'andalu_woo_courses' ); ?></td>
 				<td class="location"><?php _e( 'Live Virtual Course', 'andalu_woo_courses' ); ?></td>
-				<td class="register"><a href="<?php echo $select_dates; ?>" class="button button-default"><?php _e( 'Select Dates', 'andalu_woo_courses' ); ?></a></td>
+				<td class="register"><a href="<?php echo $select_dates; ?>" class="button button-default"<?php if( 'blank' == $target ) echo ' target="_blank"' ?>><?php _e( 'Select Dates', 'andalu_woo_courses' ); ?></a></td>
 			</tr>
 		</table>
 		<?php endif; ?>
@@ -468,7 +468,7 @@ class Andalu_Woo_Courses_Single {
 				<?php if ( ! $select ) : ?>
 				<td class="register">
 					<?php if ( $class->is_available() ) : ?>
-					<a href="<?php echo $class_registration; ?>" class="button button-default"><?php _e( 'Register', 'andalu_woo_courses' ); ?></a>
+					<a href="<?php echo $class_registration; ?>" class="button button-default"<?php if( 'blank' == $target ) echo ' target="_blank"' ?>><?php _e( 'Register', 'andalu_woo_courses' ); ?></a>
 					<?php else : ?>
 					<span class="full"><?php _e( 'This class is full', 'andalu_woo_courses' ); ?></span>
 					<?php endif; ?>
