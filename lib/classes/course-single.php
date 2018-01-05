@@ -453,7 +453,7 @@ class Andalu_Woo_Courses_Single {
 				if( ! empty( $locations[ $class->location ] ) ){
 					$location_link = $locations[ $class->location ];
 					if( ! empty( $location_desc ) ){
-						$location_link = '<a href="#" class="location-link">' . $location_link . '</a>';
+						$location_link = '<a href="#" class="location-link" onclick="showHideLocation(\'location-details-'. $x .'\')">' . $location_link . '</a>';
 					}
 				} else {
 					$location_link = '&nbsp;';
@@ -479,7 +479,7 @@ class Andalu_Woo_Courses_Single {
 
 				if( ! empty( $location_desc ) ){
 					?>
-			<tr class="location-details" style="display: none;">
+			<tr class="location-details" id="location-details-<?= $x ?>" style="display: none;">
 				<td colspan="5"><p><strong><?php echo $locations[ $class->location ] ?> Location Details</strong></p><?php echo $location_desc; ?></td>
 			</tr>
 					<?php

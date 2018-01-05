@@ -197,17 +197,22 @@ class Andalu_Woo_Courses_Class {
 	 * @return void
 	 */
 	public static function get_location_js(){
-		$script = array();
-		$script[] = '<script type="text/javascript">';
-		$script[] = "jQuery(document).ready(function($){
-			$('.location-link').click(function(e){
-				e.preventDefault();
-				$(this).closest('tr').next().slideToggle();
-			});
-		});";
-		$script[] = '</script>';
+?>
+<script type="text/javascript">
+// Prevent default for a.location-link
+var locationLinks = document.getElementsByClassName('location-link');
+for( i = 0; len = (locationLinks.length - 1); i++ ){
+	locationLinks[i].addEventListener('click', function(e){e.preventDefault();});
+	if( i == len )
+		break;
+}
 
-		echo implode( "\n", $script );
+function showHideLocation( detailsId ){
+  var detailRow = document.getElementById( detailsId );
+  detailRow.style.display = detailRow.style.display === 'none' ? '' : 'none';
+}
+</script>
+<?php
 	}
 
 	// Retrieve a class from slug
