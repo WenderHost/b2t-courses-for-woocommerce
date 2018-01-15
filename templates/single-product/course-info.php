@@ -18,13 +18,10 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 	<?php
 		$term = get_term_by( 'slug', 'virtual', 'class_location' );
 		if ( ! empty( $term->term_id ) ) {
-			$address = get_term_meta( $term->term_id, 'address', true );
+			$location_desc = term_description( $class->location, 'class_location' );
+			if( ! empty( $location_desc ) )
+				echo wpautop( $location_desc );
 		}
-
-		if ( ! empty( $address ) ) {
-			echo wpautop( $address );
-		}
-
 	?>
 
 	<?php elseif ( $class_id ) : ?>
@@ -37,11 +34,12 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 	<?php
 		$location = get_term( $class->location );
 		$location_name = $location->name;
-		$address = get_term_meta( $class->location, 'address', true );
 
-		if ( ! empty( $address ) ) {
-			echo  wpautop( '<strong>' . __( 'Location:', 'andalu_woo_courses' ) . '</strong><br />' . $location_name . '<br />' . $address );
+		$location_desc = term_description( $class->location, 'class_location' );
+		if ( ! empty( $location_desc ) ) {
+			echo  wpautop( '<strong>' . __( 'Location:', 'andalu_woo_courses' ) . '</strong><br />' . $location_name . '<br />' . $location_desc );
 		}
+
 
 	?>
 
