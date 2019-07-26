@@ -2,8 +2,8 @@
 
 namespace AndaluWooCourses\shortcodes;
 
-function mwender_public_classes( $atts ){
-  error_log("\n" . str_repeat( '_', 40 ) . ' mwender_public_classes() ' . str_repeat( '-', 40 ) . "\n" );
+function elementor_public_classes( $atts ){
+  //error_log("\n" . str_repeat( '_', 40 ) . ' mwender_public_classes() ' . str_repeat( '-', 40 ) . "\n" );
   $args = shortcode_atts([
     'id' => null
   ],$atts);
@@ -19,7 +19,7 @@ function mwender_public_classes( $atts ){
       return;
 
     $has_classes = $product->has_classes();
-    error_log('[ANDALU WOOCOURSES] $has_classes = ' . $has_classes );
+    //error_log('[ANDALU WOOCOURSES] $has_classes = ' . $has_classes );
 
     if( ! $has_classes )
       return '<code>No public classes currently scheduled for this course.</code>';
@@ -76,10 +76,6 @@ function mwender_public_classes( $atts ){
   $data['classes'] = $classes;
 
   $html = \AndaluWooCourses\handlebars\render_template('public_classes',$data);
-  //$html = \AndaluWooCourses\handlebars
   return $html;
-
-  //return '<code>Shortcode [mwender_classes /]</code><pre>$data = ' . print_r( $data, true ) . '</pre>';
-
 }
-add_shortcode( 'mwender_classes', __NAMESPACE__ . '\\mwender_public_classes' );
+add_shortcode( 'elementor_public_classes', __NAMESPACE__ . '\\elementor_public_classes' );
