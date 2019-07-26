@@ -13,6 +13,7 @@ class Andalu_Woo_Courses_Single {
 
 		// Load correct template for course registration
 		add_filter( 'wc_get_template_part', __CLASS__ . '::registration_template', 10, 3 );
+		add_filter( 'elementor/widget/render_content', __CLASS__ . '::elementor_load_registration_template', 10, 2 );
 		add_filter( 'woocommerce_locate_template', __CLASS__ . '::locate_template', 10, 3 );
 
 		// Customize single product view
@@ -47,9 +48,10 @@ class Andalu_Woo_Courses_Single {
 
 	// Register rewrite rules for course registration
 	public static function rewrite_rule() {
+		error_log("\n" . str_repeat('-',40) . ' Running rewrite_rule() ' . str_repeat('-',40) . "\n");
 		$permalinks = get_option( 'woocommerce_permalinks' );
 		if ( empty( $permalinks['product_regex'] ) ) {
-
+			error_log('product_regex is empty.');
 			// Default product rewrite rules
 			add_rewrite_rule( 'product/([^/]+)/register/?$', 'index.php?product=$matches[1]&course_register=virtual' , 'top' );
 			add_rewrite_rule( 'product/([^/]+)/register/([^/]+)/?$', 'index.php?product=$matches[1]&course_register=$matches[2]' , 'top' );
@@ -70,9 +72,12 @@ class Andalu_Woo_Courses_Single {
 		return $query_vars;
 	}
 
-	// Load correct template for course registration
+	/**
+	 * Load correct template for course registration
+	 **/
 	public static function registration_template( $template, $slug, $name ) {
 		global $product;
+		error_log('Running registration_template()...');
 
 		if ( 'content' == $slug && 'single-product' == $name && get_query_var( 'course_register' ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
 
@@ -84,6 +89,30 @@ class Andalu_Woo_Courses_Single {
 		}
 
 		return $template;
+	}
+
+	/**
+	 * Adds Elementor compatiblity by loading the class registration form inside a `woocommerce-product-content` widget.
+	 *
+	 * This method is hooked to `elementor/widget/render_content`. When we're viewing
+	 * a WooCommerce `Andalu Woo Courses` course product_type, and the `course_register`
+	 * query_var is set, this method replaces the content of the `woocommerce-product-
+	 * content` widget with the registration form for the class.
+	 *
+	 * @param      string  $content  The content of the widget.
+	 * @param      object  $widget   The widget object.
+	 *
+	 * @return     string  Our filtered content.
+	 */
+	public static function elementor_load_registration_template( $content, $widget ){
+		global $product;
+		if( 'woocommerce-product-content' == $widget->get_name() && get_query_var( 'course_register' ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ){
+			ob_start();
+			echo '<style type="text/css">#product-content .elementor-col-33, #product-content h1.product_title{display: none;} #product-content .elementor-col-66{width: 100%;}</style>';
+			require_once( trailingslashit( Andalu_Woo_Courses::$dir ) . 'templates/content-single-product-register.php' );
+			return ob_get_clean();
+		}
+		return $content;
 	}
 
 	// Load templates from plugin if they are available

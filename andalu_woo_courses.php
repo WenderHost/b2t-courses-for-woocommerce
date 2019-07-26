@@ -11,6 +11,14 @@ Author: ANDA.lu
 Author URI: http://anda.lu/design
 
 */
+define( 'ANDALU_DIR', dirname( __FILE__ ) );
+
+// Load Composer dependencies
+require_once('vendor/autoload.php');
+
+// Load Functions
+require_once('lib/fns/handlebars.php');
+require_once('lib/fns/shortcodes.php');
 
 if ( ! class_exists( 'Andalu_Woo_Courses' ) ) :
 class Andalu_Woo_Courses {
