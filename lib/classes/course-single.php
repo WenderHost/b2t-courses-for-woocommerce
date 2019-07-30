@@ -48,10 +48,8 @@ class Andalu_Woo_Courses_Single {
 
 	// Register rewrite rules for course registration
 	public static function rewrite_rule() {
-		error_log("\n" . str_repeat('-',40) . ' Running rewrite_rule() ' . str_repeat('-',40) . "\n");
 		$permalinks = get_option( 'woocommerce_permalinks' );
 		if ( empty( $permalinks['product_regex'] ) ) {
-			error_log('product_regex is empty.');
 			// Default product rewrite rules
 			add_rewrite_rule( 'product/([^/]+)/register/?$', 'index.php?product=$matches[1]&course_register=virtual' , 'top' );
 			add_rewrite_rule( 'product/([^/]+)/register/([^/]+)/?$', 'index.php?product=$matches[1]&course_register=$matches[2]' , 'top' );

@@ -26,7 +26,7 @@ function elementor_public_classes( $atts ){
   }
 
   require_once( 'http_build_url.php' );
-  $date_format = get_option( 'date_format' );
+  $date_format = 'M j, Y';
   $locations = \Andalu_Woo_Courses_Class::get_locations();
 
   $course_id = $product->get_id();
@@ -41,7 +41,7 @@ function elementor_public_classes( $atts ){
 
   $classes = [];
   if( $product->has_classes() && ! empty( $product->course_classes ) ){
-    error_log('This course has classes');
+
     foreach ( $product->course_classes as $class_id ) {
       $class_data = [];
       $class = wc_get_product( $class_id );
@@ -67,7 +67,19 @@ function elementor_public_classes( $atts ){
       $class_data['css_classes'] = '';
       if( $class->confirmed )
         $class_data['css_classes'].= ' confirmed';
-      $class_data['location']['description'] = term_description( $class->location, 'class_location' );
+      $term_location = get_term( $class->location, 'class_location' );
+      if( $term_location ){
+        $class_data['location'] = [
+          'description' => $term_location->description,
+          'name' => $term_location->name
+        ];
+      } else {
+        $class_data['location'] = [
+          'description' => '',
+          'name' => 'TBA'
+        ];
+      }
+
       $class_data['is_available'] = $class->is_available();
 
       $classes[$class_id] = $class_data;
