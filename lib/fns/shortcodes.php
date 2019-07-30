@@ -164,7 +164,9 @@ function public_class_calendar( $atts ){
       $end_month = $end_date_obj->format( 'm' );
       $end_year = $end_date_obj->format( 'Y' );
 
-      if( $start_month != $end_month ){
+      if( empty( $end_date ) ){
+        $days = $start_date_obj->format( 'M j' );
+      } else if( $start_month != $end_month ){
         $days = $start_date_obj->format( 'M j' ) . ' &ndash; ' . $end_date_obj->format( 'M j' );
       } else {
         $days = $start_date_obj->format( 'M j' ) . ' &ndash; ' . $end_date_obj->format( 'j' );
@@ -180,6 +182,8 @@ function public_class_calendar( $atts ){
       $data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
       $class_obj = wc_get_product( $class->ID );
       $data['location'] = $class_obj->location_term->name;
+
+      $data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
 
       $classes_data[] = $data;
     }

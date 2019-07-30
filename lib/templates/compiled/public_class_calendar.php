@@ -93,6 +93,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <div class="col-md-3">Course</div>
     <div class="col-md">Location</div>
     <div class="col-md">Time</div>
+    <div class="col-md">Duration</div>
     <div class="col-md">Price</div>
     <div class="col-md">&nbsp;</div>
   </div>
@@ -101,6 +102,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <div class="col-md-3"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)(($inary && isset($in['course_title'])) ? $in['course_title'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
     <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
     <div class="col-md">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
     <div class="col-md" style="text-align: center;"><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">Register</a></div>
   </div>
@@ -109,6 +111,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <div class="">'.(($inary && isset($in['days'])) ? $in['days'] : null).', '.htmlspecialchars((string)(($inary && isset($in['year'])) ? $in['year'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="">'.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
     <div class="">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
     <div class=""><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">Register</a></div>
   </div>
