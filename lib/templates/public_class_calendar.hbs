@@ -1,0 +1,84 @@
+<style type="text/css">
+  span.days{
+    display: block;
+    font-weight: bold;
+  }
+  .header div[class^=col]{
+    background: #009ee0;
+    color: #fff;
+    padding: 16px;
+    font-weight: bold;
+  }
+  .class-calendar{
+    font-family: FuturaPT, Futura, sans-serif;
+  }
+  .class-calendar .course-title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .class-calendar div[class^=col]{
+    padding: 16px;
+  }
+  .class-calendar a.button{
+    background-color: #009ee0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+  }
+  .class-calendar a.button:hover{
+    text-decoration: none;
+    background-color: #fff;
+    color: #009ee0;
+    font-weight: bold;
+  }
+  .class-calendar .row.alt{
+    background-color: #dedee0;
+  }
+  .class-calendar .mobile-row{
+    border-bottom: 1px solid #999;
+    padding: 20px;
+  }
+  .class-calendar .mobile-row div{
+    margin: .25em 0;
+  }
+  @media screen and (min-width: 1024px){
+    .hide-md{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1024px){
+    .hide-sm{
+      display: none !important;
+    }
+  }
+</style>
+<div class="class-calendar">
+  <div class="row header hide-sm">
+    <div class="col-md-2">Dates</div>
+    <div class="col-md-3">Course</div>
+    <div class="col-md">Location</div>
+    <div class="col-md">Time</div>
+    <div class="col-md">Price</div>
+    <div class="col-md">&nbsp;</div>
+  </div>
+  {{#each classes}}
+  <div class="row {{css_classes}} hide-sm">
+    <div class="col-md-2"><span class="days">{{{days}}}</span>{{year}}</div>
+    <div class="col-md-3"><a href="{{course_url}}">{{course_title}}</a></div>
+    <div class="col-md">{{location}}</div>
+    <div class="col-md">{{times}}</div>
+    <div class="col-md">{{{price}}}</div>
+    <div class="col-md" style="text-align: center;"><a class="button" href="{{register_url}}">Register</a></div>
+  </div>
+  <div class="{{css_classes}} hide-md mobile-row">
+    <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
+    <div class="">{{{days}}}, {{year}}</div>
+    <div class="">{{location}}</div>
+    <div class="">{{times}}</div>
+    <div class="">{{{price}}}</div>
+    <div class=""><a class="button" href="{{register_url}}">Register</a></div>
+  </div>
+  {{/each}}
+</div>

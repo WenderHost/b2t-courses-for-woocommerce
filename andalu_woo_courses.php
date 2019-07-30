@@ -18,7 +18,9 @@ require_once('vendor/autoload.php');
 
 // Load Functions
 require_once('lib/fns/handlebars.php');
+require_once('lib/fns/http_build_url.php');
 require_once('lib/fns/shortcodes.php');
+require_once('lib/fns/utilities.php');
 
 if ( ! class_exists( 'Andalu_Woo_Courses' ) ) :
 class Andalu_Woo_Courses {
