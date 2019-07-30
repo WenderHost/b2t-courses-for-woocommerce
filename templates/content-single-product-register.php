@@ -33,6 +33,10 @@ do_action( 'woocommerce_before_single_course_register' );
 
 		<div class="course_registration_form_fields clearfix">
 
+			<div class="class-details">
+				<?php wc_get_template( 'single-product/course-info.php' ); ?>
+			</div>
+
 
 				<?php do_action( 'woocommerce_course_registration_form' ); ?>
 
@@ -44,8 +48,6 @@ do_action( 'woocommerce_before_single_course_register' );
 				</div>
 
 		</div>
-
-		<?php wc_get_template( 'single-product/course-info.php' ); ?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
