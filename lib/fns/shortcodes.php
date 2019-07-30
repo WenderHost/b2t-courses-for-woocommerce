@@ -126,13 +126,14 @@ function public_class_calendar( $atts ){
     'posts_per_page' => -1,
     'post_status' => 'inherit',
     'order' => 'ASC',
-    'orderby' => 'meta_value_date',
+    'orderby' => 'meta_value_num',
+    'meta_key' => '_start_date',
     'meta_query' => [
       [
         'key' => '_start_date',
-        'type' => 'DATE',
+        'type' => 'NUMBER',
         'compare' => '>=',
-        'value' => \date('Y-m-d H:i:s'),
+        'value' => \date('Ymd'),
       ]
     ]
   ];

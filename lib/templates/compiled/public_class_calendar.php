@@ -99,7 +99,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   </div>
 '.LR::sec($cx, (($inary && isset($in['classes'])) ? $in['classes'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '  <div class="row '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').' hide-sm">
     <div class="col-md-2"><span class="days">'.(($inary && isset($in['days'])) ? $in['days'] : null).'</span>'.htmlspecialchars((string)(($inary && isset($in['year'])) ? $in['year'] : null), ENT_QUOTES, 'UTF-8').'</div>
-    <div class="col-md-3"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)(($inary && isset($in['course_title'])) ? $in['course_title'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
+    <div class="col-md-3"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.(($inary && isset($in['course_title'])) ? $in['course_title'] : null).'</a></div>
     <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>

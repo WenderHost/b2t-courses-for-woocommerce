@@ -582,8 +582,10 @@ class Andalu_Woo_Courses_Admin {
 			}
 
 			// Update post meta
-			update_post_meta( $class_id, '_start_date', date( 'Y-m-d H:i:s', $class['start_date'] ) );
-			update_post_meta( $class_id, '_end_date', empty( $class['end_date'] ) ? '' : date( 'Y-m-d H:i:s', $class['end_date'] ) );
+			//update_post_meta( $class_id, '_start_date', date( 'Y-m-d H:i:s', $class['start_date'] ) );
+			//update_post_meta( $class_id, '_end_date', empty( $class['end_date'] ) ? '' : date( 'Y-m-d H:i:s', $class['end_date'] ) );
+			update_post_meta( $class_id, '_start_date', date( 'Ymd', $class['start_date'] ) );
+			update_post_meta( $class_id, '_end_date', empty( $class['end_date'] ) ? '' : date( 'Ymd', $class['end_date'] ) );
 			update_post_meta( $class_id, '_time', $class['time'] );
 
 			update_post_meta( $class_id, '_seats', $class['seats'] );
