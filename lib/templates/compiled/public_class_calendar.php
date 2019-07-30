@@ -43,6 +43,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   }
   .class-calendar{
     font-family: FuturaPT, Futura, sans-serif;
+    font-size: 1rem;
   }
   .class-calendar .course-title{
     font-size: 18px;

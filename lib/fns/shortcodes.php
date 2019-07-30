@@ -2,6 +2,27 @@
 
 namespace AndaluWooCourses\shortcodes;
 
+function course_details( $atts ){
+  global $product;
+  if( ! is_object( $product ) )
+    $product = wc_get_product( $product );
+
+  if( empty( $product ) )
+    return;
+
+  $data = [];
+  $data['duration'] = get_post_meta($product->get_id(), '_course_duration', true );
+  $data['reference'] = get_post_meta($product->get_id(), '_course_reference', true );
+  $data['delivery_mode'] = get_post_meta($product->get_id(), '_course_delivery_mode', true );
+  if( is_array( $data['delivery_mode'] ) )
+    $data['delivery_mode'] = implode(', ', $data['delivery_mode'] );
+  $data['certification'] = get_post_meta($product->get_id(), '_course_certification', true );
+
+  $html = \AndaluWooCourses\handlebars\render_template('course_details',$data);
+  return $html;
+}
+add_shortcode( 'course_details', __NAMESPACE__ . '\\course_details' );
+
 function elementor_public_classes( $atts ){
   //error_log("\n" . str_repeat( '_', 40 ) . ' mwender_public_classes() ' . str_repeat( '-', 40 ) . "\n" );
   $args = shortcode_atts([
@@ -87,6 +108,13 @@ function elementor_public_classes( $atts ){
 }
 add_shortcode( 'elementor_public_classes', __NAMESPACE__ . '\\elementor_public_classes' );
 
+/**
+ * Displays a calendar of Public Classes
+ *
+ * @param      array  $atts   The atts
+ *
+ * @return     string  HTML for Public Classes view.
+ */
 function public_class_calendar( $atts ){
   $args = shortcode_atts([
     'foo' => 'bar'

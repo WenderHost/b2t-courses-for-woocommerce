@@ -72,11 +72,13 @@ class Andalu_Woo_Courses_Admin {
 	// Save general fields on edit product page
 	static function save_data_fields( $post_id ) {
 
-		$fields = array( 'duration', 'pdus', 'audience', 'prerequisites' );
+		$fields = array( 'reference', 'duration' , 'certification', 'pdus', 'audience', 'prerequisites' );
 		foreach ( $fields as $field ) {
 			$field_name = '_course_' . $field;
 			update_post_meta( $post_id, $field_name, stripslashes( $_REQUEST[ $field_name ] ) );
 		}
+		if( $_REQUEST['_course_delivery_mode'] )
+			update_post_meta( $post_id, '_course_delivery_mode', $_REQUEST['_course_delivery_mode'] );
 
 		wp_update_post( array( 'ID' => $post_id, 'post_parent' => empty( $_REQUEST[ '_course_parent' ] ) ? 0 : intval( $_REQUEST[ '_course_parent' ] ) ) );
 		update_post_meta( $post_id, '_course_study_guide', empty( $_REQUEST[ '_course_study_guide' ] ) ? '' : $_REQUEST[ '_course_study_guide' ] );
@@ -166,6 +168,32 @@ class Andalu_Woo_Courses_Admin {
 		return array_merge( $first_tabs, $new_tabs, $tabs );
 	}
 
+	static function woocommerce_wp_select_multiple( $field ) {
+	    global $thepostid, $post, $woocommerce;
+
+	    $thepostid              = empty( $thepostid ) ? $post->ID : $thepostid;
+	    $field['class']         = isset( $field['class'] ) ? $field['class'] : 'select short';
+	    $field['wrapper_class'] = isset( $field['wrapper_class'] ) ? $field['wrapper_class'] : '';
+	    $field['name']          = isset( $field['name'] ) ? $field['name'] : $field['id'];
+	    $field['value']         = isset( $field['value'] ) ? $field['value'] : ( get_post_meta( $thepostid, $field['id'], true ) ? get_post_meta( $thepostid, $field['id'], true ) : array() );
+
+	    echo '<p class="form-field ' . esc_attr( $field['id'] ) . '_field ' . esc_attr( $field['wrapper_class'] ) . '"><label for="' . esc_attr( $field['id'] ) . '">' . wp_kses_post( $field['label'] ) . '</label><select id="' . esc_attr( $field['id'] ) . '" name="' . esc_attr( $field['name'] ) . '" class="' . esc_attr( $field['class'] ) . '" multiple="multiple">';
+
+	    foreach ( $field['options'] as $key => $value ) {
+	        echo '<option value="' . esc_attr( $key ) . '" ' . ( in_array( $key, $field['value'] ) ? 'selected="selected"' : '' ) . '>' . esc_html( $value ) . '</option>';
+	    }
+	    echo '</select> ';
+
+	    if ( ! empty( $field['description'] ) ) {
+	        if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {
+	            echo '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( WC()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
+	        } else {
+	            echo '<span class="description">' . wp_kses_post( $field['description'] ) . '</span>';
+	        }
+	    }
+	    echo '</p>';
+	}
+
 	// Add the content for the additional data tab
 	static function data_tab_content() {
 		global $post;
@@ -176,9 +204,32 @@ class Andalu_Woo_Courses_Admin {
 			<div class="options_group">
 				<?php
 					woocommerce_wp_text_input( array(
+						'id'          => '_course_reference',
+						'label'       => __( 'Reference', 'andalu_woo_courses' ),
+						'placeholder' => _x( 'e.g. JJM 162', 'example reference', 'andalu_woo_courses' ),
+					) );
+
+					Andalu_Woo_Courses_Admin::woocommerce_wp_select_multiple([
+						'id'				=> '_course_delivery_mode',
+						'name'			=> '_course_delivery_mode[]',
+						'label'			=> __( 'Delivery Mode', 'andalu_woo_courses' ),
+						'options'		=> [
+							'Onsite' 				=> __( 'Onsite', 'andalu_woo_courses' ),
+							'Virtual' 			=> __( 'Virtual', 'andalu_woo_courses' ),
+							'Face-to-Face' 	=> __( 'Face-to-Face', 'andalu_woo_courses' ),
+						]
+					] );
+
+					woocommerce_wp_text_input( array(
 						'id'          => '_course_duration',
 						'label'       => __( 'Duration', 'andalu_woo_courses' ),
 						'placeholder' => _x( 'e.g. 4 days', 'example duration', 'andalu_woo_courses' ),
+					) );
+
+					woocommerce_wp_text_input( array(
+						'id'          => '_course_certification',
+						'label'       => __( 'Certification', 'andalu_woo_courses' ),
+						'placeholder' => _x( 'e.g. PRINCE2 Foundation Certification', 'example certification', 'andalu_woo_courses' ),
 					) );
 
 					woocommerce_wp_text_input( array(
