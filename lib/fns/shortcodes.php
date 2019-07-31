@@ -24,7 +24,6 @@ function course_details( $atts ){
 add_shortcode( 'course_details', __NAMESPACE__ . '\\course_details' );
 
 function elementor_public_classes( $atts ){
-  //error_log("\n" . str_repeat( '_', 40 ) . ' mwender_public_classes() ' . str_repeat( '-', 40 ) . "\n" );
   $args = shortcode_atts([
     'id' => null
   ],$atts);
@@ -40,7 +39,6 @@ function elementor_public_classes( $atts ){
       return;
 
     $has_classes = $product->has_classes();
-    //error_log('[ANDALU WOOCOURSES] $has_classes = ' . $has_classes );
 
     if( ! $has_classes ){
       $data['title'] = attribute_escape( get_the_title( $course_id ) );

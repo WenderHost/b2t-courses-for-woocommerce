@@ -39,7 +39,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   }
   .course-details .detail{
     font-size: 14px;
-    font-family: \'FuturaBold\', \'FuturaPT\', Futura, sans-serif;
+    font-family: \'futura-pt\', Futura, sans-serif;
     border-bottom: 1px solid #9c9e9f;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -48,8 +48,8 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     margin-bottom: 0;
   }
   .course-details a.button{
-    border-radius: 0;
     background: #009ee0;
+    border-radius: 0;
     padding: 10px 12px;
     font-size: 10px;
   }
