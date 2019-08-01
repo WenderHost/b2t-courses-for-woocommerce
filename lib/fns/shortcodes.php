@@ -41,7 +41,7 @@ function elementor_public_classes( $atts ){
     $has_classes = $product->has_classes();
 
     if( ! $has_classes ){
-      $data['title'] = attribute_escape( get_the_title( $course_id ) );
+      $data['title'] = esc_attr( get_the_title( $course_id ) );
       $html = \AndaluWooCourses\handlebars\render_template( 'no_classes_scheduled', $data );
       return $html;
     }
