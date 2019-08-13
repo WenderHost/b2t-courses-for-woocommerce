@@ -11,7 +11,7 @@
   }
   .class-calendar{
     font-family: FuturaPT, Futura, sans-serif;
-    font-size: 1rem;
+    font-size: 14px;
   }
   .class-calendar .course-title{
     font-size: 18px;
@@ -19,6 +19,13 @@
   }
   .class-calendar div[class^=col]{
     padding: 16px;
+  }
+  .class-calendar .location{
+    display: flex;
+    align-items: center;
+  }
+  .class-calendar .location img{
+    margin-right: 6px;
   }
   .class-calendar a.button{
     background-color: #009ee0;
@@ -59,17 +66,20 @@
   <div class="row header hide-sm">
     <div class="col-md-2">Dates</div>
     <div class="col-md-3">Course</div>
-    <div class="col-md">Location</div>
+    <div class="col-md-2">Location</div>
     <div class="col-md">Time</div>
     <div class="col-md">Duration</div>
     <div class="col-md">Price</div>
     <div class="col-md">&nbsp;</div>
   </div>
   {{#each classes}}
-  <div class="row {{css_classes}} hide-sm">
+  <div class="row {{css_classes}} hide-sm desktop-row">
     <div class="col-md-2"><span class="days">{{{days}}}</span>{{year}}</div>
     <div class="col-md-3"><a href="{{course_url}}">{{{course_title}}}</a></div>
-    <div class="col-md">{{location}}</div>
+    <div class="col-md-2 location">
+      <img src="{{../plugin_dir}}assets/images/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
+      {{location}}
+    </div>
     <div class="col-md">{{times}}</div>
     <div class="col-md">{{{duration}}}</div>
     <div class="col-md">{{{price}}}</div>
@@ -78,7 +88,10 @@
   <div class="{{css_classes}} hide-md mobile-row">
     <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
     <div class="">{{{days}}}, {{year}}</div>
-    <div class="">{{location}}</div>
+    <div class="location">
+      <img src="{{../plugin_dir}}assets/images/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
+      {{location}}
+    </div>
     <div class="">{{times}}</div>
     <div class="">{{{duration}}}</div>
     <div class="">{{{price}}}</div>

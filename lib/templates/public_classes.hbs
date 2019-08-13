@@ -3,6 +3,7 @@
 
   {{#each classes}}
     <div class="row">
+      <div class="icon"><img src="{{../plugin_dir}}assets/images/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" /></div>
       <div class="details"><span class="date">{{class_dates}}</span><br/>{{location.name}}</div>
       <div class="register-link"><a class="button" href="{{register_link}}">Register</a></div>
     </div>

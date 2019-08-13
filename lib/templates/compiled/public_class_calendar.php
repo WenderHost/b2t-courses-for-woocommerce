@@ -43,7 +43,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   }
   .class-calendar{
     font-family: FuturaPT, Futura, sans-serif;
-    font-size: 1rem;
+    font-size: 14px;
   }
   .class-calendar .course-title{
     font-size: 18px;
@@ -51,6 +51,13 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   }
   .class-calendar div[class^=col]{
     padding: 16px;
+  }
+  .class-calendar .location{
+    display: flex;
+    align-items: center;
+  }
+  .class-calendar .location img{
+    margin-right: 6px;
   }
   .class-calendar a.button{
     background-color: #009ee0;
@@ -91,16 +98,19 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   <div class="row header hide-sm">
     <div class="col-md-2">Dates</div>
     <div class="col-md-3">Course</div>
-    <div class="col-md">Location</div>
+    <div class="col-md-2">Location</div>
     <div class="col-md">Time</div>
     <div class="col-md">Duration</div>
     <div class="col-md">Price</div>
     <div class="col-md">&nbsp;</div>
   </div>
-'.LR::sec($cx, (($inary && isset($in['classes'])) ? $in['classes'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '  <div class="row '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').' hide-sm">
+'.LR::sec($cx, (($inary && isset($in['classes'])) ? $in['classes'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '  <div class="row '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').' hide-sm desktop-row">
     <div class="col-md-2"><span class="days">'.(($inary && isset($in['days'])) ? $in['days'] : null).'</span>'.htmlspecialchars((string)(($inary && isset($in['year'])) ? $in['year'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md-3"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.(($inary && isset($in['course_title'])) ? $in['course_title'] : null).'</a></div>
-    <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md-2 location">
+      <img src="'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['plugin_dir'])) ? $cx['scopes'][count($cx['scopes'])-1]['plugin_dir'] : null), ENT_QUOTES, 'UTF-8').'assets/images/class_'.((LR::ifvar($cx, (($inary && isset($in['virtual'])) ? $in['virtual'] : null), false)) ? 'virtual' : 'onsite').'.svg" />
+      '.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'
+    </div>
     <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
     <div class="col-md">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
@@ -109,7 +119,10 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   <div class="'.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').' hide-md mobile-row">
     <div class="course-title"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)(($inary && isset($in['course_title'])) ? $in['course_title'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
     <div class="">'.(($inary && isset($in['days'])) ? $in['days'] : null).', '.htmlspecialchars((string)(($inary && isset($in['year'])) ? $in['year'] : null), ENT_QUOTES, 'UTF-8').'</div>
-    <div class="">'.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="location">
+      <img src="'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['plugin_dir'])) ? $cx['scopes'][count($cx['scopes'])-1]['plugin_dir'] : null), ENT_QUOTES, 'UTF-8').'assets/images/class_'.((LR::ifvar($cx, (($inary && isset($in['virtual'])) ? $in['virtual'] : null), false)) ? 'virtual' : 'onsite').'.svg" />
+      '.htmlspecialchars((string)(($inary && isset($in['location'])) ? $in['location'] : null), ENT_QUOTES, 'UTF-8').'
+    </div>
     <div class="">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
     <div class="">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>

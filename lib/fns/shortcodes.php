@@ -59,6 +59,7 @@ function elementor_public_classes( $atts ){
     $data['course_length'] = sprintf( __('Course Length: %s', 'andalu_woo_courses'), $product->course_duration );
 
   $data['cost'] = $product->get_price_html();
+  $data['plugin_dir'] = plugin_dir_url( __FILE__ ) . '../../';
 
   $classes = [];
   if( $product->has_classes() && ! empty( $product->course_classes ) ){
@@ -91,6 +92,7 @@ function elementor_public_classes( $atts ){
           'description' => $term_location->description,
           'name' => $term_location->name
         ];
+        $class_data['virtual'] = ( 'Live Virtual' == $term_location->name )? true : false ;
       } else {
         $class_data['location'] = [
           'description' => '',
@@ -140,6 +142,9 @@ function public_class_calendar( $atts ){
     ]
   ];
 
+  $data = [];
+  $data['plugin_dir'] = plugin_dir_url( __FILE__ ) . '../../';
+
   $classes = get_posts( $query_args );
   if( is_array( $classes ) && 0 < count( $classes ) ){
     wp_enqueue_style( 'flexboxgrid' );
@@ -148,13 +153,13 @@ function public_class_calendar( $atts ){
       if( ! $class->post_parent )
         continue;
 
-      $data = [];
-      $data['course_title'] = get_the_title( $class->post_parent );
-      $data['course_url'] = get_the_permalink( $class->post_parent );
+      $class_data = [];
+      $class_data['course_title'] = get_the_title( $class->post_parent );
+      $class_data['course_url'] = get_the_permalink( $class->post_parent );
 
-      $data['css_classes'] = '';
+      $class_data['css_classes'] = '';
       if( $x % 2 )
-        $data['css_classes'].= ' alt';
+        $class_data['css_classes'].= ' alt';
       $x++;
 
       $start_date = get_post_meta( $class->ID, '_start_date', true );
@@ -175,20 +180,21 @@ function public_class_calendar( $atts ){
         $days = $start_date_obj->format( 'M j' ) . ' &ndash; ' . $end_date_obj->format( 'j' );
       }
 
-      $data['times'] = get_post_meta( $class->ID, '_time', true );
+      $class_data['times'] = get_post_meta( $class->ID, '_time', true );
 
-      $data['days'] = $days;
-      $data['year'] = $start_year;
-      $data['register_url'] = \AndaluWooCourses\utilities\get_register_link( $class->post_parent, $class->ID );
+      $class_data['days'] = $days;
+      $class_data['year'] = $start_year;
+      $class_data['register_url'] = \AndaluWooCourses\utilities\get_register_link( $class->post_parent, $class->ID );
 
       $parent_course_product = wc_get_product( $class->post_parent );
-      $data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
+      $class_data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
       $class_obj = wc_get_product( $class->ID );
-      $data['location'] = $class_obj->location_term->name;
+      $class_data['location'] = $class_obj->location_term->name;
+      $class_data['virtual'] = ( 'Live Virtual' == $class_obj->location_term->name )? true : false ;
 
-      $data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
+      $class_data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
 
-      $classes_data[] = $data;
+      $classes_data[] = $class_data;
     }
     $data['classes'] = $classes_data;
   }
