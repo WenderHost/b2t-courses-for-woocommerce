@@ -17,6 +17,7 @@ function course_details( $atts ){
   if( is_array( $data['delivery_mode'] ) )
     $data['delivery_mode'] = implode(', ', $data['delivery_mode'] );
   $data['certification'] = get_post_meta($product->get_id(), '_course_certification', true );
+  $data['certification_link'] = get_post_meta($product->get_id(), '_course_certification_link', true );
 
   $html = \AndaluWooCourses\handlebars\render_template('course_details',$data);
   return $html;
