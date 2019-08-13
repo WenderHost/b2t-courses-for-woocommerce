@@ -104,7 +104,7 @@ class Andalu_Woo_Courses_Single {
 	 */
 	public static function elementor_load_registration_template( $content, $widget ){
 		global $product;
-		if( 'woocommerce-product-content' == $widget->get_name() && get_query_var( 'course_register' ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ){
+		if( 'woocommerce-product-content' == $widget->get_name() && ! empty( get_query_var( 'course_register' ) ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ){
 			ob_start();
 			echo '<style type="text/css">#product-content .elementor-col-33, #product-content h1.product_title{display: none;} #product-content .elementor-col-66{width: 100%;}</style>';
 			require_once( trailingslashit( Andalu_Woo_Courses::$dir ) . 'templates/content-single-product-register.php' );
