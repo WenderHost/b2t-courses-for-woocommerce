@@ -240,11 +240,11 @@ class Andalu_Woo_Courses_Single {
 				'class'       => array( 'form-row-wide' ),
 				'validate'    => array( 'phone' ),
 			),
-			'optin' => array(
+			/*'optin' => array(
 				'label'       => __( 'I am interested in participating in the B2T Business Analyst Certification Program.', 'andalu_woo_courses' ),
 				'type'        => 'checkbox',
 				'class'       => array( 'form-row-wide' ),
-			),
+			),*/
 		);
 	}
 
