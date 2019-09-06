@@ -75,7 +75,6 @@ class Andalu_Woo_Courses_Single {
 	 **/
 	public static function registration_template( $template, $slug, $name ) {
 		global $product;
-		error_log('Running registration_template()...');
 
 		if ( 'content' == $slug && 'single-product' == $name && get_query_var( 'course_register' ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
 

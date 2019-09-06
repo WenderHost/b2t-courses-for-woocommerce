@@ -69,7 +69,7 @@ if (!function_exists('http_build_url')) {
 		} elseif ($flags & HTTP_URL_STRIP_AUTH) {
 			$flags |= HTTP_URL_STRIP_USER | HTTP_URL_STRIP_PASS;
 		}
-		// Schema and host are alwasy replaced
+		// Schema and host are always replaced
 		foreach (array('scheme', 'host') as $part) {
 			if (isset($parts[$part])) {
 				$url[$part] = $parts[$part];
