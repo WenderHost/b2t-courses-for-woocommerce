@@ -83,6 +83,8 @@ function elementor_public_classes( $atts ){
 
       $class_data['register_link'] = \AndaluWooCourses\utilities\get_register_link( $product->get_id(), $class_id );
 
+      $class_data['times'] = get_post_meta( $class_id, '_time', true );
+
       $class_data['css_classes'] = '';
       if( $class->confirmed )
         $class_data['css_classes'].= ' confirmed';

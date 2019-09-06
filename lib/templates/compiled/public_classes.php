@@ -35,7 +35,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
 
 '.LR::sec($cx, (($inary && isset($in['classes'])) ? $in['classes'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '    <div class="row">
       <div class="icon"><img src="'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['plugin_dir'])) ? $cx['scopes'][count($cx['scopes'])-1]['plugin_dir'] : null), ENT_QUOTES, 'UTF-8').'assets/images/class_'.((LR::ifvar($cx, (($inary && isset($in['virtual'])) ? $in['virtual'] : null), false)) ? 'virtual' : 'onsite').'.svg" /></div>
-      <div class="details"><span class="date">'.htmlspecialchars((string)(($inary && isset($in['class_dates'])) ? $in['class_dates'] : null), ENT_QUOTES, 'UTF-8').'</span><br/>'.htmlspecialchars((string)((isset($in['location']) && is_array($in['location']) && isset($in['location']['name'])) ? $in['location']['name'] : null), ENT_QUOTES, 'UTF-8').'</div>
+      <div class="details"><span class="date">'.htmlspecialchars((string)(($inary && isset($in['class_dates'])) ? $in['class_dates'] : null), ENT_QUOTES, 'UTF-8').'</span><br />'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'<br/>'.htmlspecialchars((string)((isset($in['location']) && is_array($in['location']) && isset($in['location']['name'])) ? $in['location']['name'] : null), ENT_QUOTES, 'UTF-8').'</div>
       <div class="register-link"><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_link'])) ? $in['register_link'] : null), ENT_QUOTES, 'UTF-8').'">Register</a></div>
     </div>
 ';}).'</div>

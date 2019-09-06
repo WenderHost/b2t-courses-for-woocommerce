@@ -26,7 +26,7 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 
 	<?php elseif ( $class_id ) : ?>
 
-	<p><?php echo get_the_title( $class_id ); ?><br />
+	<p><?php echo get_the_title( $class_id ); ?><br/><?php echo get_post_meta( $class_id, '_time', true ); ?><br />
 	<?php printf( '<strong>%s</strong>: %s', __( 'Metro Area', 'andalu_woo_courses' ), $class->get_location() ); ?><br />
 	<?php printf( '<strong>%d</strong> %s', $class->seats, _n( 'seat available', 'seats available', $class->seats, 'andalu_woo_courses' ) ); ?><br />
 	<?php printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $product->get_price_html(), __( 'student', 'andalu_woo_courses' ) ); ?></p>
