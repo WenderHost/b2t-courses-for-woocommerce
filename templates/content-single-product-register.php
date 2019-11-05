@@ -12,7 +12,7 @@ do_action( 'woocommerce_before_single_course_register' );
 
 ?>
 
-<div itemscope itemtype="Product" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php do_action( 'woocommerce_course_before_registration_form' ); ?>
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
