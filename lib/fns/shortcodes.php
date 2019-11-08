@@ -76,6 +76,8 @@ function elementor_public_classes( $atts ){
       if( $today >= $class_start_date )
         continue;
 
+      $class_data['ID'] = $class_id;
+
       $class_dates = date( $date_format, $class->start_timestamp );
       if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
       $class_dates = apply_filters( 'andalu_woo_courses_class_dates', $class_dates, $class->start_timestamp, $class->end_timestamp, $date_format );
@@ -91,8 +93,9 @@ function elementor_public_classes( $atts ){
       $term_location = get_term( $class->location, 'class_location' );
       if( $term_location ){
         $class_data['location'] = [
-          'description' => $term_location->description,
-          'name' => $term_location->name
+          'description' => apply_filters( 'the_content', $term_location->description ),
+          'name' => $term_location->name,
+          'id' => $term_location->term_id,
         ];
         $class_data['virtual'] = ( 'Live Virtual' == $term_location->name )? true : false ;
       } else {
@@ -110,6 +113,8 @@ function elementor_public_classes( $atts ){
   $data['classes'] = $classes;
 
   $html = \AndaluWooCourses\handlebars\render_template('public_classes',$data);
+  $location_descriptions_js = '<script type="text/javascript">' . file_get_contents(plugin_dir_path( __FILE__ ). '../js/location-descriptions.js' ) . '</script>';
+  $html.= $location_descriptions_js;
   return $html;
 }
 add_shortcode( 'elementor_public_classes', __NAMESPACE__ . '\\elementor_public_classes' );
@@ -158,6 +163,7 @@ function public_class_calendar( $atts ){
       $class_data = [];
       $class_data['course_title'] = get_the_title( $class->post_parent );
       $class_data['course_url'] = get_the_permalink( $class->post_parent );
+      $class_data['ID'] = $class->ID;
 
       $class_data['css_classes'] = '';
       if( $x % 2 )
@@ -191,7 +197,12 @@ function public_class_calendar( $atts ){
       $parent_course_product = wc_get_product( $class->post_parent );
       $class_data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
       $class_obj = wc_get_product( $class->ID );
-      $class_data['location'] = $class_obj->location_term->name;
+
+      $class_data['location'] = [
+        'name'        => $class_obj->location_term->name,
+        'id'          => $class_obj->location_term->term_id,
+        'description' => apply_filters( 'the_content', $class_obj->location_term->description ),
+      ];
       $class_data['virtual'] = ( 'Live Virtual' == $class_obj->location_term->name )? true : false ;
 
       $class_data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
@@ -201,8 +212,10 @@ function public_class_calendar( $atts ){
     $data['classes'] = $classes_data;
   }
   //$html = '<pre>$classes_data = ' . print_r($classes_data, true ) . '</pre>';
-  $html = \AndaluWooCourses\handlebars\render_template('public_class_calendar',$data);
 
+  $html = \AndaluWooCourses\handlebars\render_template('public_class_calendar',$data);
+  $location_descriptions_js = '<script type="text/javascript">' . file_get_contents(plugin_dir_path( __FILE__ ). '../js/location-descriptions.js' ) . '</script>';
+  $html.= $location_descriptions_js;
   return $html;
 }
 add_shortcode('public_class_calendar', __NAMESPACE__ . '\\public_class_calendar' );
