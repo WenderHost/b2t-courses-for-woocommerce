@@ -49,9 +49,10 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   }
   .course-details a.button{
     background: #009ee0;
+    font-family: \'futura-pt\', Futura, sans-serif;
     border-radius: 0;
-    padding: 10px 12px;
-    font-size: 10px;
+    padding: 12px 24px;
+    font-size: 15px;
   }
 </style>
 <div class="widget course-details">
