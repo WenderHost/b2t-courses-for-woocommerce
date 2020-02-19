@@ -120,6 +120,54 @@ function elementor_public_classes( $atts ){
 add_shortcode( 'elementor_public_classes', __NAMESPACE__ . '\\elementor_public_classes' );
 
 /**
+ * Lists courses from the WooCommerce Product catalog
+ *
+ * @param      <type>  $atts   The atts
+ */
+function courselist( $atts ){
+  $args = shortcode_atts([
+    'tag'       => null,
+    'category'  => null,
+    'relation'  => 'AND',
+  ], $atts );
+
+  $query_args = [
+    'numberposts' => -1,
+    'orderby'     => 'name',
+    'order'       => 'ASC',
+    'status'      => 'publish',
+    'post_type'   => 'product',
+    'tax_query'   => [],
+  ];
+
+  if( $args['tag'] ){
+    $query_args['tax_query'][] = [
+      'taxonomy'  => 'product_tag',
+      'field'      => 'name',
+      'terms'     => $args['tag'],
+    ];
+  }
+  if( $args['category'] ){
+    $query_args['tax_query'][] = [
+      'taxonomy'  => 'product_cat',
+      'field'      => 'name',
+      'terms'     => $args['category'],
+    ];
+  }
+  if( $args['tag'] && $args['category'] )
+    $query_args['tax_query']['relation'] = $args['relation'];
+
+  $products = get_posts( $query_args );
+  $items = [];
+  foreach( $products as $product ){
+    $items[] = '<a href="' . get_permalink( $product->ID ) . '">' . $product->post_title . '</a>';
+  }
+
+  return '<ul><li>' . implode( '</li><li>', $items ) . '</li></ul>';
+}
+add_shortcode( 'courselist', __NAMESPACE__ . '\\courselist' );
+
+/**
  * Displays a calendar of Public Classes
  *
  * @param      array  $atts   The atts
