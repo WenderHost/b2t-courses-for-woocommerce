@@ -244,6 +244,9 @@ function public_class_calendar( $atts ){
 
       $parent_course_product = wc_get_product( $class->post_parent );
       $class_data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
+      $class_data['regular_price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_regular_price();
+      if( $class_data['price'] != $class_data['regular_price'] )
+        $class_data['price'] =  '<s>' . $class_data['regular_price'] . '</s> ' . $class_data['price'];
       $class_obj = wc_get_product( $class->ID );
 
       $class_data['location'] = [
