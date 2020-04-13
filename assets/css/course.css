@@ -53,6 +53,7 @@
 .course_registration_form_fields .pull-right{
 	display: block;
 	text-align: right;
+	float: none;
 }
 
 @media only screen and (max-width : 800px) {
