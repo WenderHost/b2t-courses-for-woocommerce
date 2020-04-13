@@ -50,6 +50,10 @@
 .course_registration .product-info{
 	margin:1em 0;
 }
+.course_registration_form_fields .pull-right{
+	display: block;
+	text-align: right;
+}
 
 @media only screen and (max-width : 800px) {
 	.course_registration_form_fields, .course_registration .product-info{width:auto;float:none}
