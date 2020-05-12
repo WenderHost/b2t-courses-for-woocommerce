@@ -32,13 +32,13 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     $inary=is_array($in);
     return '<style type="text/css">
   .course-details h4{
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     margin: 0;
 
   }
   .course-details .detail{
-    font-size: 14px;
+    font-size: 18px;
     font-family: \'futura-pt\', Futura, sans-serif;
     border-bottom: 1px solid #9c9e9f;
     padding-bottom: 10px;
