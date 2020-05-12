@@ -90,6 +90,8 @@ class Andalu_Woo_Courses_Admin {
 		}
 		update_post_meta( $post_id, '_course_endorsements', $endorsements );
 
+		update_post_meta( $post_id, '_private_course', $_REQUEST['_private_course'] );
+
 		self::save_course_outline_data( $post_id, $_REQUEST );
 		self::save_course_classes_data( $post_id, $_REQUEST );
 
@@ -262,6 +264,13 @@ class Andalu_Woo_Courses_Admin {
 							'value' => empty( $endorsements[ $endorsement ] ) ? 'no' : 'yes',
 						) );
 					}
+
+					$_private_course = get_post_meta( $post_id, '_private_course', true );
+					woocommerce_wp_checkbox( array(
+						'id'    => '_private_course',
+						'label' => __( 'Private Course', 'andalu_woo_courses' ),
+						'value' => empty( $_private_course ) ? 'no' : 'yes',
+					) );
 
 				?>
 			</div>
