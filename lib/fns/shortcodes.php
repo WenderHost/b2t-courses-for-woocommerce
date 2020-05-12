@@ -193,7 +193,7 @@ function public_class_calendar( $atts ){
         'type' => 'NUMBER',
         'compare' => '>=',
         'value' => \date('Ymd'),
-      ]
+      ],
     ]
   ];
 
@@ -206,6 +206,10 @@ function public_class_calendar( $atts ){
     $x = 0;
     foreach( $classes as $class ){
       if( ! $class->post_parent )
+        continue;
+
+      $private_course = get_post_meta( $class->post_parent, '_private_course', true );
+      if( 'yes' == $private_course )
         continue;
 
       $class_data = [];
