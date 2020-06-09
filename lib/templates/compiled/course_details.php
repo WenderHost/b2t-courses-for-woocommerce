@@ -28,7 +28,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
         'partialid' => 0,
         'runtime' => '\LightnCandy\Runtime',
     );
-    
+
     $inary=is_array($in);
     return '<style type="text/css">
   .course-details h4{
@@ -73,7 +73,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <h4>Certification</h4>
     '.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), ENT_QUOTES, 'UTF-8').'">' : '').''.htmlspecialchars((string)(($inary && isset($in['certification'])) ? $in['certification'] : null), ENT_QUOTES, 'UTF-8').''.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '</a>' : '').'
   </div>
-' : '').'  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%20settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">Request Info</a>
+' : '').'  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">Request Info</a>
 </div>';
 };
 ?>
