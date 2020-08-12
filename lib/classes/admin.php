@@ -86,11 +86,17 @@ class Andalu_Woo_Courses_Admin {
 
 		$endorsements = array();
 		foreach ( Andalu_Woo_Courses::$endorsements as $endorsement ) {
-			$endorsements[ $endorsement ] = empty( $_REQUEST['_course_endorsement_' . $endorsement] ? false : true );
+			//$endorsements[ $endorsement ] = empty( $_REQUEST['_course_endorsement_' . $endorsement] ? false : true );
+			if( array_key_exists( '_course_endorsement_' . $endorsement, $_REQUEST ) ){
+				$endorsements[ $endorsement ] = empty( $_REQUEST['_course_endorsement_' . $endorsement] ? false : true );
+			} else {
+				$endorsements[ $endorsement ] = false;
+			}
 		}
 		update_post_meta( $post_id, '_course_endorsements', $endorsements );
 
-		update_post_meta( $post_id, '_private_course', $_REQUEST['_private_course'] );
+		if( array_key_exists( '_private_course', $_REQUEST ) )
+			update_post_meta( $post_id, '_private_course', $_REQUEST['_private_course'] );
 
 		self::save_course_outline_data( $post_id, $_REQUEST );
 		self::save_course_classes_data( $post_id, $_REQUEST );
