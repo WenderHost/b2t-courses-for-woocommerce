@@ -4,20 +4,20 @@ namespace AndaluWooCourses\taxonomies;
 
 function register_taxonomies(){
   $labels = array(
-    'name'                  => _x( 'Delivery Modes', 'Taxonomy delivery modes', 'text-domain' ),
-    'singular_name'         => _x( 'Delivery Mode', 'Taxonomy delivery mode', 'text-domain' ),
-    'search_items'          => __( 'Search Delivery Modes', 'text-domain' ),
-    'popular_items'         => __( 'Popular Delivery Modes', 'text-domain' ),
-    'all_items'             => __( 'All Delivery Modes', 'text-domain' ),
-    'parent_item'           => __( 'Parent Delivery Mode', 'text-domain' ),
-    'parent_item_colon'     => __( 'Parent Delivery Mode', 'text-domain' ),
-    'edit_item'             => __( 'Edit Delivery Mode', 'text-domain' ),
-    'update_item'           => __( 'Update Delivery Mode', 'text-domain' ),
-    'add_new_item'          => __( 'Add New Delivery Mode', 'text-domain' ),
-    'new_item_name'         => __( 'New Delivery Mode Name', 'text-domain' ),
-    'add_or_remove_items'   => __( 'Add or remove Delivery Modes', 'text-domain' ),
-    'choose_from_most_used' => __( 'Choose from most used Delivery Modes', 'text-domain' ),
-    'menu_name'             => __( 'Delivery Mode', 'text-domain' ),
+    'name'                  => _x( 'Roles', 'Taxonomy Roles', 'text-domain' ),
+    'singular_name'         => _x( 'Role', 'Taxonomy Role', 'text-domain' ),
+    'search_items'          => __( 'Search Roles', 'text-domain' ),
+    'popular_items'         => __( 'Popular Roles', 'text-domain' ),
+    'all_items'             => __( 'All Roles', 'text-domain' ),
+    'parent_item'           => __( 'Parent Role', 'text-domain' ),
+    'parent_item_colon'     => __( 'Parent Role', 'text-domain' ),
+    'edit_item'             => __( 'Edit Role', 'text-domain' ),
+    'update_item'           => __( 'Update Role', 'text-domain' ),
+    'add_new_item'          => __( 'Add New Role', 'text-domain' ),
+    'new_item_name'         => __( 'New Role Name', 'text-domain' ),
+    'add_or_remove_items'   => __( 'Add or remove Roles', 'text-domain' ),
+    'choose_from_most_used' => __( 'Choose from most used Roles', 'text-domain' ),
+    'menu_name'             => __( 'Roles', 'text-domain' ),
   );
 
   $args = array(
@@ -25,7 +25,7 @@ function register_taxonomies(){
     'public'            => true,
     'show_in_nav_menus' => true,
     'show_admin_column' => false,
-    'hierarchical'      => false,
+    'hierarchical'      => true,
     'show_tagcloud'     => true,
     'show_ui'           => true,
     'query_var'         => true,
@@ -34,7 +34,7 @@ function register_taxonomies(){
     'capabilities'      => array(),
   );
 
-  register_taxonomy( 'delivery_mode', array( 'product' ), $args );
+  register_taxonomy( 'role', array( 'product' ), $args );
 
   $labels = array(
     'name'                  => _x( 'Sub Categories', 'Taxonomy Sub Categories', 'text-domain' ),
