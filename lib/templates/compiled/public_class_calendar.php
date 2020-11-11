@@ -65,7 +65,8 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 1px;
-    padding: 8px 12px;
+    padding: 8px 18px;
+    border-radius: 18px;
   }
   .class-calendar a.button:hover{
     text-decoration: none;
