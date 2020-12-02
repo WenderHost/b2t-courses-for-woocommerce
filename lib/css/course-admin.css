@@ -14,3 +14,20 @@
 .wc-metaboxes-wrapper#course_classes_data .wc-metabox table td input[type=checkbox]{float:none; display:inline-block; width:16px; min-width:initial; margin:-1px 6px 0 0}
 
 .woocommerce_page_class_rosters .bulkactions{padding:0}
+
+.wc-metaboxes-wrapper .wc-metabox table td.class_lang input{
+  width: auto;
+  min-width: 1rem;
+  float: none;
+}
+.wc-metaboxes-wrapper .wc-metabox table td .flex-row{
+  display: flex;
+  align-items: center;
+}
+.wc-metaboxes-wrapper .wc-metabox table td .flex-row label,
+.wc-metaboxes-wrapper .wc-metabox table td .flex-row input{
+  margin-right: 4px;
+}
+.wc-metaboxes-wrapper .wc-metabox table td .flex-row label:last-child{
+  margin-right: 0;
+}
