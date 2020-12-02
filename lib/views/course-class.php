@@ -29,12 +29,20 @@ foreach( $atts as $att ){
 	}
 }
 
+$startDateObj = new DateTime( $start_date );
+if( ! empty( $end_date ) )
+	$endDateObj = new DateTime( $end_date );
+$startDateFormat = ( empty( $end_date ) || $startDateObj->format('Y') != $endDateObj->format('Y') )? 'D, M j, Y' : 'D, M j';
+$classDateStr = $startDateObj->format( $startDateFormat );
+if( ! empty( $end_date ) )
+	$classDateStr.= ' &ndash; ' . $endDateObj->format('D, M j, Y');
+
 ?>
 <div class="course_class wc-metabox closed" rel="<?php echo $class->position; ?>">
 	<h3>
 		<a href="#" class="remove_row delete"><?php _e( 'Remove', 'andalu_woo_courses' ); ?></a>
 		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'andalu_woo_courses' ); ?>"></div>
-		<strong class="class_date"><?php echo esc_html( $start_date . ( empty( $end_date ) ? '' : ' &ndash; ' . $end_date ) ); ?></strong>
+		<strong class="class_date"><?= $classDateStr ?></strong>
 	</h3>
 	<div class="course_class_data wc-metabox-content">
 		<table cellpadding="0" cellspacing="0">
