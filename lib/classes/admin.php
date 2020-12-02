@@ -194,7 +194,7 @@ class Andalu_Woo_Courses_Admin {
 
 	    if ( ! empty( $field['description'] ) ) {
 	        if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {
-	            echo '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( WC()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
+	            echo '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( WC()->plugin_url() ) . '/lib/img/help.png" height="16" width="16" />';
 	        } else {
 	            echo '<span class="description">' . wp_kses_post( $field['description'] ) . '</span>';
 	        }
@@ -718,10 +718,10 @@ class Andalu_Woo_Courses_Admin {
 				);
 
 			}
-			wp_enqueue_script( 'andalu_woo_courses_admin', Andalu_Woo_Courses::$url . '/assets/js/course-admin.js', $dependencies, filemtime( plugin_dir_path( __FILE__ ) . '../../assets/js/course-admin.js' ) );
+			wp_enqueue_script( 'andalu_woo_courses_admin', Andalu_Woo_Courses::$url . '/lib/js/course-admin.js', $dependencies, filemtime( plugin_dir_path( __FILE__ ) . '../../lib/js/course-admin.js' ) );
 			wp_localize_script( 'andalu_woo_courses_admin', 'Andalu_Woo_Courses', $script_params );
 
-			wp_enqueue_style( 'andalu_woo_courses_admin', Andalu_Woo_Courses::$url . '/assets/css/course-admin.css', array(), '1.0' );
+			wp_enqueue_style( 'andalu_woo_courses_admin', Andalu_Woo_Courses::$url . '/lib/css/course-admin.css', array(), '1.0' );
 		} // if ( $is_woocommerce_screen )
 
 	}

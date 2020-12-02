@@ -78,7 +78,7 @@
     <div class="col-md-2"><span class="days">{{{days}}}</span>{{year}}</div>
     <div class="col-md-3"><a href="{{course_url}}">{{{course_title}}}</a></div>
     <div class="col-md-2 location">
-      <img src="{{../plugin_dir}}assets/images/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
+      <img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
       <a class="location-name"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
       <div class="location-description" id="location-{{ID}}-{{location.id}}">
         {{{location.description}}}
@@ -93,7 +93,7 @@
     <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
     <div class="">{{{days}}}, {{year}}</div>
     <div class="location">
-      <img src="{{../plugin_dir}}assets/images/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
+      <img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
       <a class="location-name"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
       <div class="location-description" id="location-{{ID}}-{{location.id}}">
         {{{location.description}}}

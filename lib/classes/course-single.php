@@ -347,7 +347,7 @@ class Andalu_Woo_Courses_Single {
 				<td colspan="2">Endorsed by<br />
 				<?php foreach( $product->course_endorsements as $label => $value ) : ?>
 					<?php if ( ! $value ) continue; ?>
-					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/assets/images/<?php echo strtolower( $label ) ?>-endorsement-logo.png" style="" />
+					<img src="<?php echo Andalu_Woo_Courses::$url; ?>/lib/img/<?php echo strtolower( $label ) ?>-endorsement-logo.png" style="" />
 				<?php endforeach; ?>
 				</td>
 			</tr>
@@ -562,10 +562,10 @@ class Andalu_Woo_Courses_Single {
 
 		$product = wc_get_product( $post->ID );
 		if ( ! empty( $product ) && $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
-			wp_enqueue_style( 'andalu_woo_courses', Andalu_Woo_Courses::$url . '/assets/css/course.css', array(), '1.0' );
-			wp_register_script( 'andalu_woo_courses_registration', Andalu_Woo_Courses::$url . '/assets/js/course-registration.js', array( 'wc-country-select', 'wc-address-i18n' ), '1.0' );
+			wp_enqueue_style( 'andalu_woo_courses', Andalu_Woo_Courses::$url . '/lib/css/course.css', array(), '1.0' );
+			wp_register_script( 'andalu_woo_courses_registration', Andalu_Woo_Courses::$url . '/lib/js/course-registration.js', array( 'wc-country-select', 'wc-address-i18n' ), '1.0' );
 		}
-		wp_register_style( 'flexboxgrid', Andalu_Woo_Courses::$url . '/assets/css/flexboxgrid.min.css' );
+		wp_register_style( 'flexboxgrid', Andalu_Woo_Courses::$url . '/lib/css/flexboxgrid.min.css' );
 
 	}
 
