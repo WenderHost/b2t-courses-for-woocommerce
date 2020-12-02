@@ -8,21 +8,28 @@ $atts = [
 	'end_date',
 	'start_date',
 	'location',
-	'confirmed'
+	'confirmed',
+	'lang',
 ];
 
 foreach( $atts as $att ){
 	if( isset( $class->$att ) ){
 		switch( $att ){
+			case 'lang':
+				$lang = get_post_meta( $class->get_id(), '_lang', true );
+				break;
+
 			case 'location':
 				$class_location = $class->location;
-			break;
+				break;
+
 			case 'id':
 				$$att = $class->get_id();
-			break;
+				break;
+
 			default:
 				$$att = $class->$att;
-			break;
+				break;
 		}
 	} else {
 		$$att = '';
@@ -81,8 +88,19 @@ if( ! empty( $end_date ) )
 				</tr>
 				<tr>
 					<td class="class_confirmed">
-						<input type="checkbox" class="class_confirmed" name="classes[<?php echo $i; ?>][confirmed]" <?php checked( $confirmed ); ?> />
+						<input type="checkbox" class="class_confirmed" name="classes[<?php echo $i; ?>][confirmed]" value="yes" <?php checked( $confirmed ); ?> />
 						<span><?php _e( 'Has this class been confirmed?', 'andalu_woo_courses' ); ?></span>
+					</td>
+				</tr>
+				<tr>
+					<td class="class_lang">
+						<label for=""><?php _e( 'Class language', 'andalu_woo_courses' ); ?>:</label>
+						<div class="flex-row">
+							<input type="radio" class="class_lang" name="classes[<?php echo $i; ?>][lang]" id="lang_en" value="en" <?php checked( $lang, 'en' ); ?> />
+							<label for="lang_en"><?php _e( 'English', 'andalu_woo_courses' ); ?></label>
+							<input type="radio" class="class_lang" name="classes[<?php echo $i; ?>][lang]" id="lang_es" value="es" <?php checked( $lang, 'es' ); ?> />
+							<label for="lang_es"><?php _e( 'Spanish', 'andalu_woo_courses' ); ?></label>
+						</div>
 					</td>
 				</tr>
 			</tbody>

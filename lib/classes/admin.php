@@ -310,8 +310,8 @@ class Andalu_Woo_Courses_Admin {
 							if ( is_object( $guide ) ) {
 								$guide_title = wp_kses_post( html_entity_decode( $guide->get_formatted_name(), ENT_QUOTES, get_bloginfo( 'charset' ) ) );
 							}
-
-							echo esc_attr( $guide_title );
+							if( isset( $guide_title ) )
+								echo esc_attr( $guide_title );
 						}
 					?>" value="<?php echo $guide_id ? $guide_id : ''; ?>" />
 				</p>
@@ -326,8 +326,8 @@ class Andalu_Woo_Courses_Admin {
 							if ( is_object( $exam ) ) {
 								$exam_title = wp_kses_post( html_entity_decode( $exam->get_formatted_name(), ENT_QUOTES, get_bloginfo( 'charset' ) ) );
 							}
-
-							echo esc_attr( $exam_title );
+							if( isset( $exam_title ) )
+								echo esc_attr( $exam_title );
 						}
 					?>" value="<?php echo $exam_id ? $exam_id : ''; ?>" />
 				</p>
@@ -543,13 +543,15 @@ class Andalu_Woo_Courses_Admin {
 			$date_format = get_option( 'date_format' );
 
 			foreach( $data['classes'] as $class ) {
-				$class['id']         = intval( $class['id'] );
-				$class['position']   = intval( $class['position'] );
-				$class['start_date'] = empty( $class['start_date'] ) ? '' : strtotime( $class['start_date'] );
-				$class['end_date']   = empty( $class['end_date'] ) ? '' : strtotime( $class['end_date'] );
-				$class['time']       = stripslashes( $class['time'] );
-				$class['seats']      = stripslashes( $class['seats'] );
-				$class['location']   = intval( $class['location'] );
+				$class['id']         	= intval( $class['id'] );
+				$class['position']   	= intval( $class['position'] );
+				$class['start_date']	= empty( $class['start_date'] ) ? '' : strtotime( $class['start_date'] );
+				$class['end_date']   	= empty( $class['end_date'] ) ? '' : strtotime( $class['end_date'] );
+				$class['time']       	= stripslashes( $class['time'] );
+				$class['seats']      	= stripslashes( $class['seats'] );
+				$class['location']   	= intval( $class['location'] );
+				$class['confirmed']		= ( empty( $class['confirmed'] ) ) ? 'no' : 'yes' ;
+				$class['lang']				= ( empty( $class['lang'] ) || ! in_array( $class['lang'], ['en','es'] ) )? 'en' : $class['lang'];
 
 				if ( ! empty( $class['start_date'] ) ) {
 
@@ -612,7 +614,8 @@ class Andalu_Woo_Courses_Admin {
 			update_post_meta( $class_id, '_seats', $class['seats'] );
 			update_post_meta( $class_id, '_availability', $class['seats'] > 0 ? 'available' : 'full' );
 
-			update_post_meta( $class_id, '_confirmed', $class['confirmed'] ? 'yes' : 'no' );
+			update_post_meta( $class_id, '_confirmed', $class['confirmed'] );
+			update_post_meta( $class_id, '_lang', $class['lang'] );
 
 			// Update terms
 			wp_set_object_terms( $class_id, intval( $class['location'] ), Andalu_Woo_Courses_Class::$location_taxonomy );
