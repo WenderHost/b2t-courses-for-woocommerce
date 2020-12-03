@@ -137,13 +137,15 @@ class Andalu_Woo_Courses_Admin {
 	// Add additional tabs
 	static function data_tabs( $tabs ) {
 
-		foreach( array( 'inventory', 'attribute', 'linked_product' ) as $tab ) {
-			if ( isset( $tabs[ $tab ] ) ) { $tabs[ $tab ]['class'][] = 'hide_if_course'; }
+		foreach( ['inventory', 'attribute', 'linked_product'] as $tab ) {
+			if ( isset( $tabs[ $tab ] ) )
+				$tabs[ $tab ]['class'][] = 'hide_if_course';
 		}
 
 		// Extract first tabs
-		$first_tabs = array();
+		$first_tabs = [];
 		$first_tabs['general'] = $tabs['general'];
+		$first_tabs['general']['class'][] = 'show_if_course';
 		unset( $tabs['general'] );
 
 		// Add new tabs
