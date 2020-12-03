@@ -10,13 +10,15 @@ $atts = [
 	'location',
 	'confirmed',
 	'lang',
+	'cal',
 ];
 
 foreach( $atts as $att ){
 	if( isset( $class->$att ) ){
 		switch( $att ){
+			case 'cal':
 			case 'lang':
-				$lang = get_post_meta( $class->get_id(), '_lang', true );
+				$$att = get_post_meta( $class->get_id(), '_' . $att, true );
 				break;
 
 			case 'location':
@@ -96,13 +98,25 @@ if( ! empty( $end_date ) )
 					<td class="class_lang">
 						<label for=""><?php _e( 'Class language', 'andalu_woo_courses' ); ?>:</label>
 						<div class="flex-row">
-							<input type="radio" class="class_lang" name="classes[<?php echo $i; ?>][lang]" id="lang_en" value="en" <?php checked( $lang, 'en' ); ?> />
-							<label for="lang_en"><?php _e( 'English', 'andalu_woo_courses' ); ?></label>
-							<input type="radio" class="class_lang" name="classes[<?php echo $i; ?>][lang]" id="lang_es" value="es" <?php checked( $lang, 'es' ); ?> />
-							<label for="lang_es"><?php _e( 'Spanish', 'andalu_woo_courses' ); ?></label>
+							<input type="radio" class="class_lang" name="classes[<?php echo $i; ?>][lang]" id="lang_en_<?= $i ?>" value="en" <?php checked( $lang, 'en' ); ?> />
+							<label for="lang_en_<?= $i ?>"><?php _e( 'English', 'andalu_woo_courses' ); ?></label>
+							<input type="radio" class="class_lang" name="classes[<?php echo $i; ?>][lang]" id="lang_es_<?= $i ?>" value="es" <?php checked( $lang, 'es' ); ?> />
+							<label for="lang_es_<?= $i ?>"><?php _e( 'Spanish', 'andalu_woo_courses' ); ?></label>
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<td class="class_lang">
+						<label for=""><?php _e( 'Calendar Display', 'andalu_woo_courses' ); ?>:</label>
+						<div class="flex-row">
+							<input type="checkbox" class="class_cal" name="classes[<?= $i; ?>][cal][]" id="cal_en_<?= $i ?>" value="en" <?php if( in_array( 'en', $cal ) ){ echo ' checked="checked"';} ?> />
+							<label for="cal_en_<?= $i ?>"><?php _e( 'US', 'andalu_woo_courses' ); ?></label>
+							<input type="checkbox" class="class_cal" name="classes[<?= $i; ?>][cal][]" id="cal_es_<?= $i ?>" value="es" <?php if( in_array( 'es', $cal ) ){ echo ' checked="checked"';} ?> />
+							<label for="cal_es_<?= $i ?>"><?php _e( 'Spain', 'andalu_woo_courses' ); ?></label>
+						</div>
+					</td>
+				</tr>
+				<?php /**/ ?>
 			</tbody>
 		</table>
 	</div>
