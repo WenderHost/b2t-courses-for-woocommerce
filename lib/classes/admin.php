@@ -554,6 +554,7 @@ class Andalu_Woo_Courses_Admin {
 				$class['location']   	= intval( $class['location'] );
 				$class['confirmed']		= ( empty( $class['confirmed'] ) ) ? 'no' : 'yes' ;
 				$class['lang']				= ( empty( $class['lang'] ) || ! in_array( $class['lang'], ['en','es'] ) )? 'en' : $class['lang'];
+				$class['cal']					= ( empty( $class['cal'] ) || ! is_array( $class['cal'] ) )? [] : $class['cal'] ;
 
 				if ( ! empty( $class['start_date'] ) ) {
 
@@ -618,6 +619,7 @@ class Andalu_Woo_Courses_Admin {
 
 			update_post_meta( $class_id, '_confirmed', $class['confirmed'] );
 			update_post_meta( $class_id, '_lang', $class['lang'] );
+			update_post_meta( $class_id, '_cal', $class['cal'] );
 
 			// Update terms
 			wp_set_object_terms( $class_id, intval( $class['location'] ), Andalu_Woo_Courses_Class::$location_taxonomy );
