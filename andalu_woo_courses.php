@@ -1,15 +1,11 @@
 <?php
 /*
-
 Plugin Name: ANDA.lu Woo Courses
 Plugin URI: http://anda.lu/design
-
 Description: Add a custom WC Product type called Courses
-
-Version: 2.0.2
+Version: 2.0.3
 Author: ANDA.lu
 Author URI: http://anda.lu/design
-
 */
 define( 'ANDALU_DIR', dirname( __FILE__ ) );
 

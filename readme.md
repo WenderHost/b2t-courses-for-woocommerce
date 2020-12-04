@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.5.1  
-**Stable tag:** 2.1.0  
+**Stable tag:** 2.0.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -11,13 +11,14 @@ WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 ## Changelog ##
 
-### 2.1.0 ###
+### 2.0.3 ###
 
 * Moving `/assets/` to `/lib/`
 * Adjusting date display format for classes.
 * Adding class lanuage setting.
 * Showing "General" tab for Course type products.
 * Adding "Calendar Display" setting for classes.
+* Initial translation setup.
 
 ### 2.0.2 ###
 
