@@ -1,6 +1,6 @@
 *.sublime-*
 mailtrap.php
 .vscode
-vendor/
 .sass-cache
 node_modules/
+vendor/
