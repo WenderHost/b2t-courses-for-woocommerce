@@ -3,13 +3,16 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.5.1  
-**Stable tag:** 2.0.4  
+**Stable tag:** 2.0.5  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
 WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 ## Changelog ##
+
+### 2.0.5 ###
+* Updating Class Calendar CSS so rows will display properly when TranslatePress is activated.
 
 ### 2.0.4 ###
 * BUGFIX: Checking for array to prevent error message in class edit metabox.

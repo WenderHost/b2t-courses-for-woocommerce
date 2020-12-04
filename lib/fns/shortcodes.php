@@ -219,7 +219,7 @@ function public_class_calendar( $atts ){
       $class_data['course_url'] = get_the_permalink( $class->post_parent );
       $class_data['ID'] = $class->ID;
 
-      $class_data['css_classes'] = '';
+      $class_data['css_classes'] = 'cal';
       if( $x % 2 )
         $class_data['css_classes'].= ' alt';
       $x++;
