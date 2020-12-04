@@ -109,9 +109,9 @@ if( ! empty( $end_date ) )
 					<td class="class_lang">
 						<label for=""><?php _e( 'Calendar Display', 'andalu_woo_courses' ); ?>:</label>
 						<div class="flex-row">
-							<input type="checkbox" class="class_cal" name="classes[<?= $i; ?>][cal][]" id="cal_en_<?= $i ?>" value="en" <?php if( in_array( 'en', $cal ) ){ echo ' checked="checked"';} ?> />
+							<input type="checkbox" class="class_cal" name="classes[<?= $i; ?>][cal][]" id="cal_en_<?= $i ?>" value="en" <?php if( is_array( $cal ) && in_array( 'en', $cal ) ){ echo ' checked="checked"';} ?> />
 							<label for="cal_en_<?= $i ?>"><?php _e( 'US', 'andalu_woo_courses' ); ?></label>
-							<input type="checkbox" class="class_cal" name="classes[<?= $i; ?>][cal][]" id="cal_es_<?= $i ?>" value="es" <?php if( in_array( 'es', $cal ) ){ echo ' checked="checked"';} ?> />
+							<input type="checkbox" class="class_cal" name="classes[<?= $i; ?>][cal][]" id="cal_es_<?= $i ?>" value="es" <?php if( is_array( $cal ) && in_array( 'es', $cal ) ){ echo ' checked="checked"';} ?> />
 							<label for="cal_es_<?= $i ?>"><?php _e( 'Spain', 'andalu_woo_courses' ); ?></label>
 						</div>
 					</td>
