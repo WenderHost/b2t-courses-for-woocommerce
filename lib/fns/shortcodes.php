@@ -29,6 +29,8 @@ function elementor_public_classes( $atts ){
     'id' => null
   ],$atts);
 
+  wp_enqueue_script( 'class-calendar' );
+
   if( is_null( $args['id'] ) ){
     //if( ! $product )
       global $product;
@@ -112,10 +114,7 @@ function elementor_public_classes( $atts ){
   }
   $data['classes'] = $classes;
 
-  $html = \AndaluWooCourses\handlebars\render_template('public_classes',$data);
-  $location_descriptions_js = '<script type="text/javascript">' . file_get_contents(plugin_dir_path( __FILE__ ). '../js/location-descriptions.js' ) . '</script>';
-  $html.= $location_descriptions_js;
-  return $html;
+  return \AndaluWooCourses\handlebars\render_template('public_classes',$data);
 }
 add_shortcode( 'elementor_public_classes', __NAMESPACE__ . '\\elementor_public_classes' );
 
@@ -293,9 +292,7 @@ function public_class_calendar( $atts ){
     'register'  => __( 'Register', 'andalu_woo_courses' ),
   ];
 
-  $html = \AndaluWooCourses\handlebars\render_template('public_class_calendar',$data);
-  $location_descriptions_js = '<script type="text/javascript">' . file_get_contents(plugin_dir_path( __FILE__ ). '../js/location-descriptions.js' ) . '</script>';
-  $html.= $location_descriptions_js;
-  return $html;
+  wp_enqueue_script( 'class-calendar' );
+  return \AndaluWooCourses\handlebars\render_template('public_class_calendar',$data);
 }
 add_shortcode('public_class_calendar', __NAMESPACE__ . '\\public_class_calendar' );

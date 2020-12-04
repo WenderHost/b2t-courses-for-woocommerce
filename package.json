@@ -12,7 +12,7 @@
   },
   "scripts": {
     "compile": "sass lib/scss/class-calendar.scss lib/css/class-calendar.css",
-    "development:browsersync": "browser-sync start --proxy 'https://netmind.local' --files 'lib/css/*.css' 'lib/js/src/*.js' 'lib/fns/*.php' 'lib/templates/*.hbs'",
+    "development:browsersync": "browser-sync start --proxy 'https://netmind.local' --files 'lib/css/*.css' 'lib/js/*.js' 'lib/fns/*.php' 'lib/templates/*.hbs'",
     "development:sasswatch": "sass --watch lib/scss:lib/css",
     "production:sass": "sass --style=compressed --no-source-map lib/scss/class-calendar.scss lib/css/class-calendar.css",
     "dev": "npm-run-all -p development:*",

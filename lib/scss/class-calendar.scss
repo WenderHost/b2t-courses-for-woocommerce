@@ -13,21 +13,13 @@ span.days{
 }
 
 .translatepress-en_US .class-calendar{
-  .cal{
+  div.cal_es:not(.cal_en){
     display: none;
-
-    &.cal_en{
-      display: flex;
-    }
   }
 }
 .translatepress-es_ES .class-calendar{
-  .cal{
+  div.cal_en:not(.cal_es){
     display: none;
-
-    &.cal_es{
-      display: flex;
-    }
   }
 }
 
@@ -76,7 +68,7 @@ span.days{
     }
   }
 
-  .row.alt{
+  .stripe{
     background-color: #dedee0;
   }
   .mobile-row{
@@ -85,6 +77,12 @@ span.days{
 
     div{
       margin: .25em 0;
+    }
+    div.onsale s{
+      display: inline;
+    }
+    div.actions{
+      margin-top: 1rem;
     }
   }
 }

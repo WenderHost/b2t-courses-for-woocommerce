@@ -26,6 +26,8 @@
     <div class="col-md lang">{{lang}}</div>
     <div class="col-md actions" style="text-align: center;"><a class="button" href="{{register_url}}">{{../labels.register}}</a></div>
   </div>
+  {{/each}}
+  {{#each classes}}
   <div class="{{css_classes}} hide-md mobile-row">
     <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
     <div class="">{{{days}}}, {{year}}</div>
@@ -38,9 +40,9 @@
     </div>
     <div class="">{{times}}</div>
     <div class="">{{{duration}}}</div>
-    <div class="">{{{price}}}</div>
-    <div class="">{{lang}}</div>
-    <div class=""><a class="button" href="{{register_url}}">{{../labels.register}}</a></div>
+    <div class="price{{#if on_sale}} onsale{{/if}}">{{{price}}}</div>
+    <div class="lang">{{lang}}</div>
+    <div class="actions"><a class="button" href="{{register_url}}">{{../labels.register}}</a></div>
   </div>
   {{/each}}
 </div>
