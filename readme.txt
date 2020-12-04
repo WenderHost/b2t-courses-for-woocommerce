@@ -3,13 +3,16 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 5.5.1
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 == Changelog ==
+
+= 2.0.4 =
+* BUGFIX: Checking for array to prevent error message in class edit metabox.
 
 = 2.0.3 =
 
