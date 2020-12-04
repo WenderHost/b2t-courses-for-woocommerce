@@ -17,6 +17,7 @@ define( 'ANDALU_DIR', dirname( __FILE__ ) );
 require_once('vendor/autoload.php');
 
 // Load Functions
+require_once('lib/fns/enqueues.php');
 require_once('lib/fns/handlebars.php');
 require_once('lib/fns/http_build_url.php');
 require_once('lib/fns/shortcodes.php');

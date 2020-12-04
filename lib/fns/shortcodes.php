@@ -178,6 +178,9 @@ function public_class_calendar( $atts ){
   $args = shortcode_atts([
     'foo' => 'bar'
   ], $atts );
+
+  wp_enqueue_style( 'class-calendar' );
+
   $html = '<code>Public class calendar goes here.</code>';
 
   $query_args = [
@@ -202,7 +205,6 @@ function public_class_calendar( $atts ){
 
   $classes = get_posts( $query_args );
   if( is_array( $classes ) && 0 < count( $classes ) ){
-    wp_enqueue_style( 'flexboxgrid' );
     $x = 0;
     foreach( $classes as $class ){
       if( ! $class->post_parent )

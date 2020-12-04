@@ -1,93 +1,30 @@
-<style type="text/css">
-  span.days{
-    display: block;
-    font-weight: bold;
-  }
-  .header div[class^=col]{
-    background: #009ee0;
-    color: #fff;
-    padding: 16px;
-    font-weight: bold;
-  }
-  .class-calendar{
-    font-family: FuturaPT, Futura, sans-serif;
-    font-size: 14px;
-  }
-  .class-calendar .course-title{
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .class-calendar div[class^=col]{
-    padding: 16px;
-  }
-  .class-calendar .location{
-    display: flex;
-    align-items: center;
-  }
-  .class-calendar .location img{
-    margin-right: 6px;
-  }
-  .class-calendar a.button{
-    background-color: #009ee0;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
-    padding: 8px 18px;
-    border-radius: 18px;
-  }
-  .class-calendar a.button:hover{
-    text-decoration: none;
-    background-color: #fff;
-    color: #009ee0;
-    font-weight: bold;
-  }
-  .class-calendar .row.alt{
-    background-color: #dedee0;
-  }
-  .class-calendar .mobile-row{
-    border-bottom: 1px solid #999;
-    padding: 20px;
-  }
-  .class-calendar .mobile-row div{
-    margin: .25em 0;
-  }
-  @media screen and (min-width: 1024px){
-    .hide-md{
-      display: none;
-    }
-  }
-  @media screen and (max-width: 1024px){
-    .hide-sm{
-      display: none !important;
-    }
-  }
-</style>
 <div class="class-calendar">
   <div class="row header hide-sm">
-    <div class="col-md-2">Dates</div>
-    <div class="col-md-3">Course</div>
-    <div class="col-md-2">Location</div>
-    <div class="col-md">Time</div>
-    <div class="col-md">Duration</div>
-    <div class="col-md">Price</div>
-    <div class="col-md">&nbsp;</div>
+    <div class="col-md date">{{labels.dates}}</div>
+    <div class="col-md-2 course">{{labels.course}}</div>
+    <div class="col-md location">{{labels.location}}</div>
+    <div class="col-md time">{{labels.time}}</div>
+    <div class="col-md duration">{{labels.duration}}</div>
+    <div class="col-md price">{{labels.price}}</div>
+    <div class="col-md lang">{{labels.language}}</div>
+    <div class="col-md actions">&nbsp;</div>
   </div>
   {{#each classes}}
   <div class="row {{css_classes}} hide-sm desktop-row">
-    <div class="col-md-2"><span class="days">{{{days}}}</span>{{year}}</div>
-    <div class="col-md-3"><a href="{{course_url}}">{{{course_title}}}</a></div>
-    <div class="col-md-2 location">
+    <div class="col-md date"><span class="days">{{{days}}}</span>{{year}}</div>
+    <div class="col-md-2 course"><a href="{{course_url}}">{{{course_title}}}</a></div>
+    <div class="col-md location">
       <img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
       <a class="location-name"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
       <div class="location-description" id="location-{{ID}}-{{location.id}}">
         {{{location.description}}}
       </div>
     </div>
-    <div class="col-md">{{times}}</div>
-    <div class="col-md">{{{duration}}}</div>
-    <div class="col-md">{{{price}}}</div>
-    <div class="col-md" style="text-align: center;"><a class="button" href="{{register_url}}">Register</a></div>
+    <div class="col-md time">{{times}}</div>
+    <div class="col-md duration">{{{duration}}}</div>
+    <div class="col-md price{{#if on_sale}} onsale{{/if}}">{{{price}}}</div>
+    <div class="col-md lang">{{lang}}</div>
+    <div class="col-md actions" style="text-align: center;"><a class="button" href="{{register_url}}">{{../labels.register}}</a></div>
   </div>
   <div class="{{css_classes}} hide-md mobile-row">
     <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
