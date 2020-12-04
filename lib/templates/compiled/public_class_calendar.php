@@ -30,95 +30,32 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     );
     
     $inary=is_array($in);
-    return '<style type="text/css">
-  span.days{
-    display: block;
-    font-weight: bold;
-  }
-  .header div[class^=col]{
-    background: #009ee0;
-    color: #fff;
-    padding: 16px;
-    font-weight: bold;
-  }
-  .class-calendar{
-    font-family: FuturaPT, Futura, sans-serif;
-    font-size: 14px;
-  }
-  .class-calendar .course-title{
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .class-calendar div[class^=col]{
-    padding: 16px;
-  }
-  .class-calendar .location{
-    display: flex;
-    align-items: center;
-  }
-  .class-calendar .location img{
-    margin-right: 6px;
-  }
-  .class-calendar a.button{
-    background-color: #009ee0;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
-    padding: 8px 18px;
-    border-radius: 18px;
-  }
-  .class-calendar a.button:hover{
-    text-decoration: none;
-    background-color: #fff;
-    color: #009ee0;
-    font-weight: bold;
-  }
-  .class-calendar .row.alt{
-    background-color: #dedee0;
-  }
-  .class-calendar .mobile-row{
-    border-bottom: 1px solid #999;
-    padding: 20px;
-  }
-  .class-calendar .mobile-row div{
-    margin: .25em 0;
-  }
-  @media screen and (min-width: 1024px){
-    .hide-md{
-      display: none;
-    }
-  }
-  @media screen and (max-width: 1024px){
-    .hide-sm{
-      display: none !important;
-    }
-  }
-</style>
-<div class="class-calendar">
+    return '<div class="class-calendar">
   <div class="row header hide-sm">
-    <div class="col-md-2">Dates</div>
-    <div class="col-md-3">Course</div>
-    <div class="col-md-2">Location</div>
-    <div class="col-md">Time</div>
-    <div class="col-md">Duration</div>
-    <div class="col-md">Price</div>
-    <div class="col-md">&nbsp;</div>
+    <div class="col-md date">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['dates'])) ? $in['labels']['dates'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md-2 course">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['course'])) ? $in['labels']['course'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md location">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['location'])) ? $in['labels']['location'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md time">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['time'])) ? $in['labels']['time'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md duration">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['duration'])) ? $in['labels']['duration'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md price">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['price'])) ? $in['labels']['price'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md lang">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['language'])) ? $in['labels']['language'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md actions">&nbsp;</div>
   </div>
 '.LR::sec($cx, (($inary && isset($in['classes'])) ? $in['classes'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '  <div class="row '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').' hide-sm desktop-row">
-    <div class="col-md-2"><span class="days">'.(($inary && isset($in['days'])) ? $in['days'] : null).'</span>'.htmlspecialchars((string)(($inary && isset($in['year'])) ? $in['year'] : null), ENT_QUOTES, 'UTF-8').'</div>
-    <div class="col-md-3"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.(($inary && isset($in['course_title'])) ? $in['course_title'] : null).'</a></div>
-    <div class="col-md-2 location">
+    <div class="col-md date"><span class="days">'.(($inary && isset($in['days'])) ? $in['days'] : null).'</span>'.htmlspecialchars((string)(($inary && isset($in['year'])) ? $in['year'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md-2 course"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.(($inary && isset($in['course_title'])) ? $in['course_title'] : null).'</a></div>
+    <div class="col-md location">
       <img src="'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['plugin_dir'])) ? $cx['scopes'][count($cx['scopes'])-1]['plugin_dir'] : null), ENT_QUOTES, 'UTF-8').'lib/img/class_'.((LR::ifvar($cx, (($inary && isset($in['virtual'])) ? $in['virtual'] : null), false)) ? 'virtual' : 'onsite').'.svg" />
       <a class="location-name"  href="#location-'.htmlspecialchars((string)(($inary && isset($in['ID'])) ? $in['ID'] : null), ENT_QUOTES, 'UTF-8').'-'.htmlspecialchars((string)((isset($in['location']) && is_array($in['location']) && isset($in['location']['id'])) ? $in['location']['id'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)((isset($in['location']) && is_array($in['location']) && isset($in['location']['name'])) ? $in['location']['name'] : null), ENT_QUOTES, 'UTF-8').'</a>
       <div class="location-description" id="location-'.htmlspecialchars((string)(($inary && isset($in['ID'])) ? $in['ID'] : null), ENT_QUOTES, 'UTF-8').'-'.htmlspecialchars((string)((isset($in['location']) && is_array($in['location']) && isset($in['location']['id'])) ? $in['location']['id'] : null), ENT_QUOTES, 'UTF-8').'">
         '.((isset($in['location']) && is_array($in['location']) && isset($in['location']['description'])) ? $in['location']['description'] : null).'
       </div>
     </div>
-    <div class="col-md">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
-    <div class="col-md">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
-    <div class="col-md">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
-    <div class="col-md" style="text-align: center;"><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">Register</a></div>
+    <div class="col-md time">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md duration">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
+    <div class="col-md price'.((LR::ifvar($cx, (($inary && isset($in['on_sale'])) ? $in['on_sale'] : null), false)) ? ' onsale' : '').'">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
+    <div class="col-md lang">'.htmlspecialchars((string)(($inary && isset($in['lang'])) ? $in['lang'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class="col-md actions" style="text-align: center;"><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]['labels']) && isset($cx['scopes'][count($cx['scopes'])-1]['labels']['register'])) ? $cx['scopes'][count($cx['scopes'])-1]['labels']['register'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
   </div>
   <div class="'.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').' hide-md mobile-row">
     <div class="course-title"><a href="'.htmlspecialchars((string)(($inary && isset($in['course_url'])) ? $in['course_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)(($inary && isset($in['course_title'])) ? $in['course_title'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
@@ -133,7 +70,8 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <div class="">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
     <div class="">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
-    <div class=""><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">Register</a></div>
+    <div class="">'.htmlspecialchars((string)(($inary && isset($in['lang'])) ? $in['lang'] : null), ENT_QUOTES, 'UTF-8').'</div>
+    <div class=""><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]['labels']) && isset($cx['scopes'][count($cx['scopes'])-1]['labels']['register'])) ? $cx['scopes'][count($cx['scopes'])-1]['labels']['register'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
   </div>
 ';}).'</div>';
 };

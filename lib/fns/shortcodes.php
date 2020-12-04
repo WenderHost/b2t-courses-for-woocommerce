@@ -243,6 +243,15 @@ function public_class_calendar( $atts ){
       }
 
       $class_data['times'] = get_post_meta( $class->ID, '_time', true );
+      $lang = get_post_meta( $class->ID, '_lang', true );
+      $languages = ['en' => __( 'English', 'andalu_woo_courses' ), 'es' => __( 'Spanish', 'andalu_woo_courses' ) ];
+      $class_data['lang'] = $languages[$lang];
+      $class_data['cal'] = get_post_meta( $class->ID, '_cal', true );
+      if( is_array( $class_data['cal'] ) ){
+        foreach( $class_data['cal'] as $lang_code ){
+          $class_data['css_classes'].= ' cal_' . $lang_code;
+        }
+      }
 
       $class_data['days'] = $days;
       $class_data['year'] = $start_year;
@@ -251,8 +260,11 @@ function public_class_calendar( $atts ){
       $parent_course_product = wc_get_product( $class->post_parent );
       $class_data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
       $class_data['regular_price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_regular_price();
-      if( $class_data['price'] != $class_data['regular_price'] )
+      $class_data['on_sale'] = false;
+      if( $class_data['price'] != $class_data['regular_price'] ){
         $class_data['price'] =  '<s>' . $class_data['regular_price'] . '</s> ' . $class_data['price'];
+        $class_data['on_sale'] = true;
+      }
       $class_obj = wc_get_product( $class->ID );
 
       $class_data['location'] = [
@@ -269,6 +281,17 @@ function public_class_calendar( $atts ){
     $data['classes'] = $classes_data;
   }
   //$html = '<pre>$classes_data = ' . print_r($classes_data, true ) . '</pre>';
+
+  $data['labels'] = [
+    'dates'     => __( 'Dates', 'andalu_woo_courses' ),
+    'course'    => __( 'Course', 'andalu_woo_courses' ),
+    'location'  => __( 'Location', 'andalu_woo_courses' ),
+    'time'      => __( 'Time', 'andalu_woo_courses' ),
+    'duration'  => __( 'Duration', 'andalu_woo_courses' ),
+    'price'     => __( 'Price', 'andalu_woo_courses' ),
+    'language'  => __( 'Language', 'andalu_woo_courses' ),
+    'register'  => __( 'Register', 'andalu_woo_courses' ),
+  ];
 
   $html = \AndaluWooCourses\handlebars\render_template('public_class_calendar',$data);
   $location_descriptions_js = '<script type="text/javascript">' . file_get_contents(plugin_dir_path( __FILE__ ). '../js/location-descriptions.js' ) . '</script>';
