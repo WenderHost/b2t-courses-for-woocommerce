@@ -1,8 +1,12 @@
+<div class="class-calendar-filter">
+  <h4>Location:</h4>
+  <ul class="filter-link-group"></ul>
+</div>
 <div class="class-calendar">
   <div class="row header hide-sm">
     <div class="col-md date">{{labels.dates}}</div>
     <div class="col-md-2 course">{{labels.course}}</div>
-    <div class="col-md location">{{labels.location}}</div>
+    <div class="col-md-2 location">{{labels.location}}</div>
     <div class="col-md time">{{labels.time}}</div>
     <div class="col-md duration">{{labels.duration}}</div>
     <div class="col-md price">{{labels.price}}</div>
@@ -10,12 +14,12 @@
     <div class="col-md actions">&nbsp;</div>
   </div>
   {{#each classes}}
-  <div class="row {{css_classes}} hide-sm desktop-row">
+  <div class="row {{css_classes}} hide-sm desktop-row location-{{location.slug}}">
     <div class="col-md date"><span class="days">{{{days}}}</span>{{year}}</div>
     <div class="col-md-2 course"><a href="{{course_url}}">{{{course_title}}}</a></div>
-    <div class="col-md location">
+    <div class="col-md-2 location">
       <img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
-      <a class="location-name"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
+      <a class="location-name" data-location="{{location.slug}}"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
       <div class="location-description" id="location-{{ID}}-{{location.id}}">
         {{{location.description}}}
       </div>
@@ -28,12 +32,12 @@
   </div>
   {{/each}}
   {{#each classes}}
-  <div class="{{css_classes}} hide-md mobile-row">
+  <div class="{{css_classes}} hide-md mobile-row location-{{location.slug}}">
     <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
     <div class="">{{{days}}}, {{year}}</div>
     <div class="location">
       <img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
-      <a class="location-name"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
+      <a class="location-name" data-location="{{location.slug}}"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
       <div class="location-description" id="location-{{ID}}-{{location.id}}">
         {{{location.description}}}
       </div>

@@ -3,13 +3,16 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 5.5.1
-Stable tag: 2.0.6
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 == Changelog ==
+
+= 2.1.0 =
+* Adding Location filters for the Class Calendar.
 
 = 2.0.6 =
 * Multilingual CSS for the Class Calendar.

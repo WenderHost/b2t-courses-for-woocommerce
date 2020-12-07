@@ -268,6 +268,7 @@ function public_class_calendar( $atts ){
 
       $class_data['location'] = [
         'name'        => $class_obj->location_term->name,
+        'slug'        => $class_obj->location_term->slug,
         'id'          => $class_obj->location_term->term_id,
         'description' => apply_filters( 'the_content', $class_obj->location_term->description ),
       ];
