@@ -3,13 +3,16 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 5.5.1
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 == Changelog ==
+
+= 2.2.0 =
+* Adding "CIF/NIF" field for student registrations when the local is set to `es_ES`.
 
 = 2.1.1 =
 * Updating Course Calendar "Register" button :hover styling.

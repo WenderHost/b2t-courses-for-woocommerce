@@ -160,91 +160,113 @@ class Andalu_Woo_Courses_Single {
 
 	// Registration fields
 	public static function registration_fields() {
-		return array(
-			'first_name' => array(
-				'label'       => __( 'First Name', 'andalu_woo_courses' ),
-				'required'    => true,
-				'class'       => array( 'form-row-first' ),
-			),
-			'last_name' => array(
-				'label'       => __( 'Last Name', 'andalu_woo_courses' ),
-				'required'    => true,
-				'class'       => array( 'form-row-last' ),
-				'clear'       => true,
-			),
-			'email' => array(
-				'label'       => __( 'Email', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'email',
-				'class'       => array( 'form-row-first' ),
-				'validate'    => array( 'email' ),
-			),
-			'email_again' => array(
-				'label'       => __( 'Email Again', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'email',
-				'class'       => array( 'form-row-last' ),
-				'validate'    => array( 'email' ),
-				'clear'       => true,
-			),
-			'company' => array(
-				'label'       => __( 'Company', 'andalu_woo_courses' ),
-				'class'       => array( 'form-row-wide' ),
-			),
-			'title' => array(
-				'label'       => __( 'Title', 'andalu_woo_courses' ),
-				'class'       => array( 'form-row-wide' ),
-			),
-			'country' => array(
-				'label'       => __( 'Country', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'country',
-				'class'       => array( 'form-row-wide', 'address-field' ),
-			),
-			'address_1' => array(
-				'label'       => __( 'Address', 'andalu_woo_courses' ),
-				'placeholder' => __( 'Street address', 'andalu_woo_courses' ),
-				'required'    => true,
-				'class'       => array( 'form-row-wide', 'address-field' ),
-			),
-			'address_2' => array(
-				'placeholder' => __( 'Apartment, suite, unit etc. (optional)', 'andalu_woo_courses' ),
-				'required'    => false,
-				'class'       => array( 'form-row-wide', 'address-field' ),
-			),
-			'billing_city' => array(
-				'label'       => __( 'Town / City', 'andalu_woo_courses' ),
-				'placeholder' => __( 'Town / City', 'andalu_woo_courses' ),
-				'required'    => true,
-				'class'       => array( 'form-row-wide', 'address-field' ),
-			),
-			'billing_state' => array(
-				'label'       => __( 'State / County', 'andalu_woo_courses' ),
-				'type'        => 'state',
-				'required'    => true,
-				'class'       => array( 'form-row-first', 'address-field' ),
-			),
-			'billing_postcode' => array(
-				'label'       => __( 'Postcode / Zip', 'andalu_woo_courses' ),
-				'placeholder' => __( 'Postcode / Zip', 'andalu_woo_courses' ),
+		$locale = get_locale();
+		$fields = [];
+		$fields['first_name'] = [
+			'label'       => __( 'First Name', 'andalu_woo_courses' ),
+			'required'    => true,
+			'class'       => ['form-row-first'],
+		];
+		$fields['last_name'] = [
+			'label'       => __( 'Last Name', 'andalu_woo_courses' ),
+			'required'    => true,
+			'class'       => array( 'form-row-last' ),
+			'clear'       => true,
+		];
+		$fields['email'] = [
+			'label'       => __( 'Email', 'andalu_woo_courses' ),
+			'required'    => true,
+			'type'        => 'email',
+			'class'       => array( 'form-row-first' ),
+			'validate'    => array( 'email' ),
+		];
+		$fields['email_again'] = [
+			'label'       => __( 'Email Again', 'andalu_woo_courses' ),
+			'required'    => true,
+			'type'        => 'email',
+			'class'       => array( 'form-row-last' ),
+			'validate'    => array( 'email' ),
+			'clear'       => true,
+		];
+		$fields['company'] = [
+			'label'       => __( 'Company', 'andalu_woo_courses' ),
+			'class'       => array( 'form-row-wide' ),
+		];
+		$fields['title'] = [
+			'label'       => __( 'Title', 'andalu_woo_courses' ),
+			'class'       => array( 'form-row-wide' ),
+		];
+		$fields['country'] = [
+			'label'       => __( 'Country', 'andalu_woo_courses' ),
+			'required'    => true,
+			'type'        => 'country',
+			'class'       => array( 'form-row-wide', 'address-field' ),
+		];
+		$fields['address_1'] = [
+			'label'       => __( 'Address', 'andalu_woo_courses' ),
+			'placeholder' => __( 'Street address', 'andalu_woo_courses' ),
+			'required'    => true,
+			'class'       => array( 'form-row-wide', 'address-field' ),
+		];
+		$fields['address_2'] = [
+			'placeholder' => __( 'Apartment, suite, unit etc. (optional)', 'andalu_woo_courses' ),
+			'required'    => false,
+			'class'       => array( 'form-row-wide', 'address-field' ),
+		];
+
+		$class = ( 'es_ES' == $locale )? ['form-row-first'] : ['form-row-wide','address-field'] ;
+		$fields['billing_city'] = [
+			'label'       => __( 'Town / City', 'andalu_woo_courses' ),
+			'placeholder' => __( 'Town / City', 'andalu_woo_courses' ),
+			'required'    => true,
+			'class'       => $class,
+		];
+
+		$class = ( 'es_ES' == $locale )? ['form-row-last', 'address-field'] : ['form-row-first', 'address-field' ] ;
+		$fields['billing_state'] = [
+			'label'       => __( 'State / County', 'andalu_woo_courses' ),
+			'type'        => 'state',
+			'required'    => true,
+			'class'       => $class,
+		];
+
+		$class = ( 'es_ES' == $locale )? ['form-row-first','address-field'] : ['form-row-last', 'address-field'] ;
+		$fields['billing_postcode'] = [
+			'label'       => __( 'Postcode / Zip', 'andalu_woo_courses' ),
+			'placeholder' => __( 'Postcode / Zip', 'andalu_woo_courses' ),
+			'required'    => true,
+			'class'       => $class,
+			'clear'       => true,
+			'validate'    => array( 'postcode' ),
+		];
+
+		if( 'es_ES' == get_locale() ){
+			$fields['billing_cif'] = [
+				'label'       => __( 'CIF / NIF', 'andalu_woo_courses' ),
+				'placeholder' => __( 'CIF / NIF', 'andalu_woo_courses' ),
 				'required'    => true,
 				'class'       => array( 'form-row-last', 'address-field' ),
 				'clear'       => true,
-				'validate'    => array( 'postcode' ),
-			),
-			'phone' => array(
-				'label'       => __( 'Phone', 'andalu_woo_courses' ),
-				'required'    => true,
-				'type'        => 'tel',
-				'class'       => array( 'form-row-wide' ),
-				'validate'    => array( 'phone' ),
-			),
-			/*'optin' => array(
-				'label'       => __( 'I am interested in participating in the B2T Business Analyst Certification Program.', 'andalu_woo_courses' ),
-				'type'        => 'checkbox',
-				'class'       => array( 'form-row-wide' ),
-			),*/
-		);
+				'required'		=> true,
+				'validate'    => array( 'cif_nif' ),
+			];
+		}
+		$fields['phone'] = [
+			'label'       => __( 'Phone', 'andalu_woo_courses' ),
+			'required'    => true,
+			'type'        => 'tel',
+			'class'       => array( 'form-row-wide' ),
+			'validate'    => array( 'phone' ),
+		];
+		/*
+		$fields['optin'] = [
+			'label'       => __( 'I am interested in participating in the B2T Business Analyst Certification Program.', 'andalu_woo_courses' ),
+			'type'        => 'checkbox',
+			'class'       => array( 'form-row-wide' ),
+		];
+		*/
+
+		return $fields;
 	}
 
 	// Registration form content
@@ -268,7 +290,7 @@ class Andalu_Woo_Courses_Single {
 		?>
 
 		<p><span class="required">*</span> <?php _e( 'indicates a required field', 'andalu_woo_courses' ); ?></p>
-		<p><?php _e( ' (Note: State/Province and Zip Code are not required for students outside of the US and Canada.)', 'andalu_woo_courses' ); ?></p>
+		<p><?php _e( '(Note: State/Province and Zip Code are not required for students outside of the US and Canada.)', 'andalu_woo_courses' ); ?></p>
 
 	<?php
 	}
@@ -730,6 +752,8 @@ class Andalu_Woo_Courses_Single {
 	}
 
 	static function get_item_data( $other_data, $cart_item ) {
+		$locale = get_locale();
+
 		if ( ! empty( $cart_item['course_registration'] ) ) {
 
 			if ( ! empty( $cart_item['course_registration']['class'] ) ) {
@@ -763,12 +787,21 @@ class Andalu_Woo_Courses_Single {
 			$data = array(
 				'name'	=> __( 'Student', 'andalu_woo_courses' ),
 			);
-			$student_data_format = '%1$s %2$s<br />%3$s<br />%4$s<br /><br />%5$s%6$s<br />%7$s, %8$s %9$s<br />%10$s';
 
 			$sd = $cart_item['course_registration'];
 			$address2 = ( ! empty( $sd['address_2'] ) )? '<br />' . $sd['address_2'] : '';
 
-			$data['value'] = sprintf( $student_data_format, $sd['first_name'], $sd['last_name'], $sd['email'], $sd['company'], $sd['address_1'], $address2, $sd['billing_city'], $sd['billing_state'], $sd['billing_postcode'], $sd['phone'] );
+			if( 'es_ES' == $locale ){
+				$student_data_format = '%1$s %2$s<br />%3$s<br />%4$s<br /><br />%5$s%6$s<br />%7$s, %8$s %9$s<br />%10$s<br />%11$s';
+				$data['value'] = sprintf( $student_data_format, $sd['first_name'], $sd['last_name'], $sd['email'], $sd['company'], $sd['address_1'], $address2, $sd['billing_city'], $sd['billing_state'], $sd['billing_postcode'], $sd['billing_cif'], $sd['phone'] );
+			} else {
+				$student_data_format = '%1$s %2$s<br />%3$s<br />%4$s<br /><br />%5$s%6$s<br />%7$s, %8$s %9$s<br />%10$s';
+				$data['value'] = sprintf( $student_data_format, $sd['first_name'], $sd['last_name'], $sd['email'], $sd['company'], $sd['address_1'], $address2, $sd['billing_city'], $sd['billing_state'], $sd['billing_postcode'], $sd['phone'] );
+			}
+
+
+
+
 
 			$other_data[] = $data;
 		}
