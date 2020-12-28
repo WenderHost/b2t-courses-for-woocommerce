@@ -11,6 +11,9 @@ WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 ## Changelog ##
 
+### 2.2.1 ###
+* Removing unused fields in Course editor (i.e. PDUs, Intended Audience, Prerequisites, PMI Endorsement, IIBA Endorsement, Course Outlines).
+
 ### 2.2.0 ###
 * Adding "CIF/NIF" field for student registrations when the local is set to `es_ES`.
 
