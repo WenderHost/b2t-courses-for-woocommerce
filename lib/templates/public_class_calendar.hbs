@@ -26,7 +26,13 @@
     </div>
     <div class="col-md time">{{times}}</div>
     <div class="col-md duration">{{{duration}}}</div>
-    <div class="col-md price{{#if on_sale}} onsale{{/if}}">{{{price}}}</div>
+    <div class="col-md price{{#if pricing.on_sale}} onsale{{/if}}">
+      {{#if pricing.on_sale}}
+        <s>{{pricing.formatted.regular_price}}</s>{{pricing.formatted.current_price}}
+      {{else}}
+        {{pricing.formatted.current_price}}
+      {{/if}}
+    </div>
     <div class="col-md lang">{{lang}}</div>
     <div class="col-md actions" style="text-align: center;"><a class="button" href="{{register_url}}">{{../labels.register}}</a></div>
   </div>
@@ -44,7 +50,13 @@
     </div>
     <div class="">{{times}}</div>
     <div class="">{{{duration}}}</div>
-    <div class="price{{#if on_sale}} onsale{{/if}}">{{{price}}}</div>
+    <div class="price{{#if pricing.on_sale}} onsale{{/if}}">
+      {{#if pricing.on_sale}}
+        <s>{{pricing.regular_price}}</s>{{pricing.current_price}}
+      {{else}}
+        {{pricing.current_price}}
+      {{/if}}
+    </div>
     <div class="lang">{{lang}}</div>
     <div class="actions"><a class="button" href="{{register_url}}">{{../labels.register}}</a></div>
   </div>

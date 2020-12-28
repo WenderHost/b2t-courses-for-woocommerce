@@ -57,7 +57,10 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     </div>
     <div class="col-md time">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md duration">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
-    <div class="col-md price'.((LR::ifvar($cx, (($inary && isset($in['on_sale'])) ? $in['on_sale'] : null), false)) ? ' onsale' : '').'">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
+    <div class="col-md price'.((LR::ifvar($cx, ((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['on_sale'])) ? $in['pricing']['on_sale'] : null), false)) ? ' onsale' : '').'">
+'.((LR::ifvar($cx, ((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['on_sale'])) ? $in['pricing']['on_sale'] : null), false)) ? '        <s>'.htmlspecialchars((string)((isset($in['pricing']['formatted']) && is_array($in['pricing']['formatted']) && isset($in['pricing']['formatted']['regular_price'])) ? $in['pricing']['formatted']['regular_price'] : null), ENT_QUOTES, 'UTF-8').'</s>'.htmlspecialchars((string)((isset($in['pricing']['formatted']) && is_array($in['pricing']['formatted']) && isset($in['pricing']['formatted']['current_price'])) ? $in['pricing']['formatted']['current_price'] : null), ENT_QUOTES, 'UTF-8').'
+' : '        '.htmlspecialchars((string)((isset($in['pricing']['formatted']) && is_array($in['pricing']['formatted']) && isset($in['pricing']['formatted']['current_price'])) ? $in['pricing']['formatted']['current_price'] : null), ENT_QUOTES, 'UTF-8').'
+').'    </div>
     <div class="col-md lang">'.htmlspecialchars((string)(($inary && isset($in['lang'])) ? $in['lang'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="col-md actions" style="text-align: center;"><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]['labels']) && isset($cx['scopes'][count($cx['scopes'])-1]['labels']['register'])) ? $cx['scopes'][count($cx['scopes'])-1]['labels']['register'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
   </div>
@@ -73,7 +76,10 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     </div>
     <div class="">'.htmlspecialchars((string)(($inary && isset($in['times'])) ? $in['times'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="">'.(($inary && isset($in['duration'])) ? $in['duration'] : null).'</div>
-    <div class="price'.((LR::ifvar($cx, (($inary && isset($in['on_sale'])) ? $in['on_sale'] : null), false)) ? ' onsale' : '').'">'.(($inary && isset($in['price'])) ? $in['price'] : null).'</div>
+    <div class="price'.((LR::ifvar($cx, ((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['on_sale'])) ? $in['pricing']['on_sale'] : null), false)) ? ' onsale' : '').'">
+'.((LR::ifvar($cx, ((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['on_sale'])) ? $in['pricing']['on_sale'] : null), false)) ? '        <s>'.htmlspecialchars((string)((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['regular_price'])) ? $in['pricing']['regular_price'] : null), ENT_QUOTES, 'UTF-8').'</s>'.htmlspecialchars((string)((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['current_price'])) ? $in['pricing']['current_price'] : null), ENT_QUOTES, 'UTF-8').'
+' : '        '.htmlspecialchars((string)((isset($in['pricing']) && is_array($in['pricing']) && isset($in['pricing']['current_price'])) ? $in['pricing']['current_price'] : null), ENT_QUOTES, 'UTF-8').'
+').'    </div>
     <div class="lang">'.htmlspecialchars((string)(($inary && isset($in['lang'])) ? $in['lang'] : null), ENT_QUOTES, 'UTF-8').'</div>
     <div class="actions"><a class="button" href="'.htmlspecialchars((string)(($inary && isset($in['register_url'])) ? $in['register_url'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)((isset($cx['scopes'][count($cx['scopes'])-1]) && is_array($cx['scopes'][count($cx['scopes'])-1]['labels']) && isset($cx['scopes'][count($cx['scopes'])-1]['labels']['register'])) ? $cx['scopes'][count($cx['scopes'])-1]['labels']['register'] : null), ENT_QUOTES, 'UTF-8').'</a></div>
   </div>
