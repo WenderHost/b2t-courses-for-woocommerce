@@ -100,7 +100,7 @@ class Andalu_Woo_Courses_Admin {
 		if( array_key_exists( '_private_course', $_REQUEST ) )
 			update_post_meta( $post_id, '_private_course', $_REQUEST['_private_course'] );
 
-		self::save_course_outline_data( $post_id, $_REQUEST );
+		//self::save_course_outline_data( $post_id, $_REQUEST );
 		self::save_course_classes_data( $post_id, $_REQUEST );
 
 		self::fix_parent_price();
@@ -164,11 +164,13 @@ class Andalu_Woo_Courses_Admin {
 			'class'  => array( 'show_if_course' ),
 		);
 
+		/*
 		$new_tabs['course_outline'] = array(
 			'label'  => __( 'Course Outlines', 'andalu_woo_courses' ),
 			'target' => 'course_outline_data',
 			'class'  => array( 'show_if_course' ),
 		);
+		*/
 
 		$new_tabs['course_classes'] = array(
 			'label'  => __( 'Classes', 'andalu_woo_courses' ),
@@ -260,22 +262,26 @@ class Andalu_Woo_Courses_Admin {
 						'placeholder' => _x( 'e.g. https://example.com/certification', 'provide a link to the certification', 'andalu_woo_courses' ),
 					) );
 
+					/*
 					woocommerce_wp_text_input( array(
 						'id'          => '_course_pdus',
 						'label'       => __( 'PDUs', 'andalu_woo_courses' ),
 					) );
-
+					*/
+					/*
 					woocommerce_wp_textarea_input( array(
 						'id'          => '_course_audience',
 						'label'       => __( 'Intended Audience', 'andalu_woo_courses' ),
 						'style'       => 'min-height:200px',
 					) );
-
+					*/
+					/*
 					woocommerce_wp_text_input( array(
 						'id'          => '_course_prerequisites',
 						'label'       => __( 'Prerequisites', 'andalu_woo_courses' ),
 					) );
-
+					*/
+					/*
 					$endorsements = maybe_unserialize( get_post_meta( $post_id, '_course_endorsements', true ) );
 					foreach ( Andalu_Woo_Courses::$endorsements as $endorsement ) {
 						woocommerce_wp_checkbox( array(
@@ -284,6 +290,7 @@ class Andalu_Woo_Courses_Admin {
 							'value' => empty( $endorsements[ $endorsement ] ) ? 'no' : 'yes',
 						) );
 					}
+					*/
 
 					$_private_course = get_post_meta( $post_id, '_private_course', true );
 					woocommerce_wp_checkbox( array(
