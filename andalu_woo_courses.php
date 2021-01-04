@@ -32,7 +32,7 @@ class Andalu_Woo_Courses {
 		self::$url = plugins_url('', __FILE__);
 		self::$dir = plugin_dir_path(__FILE__);
 
-		load_plugin_textdomain( 'andalu_woo_courses', false, self::$dir . '/languages' );
+		load_plugin_textdomain( 'andalu_woo_courses', false, dirname( plugin_basename( __FILE__ ) ) . '/build/languages' );
 
 		if ( is_admin() ) {
 			require_once( 'lib/classes/admin.php' );
