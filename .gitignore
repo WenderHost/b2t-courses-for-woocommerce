@@ -4,3 +4,4 @@ mailtrap.php
 .sass-cache
 node_modules/
 vendor/
+build/
