@@ -30,6 +30,21 @@ module.exports = function( grunt ) {
 		makepot: {
 			target: {
 				options: {
+					potFilename: 'andalu_woo_courses.pot',
+					potHeaders: {
+						poedit: true,
+						'x-poedit-keywordslist': true
+					},
+					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
+					domainPath: 'build/languages/',
+					type: 'wp-plugin',
+					updateTimestamp: true
+				}
+			}
+			/*
+			,
+			target: {
+				options: {
 					domainPath: '/languages',
 					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
 					mainFile: 'andalu_woo_courses.php',
@@ -42,11 +57,22 @@ module.exports = function( grunt ) {
 					updateTimestamp: true
 				}
 			}
+			*/
 		},
+
+		po2mo: {
+			plugin: {
+				cwd: 'src',
+				src: 'languages/*.po',
+				dest: 'build',
+				expand: true
+			}
+		}
 	} );
 
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
+	grunt.loadNpmTasks( 'grunt-po2mo' );
 	grunt.registerTask( 'default', [ 'i18n','readme' ] );
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
