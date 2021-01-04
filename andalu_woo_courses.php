@@ -8,6 +8,7 @@ Author: ANDA.lu
 Author URI: http://anda.lu/design
 */
 define( 'ANDALU_DIR', dirname( __FILE__ ) );
+define( 'ANDALU_LANG', get_locale() );
 
 // Load Composer dependencies
 require_once('vendor/autoload.php');
