@@ -22,7 +22,7 @@ class WC_Product_Course_Class_Data_Store extends WC_Data_Store_WP implements WC_
         $product->set_defaults();
 
         if ( ! $product->get_id() || ! ( $post_object = get_post( $product->get_id() ) ) || 'course_class' !== $post_object->post_type ) {
-            throw new Exception( __( basename(__FILE__). ' line ' . __LINE__ . ' Invalid course_class.', 'woocommerce' ) );
+            throw new Exception( __( basename(__FILE__). ' line ' . __LINE__ . ' Invalid course_class.', 'andalu_woo_courses' ) );
         }
 
         $id = $product->get_id();

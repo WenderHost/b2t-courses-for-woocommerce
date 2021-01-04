@@ -88,7 +88,7 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 	function extra_tablenav( $which ) {
 		if ( 'top' == $which ) {
 			$this->month_filter();
-			submit_button( __( 'Filter' ), 'secondary', false, false );
+			submit_button( __( 'Filter', 'andalu_woo_courses' ), 'secondary', false, false );
 		}
 	}
 
@@ -206,9 +206,9 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 
 		$m = isset( $_GET['m'] ) ? (int) $_GET['m'] : 0;
 ?>
-		<label for="filter-by-date" class="screen-reader-text"><?php _e( 'Filter by date' ); ?></label>
+		<label for="filter-by-date" class="screen-reader-text"><?php _e( 'Filter by date', 'andalu_woo_courses' ); ?></label>
 		<select name="m" id="filter-by-date">
-			<option<?php selected( $m, 0 ); ?> value="0"><?php _e( 'All dates' ); ?></option>
+			<option<?php selected( $m, 0 ); ?> value="0"><?php _e( 'All dates', 'andalu_woo_courses' ); ?></option>
 <?php
 		foreach ( $months as $arc_row ) {
 			if ( 0 == $arc_row->year )
@@ -221,7 +221,7 @@ class Andalu_Roster_List_Table extends WP_List_Table {
 				selected( $m, $year . $month, false ),
 				esc_attr( $arc_row->year . $month ),
 				/* translators: 1: month name, 2: 4-digit year */
-				sprintf( __( '%1$s %2$d' ), $wp_locale->get_month( $month ), $year )
+				sprintf( __( '%1$s %2$d', 'andalu_woo_courses' ), $wp_locale->get_month( $month ), $year )
 			);
 		}
 ?>

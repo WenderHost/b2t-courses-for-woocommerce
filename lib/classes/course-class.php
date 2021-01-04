@@ -61,7 +61,7 @@ class Andalu_Woo_Courses_Class {
 			'add_or_remove_items'        => __( 'Add or remove locations', 'andalu_woo_courses' ),
 			'choose_from_most_used'      => __( 'Choose from the most used locations', 'andalu_woo_courses' ),
 			'not_found'                  => __( 'No locations found.', 'andalu_woo_courses' ),
-			'menu_name'                  => __( 'Class Locations' ),
+			'menu_name'                  => __( 'Class Locations', 'andalu_woo_courses' ),
 		);
 
 		$args = array(
