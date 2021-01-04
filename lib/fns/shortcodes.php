@@ -256,16 +256,22 @@ function public_class_calendar( $atts ){
       $class_data['year'] = $start_year;
       $class_data['register_url'] = \AndaluWooCourses\utilities\get_register_link( $class->post_parent, $class->ID );
 
+      // Setup Pricing
+      //$pricing = get_class_pricing( $class->post_parent );
+      $class_data['pricing'] = get_class_pricing( $class->post_parent );
+
+      /*
       $parent_course_product = wc_get_product( $class->post_parent );
-      $class_data['price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_price();
-      $class_data['regular_price'] = get_woocommerce_currency_symbol() . $parent_course_product->get_regular_price();
+      $class_data['price'] = $parent_course_product->get_price(); // get_woocommerce_currency_symbol() .
+      $class_data['regular_price'] = $parent_course_product->get_regular_price(); // get_woocommerce_currency_symbol() .
       $class_data['on_sale'] = false;
       if( $class_data['price'] != $class_data['regular_price'] ){
         $class_data['price'] =  '<s>' . $class_data['regular_price'] . '</s> ' . $class_data['price'];
         $class_data['on_sale'] = true;
       }
-      $class_obj = wc_get_product( $class->ID );
+      /**/
 
+      $class_obj = wc_get_product( $class->ID );
       $class_data['location'] = [
         'name'        => $class_obj->location_term->name,
         'slug'        => $class_obj->location_term->slug,
