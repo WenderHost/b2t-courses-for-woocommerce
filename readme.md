@@ -9,6 +9,13 @@
 
 WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
+# Instructions for Building Translations
+
+1. Run `grunt makepot` to generate `build/languages/andalu_woo_courses.pot`.
+2. Copy `andalu_woo_courses.pot` to `src/languages/` with your desired language extension (e.g. `andalu_woo_courses-es_ES.po`).
+3. Update the translations in the file you copied in #2 (might want to use PoEdit.app).
+4. Run `grunt po2mo` to build `.mo` files in `build/languages/`.
+
 ## Changelog ##
 
 ### 2.2.1 ###
