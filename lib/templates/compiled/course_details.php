@@ -58,22 +58,22 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
 <div class="widget course-details">
   <h3 class="widget-title">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['course_details'])) ? $in['labels']['course_details'] : null), ENT_QUOTES, 'UTF-8').'</h3>
 '.((LR::ifvar($cx, (($inary && isset($in['reference'])) ? $in['reference'] : null), false)) ? '  <div class="detail">
-    <h4>Reference</h4>
+    <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['reference'])) ? $in['labels']['reference'] : null), ENT_QUOTES, 'UTF-8').'</h4>
     '.htmlspecialchars((string)(($inary && isset($in['reference'])) ? $in['reference'] : null), ENT_QUOTES, 'UTF-8').'
   </div>
 ' : '').''.((LR::ifvar($cx, (($inary && isset($in['duration'])) ? $in['duration'] : null), false)) ? '  <div class="detail">
-    <h4>Duration</h4>
+    <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['duration'])) ? $in['labels']['duration'] : null), ENT_QUOTES, 'UTF-8').'</h4>
     '.htmlspecialchars((string)(($inary && isset($in['duration'])) ? $in['duration'] : null), ENT_QUOTES, 'UTF-8').'
   </div>
 ' : '').''.((LR::ifvar($cx, (($inary && isset($in['delivery_mode'])) ? $in['delivery_mode'] : null), false)) ? '  <div class="detail">
-    <h4>Delivery Mode</h4>
+    <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['delivery_mode'])) ? $in['labels']['delivery_mode'] : null), ENT_QUOTES, 'UTF-8').'</h4>
     '.htmlspecialchars((string)(($inary && isset($in['delivery_mode'])) ? $in['delivery_mode'] : null), ENT_QUOTES, 'UTF-8').'
   </div>
 ' : '').''.((LR::ifvar($cx, (($inary && isset($in['certification'])) ? $in['certification'] : null), false)) ? '  <div class="detail">
-    <h4>Certification</h4>
+    <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['certification'])) ? $in['labels']['certification'] : null), ENT_QUOTES, 'UTF-8').'</h4>
     '.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), ENT_QUOTES, 'UTF-8').'">' : '').''.htmlspecialchars((string)(($inary && isset($in['certification'])) ? $in['certification'] : null), ENT_QUOTES, 'UTF-8').''.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '</a>' : '').'
   </div>
-' : '').'  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">Request Info</a>
+' : '').'  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['request_info'])) ? $in['labels']['request_info'] : null), ENT_QUOTES, 'UTF-8').'</a>
 </div>';
 };
 ?>
