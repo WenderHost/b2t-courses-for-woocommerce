@@ -24,30 +24,30 @@
   }
 </style>
 <div class="widget course-details">
-  <h3 class="widget-title">Course Details</h3>
+  <h3 class="widget-title">{{labels.course_details}}</h3>
   {{#if reference}}
   <div class="detail">
-    <h4>Reference</h4>
+    <h4>{{labels.reference}}</h4>
     {{reference}}
   </div>
   {{/if}}
   {{#if duration}}
   <div class="detail">
-    <h4>Duration</h4>
+    <h4>{{labels.duration}}</h4>
     {{duration}}
   </div>
   {{/if}}
   {{#if delivery_mode}}
   <div class="detail">
-    <h4>Delivery Mode</h4>
+    <h4>{{labels.delivery_mode}}</h4>
     {{delivery_mode}}
   </div>
   {{/if}}
   {{#if certification}}
   <div class="detail">
-    <h4>Certification</h4>
+    <h4>{{labels.certification}}</h4>
     {{# if certification_link}}<a href="{{certification_link}}">{{/if}}{{certification}}{{# if certification_link}}</a>{{/if}}
   </div>
   {{/if}}
-  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">Request Info</a>
+  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">{{labels.request_info}}</a>
 </div>

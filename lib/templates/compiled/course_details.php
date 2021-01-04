@@ -28,7 +28,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
         'partialid' => 0,
         'runtime' => '\LightnCandy\Runtime',
     );
-
+    
     $inary=is_array($in);
     return '<style type="text/css">
   .course-details h4{
@@ -56,7 +56,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
   }
 </style>
 <div class="widget course-details">
-  <h3 class="widget-title">Course Details</h3>
+  <h3 class="widget-title">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['course_details'])) ? $in['labels']['course_details'] : null), ENT_QUOTES, 'UTF-8').'</h3>
 '.((LR::ifvar($cx, (($inary && isset($in['reference'])) ? $in['reference'] : null), false)) ? '  <div class="detail">
     <h4>Reference</h4>
     '.htmlspecialchars((string)(($inary && isset($in['reference'])) ? $in['reference'] : null), ENT_QUOTES, 'UTF-8').'

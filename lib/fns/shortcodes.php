@@ -1,7 +1,15 @@
 <?php
 
 namespace AndaluWooCourses\shortcodes;
+use function AndaluWooCourses\multilingual\{get_class_pricing};
 
+/**
+ * Adds the Course Details widget.
+ *
+ * @param      array  $atts   Not used.
+ *
+ * @return     string  HTML for the Course Details widget.
+ */
 function course_details( $atts ){
   global $product;
   if( ! is_object( $product ) )
@@ -19,7 +27,18 @@ function course_details( $atts ){
   $data['certification'] = get_post_meta($product->get_id(), '_course_certification', true );
   $data['certification_link'] = get_post_meta($product->get_id(), '_course_certification_link', true );
 
-  $html = \AndaluWooCourses\handlebars\render_template('course_details',$data);
+  $data['labels'] = [
+    'course_details' => __( 'Course Details', 'andalu_woo_courses' ),
+    'reference' => __( 'Reference', 'andalu_woo_courses' ),
+    'duration' => __( 'Duration', 'andalu_woo_courses' ),
+    'delivery_mode' => __( 'Delivery Mode', 'andalu_woo_courses' ),
+    'certification' => __( 'Certification', 'andalu_woo_courses' ),
+    'request_info' => __( 'Request Info', 'andalu_woo_courses' ),
+  ];
+  uber_log('🔔 $data[labels] = ' . print_r( $data['labels'], true ) );
+  $data['locale'] = ANDALU_LANG;
+
+  $html = \AndaluWooCourses\handlebars\render_template( 'course_details', $data );
   return $html;
 }
 add_shortcode( 'course_details', __NAMESPACE__ . '\\course_details' );
