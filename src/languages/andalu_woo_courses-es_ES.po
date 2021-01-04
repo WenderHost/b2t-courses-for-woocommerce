@@ -3,36 +3,33 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ANDA.lu Woo Courses 2.2.0\n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/andalu_woo_courses\n"
-"POT-Creation-Date: 2021-01-04 13:53:51+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/andalu_woo_courses\n"
+"POT-Creation-Date: 2021-01-04 14:35:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: en\n"
+"PO-Revision-Date: 2021-01-04 09:42-0500\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Bookmarks: \n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n 1.0.3\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: lib/classes/admin.php:67 lib/classes/class-rosters.php:53
-#: lib/fns/shortcodes.php:307
+#: lib/fns/shortcodes.php:311
 msgid "Course"
-msgstr ""
+msgstr "Curso"
 
 #: lib/classes/admin.php:156
 msgid "Course Data"
-msgstr ""
+msgstr "Datos del curso"
 
 #: lib/classes/admin.php:162
 msgid "Linked Products"
@@ -47,23 +44,23 @@ msgstr ""
 msgid "Course Language"
 msgstr ""
 
-#: lib/classes/admin.php:225 lib/fns/shortcodes.php:260
+#: lib/classes/admin.php:225 lib/fns/shortcodes.php:264
 #: lib/views/course-class.php:102
 msgid "English"
 msgstr ""
 
-#: lib/classes/admin.php:226 lib/fns/shortcodes.php:260
+#: lib/classes/admin.php:226 lib/fns/shortcodes.php:264
 #: lib/views/course-class.php:104
 msgid "Spanish"
 msgstr ""
 
-#: lib/classes/admin.php:232
+#: lib/classes/admin.php:232 lib/fns/shortcodes.php:32
 msgid "Reference"
-msgstr ""
+msgstr "Referencia"
 
-#: lib/classes/admin.php:239
+#: lib/classes/admin.php:239 lib/fns/shortcodes.php:34
 msgid "Delivery Mode"
-msgstr ""
+msgstr "Modalidades"
 
 #: lib/classes/admin.php:241
 msgid "Onsite"
@@ -77,12 +74,12 @@ msgstr ""
 msgid "Face-to-Face"
 msgstr ""
 
-#: lib/classes/admin.php:249 lib/fns/shortcodes.php:310
+#: lib/classes/admin.php:249 lib/fns/shortcodes.php:33 lib/fns/shortcodes.php:314
 #: lib/views/course-outline.php:19
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
-#: lib/classes/admin.php:255 lib/fns/taxonomies.php:86
+#: lib/classes/admin.php:255 lib/fns/shortcodes.php:35 lib/fns/taxonomies.php:86
 msgid "Certification"
 msgstr ""
 
@@ -114,13 +111,13 @@ msgstr ""
 msgid "Exam"
 msgstr ""
 
-#: lib/classes/admin.php:361 lib/classes/admin.php:388
-#: lib/classes/admin.php:397 lib/classes/admin.php:406
+#: lib/classes/admin.php:361 lib/classes/admin.php:388 lib/classes/admin.php:397
+#: lib/classes/admin.php:406
 msgid "Expand"
 msgstr ""
 
-#: lib/classes/admin.php:361 lib/classes/admin.php:388
-#: lib/classes/admin.php:397 lib/classes/admin.php:406
+#: lib/classes/admin.php:361 lib/classes/admin.php:388 lib/classes/admin.php:397
+#: lib/classes/admin.php:406
 msgid "Close"
 msgstr ""
 
@@ -194,8 +191,8 @@ msgstr ""
 
 #: lib/classes/cart-reserve.php:56
 msgid ""
-"Sorry, '%s' was removed from your cart because you didn't checkout before "
-"the expiration time."
+"Sorry, '%s' was removed from your cart because you didn't checkout before the "
+"expiration time."
 msgstr ""
 
 #: lib/classes/class-rosters.php:35
@@ -206,12 +203,12 @@ msgstr ""
 msgid "View roster"
 msgstr ""
 
-#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:306
+#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:310
 msgid "Dates"
 msgstr ""
 
 #: lib/classes/class-rosters.php:55 lib/classes/course-order.php:28
-#: lib/fns/shortcodes.php:308 lib/views/course-class.php:77
+#: lib/fns/shortcodes.php:312 lib/views/course-class.php:77
 msgid "Location"
 msgstr ""
 
@@ -247,8 +244,8 @@ msgstr ""
 msgid "All dates"
 msgstr ""
 
-#: lib/classes/class-rosters.php:224
 #. translators: 1: month name, 2: 4-digit year
+#: lib/classes/class-rosters.php:224
 msgid "%1$s %2$d"
 msgstr ""
 
@@ -343,8 +340,8 @@ msgstr ""
 
 #: lib/classes/course-single.php:142
 msgid ""
-"You are registering for the LIVE Virtual version of %s. Please choose your "
-"times for the following components of this course:"
+"You are registering for the LIVE Virtual version of %s. Please choose your times "
+"for the following components of this course:"
 msgstr ""
 
 #: lib/classes/course-single.php:166
@@ -393,10 +390,9 @@ msgstr ""
 
 #: lib/classes/course-single.php:279
 msgid ""
-"NOTE - Valid Shipping Address Required: The following registration is for a "
-"Live Virtual Class. Be sure to include a valid shipping address (no P.O. "
-"Boxes) where we can ship course materials for the student you are "
-"registering."
+"NOTE - Valid Shipping Address Required: The following registration is for a Live "
+"Virtual Class. Be sure to include a valid shipping address (no P.O. Boxes) where "
+"we can ship course materials for the student you are registering."
 msgstr ""
 
 #: lib/classes/course-single.php:292
@@ -405,8 +401,8 @@ msgstr ""
 
 #: lib/classes/course-single.php:293
 msgid ""
-"(Note: State/Province and Zip Code are not required for students outside of "
-"the US and Canada.)"
+"(Note: State/Province and Zip Code are not required for students outside of the "
+"US and Canada.)"
 msgstr ""
 
 #: lib/classes/course-single.php:333
@@ -437,7 +433,7 @@ msgstr ""
 msgid "Sub Courses"
 msgstr ""
 
-#: lib/classes/course-single.php:432 lib/fns/shortcodes.php:75
+#: lib/classes/course-single.php:432 lib/fns/shortcodes.php:79
 msgid "Course Length: %s"
 msgstr ""
 
@@ -461,7 +457,7 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: lib/classes/course-single.php:519 lib/fns/shortcodes.php:313
+#: lib/classes/course-single.php:519 lib/fns/shortcodes.php:317
 msgid "Register"
 msgstr ""
 
@@ -539,18 +535,18 @@ msgstr ""
 
 #: lib/fns/shortcodes.php:31
 msgid "Course Details"
-msgstr "Detalles del Curso"
+msgstr ""
 
-#: lib/fns/shortcodes.php:309 lib/views/course-class.php:71
+#: lib/fns/shortcodes.php:313 lib/views/course-class.php:71
 msgid "Time"
 msgstr ""
 
-#: lib/fns/shortcodes.php:311 templates/single-product/course-info.php:16
+#: lib/fns/shortcodes.php:315 templates/single-product/course-info.php:16
 #: templates/single-product/course-info.php:32
 msgid "Price"
 msgstr ""
 
-#: lib/fns/shortcodes.php:312
+#: lib/fns/shortcodes.php:316
 msgid "Language"
 msgstr ""
 
