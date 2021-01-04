@@ -17,6 +17,7 @@ require_once('vendor/autoload.php');
 require_once('lib/fns/enqueues.php');
 require_once('lib/fns/handlebars.php');
 require_once('lib/fns/http_build_url.php');
+require_once('lib/fns/multilingual.php');
 require_once('lib/fns/shortcodes.php');
 require_once('lib/fns/taxonomies.php');
 require_once('lib/fns/utilities.php');
