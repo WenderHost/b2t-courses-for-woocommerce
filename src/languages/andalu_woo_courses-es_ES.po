@@ -1,0 +1,826 @@
+# Copyright (C) 2021 ANDA.lu
+# This file is distributed under the same license as the ANDA.lu Woo Courses package.
+msgid ""
+msgstr ""
+"Project-Id-Version: ANDA.lu Woo Courses 2.2.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/andalu_woo_courses\n"
+"POT-Creation-Date: 2021-01-04 13:53:51+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: lib/classes/admin.php:67 lib/classes/class-rosters.php:53
+#: lib/fns/shortcodes.php:307
+msgid "Course"
+msgstr ""
+
+#: lib/classes/admin.php:156
+msgid "Course Data"
+msgstr ""
+
+#: lib/classes/admin.php:162
+msgid "Linked Products"
+msgstr ""
+
+#: lib/classes/admin.php:176 lib/classes/course-order.php:39
+#: lib/classes/course-single.php:781
+msgid "Classes"
+msgstr ""
+
+#: lib/classes/admin.php:223
+msgid "Course Language"
+msgstr ""
+
+#: lib/classes/admin.php:225 lib/fns/shortcodes.php:260
+#: lib/views/course-class.php:102
+msgid "English"
+msgstr ""
+
+#: lib/classes/admin.php:226 lib/fns/shortcodes.php:260
+#: lib/views/course-class.php:104
+msgid "Spanish"
+msgstr ""
+
+#: lib/classes/admin.php:232
+msgid "Reference"
+msgstr ""
+
+#: lib/classes/admin.php:239
+msgid "Delivery Mode"
+msgstr ""
+
+#: lib/classes/admin.php:241
+msgid "Onsite"
+msgstr ""
+
+#: lib/classes/admin.php:242
+msgid "Virtual"
+msgstr ""
+
+#: lib/classes/admin.php:243
+msgid "Face-to-Face"
+msgstr ""
+
+#: lib/classes/admin.php:249 lib/fns/shortcodes.php:310
+#: lib/views/course-outline.php:19
+msgid "Duration"
+msgstr ""
+
+#: lib/classes/admin.php:255 lib/fns/taxonomies.php:86
+msgid "Certification"
+msgstr ""
+
+#: lib/classes/admin.php:261
+msgid "Certification Link"
+msgstr ""
+
+#: lib/classes/admin.php:298
+msgid "Private Course"
+msgstr ""
+
+#: lib/classes/admin.php:309
+msgid "Parent Course"
+msgstr ""
+
+#: lib/classes/admin.php:310
+msgid "Search for a course product&hellip;"
+msgstr ""
+
+#: lib/classes/admin.php:325 lib/classes/course-single.php:354
+msgid "Study Guide"
+msgstr ""
+
+#: lib/classes/admin.php:326 lib/classes/admin.php:342
+msgid "Search for a product&hellip;"
+msgstr ""
+
+#: lib/classes/admin.php:341
+msgid "Exam"
+msgstr ""
+
+#: lib/classes/admin.php:361 lib/classes/admin.php:388
+#: lib/classes/admin.php:397 lib/classes/admin.php:406
+msgid "Expand"
+msgstr ""
+
+#: lib/classes/admin.php:361 lib/classes/admin.php:388
+#: lib/classes/admin.php:397 lib/classes/admin.php:406
+msgid "Close"
+msgstr ""
+
+#: lib/classes/admin.php:363
+msgid "Add Outline"
+msgstr ""
+
+#: lib/classes/admin.php:390
+msgid "Save Outlines"
+msgstr ""
+
+#: lib/classes/admin.php:399
+msgid "Add Class"
+msgstr ""
+
+#: lib/classes/admin.php:408
+msgid "Save Classes"
+msgstr ""
+
+#: lib/classes/admin.php:742
+msgid "Remove this outline?"
+msgstr ""
+
+#: lib/classes/admin.php:743
+msgid "Remove this class?"
+msgstr ""
+
+#: lib/classes/admin.php:756 lib/classes/admin.php:776
+msgid "Class Rosters"
+msgstr ""
+
+#: lib/classes/admin.php:781
+msgid "Search Courses"
+msgstr ""
+
+#: lib/classes/admin.php:806
+msgid "Class Roster"
+msgstr ""
+
+#: lib/classes/admin.php:807
+msgid "Course: %s"
+msgstr ""
+
+#: lib/classes/admin.php:808
+msgid "Dates: %s"
+msgstr ""
+
+#: lib/classes/admin.php:821 lib/views/course-outline.php:12
+msgid "Name"
+msgstr ""
+
+#: lib/classes/admin.php:822 lib/classes/course-single.php:192
+msgid "Company"
+msgstr ""
+
+#: lib/classes/admin.php:823 lib/classes/course-single.php:255
+msgid "Phone"
+msgstr ""
+
+#: lib/classes/admin.php:824 lib/classes/course-single.php:177
+msgid "Email"
+msgstr ""
+
+#: lib/classes/admin.php:825 lib/classes/class-rosters.php:57
+msgid "Options"
+msgstr ""
+
+#: lib/classes/admin.php:844
+msgid "No class roster found"
+msgstr ""
+
+#: lib/classes/cart-reserve.php:56
+msgid ""
+"Sorry, '%s' was removed from your cart because you didn't checkout before "
+"the expiration time."
+msgstr ""
+
+#: lib/classes/class-rosters.php:35
+msgid "%d of %d"
+msgstr ""
+
+#: lib/classes/class-rosters.php:42
+msgid "View roster"
+msgstr ""
+
+#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:306
+msgid "Dates"
+msgstr ""
+
+#: lib/classes/class-rosters.php:55 lib/classes/course-order.php:28
+#: lib/fns/shortcodes.php:308 lib/views/course-class.php:77
+msgid "Location"
+msgstr ""
+
+#: lib/classes/class-rosters.php:56
+msgid "Students"
+msgstr ""
+
+#: lib/classes/class-rosters.php:79
+msgid "Upcoming"
+msgstr ""
+
+#: lib/classes/class-rosters.php:83
+msgid "Archived"
+msgstr ""
+
+#: lib/classes/class-rosters.php:91
+msgid "Filter"
+msgstr ""
+
+#: lib/classes/class-rosters.php:188
+msgid "No results found"
+msgstr ""
+
+#: lib/classes/class-rosters.php:190
+msgid "Course Classes will appear here for you to view once purchased by a customer"
+msgstr ""
+
+#: lib/classes/class-rosters.php:209
+msgid "Filter by date"
+msgstr ""
+
+#: lib/classes/class-rosters.php:211
+msgid "All dates"
+msgstr ""
+
+#: lib/classes/class-rosters.php:224
+#. translators: 1: month name, 2: 4-digit year
+msgid "%1$s %2$d"
+msgstr ""
+
+#: lib/classes/course-class.php:31
+msgid "Course Class"
+msgstr ""
+
+#: lib/classes/course-class.php:51
+msgid "Search Locations"
+msgstr ""
+
+#: lib/classes/course-class.php:52
+msgid "Popular Locations"
+msgstr ""
+
+#: lib/classes/course-class.php:53
+msgid "All Locations"
+msgstr ""
+
+#: lib/classes/course-class.php:56
+msgid "Edit Location"
+msgstr ""
+
+#: lib/classes/course-class.php:57
+msgid "Update Location"
+msgstr ""
+
+#: lib/classes/course-class.php:58
+msgid "Add New Location"
+msgstr ""
+
+#: lib/classes/course-class.php:59
+msgid "New Location Name"
+msgstr ""
+
+#: lib/classes/course-class.php:60
+msgid "Separate locations with commas"
+msgstr ""
+
+#: lib/classes/course-class.php:61
+msgid "Add or remove locations"
+msgstr ""
+
+#: lib/classes/course-class.php:62
+msgid "Choose from the most used locations"
+msgstr ""
+
+#: lib/classes/course-class.php:63
+msgid "No locations found."
+msgstr ""
+
+#: lib/classes/course-class.php:64 lib/classes/course-class.php:81
+msgid "Class Locations"
+msgstr ""
+
+#: lib/classes/course-class.php:101 lib/classes/course-class.php:143
+#: lib/classes/course-single.php:206
+msgid "Address"
+msgstr ""
+
+#: lib/classes/course-class.php:103 lib/classes/course-class.php:146
+msgid "Enter the location address"
+msgstr ""
+
+#: lib/classes/course-class.php:107 lib/classes/course-class.php:150
+msgid "Directions"
+msgstr ""
+
+#: lib/classes/course-class.php:109 lib/classes/course-class.php:153
+msgid "Enter the location directions (HTML tags are allowed)"
+msgstr ""
+
+#: lib/classes/course-class.php:113 lib/classes/course-class.php:157
+msgid "Lodging"
+msgstr ""
+
+#: lib/classes/course-class.php:115 lib/classes/course-class.php:160
+msgid "Enter the location lodging links (HTML tags are allowed) "
+msgstr ""
+
+#: lib/classes/course-order.php:24 lib/classes/course-single.php:761
+msgid "Class"
+msgstr ""
+
+#: lib/classes/course-order.php:54
+msgid "Optin"
+msgstr ""
+
+#: lib/classes/course-order.php:72 lib/classes/course-order.php:83
+msgid "Class \"%s\" seats reduced from %s to %s."
+msgstr ""
+
+#: lib/classes/course-single.php:142
+msgid ""
+"You are registering for the LIVE Virtual version of %s. Please choose your "
+"times for the following components of this course:"
+msgstr ""
+
+#: lib/classes/course-single.php:166
+msgid "First Name"
+msgstr ""
+
+#: lib/classes/course-single.php:171
+msgid "Last Name"
+msgstr ""
+
+#: lib/classes/course-single.php:184
+msgid "Email Again"
+msgstr ""
+
+#: lib/classes/course-single.php:196
+msgid "Title"
+msgstr ""
+
+#: lib/classes/course-single.php:200
+msgid "Country"
+msgstr ""
+
+#: lib/classes/course-single.php:207
+msgid "Street address"
+msgstr ""
+
+#: lib/classes/course-single.php:212
+msgid "Apartment, suite, unit etc. (optional)"
+msgstr ""
+
+#: lib/classes/course-single.php:219 lib/classes/course-single.php:220
+msgid "Town / City"
+msgstr ""
+
+#: lib/classes/course-single.php:227
+msgid "State / County"
+msgstr ""
+
+#: lib/classes/course-single.php:235 lib/classes/course-single.php:236
+msgid "Postcode / Zip"
+msgstr ""
+
+#: lib/classes/course-single.php:245 lib/classes/course-single.php:246
+msgid "CIF / NIF"
+msgstr ""
+
+#: lib/classes/course-single.php:279
+msgid ""
+"NOTE - Valid Shipping Address Required: The following registration is for a "
+"Live Virtual Class. Be sure to include a valid shipping address (no P.O. "
+"Boxes) where we can ship course materials for the student you are "
+"registering."
+msgstr ""
+
+#: lib/classes/course-single.php:292
+msgid "indicates a required field"
+msgstr ""
+
+#: lib/classes/course-single.php:293
+msgid ""
+"(Note: State/Province and Zip Code are not required for students outside of "
+"the US and Canada.)"
+msgstr ""
+
+#: lib/classes/course-single.php:333
+msgid "Request Onsite"
+msgstr ""
+
+#: lib/classes/course-single.php:336
+msgid "Length"
+msgstr ""
+
+#: lib/classes/course-single.php:340
+msgid "CDU/PDU"
+msgstr ""
+
+#: lib/classes/course-single.php:344
+msgid "Intended Audience"
+msgstr ""
+
+#: lib/classes/course-single.php:348
+msgid "Prerequisites"
+msgstr ""
+
+#: lib/classes/course-single.php:361
+msgid "Course Exam"
+msgstr ""
+
+#: lib/classes/course-single.php:401
+msgid "Sub Courses"
+msgstr ""
+
+#: lib/classes/course-single.php:432 lib/fns/shortcodes.php:75
+msgid "Course Length: %s"
+msgstr ""
+
+#: lib/classes/course-single.php:447
+msgid "Various dates"
+msgstr ""
+
+#: lib/classes/course-single.php:448
+msgid "Live Virtual Course"
+msgstr ""
+
+#: lib/classes/course-single.php:449
+msgid "Select Dates"
+msgstr ""
+
+#: lib/classes/course-single.php:455
+msgid "On site classes"
+msgstr ""
+
+#: lib/classes/course-single.php:494
+msgid "Full"
+msgstr ""
+
+#: lib/classes/course-single.php:519 lib/fns/shortcodes.php:313
+msgid "Register"
+msgstr ""
+
+#: lib/classes/course-single.php:521
+msgid "This class is full"
+msgstr ""
+
+#: lib/classes/course-single.php:549
+msgid "Outline"
+msgstr ""
+
+#: lib/classes/course-single.php:565
+msgid "Course Outline"
+msgstr ""
+
+#: lib/classes/course-single.php:605
+msgid "You must select a class for \"%s\"."
+msgstr ""
+
+#: lib/classes/course-single.php:611
+msgid "Invalid virtual course."
+msgstr ""
+
+#: lib/classes/course-single.php:641
+msgid "is a required field."
+msgstr ""
+
+#: lib/classes/course-single.php:654
+msgid "Please enter a valid postcode/ZIP."
+msgstr ""
+
+#: lib/classes/course-single.php:663
+msgid "is not a valid phone number."
+msgstr ""
+
+#: lib/classes/course-single.php:669
+msgid "is not a valid email address."
+msgstr ""
+
+#: lib/classes/course-single.php:672
+msgid "The email addresses do not match."
+msgstr ""
+
+#: lib/classes/course-single.php:690
+msgid "is not valid. Please enter one of the following:"
+msgstr ""
+
+#: lib/classes/course-single.php:739
+msgid "Sorry, this class is not available for registration"
+msgstr ""
+
+#: lib/classes/course-single.php:788
+msgid "Student"
+msgstr ""
+
+#: lib/classes/course-single.php:834
+msgid "Sorry, '%s' was removed from your cart because it is no longer available."
+msgstr ""
+
+#: lib/classes/course-single.php:850
+msgid "A \"%s\" registration for %s has been added to your cart."
+msgstr ""
+
+#: lib/classes/course-single.php:852
+msgid " Add another student by entering his or her details below:"
+msgstr ""
+
+#: lib/classes/course-single.php:861
+msgid "Continue Shopping"
+msgstr ""
+
+#: lib/classes/course-single.php:863
+msgid "View Cart"
+msgstr ""
+
+#: lib/fns/shortcodes.php:31
+msgid "Course Details"
+msgstr "Detalles del Curso"
+
+#: lib/fns/shortcodes.php:309 lib/views/course-class.php:71
+msgid "Time"
+msgstr ""
+
+#: lib/fns/shortcodes.php:311 templates/single-product/course-info.php:16
+#: templates/single-product/course-info.php:32
+msgid "Price"
+msgstr ""
+
+#: lib/fns/shortcodes.php:312
+msgid "Language"
+msgstr ""
+
+#: lib/fns/taxonomies.php:9
+msgid "Search Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:10
+msgid "Popular Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:11
+msgid "All Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:12 lib/fns/taxonomies.php:13
+msgid "Parent Role"
+msgstr ""
+
+#: lib/fns/taxonomies.php:14
+msgid "Edit Role"
+msgstr ""
+
+#: lib/fns/taxonomies.php:15
+msgid "Update Role"
+msgstr ""
+
+#: lib/fns/taxonomies.php:16
+msgid "Add New Role"
+msgstr ""
+
+#: lib/fns/taxonomies.php:17
+msgid "New Role Name"
+msgstr ""
+
+#: lib/fns/taxonomies.php:18
+msgid "Add or remove Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:19
+msgid "Choose from most used Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:20
+msgid "Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:42
+msgid "Search Sub Categories"
+msgstr ""
+
+#: lib/fns/taxonomies.php:43
+msgid "Popular Sub Categories"
+msgstr ""
+
+#: lib/fns/taxonomies.php:44
+msgid "All Sub Categories"
+msgstr ""
+
+#: lib/fns/taxonomies.php:45 lib/fns/taxonomies.php:46
+msgid "Parent Sub Category"
+msgstr ""
+
+#: lib/fns/taxonomies.php:47
+msgid "Edit Sub Category"
+msgstr ""
+
+#: lib/fns/taxonomies.php:48
+msgid "Update Sub Category"
+msgstr ""
+
+#: lib/fns/taxonomies.php:49
+msgid "Add New Sub Category"
+msgstr ""
+
+#: lib/fns/taxonomies.php:50
+msgid "New Sub Category Name"
+msgstr ""
+
+#: lib/fns/taxonomies.php:51
+msgid "Add or remove Sub Categories"
+msgstr ""
+
+#: lib/fns/taxonomies.php:52
+msgid "Choose from most used Sub Categories"
+msgstr ""
+
+#: lib/fns/taxonomies.php:53
+msgid "Sub Category"
+msgstr ""
+
+#: lib/fns/taxonomies.php:75
+msgid "Search Certifications"
+msgstr ""
+
+#: lib/fns/taxonomies.php:76
+msgid "Popular Certifications"
+msgstr ""
+
+#: lib/fns/taxonomies.php:77
+msgid "All Certifications"
+msgstr ""
+
+#: lib/fns/taxonomies.php:78 lib/fns/taxonomies.php:79
+msgid "Parent Certification"
+msgstr ""
+
+#: lib/fns/taxonomies.php:80
+msgid "Edit Certification"
+msgstr ""
+
+#: lib/fns/taxonomies.php:81
+msgid "Update Certification"
+msgstr ""
+
+#: lib/fns/taxonomies.php:82
+msgid "Add New Certification"
+msgstr ""
+
+#: lib/fns/taxonomies.php:83
+msgid "New Certification Name"
+msgstr ""
+
+#: lib/fns/taxonomies.php:84
+msgid "Add or remove Certifications"
+msgstr ""
+
+#: lib/fns/taxonomies.php:85
+msgid "Choose from most used Certifications"
+msgstr ""
+
+#: lib/views/course-class.php:52 lib/views/course-outline.php:3
+msgid "Remove"
+msgstr ""
+
+#: lib/views/course-class.php:53 lib/views/course-outline.php:4
+msgid "Click to toggle"
+msgstr ""
+
+#: lib/views/course-class.php:61
+msgid "Date"
+msgstr ""
+
+#: lib/views/course-class.php:87
+msgid "Seats available"
+msgstr ""
+
+#: lib/views/course-class.php:94
+msgid "Has this class been confirmed?"
+msgstr ""
+
+#: lib/views/course-class.php:99
+msgid "Class language"
+msgstr ""
+
+#: lib/views/course-class.php:110
+msgid "Calendar Display"
+msgstr ""
+
+#: lib/views/course-class.php:113
+msgid "US"
+msgstr ""
+
+#: lib/views/course-class.php:115
+msgid "Spain"
+msgstr ""
+
+#: lib/views/course-outline.php:25
+msgid "Content"
+msgstr ""
+
+#: templates/content-single-product-register.php:30
+msgid "To register for this class complete the form below:"
+msgstr ""
+
+#: templates/content-single-product-register.php:46
+msgid "Back"
+msgstr ""
+
+#: templates/single-product/course-info.php:16
+#: templates/single-product/course-info.php:32
+msgid "student"
+msgstr ""
+
+#: templates/single-product/course-info.php:30
+msgid "Metro Area"
+msgstr ""
+
+#: templates/single-product/course-info.php:31
+msgid "seat available"
+msgid_plural "seats available"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/single-product/course-info.php:40
+msgid "Location:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "ANDA.lu Woo Courses"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://anda.lu/design"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds a custom WC Product type called Courses"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "ANDA.lu"
+msgstr ""
+
+#: lib/classes/admin.php:233
+msgctxt "example reference"
+msgid "e.g. JJM 162"
+msgstr ""
+
+#: lib/classes/admin.php:250
+msgctxt "example duration"
+msgid "e.g. 4 days"
+msgstr ""
+
+#: lib/classes/admin.php:256
+msgctxt "example certification"
+msgid "e.g. PRINCE2 Foundation Certification"
+msgstr ""
+
+#: lib/classes/admin.php:262
+msgctxt "provide a link to the certification"
+msgid "e.g. https://example.com/certification"
+msgstr ""
+
+#: lib/classes/course-class.php:49
+msgctxt "taxonomy general name"
+msgid "Class Locations"
+msgstr ""
+
+#: lib/classes/course-class.php:50
+msgctxt "taxonomy singular name"
+msgid "Class Location"
+msgstr ""
+
+#: lib/fns/taxonomies.php:7
+msgctxt "Taxonomy Roles"
+msgid "Roles"
+msgstr ""
+
+#: lib/fns/taxonomies.php:8
+msgctxt "Taxonomy Role"
+msgid "Role"
+msgstr ""
+
+#: lib/fns/taxonomies.php:40
+msgctxt "Taxonomy Sub Categories"
+msgid "Sub Categories"
+msgstr ""
+
+#: lib/fns/taxonomies.php:41
+msgctxt "Taxonomy Sub Category"
+msgid "Sub Category"
+msgstr ""
+
+#: lib/fns/taxonomies.php:73
+msgctxt "Taxonomy Certifications"
+msgid "Certifications"
+msgstr ""
+
+#: lib/fns/taxonomies.php:74
+msgctxt "Taxonomy Certification"
+msgid "Certification"
+msgstr ""
