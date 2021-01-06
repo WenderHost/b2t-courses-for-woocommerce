@@ -98,8 +98,9 @@ function register_taxonomies(){
     'rewrite'           => true,
     'query_var'         => true,
     'capabilities'      => array(),
+    'show_in_rest'      => true,
   );
 
-  register_taxonomy( 'certification', ['product'], $args );
+  register_taxonomy( 'certification', ['product','post'], $args );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_taxonomies' );
