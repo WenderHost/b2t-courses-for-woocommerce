@@ -2,8 +2,8 @@
 **Contributors:** TheWebist  
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
-**Tested up to:** 5.5.1  
-**Stable tag:** 2.2.2  
+**Tested up to:** 5.6  
+**Stable tag:** 2.2.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,6 +22,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 ## Changelog ##
+
+### 2.2.3 ###
+* Including `build/languages/` in repo.
 
 ### 2.2.2 ###
 * Adding `show_in_rest` to Certification taxonomy so it will show in Gutenbery and the Quick Edit screen for posts.
