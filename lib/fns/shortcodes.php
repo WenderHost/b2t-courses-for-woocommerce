@@ -188,7 +188,11 @@ add_shortcode( 'courselist', __NAMESPACE__ . '\\courselist' );
 /**
  * Displays a calendar of Public Classes
  *
- * @param      array  $atts   The atts
+ * Utilizes `lib/templates/public_class_calendar.hbs`.
+ *
+ * @param      array  $atts   {
+ *             No options currently defined.
+ * }
  *
  * @return     string  HTML for Public Classes view.
  */
