@@ -3,7 +3,7 @@
 Plugin Name: ANDA.lu Woo Courses
 Plugin URI: http://anda.lu/design
 Description: Adds a custom WC Product type called Courses
-Version: 2.2.3
+Version: 2.3.0
 Author: ANDA.lu
 Author URI: http://anda.lu/design
 */
@@ -34,7 +34,7 @@ class Andalu_Woo_Courses {
 		self::$url = plugins_url('', __FILE__);
 		self::$dir = plugin_dir_path(__FILE__);
 
-		load_plugin_textdomain( 'andalu_woo_courses', false, dirname( plugin_basename( __FILE__ ) ) . '/build/languages' );
+		load_plugin_textdomain( 'andalu_woo_courses', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 		if ( is_admin() ) {
 			require_once( 'lib/classes/admin.php' );

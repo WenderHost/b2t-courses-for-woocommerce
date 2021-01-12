@@ -3,7 +3,7 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 5.6
-Stable tag: 2.2.3
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,10 +11,10 @@ WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
 # Instructions for Building Translations
 
-1. Run `grunt makepot` to generate `build/languages/andalu_woo_courses.pot`.
-2. Copy `andalu_woo_courses.pot` to `src/languages/` with your desired language extension (e.g. `andalu_woo_courses-es_ES.po`).
-3. Update the translations in the file you copied in #2 (might want to use PoEdit.app).
-4. Run `grunt po2mo` to build `.mo` files in `build/languages/`.
+1. Run `grunt makepot` to generate `languages/andalu_woo_courses.pot`.
+2. Copy `languages/andalu_woo_courses.pot` with your desired language extension (e.g. `languages/andalu_woo_courses-es_ES.po`).
+3. Update the translations in the file you copied in #2 (use [PoEdit](https://poedit.net/) if you prefer a GUI).
+4. Run `grunt po2mo` to build `.mo` files in `languages/`.
 
 Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-exec directory. To fix, I had to edit `node_modules\grunt-po2mo\tasks\po2mo.js` as follows:
 
@@ -22,6 +22,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 == Changelog ==
+
+= 2.3.0 =
+* Refactoring translation setup.
 
 = 2.2.3 =
 * Including `build/languages/` in repo.

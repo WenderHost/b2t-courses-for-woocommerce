@@ -36,35 +36,18 @@ module.exports = function( grunt ) {
 						'x-poedit-keywordslist': true
 					},
 					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
-					domainPath: 'build/languages/',
+					domainPath: 'languages',
 					type: 'wp-plugin',
 					updateTimestamp: true
 				}
 			}
-			/*
-			,
-			target: {
-				options: {
-					domainPath: '/languages',
-					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
-					mainFile: 'andalu_woo_courses.php',
-					potFilename: 'andalu_woo_courses.pot',
-					potHeaders: {
-						poedit: true,
-						'x-poedit-keywordslist': true
-					},
-					type: 'wp-plugin',
-					updateTimestamp: true
-				}
-			}
-			*/
 		},
 
 		po2mo: {
 			plugin: {
-				cwd: 'src',
-				src: 'languages/*.po',
-				dest: 'build',
+				cwd: 'languages',
+				src: '*.po',
+				dest: 'languages',
 				expand: true
 			}
 		}
