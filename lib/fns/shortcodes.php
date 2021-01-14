@@ -201,7 +201,7 @@ function public_class_calendar( $atts ){
     'foo' => 'bar'
   ], $atts );
 
-  wp_enqueue_style( 'class-calendar' );
+  wp_enqueue_style( 'woo-courses' );
 
   $html = '<code>Public class calendar goes here.</code>';
 
