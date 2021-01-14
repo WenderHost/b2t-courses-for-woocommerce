@@ -80,11 +80,37 @@
     }
   }
 
+  div.buttons{
+    display: flex;
+  }
+
   a.button{
-    background: #009ee0;
+    background: $netmindblue;
     font-family: 'futura-pt', Futura, sans-serif;
     border-radius: 0;
     padding: 12px 24px;
     font-size: 15px;
+    margin-right: 8px;
+
+    &:hover{
+      color: #fff;
+      background-color: lighten($netmindblue, 15%);
+    }
+  }
+
+  a.print{
+    background-color: $netmindgray;
+    width: 39px;
+    height: 39px;
+    text-indent: -9999px;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cstyle%3E.st0%7Bfill:%23fff%7D%3C/style%3E%3Cpath class='st0' d='M16 18H8v-1h8v1zm-2 1H8v1h6v-1zM24 5v13h-4v6H4v-6H0V5h4V0h16v5h4zM6 5h12V2H6v3zm12 10H6v7h12v-7zm4-8H2v9h2v-3h16v3h2V7zm-1.5 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5z'/%3E%3C/svg%3E");
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover{
+      background-color: lighten($netmindgray, 20%);
+    }
   }
 }

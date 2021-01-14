@@ -24,5 +24,8 @@
     {{# if certification_link}}<a href="{{certification_link}}">{{/if}}{{certification}}{{# if certification_link}}</a>{{/if}}
   </div>
   {{/if}}
-  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">{{labels.request_info}}</a>
+  <div class="buttons">
+    <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">{{labels.request_info}}</a>
+    {{# if print_version}}<a href="{{print_version}}" class="print" target="_blank">Print</a>{{/if}}
+  </div>
 </div>

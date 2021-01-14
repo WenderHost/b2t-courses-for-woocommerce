@@ -27,6 +27,14 @@ function course_details( $atts ){
   $data['certification'] = get_post_meta($product->get_id(), '_course_certification', true );
   $data['certification_link'] = get_post_meta($product->get_id(), '_course_certification_link', true );
 
+  // Get Print Version
+  $print_version = get_post_meta( $product->get_id(), 'print_version', true );
+  if( is_numeric( $print_version ) ){
+    $file_url = wp_get_attachment_url( $print_version );
+    if( ! empty( $file_url ) )
+      $data['print_version'] = $file_url;
+  }
+
   $data['labels'] = [
     'course_details' => __( 'Course Details', 'andalu_woo_courses' ),
     'reference' => __( 'Reference', 'andalu_woo_courses' ),

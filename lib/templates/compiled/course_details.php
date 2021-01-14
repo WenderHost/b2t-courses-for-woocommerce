@@ -48,7 +48,10 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['certification'])) ? $in['labels']['certification'] : null), ENT_QUOTES, 'UTF-8').'</h4>
     '.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), ENT_QUOTES, 'UTF-8').'">' : '').''.htmlspecialchars((string)(($inary && isset($in['certification'])) ? $in['certification'] : null), ENT_QUOTES, 'UTF-8').''.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '</a>' : '').'
   </div>
-' : '').'  <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['request_info'])) ? $in['labels']['request_info'] : null), ENT_QUOTES, 'UTF-8').'</a>
+' : '').'  <div class="buttons">
+    <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['request_info'])) ? $in['labels']['request_info'] : null), ENT_QUOTES, 'UTF-8').'</a>
+    '.((LR::ifvar($cx, (($inary && isset($in['print_version'])) ? $in['print_version'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['print_version'])) ? $in['print_version'] : null), ENT_QUOTES, 'UTF-8').'" class="print" target="_blank">Print</a>' : '').'
+  </div>
 </div>';
 };
 ?>
