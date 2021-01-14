@@ -30,32 +30,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     );
     
     $inary=is_array($in);
-    return '<style type="text/css">
-  .course-details h4{
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-
-  }
-  .course-details .detail{
-    font-size: 18px;
-    font-family: \'futura-pt\', Futura, sans-serif;
-    border-bottom: 1px solid #9c9e9f;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  .course-details .detail:last-child{
-    margin-bottom: 0;
-  }
-  .course-details a.button{
-    background: #009ee0;
-    font-family: \'futura-pt\', Futura, sans-serif;
-    border-radius: 0;
-    padding: 12px 24px;
-    font-size: 15px;
-  }
-</style>
-<div class="widget course-details">
+    return '<div class="widget course-details">
   <h3 class="widget-title">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['course_details'])) ? $in['labels']['course_details'] : null), ENT_QUOTES, 'UTF-8').'</h3>
 '.((LR::ifvar($cx, (($inary && isset($in['reference'])) ? $in['reference'] : null), false)) ? '  <div class="detail">
     <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['reference'])) ? $in['labels']['reference'] : null), ENT_QUOTES, 'UTF-8').'</h4>
