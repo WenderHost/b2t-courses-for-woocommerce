@@ -77,8 +77,7 @@ class Andalu_Woo_Courses_Admin {
 			$field_name = '_course_' . $field;
 			update_post_meta( $post_id, $field_name, stripslashes( $_REQUEST[ $field_name ] ) );
 		}
-		if( $_REQUEST['_course_language'] )
-			update_post_meta( $post_id, '_course_language', $_REQUEST['_course_language'] );
+
 		if( $_REQUEST['_course_delivery_mode'] )
 			update_post_meta( $post_id, '_course_delivery_mode', $_REQUEST['_course_delivery_mode'] );
 
@@ -217,15 +216,6 @@ class Andalu_Woo_Courses_Admin {
 		<div id="course_data" class="panel woocommerce_options_panel">
 			<div class="options_group">
 				<?php
-					Andalu_Woo_Courses_Admin::woocommerce_wp_select_multiple([
-						'id'				=> '_course_language',
-						'name'			=> '_course_language[]',
-						'label'			=> __( 'Course Language', 'andalu_woo_courses' ),
-						'options'		=> [
-							'English' 			=> __( 'English', 'andalu_woo_courses' ),
-							'Spanish' 			=> __( 'Spanish', 'andalu_woo_courses' ),
-						]
-					] );
 
 					woocommerce_wp_text_input( array(
 						'id'          => '_course_reference',
