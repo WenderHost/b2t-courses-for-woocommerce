@@ -75,7 +75,8 @@ class Andalu_Woo_Courses_Admin {
 		$fields = array( 'reference', 'duration' , 'certification', 'certification_link', 'pdus', 'audience', 'prerequisites' );
 		foreach ( $fields as $field ) {
 			$field_name = '_course_' . $field;
-			update_post_meta( $post_id, $field_name, stripslashes( $_REQUEST[ $field_name ] ) );
+			if( isset( $_REQUEST[$field_name] ) )
+				update_post_meta( $post_id, $field_name, stripslashes( $_REQUEST[ $field_name ] ) );
 		}
 
 		if( $_REQUEST['_course_delivery_mode'] )
