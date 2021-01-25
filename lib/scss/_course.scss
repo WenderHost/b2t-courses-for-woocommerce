@@ -61,6 +61,49 @@
 }
 
 /* Course Details Widget */
+.woocommerce{
+  .course-details,
+  .public-classes{
+    a.button{
+
+      /* Positioning */
+
+      /* Box-model */
+      margin-right: 8px;
+      padding: 15px 35px;
+
+      /* Typography */
+      letter-spacing: .5px;
+      font-family: 'futura-pt', 'Futura', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+
+      /* Visual */
+      background-color: $netmindblue;
+      border-radius: 30px;
+
+      /* Misc */
+
+      &:hover{
+        color: #fff;
+        background-color: lighten($netmindblue, 15%);
+      }
+
+    }
+  }
+}
+
+  a.buttonX{
+    background: $netmindblue;
+    font-family: 'futura-pt', Futura, sans-serif;
+    border-radius: 0;
+    padding: 12px 24px;
+    font-size: 15px;
+    margin-right: 8px;
+
+
+  }
+
 .woocommerce .course-details{
   h4{
     font-size: 18px;
@@ -82,20 +125,6 @@
 
   div.buttons{
     display: flex;
-  }
-
-  a.button{
-    background: $netmindblue;
-    font-family: 'futura-pt', Futura, sans-serif;
-    border-radius: 0;
-    padding: 12px 24px;
-    font-size: 15px;
-    margin-right: 8px;
-
-    &:hover{
-      color: #fff;
-      background-color: lighten($netmindblue, 15%);
-    }
   }
 
   a.print{

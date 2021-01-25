@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.6  
-**Stable tag:** 2.4.0  
+**Stable tag:** 2.4.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,6 +22,10 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 ## Changelog ##
+
+### 2.4.1 ###
+* Updating styling for Course sidebar buttons.
+* Adding translation strings for the Public Classes (i.e. `elementor_public_classes`) widget.
 
 ### 2.4.0 ###
 * Adding "Print Friendly" button to Course Details.

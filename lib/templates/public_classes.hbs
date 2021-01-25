@@ -1,5 +1,5 @@
 <div class="public-classes widget">
-  <h3 class="widget-title">Public Classes</h3>
+  <h3 class="widget-title">{{labels.widget_title}}</h3>
 
   {{#each classes}}
     <div class="row">
@@ -9,7 +9,7 @@
         <div class="time">{{times}}</div>
         <a class="location-name" href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
         <div class="location-description" id="location-{{ID}}-{{location.id}}">{{{location.description}}}</div>
-        <div class="register-link"><a class="button" href="{{register_link}}" style="font-family: futura-pt, Futura, sans-serif;">Register</a></div>
+        <div class="register-link"><a class="button" href="{{register_link}}">{{../labels.button_label}}</a></div>
       </div>
     </div>
   {{/each}}

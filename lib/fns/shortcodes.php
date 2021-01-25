@@ -51,12 +51,29 @@ function course_details( $atts ){
 }
 add_shortcode( 'course_details', __NAMESPACE__ . '\\course_details' );
 
+/**
+ * Displays "Public Classes" widget in the sidebar of Course pages.
+ *
+ * @param      array  $atts {
+ *   @type  int  $id   The ID of the Course whose public classes you wish to display, defaults to current post.
+ * }
+ *
+ * @return     string  HTML for the "Public Classes" widet.
+ */
 function elementor_public_classes( $atts ){
   $args = shortcode_atts([
     'id' => null
   ],$atts);
 
   wp_enqueue_script( 'class-calendar' );
+
+  // Initialize the data we'll be passing to our Handlebars template:
+  $data = [
+    'labels' => [
+      'widget_title' => __( 'Public Classes', 'andalu_woo_courses' ),
+      'button_label' => __( 'Register', 'andalu_woo_courses' ),
+    ],
+  ];
 
   if( is_null( $args['id'] ) ){
     //if( ! $product )
@@ -72,6 +89,8 @@ function elementor_public_classes( $atts ){
 
     if( ! $has_classes ){
       $data['title'] = esc_attr( get_the_title( $course_id ) );
+      $data['labels']['no_public_classes_message'] = __( 'Currently, we don\'t have any public sessions of this course scheduled. Please let us know if you are interested in adding a session.', 'andalu_woo_courses' );
+
       $html = \AndaluWooCourses\handlebars\render_template( 'no_classes_scheduled', $data );
       return $html;
     }
@@ -82,7 +101,6 @@ function elementor_public_classes( $atts ){
 
   $course_id = $product->get_id();
 
-  $data = [];
   $data['title'] = get_the_title( $course_id );
   if( ! empty( $product->course_duration ) )
     $data['course_length'] = sprintf( __('Course Length: %s', 'andalu_woo_courses'), $product->course_duration );

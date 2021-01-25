@@ -31,10 +31,9 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     
     $inary=is_array($in);
     return '<div class="public-classes widget">
-  <h3 class="widget-title" style="margin-bottom: 20px;">Public Classes</h3>
-
-  <p style="font-size: 18px; font-family: futura-pt, Futura, sans-serif;">Currently, we don\'t have any public sessions of this course scheduled. Please <a href="mailto:info@netmind.net?subject='.htmlspecialchars((string)(($inary && isset($in['title'])) ? $in['title'] : null), ENT_QUOTES, 'UTF-8').' - Public Class Inquiry">let us know</a> if you are interested in adding a session.</p>
-  <a href="/course-calendar/" class="button" style="font-size: 15px; font-family: futura-pt, Futura, sans-serif; padding: 12px 24px; background-color: #009ee0; color: #fff; border-radius: 0;">See Public Class Schedule</a>
+  <h3 class="widget-title" style="margin-bottom: 20px;">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['widget_title'])) ? $in['labels']['widget_title'] : null), ENT_QUOTES, 'UTF-8').'</h3>
+  <p>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['no_public_classes_message'])) ? $in['labels']['no_public_classes_message'] : null), ENT_QUOTES, 'UTF-8').'</p>
+  <a href="/course-calendar/" class="button">See Public Class Schedule</a>
 </div>
 ';
 };
