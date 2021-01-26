@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.6  
-**Stable tag:** 2.4.2  
+**Stable tag:** 2.4.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,6 +22,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 ## Changelog ##
+
+### 2.4.3 ###
+* Adding Netmind Blue border around "Register" buttons in Course Calendar.
 
 ### 2.4.2 ###
 * Moving Course widget CSS from Instant CSS plugin to `lib/scss/_widgets.scss`.
