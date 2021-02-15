@@ -560,6 +560,7 @@ class Andalu_Woo_Courses_Admin {
 				$class['start_date']	= empty( $class['start_date'] ) ? '' : strtotime( $class['start_date'] );
 				$class['end_date']   	= empty( $class['end_date'] ) ? '' : strtotime( $class['end_date'] );
 				$class['time']       	= stripslashes( $class['time'] );
+				$class['duration']		= stripslashes( $class['duration'] );
 				$class['seats']      	= stripslashes( $class['seats'] );
 				$class['location']   	= intval( $class['location'] );
 				$class['confirmed']		= ( empty( $class['confirmed'] ) ) ? 'no' : 'yes' ;
@@ -623,6 +624,7 @@ class Andalu_Woo_Courses_Admin {
 			update_post_meta( $class_id, '_start_date', date( 'Ymd', $class['start_date'] ) );
 			update_post_meta( $class_id, '_end_date', empty( $class['end_date'] ) ? '' : date( 'Ymd', $class['end_date'] ) );
 			update_post_meta( $class_id, '_time', $class['time'] );
+			update_post_meta( $class_id, '_duration', $class['duration'] );
 
 			update_post_meta( $class_id, '_seats', $class['seats'] );
 			update_post_meta( $class_id, '_availability', $class['seats'] > 0 ? 'available' : 'full' );
