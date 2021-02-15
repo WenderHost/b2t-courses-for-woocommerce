@@ -3,6 +3,7 @@ $atts = [
 	'position',
 	'id',
 	'time',
+	'duration',
 	'seats',
 	'id',
 	'end_date',
@@ -70,6 +71,12 @@ if( ! empty( $end_date ) )
 					<td class="class_time">
 						<label><?php _e( 'Time', 'andalu_woo_courses' ); ?>:</label>
 						<input type="text" class="class_time" name="classes[<?php echo $i; ?>][time]" value="<?php echo esc_attr( $time ); ?>" />
+					</td>
+				</tr>
+				<tr>
+					<td class="class_duration">
+						<label><?php _e( 'Class Duration', 'andalu_woo_courses' ); ?>:</label>
+						<input type="text" class="class_duration" name="classes[<?php echo $i; ?>][duration]" value="<?php echo esc_attr( $duration ); ?>" />
 					</td>
 				</tr>
 				<tr>
