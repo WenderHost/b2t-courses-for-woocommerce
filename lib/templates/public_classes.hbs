@@ -6,7 +6,7 @@
       <div class="icon"><img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" /></div>
       <div class="details">
         <div class="date">{{class_dates}}</div>
-        <div class="time">{{times}}</div>
+        <div class="time">{{times}} {{#if duration}}| {{duration}}{{/if}}</div>
         <a class="location-name" href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
         <div class="location-description" id="location-{{ID}}-{{location.id}}">{{{location.description}}}</div>
         <div class="register-link"><a class="button" href="{{register_link}}">{{../labels.button_label}}</a></div>

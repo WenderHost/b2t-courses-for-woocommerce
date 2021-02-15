@@ -133,6 +133,8 @@ function elementor_public_classes( $atts ){
       $class_data['register_link'] = \AndaluWooCourses\utilities\get_register_link( $product->get_id(), $class_id );
 
       $class_data['times'] = get_post_meta( $class_id, '_time', true );
+      $duration = get_post_meta( $class_id, '_duration', true );
+      $class_data['duration'] = ( ! empty( $duration ) )? $duration : false ;
 
       $class_data['css_classes'] = '';
       if( $class->confirmed )
@@ -329,7 +331,8 @@ function public_class_calendar( $atts ){
       ];
       $class_data['virtual'] = ( 'Live Virtual' == $class_obj->location_term->name )? true : false ;
 
-      $class_data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
+      //$class_data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
+      $class_data['duration'] = get_post_meta( $class->ID, '_duration', true );
 
       $classes_data[] = $class_data;
     }
