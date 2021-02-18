@@ -43,7 +43,6 @@ function course_details( $atts ){
     'certification' => __( 'Certification', 'andalu_woo_courses' ),
     'request_info' => __( 'Request Info', 'andalu_woo_courses' ),
   ];
-  uber_log('🔔 $data[labels] = ' . print_r( $data['labels'], true ) );
   $data['locale'] = ANDALU_LANG;
 
   $html = \AndaluWooCourses\handlebars\render_template( 'course_details', $data );
@@ -88,7 +87,7 @@ function elementor_public_classes( $atts ){
     $has_classes = $product->has_classes();
 
     if( ! $has_classes ){
-      $data['title'] = esc_attr( get_the_title( $course_id ) );
+      $data['title'] = ( isset( $course_id ) )? esc_attr( get_the_title( $course_id ) ) : 'No Public Sessions' ;
       $data['labels']['no_public_classes_message'] = __( 'Currently, we don\'t have any public sessions of this course scheduled. Please let us know if you are interested in adding a session.', 'andalu_woo_courses' );
 
       $html = \AndaluWooCourses\handlebars\render_template( 'no_classes_scheduled', $data );
@@ -308,19 +307,7 @@ function public_class_calendar( $atts ){
       $class_data['register_url'] = \AndaluWooCourses\utilities\get_register_link( $class->post_parent, $class->ID );
 
       // Setup Pricing
-      //$pricing = get_class_pricing( $class->post_parent );
       $class_data['pricing'] = get_class_pricing( $class->post_parent );
-
-      /*
-      $parent_course_product = wc_get_product( $class->post_parent );
-      $class_data['price'] = $parent_course_product->get_price(); // get_woocommerce_currency_symbol() .
-      $class_data['regular_price'] = $parent_course_product->get_regular_price(); // get_woocommerce_currency_symbol() .
-      $class_data['on_sale'] = false;
-      if( $class_data['price'] != $class_data['regular_price'] ){
-        $class_data['price'] =  '<s>' . $class_data['regular_price'] . '</s> ' . $class_data['price'];
-        $class_data['on_sale'] = true;
-      }
-      /**/
 
       $class_obj = wc_get_product( $class->ID );
       $class_data['location'] = [
