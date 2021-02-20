@@ -43,7 +43,7 @@
   {{#each classes}}
   <div class="{{css_classes}} hide-md mobile-row location-{{location.slug}}">
     <div class="course-title"><a href="{{course_url}}">{{course_title}}</a></div>
-    <div class="">{{{days}}}, {{year}}</div>
+    <div class="course-dates">{{#if confirmed}}<div class="check"></div>{{/if}} <div>{{{days}}}, {{year}}</div></div>
     <div class="location">
       <img src="{{../plugin_dir}}lib/img/class_{{# if virtual }}virtual{{else}}onsite{{/if}}.svg" />
       <a class="location-name" data-location="{{location.slug}}"  href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
