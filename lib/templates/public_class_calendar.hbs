@@ -2,19 +2,22 @@
   <h4>Location:</h4>
   <ul class="filter-link-group"></ul>
 </div>
+<div class="legend"><span class="check">{{labels.legend.confirmed}}</span></div>
 <div class="class-calendar">
   <div class="row header hide-sm">
-    <div class="col-md date">{{labels.dates}}</div>
+    <div class="col confirmed"><div class="check"></div></div>
+    <div class="col-md date"><span>{{labels.dates}}</span></div>
     <div class="col-md-2 course">{{labels.course}}</div>
     <div class="col-md-2 location">{{labels.location}}</div>
-    <div class="col-md time">{{labels.time}}</div>
-    <div class="col-md duration">{{labels.duration}}</div>
+    <div class="col-md-2 time">{{labels.time}}/{{labels.duration}}</div>
+    <!--<div class="col-md duration">{{labels.duration}}</div>-->
     <div class="col-md price">{{labels.price}}</div>
     <div class="col-md lang">{{labels.language}}</div>
     <div class="col-md actions">&nbsp;</div>
   </div>
   {{#each classes}}
   <div class="row {{css_classes}} hide-sm desktop-row location-{{location.slug}}">
+    <div class="col confirmed">{{#if confirmed}}<div class="check"></div>{{/if}}</div>
     <div class="col-md date"><span class="days">{{{days}}}</span>{{year}}</div>
     <div class="col-md-2 course"><a href="{{course_url}}">{{{course_title}}}</a></div>
     <div class="col-md-2 location">
@@ -24,8 +27,8 @@
         {{{location.description}}}
       </div>
     </div>
-    <div class="col-md time">{{times}}</div>
-    <div class="col-md duration">{{{duration}}}</div>
+    <div class="col-md-2 time">{{times}}{{#if duration}}<br>{{{duration}}}{{/if}}</div>
+    <!--<div class="col-md duration">{{{duration}}}</div>-->
     <div class="col-md price{{#if pricing.on_sale}} onsale{{/if}}">
       {{#if pricing.on_sale}}
         <s>{{pricing.formatted.regular_price}}</s>{{pricing.formatted.current_price}}

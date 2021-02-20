@@ -1,13 +1,40 @@
+/* Variables */
+$checkSize: 16px;
+
 /* Calendar */
+.legend{
+  line-height: 1em;
+  margin-bottom: 1em;
+
+  .check{
+    display: inline-block;
+    padding-left: 22px;
+    background-repeat: no-repeat;
+    background-size: $checkSize $checkSize;
+    background-position: center left;
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 260'%3E%3Cstyle%3E.st0%7Bfill:%23009ee0%7D.st1%7Bfill:%23fff%7D%3C/style%3E%3Ccircle class='st0' cx='130' cy='130' r='130'/%3E%3Cpath class='st1' d='M170 66l-66 95-24-34H44l60 85L206 66z'/%3E%3C/svg%3E");
+  }
+}
 span.days{
   display: block;
   font-weight: bold;
+  white-space: nowrap;
+  width: 130px;
 }
 .header div[class^=col]{
   background: #009ee0;
   color: #fff;
   padding: 16px;
   font-weight: bold;
+
+  &.date span{
+    display: block;
+    width: 130px;
+  }
+
+  &.confirmed .check{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 260'%3E%3Cstyle%3E.st0%7Bdisplay:none%7D.st1%7Bdisplay:inline%7D.st2%7Bfill:%23009ee0%7D.st3%7Bdisplay:inline%7D.st3,.st4%7Bfill:%23fff%7D%3C/style%3E%3Cg id='Layer_1' class='st0'%3E%3Cg class='st1'%3E%3Ccircle class='st2' cx='130' cy='130' r='130'/%3E%3C/g%3E%3Cpath class='st3' d='M170 66l-66 95-24-34H44l60 85L206 66z'/%3E%3C/g%3E%3Cg id='Layer_1_copy'%3E%3Ccircle class='st4' cx='130' cy='130' r='130'/%3E%3Cpath class='st2' d='M170 66l-66 95-24-34H44l60 85L206 66z'/%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
 .translatepress-en_US .class-calendar{
@@ -24,6 +51,19 @@ span.days{
 .class-calendar{
   font-family: FuturaPT, Futura, sans-serif;
   font-size: 14px;
+
+  .confirmed{
+    width: $checkSize;
+  }
+  .confirmed > .check{
+    margin-top: 4px;
+    width: $checkSize;
+    height: $checkSize;
+    background-repeat: no-repeat;
+    background-size: $checkSize $checkSize;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 260'%3E%3Cstyle%3E.st0%7Bfill:%23009ee0%7D.st1%7Bfill:%23fff%7D%3C/style%3E%3Ccircle class='st0' cx='130' cy='130' r='130'/%3E%3Cpath class='st1' d='M170 66l-66 95-24-34H44l60 85L206 66z'/%3E%3C/svg%3E");
+  }
 
   .course-title{
     font-size: 18px;
@@ -97,6 +137,9 @@ span.days{
   }
 
   &.desktop-row{
+    .date{
+
+    }
     .price{
       text-align: right;
     }

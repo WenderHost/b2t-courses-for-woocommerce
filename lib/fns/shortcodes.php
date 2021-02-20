@@ -267,6 +267,8 @@ function public_class_calendar( $atts ){
       $class_data['course_title'] = get_the_title( $class->post_parent );
       $class_data['course_url'] = get_the_permalink( $class->post_parent );
       $class_data['ID'] = $class->ID;
+      $confirmed = get_post_meta( $class->ID, '_confirmed', true );
+      $class_data['confirmed'] = ( 'yes' == $confirmed )? true : false ;
 
       $class_data['css_classes'] = 'cal';
       if( $x % 2 )
@@ -336,6 +338,9 @@ function public_class_calendar( $atts ){
     'price'     => __( 'Price', 'andalu_woo_courses' ),
     'language'  => __( 'Language', 'andalu_woo_courses' ),
     'register'  => __( 'Register', 'andalu_woo_courses' ),
+    'legend' => [
+      'confirmed' => __( 'Confirmed Class', 'andalu_woo_courses' ),
+    ],
   ];
 
   wp_enqueue_script( 'class-calendar' );
