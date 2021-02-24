@@ -64,6 +64,7 @@ function elementor_public_classes( $atts ){
     'id' => null
   ],$atts);
 
+  wp_enqueue_style( 'woo-courses' );
   wp_enqueue_script( 'class-calendar' );
 
   // Initialize the data we'll be passing to our Handlebars template:

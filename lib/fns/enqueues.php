@@ -6,5 +6,7 @@ function enqueue_scripts(){
   wp_register_script( 'class-calendar', plugin_dir_url( __FILE__ ) . '../js/class-calendar.js', ['jquery'], filemtime( plugin_dir_path( __FILE__ ) . '../js/class-calendar.js' ), true );
   wp_localize_script( 'class-calendar', 'wpvars', [ 'locale' => get_locale() ] );
   wp_register_style( 'woo-courses', plugin_dir_url( __FILE__ ) . '../css/woo-courses.css', null, filemtime( plugin_dir_path( __FILE__ ) . '../css/woo-courses.css' ) );
+  if ( strpos($_SERVER['REQUEST_URI'], 'elementor') !== false )
+    wp_enqueue_style( 'woo-courses' );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
