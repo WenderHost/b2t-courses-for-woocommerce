@@ -16,8 +16,10 @@ function get_class_pricing( $course_id ){
   switch( $lang ){
     case 'es_ES':
       $format = '%2$s %1$s';
-      $pricing['formatted']['current_price'] = sprintf( $format, $pricing['symbol'], number_format( $pricing['current_price'], 2, ',', '.' ) );
-      $pricing['formatted']['regular_price'] = sprintf( $format, $pricing['symbol'], number_format( $pricing['regular_price'], 2, ',', '.' ) );
+      $current_price = ( is_float( $pricing['current_price'] ) )? number_format( $pricing['current_price'], 2, ',', '.' ) : $pricing['current_price'] ;
+      $pricing['formatted']['current_price'] = sprintf( $format, $pricing['symbol'], $current_price );
+      $regular_price = ( is_float( $pricing['regular_price'] ) )? number_format( $pricing['regular_price'], 2, ',', '.' ) : $pricing['regular_price'] ;
+      $pricing['formatted']['regular_price'] = sprintf( $format, $pricing['symbol'], $regular_price );
       break;
 
     default:
