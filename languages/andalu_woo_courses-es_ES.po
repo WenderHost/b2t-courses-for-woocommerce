@@ -29,11 +29,11 @@ msgstr "Curso"
 
 #: lib/classes/admin.php:156
 msgid "Course Data"
-msgstr ""
+msgstr "Datos del curso"
 
 #: lib/classes/admin.php:162
 msgid "Linked Products"
-msgstr ""
+msgstr "Productos vinculados"
 
 #: lib/classes/admin.php:176 lib/classes/course-order.php:39
 #: lib/classes/course-single.php:781
@@ -42,25 +42,25 @@ msgstr ""
 
 #: lib/classes/admin.php:223
 msgid "Course Language"
-msgstr ""
+msgstr "Idioma del curso"
 
 #: lib/classes/admin.php:225 lib/fns/shortcodes.php:269
 #: lib/views/course-class.php:102
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: lib/classes/admin.php:226 lib/fns/shortcodes.php:269
 #: lib/views/course-class.php:104
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: lib/classes/admin.php:232 lib/fns/shortcodes.php:32
 msgid "Reference"
-msgstr ""
+msgstr "Referencia"
 
 #: lib/classes/admin.php:239 lib/fns/shortcodes.php:34
 msgid "Delivery Mode"
-msgstr ""
+msgstr "Modo de entrega"
 
 #: lib/classes/admin.php:241
 msgid "Onsite"
@@ -119,7 +119,7 @@ msgstr ""
 #: lib/classes/admin.php:361 lib/classes/admin.php:388 lib/classes/admin.php:397
 #: lib/classes/admin.php:406
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: lib/classes/admin.php:363
 msgid "Add Outline"
@@ -179,7 +179,7 @@ msgstr ""
 
 #: lib/classes/admin.php:824 lib/classes/course-single.php:177
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: lib/classes/admin.php:825 lib/classes/class-rosters.php:57
 msgid "Options"
@@ -214,7 +214,7 @@ msgstr "Lugar"
 
 #: lib/classes/class-rosters.php:56
 msgid "Students"
-msgstr ""
+msgstr "Estudiantes"
 
 #: lib/classes/class-rosters.php:79
 msgid "Upcoming"
