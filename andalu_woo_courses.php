@@ -3,7 +3,7 @@
 Plugin Name: ANDA.lu Woo Courses
 Plugin URI: http://anda.lu/design
 Description: Adds a custom WC Product type called Courses
-Version: 2.6.6
+Version: 2.6.7
 Author: ANDA.lu
 Author URI: http://anda.lu/design
 */

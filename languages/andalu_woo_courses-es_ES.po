@@ -545,11 +545,11 @@ msgstr ""
 
 #: lib/fns/shortcodes.php:299 lib/views/course-class.php:109
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: lib/fns/shortcodes.php:299 lib/views/course-class.php:111
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: lib/fns/shortcodes.php:337 lib/views/course-class.php:72
 msgid "Time"
@@ -562,7 +562,7 @@ msgstr "Precio"
 
 #: lib/fns/shortcodes.php:340
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: lib/fns/shortcodes.php:343
 msgid "Confirmed Class"
@@ -826,19 +826,19 @@ msgstr ""
 #: lib/fns/taxonomies.php:40
 msgctxt "Taxonomy Sub Categories"
 msgid "Sub Categories"
-msgstr ""
+msgstr "Sub Categorías"
 
 #: lib/fns/taxonomies.php:41
 msgctxt "Taxonomy Sub Category"
 msgid "Sub Category"
-msgstr ""
+msgstr "Sub Categoría"
 
 #: lib/fns/taxonomies.php:73
 msgctxt "Taxonomy Certifications"
 msgid "Certifications"
-msgstr ""
+msgstr "Certificaciones"
 
 #: lib/fns/taxonomies.php:74
 msgctxt "Taxonomy Certification"
 msgid "Certification"
-msgstr ""
+msgstr "Certificación"
