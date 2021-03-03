@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the ANDA.lu Woo Courses package.
 msgid ""
 msgstr ""
-"Project-Id-Version: ANDA.lu Woo Courses 2.2.3\n"
+"Project-Id-Version: ANDA.lu Woo Courses 2.6.5\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/andalu_woo_courses\n"
-"POT-Creation-Date: 2021-01-12 12:09:39+00:00\n"
+"POT-Creation-Date: 2021-03-03 19:35:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: lib/classes/admin.php:67 lib/classes/class-rosters.php:53
-#: lib/fns/shortcodes.php:316
+#: lib/fns/shortcodes.php:335
 msgid "Course"
 msgstr ""
 
@@ -43,153 +43,139 @@ msgstr ""
 msgid "Classes"
 msgstr ""
 
-#: lib/classes/admin.php:223
-msgid "Course Language"
-msgstr ""
-
-#: lib/classes/admin.php:225 lib/fns/shortcodes.php:269
-#: lib/views/course-class.php:102
-msgid "English"
-msgstr ""
-
-#: lib/classes/admin.php:226 lib/fns/shortcodes.php:269
-#: lib/views/course-class.php:104
-msgid "Spanish"
-msgstr ""
-
-#: lib/classes/admin.php:232 lib/fns/shortcodes.php:32
+#: lib/classes/admin.php:223 lib/fns/shortcodes.php:40
 msgid "Reference"
 msgstr ""
 
-#: lib/classes/admin.php:239 lib/fns/shortcodes.php:34
+#: lib/classes/admin.php:230 lib/fns/shortcodes.php:42
 msgid "Delivery Mode"
 msgstr ""
 
-#: lib/classes/admin.php:241
+#: lib/classes/admin.php:232
 msgid "Onsite"
 msgstr ""
 
-#: lib/classes/admin.php:242
+#: lib/classes/admin.php:233
 msgid "Virtual"
 msgstr ""
 
-#: lib/classes/admin.php:243
+#: lib/classes/admin.php:234
 msgid "Face-to-Face"
 msgstr ""
 
-#: lib/classes/admin.php:249 lib/fns/shortcodes.php:33
-#: lib/fns/shortcodes.php:319 lib/views/course-outline.php:19
+#: lib/classes/admin.php:240 lib/fns/shortcodes.php:41
+#: lib/fns/shortcodes.php:338 lib/views/course-outline.php:19
 msgid "Duration"
 msgstr ""
 
-#: lib/classes/admin.php:255 lib/fns/shortcodes.php:35
+#: lib/classes/admin.php:246 lib/fns/shortcodes.php:43
 #: lib/fns/taxonomies.php:86
 msgid "Certification"
 msgstr ""
 
-#: lib/classes/admin.php:261
+#: lib/classes/admin.php:252
 msgid "Certification Link"
 msgstr ""
 
-#: lib/classes/admin.php:298
+#: lib/classes/admin.php:289
 msgid "Private Course"
 msgstr ""
 
-#: lib/classes/admin.php:309
+#: lib/classes/admin.php:300
 msgid "Parent Course"
 msgstr ""
 
-#: lib/classes/admin.php:310
+#: lib/classes/admin.php:301
 msgid "Search for a course product&hellip;"
 msgstr ""
 
-#: lib/classes/admin.php:325 lib/classes/course-single.php:354
+#: lib/classes/admin.php:316 lib/classes/course-single.php:354
 msgid "Study Guide"
 msgstr ""
 
-#: lib/classes/admin.php:326 lib/classes/admin.php:342
+#: lib/classes/admin.php:317 lib/classes/admin.php:333
 msgid "Search for a product&hellip;"
 msgstr ""
 
-#: lib/classes/admin.php:341
+#: lib/classes/admin.php:332
 msgid "Exam"
 msgstr ""
 
-#: lib/classes/admin.php:361 lib/classes/admin.php:388
-#: lib/classes/admin.php:397 lib/classes/admin.php:406
+#: lib/classes/admin.php:352 lib/classes/admin.php:379
+#: lib/classes/admin.php:388 lib/classes/admin.php:397
 msgid "Expand"
 msgstr ""
 
-#: lib/classes/admin.php:361 lib/classes/admin.php:388
-#: lib/classes/admin.php:397 lib/classes/admin.php:406
+#: lib/classes/admin.php:352 lib/classes/admin.php:379
+#: lib/classes/admin.php:388 lib/classes/admin.php:397
 msgid "Close"
 msgstr ""
 
-#: lib/classes/admin.php:363
+#: lib/classes/admin.php:354
 msgid "Add Outline"
 msgstr ""
 
-#: lib/classes/admin.php:390
+#: lib/classes/admin.php:381
 msgid "Save Outlines"
 msgstr ""
 
-#: lib/classes/admin.php:399
+#: lib/classes/admin.php:390
 msgid "Add Class"
 msgstr ""
 
-#: lib/classes/admin.php:408
+#: lib/classes/admin.php:399
 msgid "Save Classes"
 msgstr ""
 
-#: lib/classes/admin.php:742
+#: lib/classes/admin.php:735
 msgid "Remove this outline?"
 msgstr ""
 
-#: lib/classes/admin.php:743
+#: lib/classes/admin.php:736
 msgid "Remove this class?"
 msgstr ""
 
-#: lib/classes/admin.php:756 lib/classes/admin.php:776
+#: lib/classes/admin.php:749 lib/classes/admin.php:769
 msgid "Class Rosters"
 msgstr ""
 
-#: lib/classes/admin.php:781
+#: lib/classes/admin.php:774
 msgid "Search Courses"
 msgstr ""
 
-#: lib/classes/admin.php:806
+#: lib/classes/admin.php:799
 msgid "Class Roster"
 msgstr ""
 
-#: lib/classes/admin.php:807
+#: lib/classes/admin.php:800
 msgid "Course: %s"
 msgstr ""
 
-#: lib/classes/admin.php:808
+#: lib/classes/admin.php:801
 msgid "Dates: %s"
 msgstr ""
 
-#: lib/classes/admin.php:821 lib/views/course-outline.php:12
+#: lib/classes/admin.php:814 lib/views/course-outline.php:12
 msgid "Name"
 msgstr ""
 
-#: lib/classes/admin.php:822 lib/classes/course-single.php:192
+#: lib/classes/admin.php:815 lib/classes/course-single.php:192
 msgid "Company"
 msgstr ""
 
-#: lib/classes/admin.php:823 lib/classes/course-single.php:255
+#: lib/classes/admin.php:816 lib/classes/course-single.php:255
 msgid "Phone"
 msgstr ""
 
-#: lib/classes/admin.php:824 lib/classes/course-single.php:177
+#: lib/classes/admin.php:817 lib/classes/course-single.php:177
 msgid "Email"
 msgstr ""
 
-#: lib/classes/admin.php:825 lib/classes/class-rosters.php:57
+#: lib/classes/admin.php:818 lib/classes/class-rosters.php:57
 msgid "Options"
 msgstr ""
 
-#: lib/classes/admin.php:844
+#: lib/classes/admin.php:837
 msgid "No class roster found"
 msgstr ""
 
@@ -207,12 +193,12 @@ msgstr ""
 msgid "View roster"
 msgstr ""
 
-#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:315
+#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:334
 msgid "Dates"
 msgstr ""
 
 #: lib/classes/class-rosters.php:55 lib/classes/course-order.php:28
-#: lib/fns/shortcodes.php:317 lib/views/course-class.php:77
+#: lib/fns/shortcodes.php:336 lib/views/course-class.php:84
 msgid "Location"
 msgstr ""
 
@@ -438,7 +424,7 @@ msgstr ""
 msgid "Sub Courses"
 msgstr ""
 
-#: lib/classes/course-single.php:432 lib/fns/shortcodes.php:80
+#: lib/classes/course-single.php:432 lib/fns/shortcodes.php:106
 msgid "Course Length: %s"
 msgstr ""
 
@@ -462,7 +448,8 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: lib/classes/course-single.php:519 lib/fns/shortcodes.php:322
+#: lib/classes/course-single.php:519 lib/fns/shortcodes.php:74
+#: lib/fns/shortcodes.php:341
 msgid "Register"
 msgstr ""
 
@@ -538,25 +525,47 @@ msgstr ""
 msgid "View Cart"
 msgstr ""
 
-#: lib/fns/shortcodes.php:31
+#: lib/fns/shortcodes.php:39
 msgid "Course Details"
 msgstr ""
 
-#: lib/fns/shortcodes.php:36
+#: lib/fns/shortcodes.php:44
 msgid "Request Info"
 msgstr ""
 
-#: lib/fns/shortcodes.php:318 lib/views/course-class.php:71
+#: lib/fns/shortcodes.php:73
+msgid "Public Classes"
+msgstr ""
+
+#: lib/fns/shortcodes.php:92
+msgid ""
+"Currently, we don't have any public sessions of this course scheduled. "
+"Please let us know if you are interested in adding a session."
+msgstr ""
+
+#: lib/fns/shortcodes.php:299 lib/views/course-class.php:109
+msgid "English"
+msgstr ""
+
+#: lib/fns/shortcodes.php:299 lib/views/course-class.php:111
+msgid "Spanish"
+msgstr ""
+
+#: lib/fns/shortcodes.php:337 lib/views/course-class.php:72
 msgid "Time"
 msgstr ""
 
-#: lib/fns/shortcodes.php:320 templates/single-product/course-info.php:16
+#: lib/fns/shortcodes.php:339 templates/single-product/course-info.php:16
 #: templates/single-product/course-info.php:32
 msgid "Price"
 msgstr ""
 
-#: lib/fns/shortcodes.php:321
+#: lib/fns/shortcodes.php:340
 msgid "Language"
+msgstr ""
+
+#: lib/fns/shortcodes.php:343
+msgid "Confirmed Class"
 msgstr ""
 
 #: lib/fns/taxonomies.php:9
@@ -687,39 +696,43 @@ msgstr ""
 msgid "Choose from most used Certifications"
 msgstr ""
 
-#: lib/views/course-class.php:52 lib/views/course-outline.php:3
+#: lib/views/course-class.php:53 lib/views/course-outline.php:3
 msgid "Remove"
 msgstr ""
 
-#: lib/views/course-class.php:53 lib/views/course-outline.php:4
+#: lib/views/course-class.php:54 lib/views/course-outline.php:4
 msgid "Click to toggle"
 msgstr ""
 
-#: lib/views/course-class.php:61
+#: lib/views/course-class.php:62
 msgid "Date"
 msgstr ""
 
-#: lib/views/course-class.php:87
-msgid "Seats available"
+#: lib/views/course-class.php:78
+msgid "Class Duration"
 msgstr ""
 
 #: lib/views/course-class.php:94
+msgid "Seats available"
+msgstr ""
+
+#: lib/views/course-class.php:101
 msgid "Has this class been confirmed?"
 msgstr ""
 
-#: lib/views/course-class.php:99
+#: lib/views/course-class.php:106
 msgid "Class language"
 msgstr ""
 
-#: lib/views/course-class.php:110
+#: lib/views/course-class.php:117
 msgid "Calendar Display"
 msgstr ""
 
-#: lib/views/course-class.php:113
+#: lib/views/course-class.php:120
 msgid "US"
 msgstr ""
 
-#: lib/views/course-class.php:115
+#: lib/views/course-class.php:122
 msgid "Spain"
 msgstr ""
 
@@ -770,22 +783,22 @@ msgstr ""
 msgid "ANDA.lu"
 msgstr ""
 
-#: lib/classes/admin.php:233
+#: lib/classes/admin.php:224
 msgctxt "example reference"
 msgid "e.g. JJM 162"
 msgstr ""
 
-#: lib/classes/admin.php:250
+#: lib/classes/admin.php:241
 msgctxt "example duration"
 msgid "e.g. 4 days"
 msgstr ""
 
-#: lib/classes/admin.php:256
+#: lib/classes/admin.php:247
 msgctxt "example certification"
 msgid "e.g. PRINCE2 Foundation Certification"
 msgstr ""
 
-#: lib/classes/admin.php:262
+#: lib/classes/admin.php:253
 msgctxt "provide a link to the certification"
 msgid "e.g. https://example.com/certification"
 msgstr ""
