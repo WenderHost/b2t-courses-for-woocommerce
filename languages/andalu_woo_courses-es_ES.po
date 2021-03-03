@@ -600,15 +600,15 @@ msgstr ""
 
 #: lib/fns/taxonomies.php:42
 msgid "Search Sub Categories"
-msgstr ""
+msgstr "Search Sub Categorías"
 
 #: lib/fns/taxonomies.php:43
 msgid "Popular Sub Categories"
-msgstr ""
+msgstr "Popular Sub Categorías"
 
 #: lib/fns/taxonomies.php:44
 msgid "All Sub Categories"
-msgstr ""
+msgstr "All Sub Categorías"
 
 #: lib/fns/taxonomies.php:45 lib/fns/taxonomies.php:46
 msgid "Parent Sub Category"
@@ -747,7 +747,7 @@ msgstr[1] ""
 
 #: templates/single-product/course-info.php:40
 msgid "Location:"
-msgstr ""
+msgstr "Ubicación:"
 
 #. Plugin Name of the plugin/theme
 msgid "ANDA.lu Woo Courses"
