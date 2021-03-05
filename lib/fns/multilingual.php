@@ -5,9 +5,11 @@ namespace AndaluWooCourses\multilingual;
 function get_class_pricing( $course_id ){
   $pricing = [];
   $course = wc_get_product( $course_id );
+  $current_price = ( method_exists( $course, 'get_price') )? $course->get_price() : '0.00' ;
+  $regular_price = ( method_exists( $course, 'get_regular_price') )? $course->get_regular_price() : '0.00' ;
   $pricing = [
-    'current_price' => $course->get_price(),
-    'regular_price' => $course->get_regular_price(),
+    'current_price' => $current_price,
+    'regular_price' => $regular_price,
   ];
   $pricing['on_sale'] = ( $pricing['current_price'] != $pricing['regular_price'] )? true : false ;
 
