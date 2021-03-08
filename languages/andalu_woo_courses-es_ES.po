@@ -161,11 +161,11 @@ msgstr ""
 
 #: lib/classes/admin.php:815 lib/classes/course-single.php:192
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #: lib/classes/admin.php:816 lib/classes/course-single.php:255
 msgid "Phone"
-msgstr ""
+msgstr "Teléfono"
 
 #: lib/classes/admin.php:817 lib/classes/course-single.php:177
 msgid "Email"
@@ -294,7 +294,7 @@ msgstr ""
 #: lib/classes/course-class.php:101 lib/classes/course-class.php:143
 #: lib/classes/course-single.php:206
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #: lib/classes/course-class.php:103 lib/classes/course-class.php:146
 msgid "Enter the location address"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: lib/classes/course-order.php:24 lib/classes/course-single.php:761
 msgid "Class"
-msgstr ""
+msgstr "Clase"
 
 #: lib/classes/course-order.php:54
 msgid "Optin"
@@ -336,15 +336,15 @@ msgstr ""
 
 #: lib/classes/course-single.php:166
 msgid "First Name"
-msgstr ""
+msgstr "Nombre"
 
 #: lib/classes/course-single.php:171
 msgid "Last Name"
-msgstr ""
+msgstr "Apellidos"
 
 #: lib/classes/course-single.php:184
 msgid "Email Again"
-msgstr ""
+msgstr "Confirmar correo electrónico"
 
 #: lib/classes/course-single.php:196
 msgid "Title"
@@ -352,11 +352,11 @@ msgstr ""
 
 #: lib/classes/course-single.php:200
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: lib/classes/course-single.php:207
 msgid "Street address"
-msgstr ""
+msgstr "Dirección"
 
 #: lib/classes/course-single.php:212
 msgid "Apartment, suite, unit etc. (optional)"
@@ -364,15 +364,15 @@ msgstr ""
 
 #: lib/classes/course-single.php:219 lib/classes/course-single.php:220
 msgid "Town / City"
-msgstr ""
+msgstr "Ciudad"
 
 #: lib/classes/course-single.php:227
 msgid "State / County"
-msgstr ""
+msgstr "Provincia"
 
 #: lib/classes/course-single.php:235 lib/classes/course-single.php:236
 msgid "Postcode / Zip"
-msgstr ""
+msgstr "Código Postal"
 
 #: lib/classes/course-single.php:245 lib/classes/course-single.php:246
 msgid "CIF / NIF"
@@ -388,7 +388,7 @@ msgstr ""
 
 #: lib/classes/course-single.php:292
 msgid "indicates a required field"
-msgstr ""
+msgstr "Campo obligatorio"
 
 #: lib/classes/course-single.php:293
 msgid ""
@@ -451,7 +451,7 @@ msgstr ""
 #: lib/classes/course-single.php:519 lib/fns/shortcodes.php:74
 #: lib/fns/shortcodes.php:341
 msgid "Register"
-msgstr "Solicitar"
+msgstr "Inscribir"
 
 #: lib/classes/course-single.php:521
 msgid "This class is full"
@@ -475,7 +475,7 @@ msgstr ""
 
 #: lib/classes/course-single.php:641
 msgid "is a required field."
-msgstr ""
+msgstr "X es un campo obligatorio"
 
 #: lib/classes/course-single.php:654
 msgid "Please enter a valid postcode/ZIP."
@@ -503,19 +503,19 @@ msgstr ""
 
 #: lib/classes/course-single.php:788
 msgid "Student"
-msgstr ""
+msgstr "Participante"
 
 #: lib/classes/course-single.php:834
 msgid "Sorry, '%s' was removed from your cart because it is no longer available."
 msgstr ""
 
 #: lib/classes/course-single.php:850
-msgid "A \"%s\" registration for %s has been added to your cart."
-msgstr ""
+msgid "A \"%1$s\" registration for %2$s has been added to your cart."
+msgstr "La inscripción de %2$s a \"%1$s\" se ha añadido a tu carrito."
 
 #: lib/classes/course-single.php:852
 msgid " Add another student by entering his or her details below:"
-msgstr ""
+msgstr " Puedes añadir otro participante rellenando el formulario que hay a continuación"
 
 #: lib/classes/course-single.php:861
 msgid "Continue Shopping"
@@ -714,7 +714,7 @@ msgstr ""
 
 #: lib/views/course-class.php:94
 msgid "Seats available"
-msgstr ""
+msgstr "Plazas disponibles"
 
 #: lib/views/course-class.php:101
 msgid "Has this class been confirmed?"
@@ -742,11 +742,11 @@ msgstr ""
 
 #: templates/content-single-product-register.php:30
 msgid "To register for this class complete the form below:"
-msgstr ""
+msgstr "Por favor, rellene los datos del participante que desea inscribir."
 
 #: templates/content-single-product-register.php:46
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #: templates/single-product/course-info.php:16
 #: templates/single-product/course-info.php:32
@@ -760,8 +760,8 @@ msgstr ""
 #: templates/single-product/course-info.php:31
 msgid "seat available"
 msgid_plural "seats available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "plaza disponible "
+msgstr[1] "plazas disponibles"
 
 #: templates/single-product/course-info.php:40
 msgid "Location:"

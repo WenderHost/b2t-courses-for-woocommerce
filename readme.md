@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.6.1  
-**Stable tag:** 2.6.8  
+**Stable tag:** 2.6.9  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,6 +22,11 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 ## Changelog ##
+
+### 2.6.9 ###
+* Translation strings for dates in `[public_class_calendar]` and `[elementor_public_classes]`.
+* Translation strings for class registration form.
+* Removing "Metro Area" from `templates/single-product/course-info.php`.
 
 ### 2.6.8 ###
 * BUGFIX: Checking for existence of product class methods when getting multilingual prices.

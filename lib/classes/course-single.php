@@ -205,7 +205,7 @@ class Andalu_Woo_Courses_Single {
 		$fields['address_1'] = [
 			'label'       => __( 'Address', 'andalu_woo_courses' ),
 			'placeholder' => __( 'Street address', 'andalu_woo_courses' ),
-			'required'    => true,
+			'required'    => (('es_ES' == ANDALU_LANG)? false : true ),
 			'class'       => array( 'form-row-wide', 'address-field' ),
 		];
 		$fields['address_2'] = [
@@ -226,7 +226,7 @@ class Andalu_Woo_Courses_Single {
 		$fields['billing_state'] = [
 			'label'       => __( 'State / County', 'andalu_woo_courses' ),
 			'type'        => 'state',
-			'required'    => true,
+			'required'    => (('es_ES' == ANDALU_LANG)? false : true ),
 			'class'       => $class,
 		];
 
@@ -234,7 +234,7 @@ class Andalu_Woo_Courses_Single {
 		$fields['billing_postcode'] = [
 			'label'       => __( 'Postcode / Zip', 'andalu_woo_courses' ),
 			'placeholder' => __( 'Postcode / Zip', 'andalu_woo_courses' ),
-			'required'    => true,
+			'required'    => (('es_ES' == ANDALU_LANG)? false : true ),
 			'class'       => $class,
 			'clear'       => true,
 			'validate'    => array( 'postcode' ),
@@ -290,7 +290,9 @@ class Andalu_Woo_Courses_Single {
 		?>
 
 		<p><span class="required">*</span> <?php _e( 'indicates a required field', 'andalu_woo_courses' ); ?></p>
+		<?php if( 'es_ES' != ANDALU_LANG ){ ?>
 		<p><?php _e( '(Note: State/Province and Zip Code are not required for students outside of the US and Canada.)', 'andalu_woo_courses' ); ?></p>
+		<?php } ?>
 
 	<?php
 	}
@@ -847,7 +849,7 @@ class Andalu_Woo_Courses_Single {
 			$name = empty( self::$posted['first_name'] ) ? '' : self::$posted['first_name'];
 			$name .= empty( self::$posted['last_name'] ) ? '' : ' ' . self::$posted['last_name'];
 
-			$added_text = sprintf( __( 'A "%s" registration for %s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->get_id() ), $name );
+			$added_text = sprintf( __( 'A "%1$s" registration for %2$s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->get_id() ), $name );
 			if ( ! $cart_redirect ) {
 				$added_text .= __( ' Add another student by entering his or her details below:', 'andalu_woo_courses' );
 			}

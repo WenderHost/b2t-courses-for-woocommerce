@@ -1,7 +1,8 @@
 <?php
 
 namespace AndaluWooCourses\shortcodes;
-use function AndaluWooCourses\multilingual\{get_class_pricing};
+use function AndaluWooCourses\multilingual\{get_class_pricing,months_to_spanish};
+
 
 /**
  * Adds the Course Details widget.
@@ -96,7 +97,7 @@ function elementor_public_classes( $atts ){
     }
   }
 
-  $date_format = 'M j, Y';
+  $date_format = ('es_ES' == ANDALU_LANG )? 'j M, Y' : 'M j, Y';
   $locations = \Andalu_Woo_Courses_Class::get_locations();
 
   $course_id = $product->get_id();
@@ -128,6 +129,8 @@ function elementor_public_classes( $atts ){
       $class_dates = date( $date_format, $class->start_timestamp );
       if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
       $class_dates = apply_filters( 'andalu_woo_courses_class_dates', $class_dates, $class->start_timestamp, $class->end_timestamp, $date_format );
+      if( 'es_ES' == ANDALU_LANG )
+        $class_dates = months_to_spanish( $class_dates );
       $class_data['class_dates'] = $class_dates;
 
       $class_data['register_link'] = \AndaluWooCourses\utilities\get_register_link( $product->get_id(), $class_id );
@@ -146,7 +149,7 @@ function elementor_public_classes( $atts ){
           'name' => $term_location->name,
           'id' => $term_location->term_id,
         ];
-        $class_data['virtual'] = ( 'Live Virtual' == $term_location->name )? true : false ;
+        $class_data['virtual'] = ( in_array( $term_location->name, ['Live Virtual','OpenClass®'] ) )? true : false ;
       } else {
         $class_data['location'] = [
           'description' => '',
@@ -286,12 +289,21 @@ function public_class_calendar( $atts ){
       $end_month = $end_date_obj->format( 'm' );
       $end_year = $end_date_obj->format( 'Y' );
 
+      $date_format = ( 'es_ES' == ANDALU_LANG )? 'j M' : 'M j' ;
+
       if( empty( $end_date ) ){
-        $days = $start_date_obj->format( 'M j' );
+        $days = $start_date_obj->format( $date_format );
       } else if( $start_month != $end_month ){
-        $days = $start_date_obj->format( 'M j' ) . ' &ndash; ' . $end_date_obj->format( 'M j' );
+        $days = $start_date_obj->format( $date_format ) . ' &ndash; ' . $end_date_obj->format( $date_format );
       } else {
-        $days = $start_date_obj->format( 'M j' ) . ' &ndash; ' . $end_date_obj->format( 'j' );
+        switch( ANDALU_LANG ){
+          case 'es_ES':
+            $days = $start_date_obj->format( 'j' ) . ' &ndash; ' . $end_date_obj->format( $date_format );
+            break;
+          default:
+            $days = $start_date_obj->format( $date_format ) . ' &ndash; ' . $end_date_obj->format( 'j' );
+        }
+
       }
 
       $class_data['times'] = get_post_meta( $class->ID, '_time', true );
@@ -305,6 +317,8 @@ function public_class_calendar( $atts ){
         }
       }
 
+      if( 'es_ES' == ANDALU_LANG )
+        $days = months_to_spanish( $days );
       $class_data['days'] = $days;
       $class_data['year'] = $start_year;
       $class_data['register_url'] = \AndaluWooCourses\utilities\get_register_link( $class->post_parent, $class->ID );
@@ -319,7 +333,7 @@ function public_class_calendar( $atts ){
         'id'          => $class_obj->location_term->term_id,
         'description' => apply_filters( 'the_content', $class_obj->location_term->description ),
       ];
-      $class_data['virtual'] = ( 'Live Virtual' == $class_obj->location_term->name )? true : false ;
+      $class_data['virtual'] = ( in_array( $class_obj->location_term->name, ['Live Virtual','OpenClass®'] ) )? true : false ;
 
       //$class_data['duration'] = get_post_meta( $class->post_parent, '_course_duration', true );
       $class_data['duration'] = get_post_meta( $class->ID, '_duration', true );

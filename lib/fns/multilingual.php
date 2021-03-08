@@ -32,3 +32,17 @@ function get_class_pricing( $course_id ){
 
   return $pricing;
 }
+
+/**
+ * Replaces English month abbreviations with Spanish equivalents.
+ *
+ * @param      string  $string  The string
+ *
+ * @return     string  String with month abbreviations in Spanish.
+ */
+function months_to_spanish( $string = null ){
+  $months_en = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  $months_es = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  $string = str_replace( $months_en, $months_es, $string );
+  return $string;
+}
