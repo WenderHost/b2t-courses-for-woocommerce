@@ -260,7 +260,7 @@ function public_class_calendar( $atts ){
   if( is_array( $classes ) && 0 < count( $classes ) ){
     $x = 0;
     foreach( $classes as $class ){
-      if( ! $class->post_parent )
+      if( ! $class->post_parent || 'publish' != get_post_status( $class->post_parent ) )
         continue;
 
       $private_course = get_post_meta( $class->post_parent, '_private_course', true );
