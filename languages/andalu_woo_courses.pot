@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the ANDA.lu Woo Courses package.
 msgid ""
 msgstr ""
-"Project-Id-Version: ANDA.lu Woo Courses 2.6.5\n"
+"Project-Id-Version: ANDA.lu Woo Courses 2.6.9.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/andalu_woo_courses\n"
-"POT-Creation-Date: 2021-03-03 19:35:00+00:00\n"
+"POT-Creation-Date: 2021-03-19 13:56:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: lib/classes/admin.php:67 lib/classes/class-rosters.php:53
-#: lib/fns/shortcodes.php:335
+#: lib/fns/shortcodes.php:350
 msgid "Course"
 msgstr ""
 
@@ -39,15 +39,15 @@ msgid "Linked Products"
 msgstr ""
 
 #: lib/classes/admin.php:176 lib/classes/course-order.php:39
-#: lib/classes/course-single.php:781
+#: lib/classes/course-single.php:783
 msgid "Classes"
 msgstr ""
 
-#: lib/classes/admin.php:223 lib/fns/shortcodes.php:40
+#: lib/classes/admin.php:223 lib/fns/shortcodes.php:41
 msgid "Reference"
 msgstr ""
 
-#: lib/classes/admin.php:230 lib/fns/shortcodes.php:42
+#: lib/classes/admin.php:230 lib/fns/shortcodes.php:43
 msgid "Delivery Mode"
 msgstr ""
 
@@ -63,12 +63,12 @@ msgstr ""
 msgid "Face-to-Face"
 msgstr ""
 
-#: lib/classes/admin.php:240 lib/fns/shortcodes.php:41
-#: lib/fns/shortcodes.php:338 lib/views/course-outline.php:19
+#: lib/classes/admin.php:240 lib/fns/shortcodes.php:42
+#: lib/fns/shortcodes.php:353 lib/views/course-outline.php:19
 msgid "Duration"
 msgstr ""
 
-#: lib/classes/admin.php:246 lib/fns/shortcodes.php:43
+#: lib/classes/admin.php:246 lib/fns/shortcodes.php:44
 #: lib/fns/taxonomies.php:86
 msgid "Certification"
 msgstr ""
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Search for a course product&hellip;"
 msgstr ""
 
-#: lib/classes/admin.php:316 lib/classes/course-single.php:354
+#: lib/classes/admin.php:316 lib/classes/course-single.php:356
 msgid "Study Guide"
 msgstr ""
 
@@ -193,12 +193,12 @@ msgstr ""
 msgid "View roster"
 msgstr ""
 
-#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:334
+#: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:349
 msgid "Dates"
 msgstr ""
 
 #: lib/classes/class-rosters.php:55 lib/classes/course-order.php:28
-#: lib/fns/shortcodes.php:336 lib/views/course-class.php:84
+#: lib/fns/shortcodes.php:351 lib/views/course-class.php:84
 msgid "Location"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Enter the location lodging links (HTML tags are allowed) "
 msgstr ""
 
-#: lib/classes/course-order.php:24 lib/classes/course-single.php:761
+#: lib/classes/course-order.php:24 lib/classes/course-single.php:763
 msgid "Class"
 msgstr ""
 
@@ -390,181 +390,185 @@ msgstr ""
 msgid "indicates a required field"
 msgstr ""
 
-#: lib/classes/course-single.php:293
+#: lib/classes/course-single.php:294
 msgid ""
 "(Note: State/Province and Zip Code are not required for students outside of "
 "the US and Canada.)"
 msgstr ""
 
-#: lib/classes/course-single.php:333
+#: lib/classes/course-single.php:335
 msgid "Request Onsite"
 msgstr ""
 
-#: lib/classes/course-single.php:336
+#: lib/classes/course-single.php:338
 msgid "Length"
 msgstr ""
 
-#: lib/classes/course-single.php:340
+#: lib/classes/course-single.php:342
 msgid "CDU/PDU"
 msgstr ""
 
-#: lib/classes/course-single.php:344
+#: lib/classes/course-single.php:346
 msgid "Intended Audience"
 msgstr ""
 
-#: lib/classes/course-single.php:348
+#: lib/classes/course-single.php:350
 msgid "Prerequisites"
 msgstr ""
 
-#: lib/classes/course-single.php:361
+#: lib/classes/course-single.php:363
 msgid "Course Exam"
 msgstr ""
 
-#: lib/classes/course-single.php:401
+#: lib/classes/course-single.php:403
 msgid "Sub Courses"
 msgstr ""
 
-#: lib/classes/course-single.php:432 lib/fns/shortcodes.php:106
+#: lib/classes/course-single.php:434 lib/fns/shortcodes.php:108
 msgid "Course Length: %s"
 msgstr ""
 
-#: lib/classes/course-single.php:447
+#: lib/classes/course-single.php:449
 msgid "Various dates"
 msgstr ""
 
-#: lib/classes/course-single.php:448
+#: lib/classes/course-single.php:450
 msgid "Live Virtual Course"
 msgstr ""
 
-#: lib/classes/course-single.php:449
+#: lib/classes/course-single.php:451
 msgid "Select Dates"
 msgstr ""
 
-#: lib/classes/course-single.php:455
+#: lib/classes/course-single.php:457
 msgid "On site classes"
 msgstr ""
 
-#: lib/classes/course-single.php:494
+#: lib/classes/course-single.php:496
 msgid "Full"
 msgstr ""
 
-#: lib/classes/course-single.php:519 lib/fns/shortcodes.php:74
-#: lib/fns/shortcodes.php:341
+#: lib/classes/course-single.php:521 lib/fns/shortcodes.php:75
+#: lib/fns/shortcodes.php:356
 msgid "Register"
 msgstr ""
 
-#: lib/classes/course-single.php:521
+#: lib/classes/course-single.php:523
 msgid "This class is full"
 msgstr ""
 
-#: lib/classes/course-single.php:549
+#: lib/classes/course-single.php:551
 msgid "Outline"
 msgstr ""
 
-#: lib/classes/course-single.php:565
+#: lib/classes/course-single.php:567
 msgid "Course Outline"
 msgstr ""
 
-#: lib/classes/course-single.php:605
+#: lib/classes/course-single.php:607
 msgid "You must select a class for \"%s\"."
 msgstr ""
 
-#: lib/classes/course-single.php:611
+#: lib/classes/course-single.php:613
 msgid "Invalid virtual course."
 msgstr ""
 
-#: lib/classes/course-single.php:641
+#: lib/classes/course-single.php:643
 msgid "is a required field."
 msgstr ""
 
-#: lib/classes/course-single.php:654
+#: lib/classes/course-single.php:656
 msgid "Please enter a valid postcode/ZIP."
 msgstr ""
 
-#: lib/classes/course-single.php:663
+#: lib/classes/course-single.php:665
 msgid "is not a valid phone number."
 msgstr ""
 
-#: lib/classes/course-single.php:669
+#: lib/classes/course-single.php:671
 msgid "is not a valid email address."
 msgstr ""
 
-#: lib/classes/course-single.php:672
+#: lib/classes/course-single.php:674
 msgid "The email addresses do not match."
 msgstr ""
 
-#: lib/classes/course-single.php:690
+#: lib/classes/course-single.php:692
 msgid "is not valid. Please enter one of the following:"
 msgstr ""
 
-#: lib/classes/course-single.php:739
+#: lib/classes/course-single.php:741
 msgid "Sorry, this class is not available for registration"
 msgstr ""
 
-#: lib/classes/course-single.php:788
+#: lib/classes/course-single.php:790
 msgid "Student"
 msgstr ""
 
-#: lib/classes/course-single.php:834
+#: lib/classes/course-single.php:836
 msgid "Sorry, '%s' was removed from your cart because it is no longer available."
 msgstr ""
 
-#: lib/classes/course-single.php:850
-msgid "A \"%s\" registration for %s has been added to your cart."
+#: lib/classes/course-single.php:852
+msgid "A \"%1$s\" registration for %2$s has been added to your cart."
 msgstr ""
 
-#: lib/classes/course-single.php:852
+#: lib/classes/course-single.php:854
 msgid " Add another student by entering his or her details below:"
 msgstr ""
 
-#: lib/classes/course-single.php:861
+#: lib/classes/course-single.php:863
 msgid "Continue Shopping"
 msgstr ""
 
-#: lib/classes/course-single.php:863
+#: lib/classes/course-single.php:865
 msgid "View Cart"
 msgstr ""
 
-#: lib/fns/shortcodes.php:39
+#: lib/fns/shortcodes.php:40
 msgid "Course Details"
 msgstr ""
 
-#: lib/fns/shortcodes.php:44
+#: lib/fns/shortcodes.php:45
 msgid "Request Info"
 msgstr ""
 
-#: lib/fns/shortcodes.php:73
+#: lib/fns/shortcodes.php:74
 msgid "Public Classes"
 msgstr ""
 
-#: lib/fns/shortcodes.php:92
+#: lib/fns/shortcodes.php:76
+msgid "See Public Class Schedule"
+msgstr ""
+
+#: lib/fns/shortcodes.php:94
 msgid ""
 "Currently, we don't have any public sessions of this course scheduled. "
 "Please let us know if you are interested in adding a session."
 msgstr ""
 
-#: lib/fns/shortcodes.php:299 lib/views/course-class.php:109
+#: lib/fns/shortcodes.php:312 lib/views/course-class.php:109
 msgid "English"
 msgstr ""
 
-#: lib/fns/shortcodes.php:299 lib/views/course-class.php:111
+#: lib/fns/shortcodes.php:312 lib/views/course-class.php:111
 msgid "Spanish"
 msgstr ""
 
-#: lib/fns/shortcodes.php:337 lib/views/course-class.php:72
+#: lib/fns/shortcodes.php:352 lib/views/course-class.php:72
 msgid "Time"
 msgstr ""
 
-#: lib/fns/shortcodes.php:339 templates/single-product/course-info.php:16
-#: templates/single-product/course-info.php:32
+#: lib/fns/shortcodes.php:354 templates/single-product/course-info.php:16
+#: templates/single-product/course-info.php:31
 msgid "Price"
 msgstr ""
 
-#: lib/fns/shortcodes.php:340
+#: lib/fns/shortcodes.php:355
 msgid "Language"
 msgstr ""
 
-#: lib/fns/shortcodes.php:343
+#: lib/fns/shortcodes.php:358
 msgid "Confirmed Class"
 msgstr ""
 
@@ -749,21 +753,17 @@ msgid "Back"
 msgstr ""
 
 #: templates/single-product/course-info.php:16
-#: templates/single-product/course-info.php:32
+#: templates/single-product/course-info.php:31
 msgid "student"
 msgstr ""
 
 #: templates/single-product/course-info.php:30
-msgid "Metro Area"
-msgstr ""
-
-#: templates/single-product/course-info.php:31
 msgid "seat available"
 msgid_plural "seats available"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/single-product/course-info.php:40
+#: templates/single-product/course-info.php:39
 msgid "Location:"
 msgstr ""
 

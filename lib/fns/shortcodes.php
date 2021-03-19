@@ -73,6 +73,7 @@ function elementor_public_classes( $atts ){
     'labels' => [
       'widget_title' => __( 'Public Classes', 'andalu_woo_courses' ),
       'button_label' => __( 'Register', 'andalu_woo_courses' ),
+      'no_public_classes_button_label' => __( 'See Public Class Schedule', 'andalu_woo_courses' ),
     ],
   ];
 

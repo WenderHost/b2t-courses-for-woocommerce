@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.7  
-**Stable tag:** 2.6.9.1  
+**Stable tag:** 2.7.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,6 +22,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 ## Changelog ##
+
+### 2.7.0 ###
+* ES translations for `[elementor_public_classes]` and `[course_details]`.
 
 ### 2.6.9.1 ###
 * BUGFIX: `[public_class_calendar]` was showing classes without checking the parent course's `post_status`. Fixed code to check for `publish` status.

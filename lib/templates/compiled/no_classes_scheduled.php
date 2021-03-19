@@ -33,7 +33,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     return '<div class="public-classes widget">
   <h3 class="widget-title" style="margin-bottom: 20px;">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['widget_title'])) ? $in['labels']['widget_title'] : null), ENT_QUOTES, 'UTF-8').'</h3>
   <p>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['no_public_classes_message'])) ? $in['labels']['no_public_classes_message'] : null), ENT_QUOTES, 'UTF-8').'</p>
-  <a href="/course-calendar/" class="button">See Public Class Schedule</a>
+  <a href="/course-calendar/" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['no_public_classes_button_label'])) ? $in['labels']['no_public_classes_button_label'] : null), ENT_QUOTES, 'UTF-8').'</a>
 </div>
 ';
 };
