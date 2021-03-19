@@ -71,7 +71,7 @@ msgstr "Duración"
 #: lib/classes/admin.php:246 lib/fns/shortcodes.php:44
 #: lib/fns/taxonomies.php:86
 msgid "Certification"
-msgstr ""
+msgstr "Certificación"
 
 #: lib/classes/admin.php:252
 msgid "Certification Link"
@@ -546,7 +546,7 @@ msgid ""
 "Currently, we don't have any public sessions of this course scheduled. "
 "Please let us know if you are interested in adding a session."
 msgstr
-"Actualmente, no hay planificada ninguna sesión. Por favor, haznos saber si te interesaría que abriéramos una msgstr "
+"Actualmente, no hay planificada ninguna sesión. Por favor, haznos saber si te interesaría que abriéramos una "
 "nueva convocatoria para este curso."
 
 #: lib/fns/shortcodes.php:312 lib/views/course-class.php:109
