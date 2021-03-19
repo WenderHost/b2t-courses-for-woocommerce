@@ -535,13 +535,13 @@ msgstr ""
 
 #: lib/fns/shortcodes.php:73
 msgid "Public Classes"
-msgstr ""
+msgstr "Clases públicas"
 
 #: lib/fns/shortcodes.php:92
 msgid ""
 "Currently, we don't have any public sessions of this course scheduled. "
 "Please let us know if you are interested in adding a session."
-msgstr ""
+msgstr "Actualmente, no hay planificada ninguna sesión. Por favor, haznos saber si te interesaría que abriéramos una nueva convocatoria para este curso."
 
 #: lib/fns/shortcodes.php:299 lib/views/course-class.php:109
 msgid "English"
