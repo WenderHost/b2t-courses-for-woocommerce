@@ -21,7 +21,7 @@ do_action( 'woocommerce_before_single_course_register' );
 	<form class="course_registration clearfix" method="post" enctype="multipart/form-data">
 		<?php wc_print_notices(); ?>
 
-	 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+	 	
 
 		<?php
 			if ( 'virtual' == get_query_var( 'course_register' ) && $product->has_child() ) {
@@ -40,6 +40,8 @@ do_action( 'woocommerce_before_single_course_register' );
 
 				<?php do_action( 'woocommerce_course_registration_form' ); ?>
 
+                <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+            
 		 		<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" />
 
 				<div class="pull-right">
