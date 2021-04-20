@@ -16,7 +16,7 @@ WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 3. Update the translations in the file you copied in #2 (use [PoEdit](https://poedit.net/) if you prefer a GUI).
 4. Run `grunt po2mo` to build `.mo` files in `languages/`.
 
-Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-exec directory. To fix, I had to edit `node_modules\grunt-po2mo\tasks\po2mo.js` as follows:
+Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-exec directory`. To fix, I had to edit `node_modules\grunt-po2mo\tasks\po2mo.js` as follows:
 
 - Line 11 Original: `var exec = require('sync-exec');`
 - Line 11 Revised: `var exec = require('child_process').execSync;`
