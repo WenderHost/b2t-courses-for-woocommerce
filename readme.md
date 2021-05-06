@@ -23,6 +23,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 
 ## Changelog ##
 
+### 2.7.4 ###
+* Add slash end url 'Inscribir' button. Only ES version.
+
 ### 2.7.3 ###
 * Add woocommerce addon after the form.
 
