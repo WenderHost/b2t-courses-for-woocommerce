@@ -7,6 +7,6 @@ function get_register_link( $product_id, $class_id ){
   $class_post = get_post( $class_id );
   $url['path'] = trailingslashit( $url['path'] ) . 'register/' . $class_post->post_name; // $class->post->post_name
   $register_link = http_build_url( $url );
-  if('es_ES' == ANDALU_LANG) $register_link.'/';
+  if('es_ES' == ANDALU_LANG) $register_link = $register_link.'/';
   return $register_link;
 }
