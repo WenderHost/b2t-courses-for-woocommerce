@@ -3,27 +3,24 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ANDA.lu Woo Courses 2.6.9.1\n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/andalu_woo_courses\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/andalu_woo_courses\n"
 "POT-Creation-Date: 2021-03-19 13:56:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-05-26 09:23+0100\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n 1.0.3\n"
+"X-Generator: Poedit 1.7.5\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: lib/classes/admin.php:67 lib/classes/class-rosters.php:53
 #: lib/fns/shortcodes.php:350
@@ -63,13 +60,12 @@ msgstr ""
 msgid "Face-to-Face"
 msgstr ""
 
-#: lib/classes/admin.php:240 lib/fns/shortcodes.php:42
-#: lib/fns/shortcodes.php:353 lib/views/course-outline.php:19
+#: lib/classes/admin.php:240 lib/fns/shortcodes.php:42 lib/fns/shortcodes.php:353
+#: lib/views/course-outline.php:19
 msgid "Duration"
 msgstr ""
 
-#: lib/classes/admin.php:246 lib/fns/shortcodes.php:44
-#: lib/fns/taxonomies.php:86
+#: lib/classes/admin.php:246 lib/fns/shortcodes.php:44 lib/fns/taxonomies.php:86
 msgid "Certification"
 msgstr ""
 
@@ -101,13 +97,13 @@ msgstr ""
 msgid "Exam"
 msgstr ""
 
-#: lib/classes/admin.php:352 lib/classes/admin.php:379
-#: lib/classes/admin.php:388 lib/classes/admin.php:397
+#: lib/classes/admin.php:352 lib/classes/admin.php:379 lib/classes/admin.php:388
+#: lib/classes/admin.php:397
 msgid "Expand"
 msgstr ""
 
-#: lib/classes/admin.php:352 lib/classes/admin.php:379
-#: lib/classes/admin.php:388 lib/classes/admin.php:397
+#: lib/classes/admin.php:352 lib/classes/admin.php:379 lib/classes/admin.php:388
+#: lib/classes/admin.php:397
 msgid "Close"
 msgstr ""
 
@@ -181,8 +177,8 @@ msgstr ""
 
 #: lib/classes/cart-reserve.php:56
 msgid ""
-"Sorry, '%s' was removed from your cart because you didn't checkout before "
-"the expiration time."
+"Sorry, '%s' was removed from your cart because you didn't checkout before the "
+"expiration time."
 msgstr ""
 
 #: lib/classes/class-rosters.php:35
@@ -234,8 +230,8 @@ msgstr ""
 msgid "All dates"
 msgstr ""
 
-#: lib/classes/class-rosters.php:224
 #. translators: 1: month name, 2: 4-digit year
+#: lib/classes/class-rosters.php:224
 msgid "%1$s %2$d"
 msgstr ""
 
@@ -330,8 +326,8 @@ msgstr ""
 
 #: lib/classes/course-single.php:142
 msgid ""
-"You are registering for the LIVE Virtual version of %s. Please choose your "
-"times for the following components of this course:"
+"You are registering for the LIVE Virtual version of %s. Please choose your times "
+"for the following components of this course:"
 msgstr ""
 
 #: lib/classes/course-single.php:166
@@ -376,14 +372,13 @@ msgstr ""
 
 #: lib/classes/course-single.php:245 lib/classes/course-single.php:246
 msgid "CIF / NIF"
-msgstr ""
+msgstr "NIF / DNI"
 
 #: lib/classes/course-single.php:279
 msgid ""
-"NOTE - Valid Shipping Address Required: The following registration is for a "
-"Live Virtual Class. Be sure to include a valid shipping address (no P.O. "
-"Boxes) where we can ship course materials for the student you are "
-"registering."
+"NOTE - Valid Shipping Address Required: The following registration is for a Live "
+"Virtual Class. Be sure to include a valid shipping address (no P.O. Boxes) where "
+"we can ship course materials for the student you are registering."
 msgstr ""
 
 #: lib/classes/course-single.php:292
@@ -392,8 +387,8 @@ msgstr ""
 
 #: lib/classes/course-single.php:294
 msgid ""
-"(Note: State/Province and Zip Code are not required for students outside of "
-"the US and Canada.)"
+"(Note: State/Province and Zip Code are not required for students outside of the US "
+"and Canada.)"
 msgstr ""
 
 #: lib/classes/course-single.php:335
@@ -543,8 +538,8 @@ msgstr ""
 
 #: lib/fns/shortcodes.php:94
 msgid ""
-"Currently, we don't have any public sessions of this course scheduled. "
-"Please let us know if you are interested in adding a session."
+"Currently, we don't have any public sessions of this course scheduled. Please let "
+"us know if you are interested in adding a session."
 msgstr ""
 
 #: lib/fns/shortcodes.php:312 lib/views/course-class.php:109
