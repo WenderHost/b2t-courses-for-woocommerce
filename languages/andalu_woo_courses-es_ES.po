@@ -3,37 +3,40 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ANDA.lu Woo Courses 2.6.9.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/andalu_woo_courses\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/andalu_woo_courses\n"
 "POT-Creation-Date: 2021-03-19 13:56:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-31 17:00+0100\n"
-"Language: en\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Michael Wender <michael@michaelwender.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Poedit-Basepath: ../\n"
-"X-Textdomain-Support: yes\n"
-"X-Generator: Poedit 1.7.5\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: lib/classes/admin.php:67 lib/classes/class-rosters.php:53
 #: lib/fns/shortcodes.php:350
 msgid "Course"
-msgstr ""
+msgstr "Curso"
 
 #: lib/classes/admin.php:156
 msgid "Course Data"
-msgstr ""
+msgstr "Datos del curso"
 
 #: lib/classes/admin.php:162
 msgid "Linked Products"
-msgstr ""
+msgstr "Productos vinculados"
 
 #: lib/classes/admin.php:176 lib/classes/course-order.php:39
 #: lib/classes/course-single.php:783
@@ -42,11 +45,11 @@ msgstr ""
 
 #: lib/classes/admin.php:223 lib/fns/shortcodes.php:41
 msgid "Reference"
-msgstr ""
+msgstr "Referencia"
 
 #: lib/classes/admin.php:230 lib/fns/shortcodes.php:43
 msgid "Delivery Mode"
-msgstr ""
+msgstr "Modo de entrega"
 
 #: lib/classes/admin.php:232
 msgid "Onsite"
@@ -58,16 +61,17 @@ msgstr ""
 
 #: lib/classes/admin.php:234
 msgid "Face-to-Face"
-msgstr ""
+msgstr "Presencial"
 
-#: lib/classes/admin.php:240 lib/fns/shortcodes.php:42 lib/fns/shortcodes.php:353
-#: lib/views/course-outline.php:19
+#: lib/classes/admin.php:240 lib/fns/shortcodes.php:42
+#: lib/fns/shortcodes.php:353 lib/views/course-outline.php:19
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
-#: lib/classes/admin.php:246 lib/fns/shortcodes.php:44 lib/fns/taxonomies.php:86
+#: lib/classes/admin.php:246 lib/fns/shortcodes.php:44
+#: lib/fns/taxonomies.php:86
 msgid "Certification"
-msgstr ""
+msgstr "Certificación"
 
 #: lib/classes/admin.php:252
 msgid "Certification Link"
@@ -97,15 +101,15 @@ msgstr ""
 msgid "Exam"
 msgstr ""
 
-#: lib/classes/admin.php:352 lib/classes/admin.php:379 lib/classes/admin.php:388
-#: lib/classes/admin.php:397
+#: lib/classes/admin.php:352 lib/classes/admin.php:379
+#: lib/classes/admin.php:388 lib/classes/admin.php:397
 msgid "Expand"
 msgstr ""
 
-#: lib/classes/admin.php:352 lib/classes/admin.php:379 lib/classes/admin.php:388
-#: lib/classes/admin.php:397
+#: lib/classes/admin.php:352 lib/classes/admin.php:379
+#: lib/classes/admin.php:388 lib/classes/admin.php:397
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: lib/classes/admin.php:354
 msgid "Add Outline"
@@ -157,15 +161,15 @@ msgstr ""
 
 #: lib/classes/admin.php:815 lib/classes/course-single.php:192
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #: lib/classes/admin.php:816 lib/classes/course-single.php:255
 msgid "Phone"
-msgstr ""
+msgstr "Teléfono"
 
 #: lib/classes/admin.php:817 lib/classes/course-single.php:177
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: lib/classes/admin.php:818 lib/classes/class-rosters.php:57
 msgid "Options"
@@ -177,8 +181,8 @@ msgstr ""
 
 #: lib/classes/cart-reserve.php:56
 msgid ""
-"Sorry, '%s' was removed from your cart because you didn't checkout before the "
-"expiration time."
+"Sorry, '%s' was removed from your cart because you didn't checkout before "
+"the expiration time."
 msgstr ""
 
 #: lib/classes/class-rosters.php:35
@@ -191,16 +195,16 @@ msgstr ""
 
 #: lib/classes/class-rosters.php:54 lib/fns/shortcodes.php:349
 msgid "Dates"
-msgstr ""
+msgstr "Fechas"
 
 #: lib/classes/class-rosters.php:55 lib/classes/course-order.php:28
 #: lib/fns/shortcodes.php:351 lib/views/course-class.php:84
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #: lib/classes/class-rosters.php:56
 msgid "Students"
-msgstr ""
+msgstr "Estudiantes"
 
 #: lib/classes/class-rosters.php:79
 msgid "Upcoming"
@@ -230,8 +234,8 @@ msgstr ""
 msgid "All dates"
 msgstr ""
 
-#. translators: 1: month name, 2: 4-digit year
 #: lib/classes/class-rosters.php:224
+#. translators: 1: month name, 2: 4-digit year
 msgid "%1$s %2$d"
 msgstr ""
 
@@ -290,7 +294,7 @@ msgstr ""
 #: lib/classes/course-class.php:101 lib/classes/course-class.php:143
 #: lib/classes/course-single.php:206
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #: lib/classes/course-class.php:103 lib/classes/course-class.php:146
 msgid "Enter the location address"
@@ -314,7 +318,7 @@ msgstr ""
 
 #: lib/classes/course-order.php:24 lib/classes/course-single.php:763
 msgid "Class"
-msgstr ""
+msgstr "Clase"
 
 #: lib/classes/course-order.php:54
 msgid "Optin"
@@ -326,21 +330,21 @@ msgstr ""
 
 #: lib/classes/course-single.php:142
 msgid ""
-"You are registering for the LIVE Virtual version of %s. Please choose your times "
-"for the following components of this course:"
+"You are registering for the LIVE Virtual version of %s. Please choose your "
+"times for the following components of this course:"
 msgstr ""
 
 #: lib/classes/course-single.php:166
 msgid "First Name"
-msgstr ""
+msgstr "Nombre"
 
 #: lib/classes/course-single.php:171
 msgid "Last Name"
-msgstr ""
+msgstr "Apellidos"
 
 #: lib/classes/course-single.php:184
 msgid "Email Again"
-msgstr ""
+msgstr "Confirmar correo electrónico"
 
 #: lib/classes/course-single.php:196
 msgid "Title"
@@ -348,11 +352,11 @@ msgstr ""
 
 #: lib/classes/course-single.php:200
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: lib/classes/course-single.php:207
 msgid "Street address"
-msgstr ""
+msgstr "Dirección"
 
 #: lib/classes/course-single.php:212
 msgid "Apartment, suite, unit etc. (optional)"
@@ -360,15 +364,15 @@ msgstr ""
 
 #: lib/classes/course-single.php:219 lib/classes/course-single.php:220
 msgid "Town / City"
-msgstr ""
+msgstr "Ciudad"
 
 #: lib/classes/course-single.php:227
 msgid "State / County"
-msgstr ""
+msgstr "Provincia"
 
 #: lib/classes/course-single.php:235 lib/classes/course-single.php:236
 msgid "Postcode / Zip"
-msgstr ""
+msgstr "Código Postal"
 
 #: lib/classes/course-single.php:245 lib/classes/course-single.php:246
 msgid "CIF / NIF"
@@ -376,19 +380,20 @@ msgstr "NIF / DNI"
 
 #: lib/classes/course-single.php:279
 msgid ""
-"NOTE - Valid Shipping Address Required: The following registration is for a Live "
-"Virtual Class. Be sure to include a valid shipping address (no P.O. Boxes) where "
-"we can ship course materials for the student you are registering."
+"NOTE - Valid Shipping Address Required: The following registration is for a "
+"Live Virtual Class. Be sure to include a valid shipping address (no P.O. "
+"Boxes) where we can ship course materials for the student you are "
+"registering."
 msgstr ""
 
 #: lib/classes/course-single.php:292
 msgid "indicates a required field"
-msgstr ""
+msgstr "Campo obligatorio"
 
 #: lib/classes/course-single.php:294
 msgid ""
-"(Note: State/Province and Zip Code are not required for students outside of the US "
-"and Canada.)"
+"(Note: State/Province and Zip Code are not required for students outside of "
+"the US and Canada.)"
 msgstr ""
 
 #: lib/classes/course-single.php:335
@@ -470,7 +475,7 @@ msgstr ""
 
 #: lib/classes/course-single.php:643
 msgid "is a required field."
-msgstr ""
+msgstr "es un campo obligatorio"
 
 #: lib/classes/course-single.php:656
 msgid "Please enter a valid postcode/ZIP."
@@ -498,7 +503,7 @@ msgstr ""
 
 #: lib/classes/course-single.php:790
 msgid "Student"
-msgstr ""
+msgstr "Participante"
 
 #: lib/classes/course-single.php:836
 msgid "Sorry, '%s' was removed from your cart because it is no longer available."
@@ -506,11 +511,11 @@ msgstr ""
 
 #: lib/classes/course-single.php:852
 msgid "A \"%1$s\" registration for %2$s has been added to your cart."
-msgstr ""
+msgstr "La inscripción de %2$s a \"%1$s\" se ha añadido a tu carrito."
 
 #: lib/classes/course-single.php:854
 msgid " Add another student by entering his or her details below:"
-msgstr ""
+msgstr " Puedes añadir otro participante rellenando el formulario que hay a continuación"
 
 #: lib/classes/course-single.php:863
 msgid "Continue Shopping"
@@ -522,7 +527,7 @@ msgstr ""
 
 #: lib/fns/shortcodes.php:40
 msgid "Course Details"
-msgstr ""
+msgstr "Detalles del curso"
 
 #: lib/fns/shortcodes.php:45
 msgid "Request Info"
@@ -530,42 +535,44 @@ msgstr "Solicitar información"
 
 #: lib/fns/shortcodes.php:74
 msgid "Public Classes"
-msgstr ""
+msgstr "Clases públicas"
 
 #: lib/fns/shortcodes.php:76
 msgid "See Public Class Schedule"
-msgstr ""
+msgstr "Ver Calendario de Cursos"
 
 #: lib/fns/shortcodes.php:94
 msgid ""
-"Currently, we don't have any public sessions of this course scheduled. Please let "
-"us know if you are interested in adding a session."
-msgstr ""
+"Currently, we don't have any public sessions of this course scheduled. "
+"Please let us know if you are interested in adding a session."
+msgstr
+"Actualmente, no hay planificada ninguna sesión. Por favor, haznos saber si te interesaría que abriéramos una "
+"nueva convocatoria para este curso."
 
 #: lib/fns/shortcodes.php:312 lib/views/course-class.php:109
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: lib/fns/shortcodes.php:312 lib/views/course-class.php:111
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: lib/fns/shortcodes.php:352 lib/views/course-class.php:72
 msgid "Time"
-msgstr ""
+msgstr "Horario"
 
 #: lib/fns/shortcodes.php:354 templates/single-product/course-info.php:16
 #: templates/single-product/course-info.php:31
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #: lib/fns/shortcodes.php:355
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: lib/fns/shortcodes.php:358
 msgid "Confirmed Class"
-msgstr ""
+msgstr "Clase Confirmada"
 
 #: lib/fns/taxonomies.php:9
 msgid "Search Roles"
@@ -613,15 +620,15 @@ msgstr ""
 
 #: lib/fns/taxonomies.php:42
 msgid "Search Sub Categories"
-msgstr ""
+msgstr "Search Sub Categorías"
 
 #: lib/fns/taxonomies.php:43
 msgid "Popular Sub Categories"
-msgstr ""
+msgstr "Popular Sub Categorías"
 
 #: lib/fns/taxonomies.php:44
 msgid "All Sub Categories"
-msgstr ""
+msgstr "All Sub Categorías"
 
 #: lib/fns/taxonomies.php:45 lib/fns/taxonomies.php:46
 msgid "Parent Sub Category"
@@ -713,7 +720,7 @@ msgstr ""
 
 #: lib/views/course-class.php:94
 msgid "Seats available"
-msgstr ""
+msgstr "Plazas disponibles"
 
 #: lib/views/course-class.php:101
 msgid "Has this class been confirmed?"
@@ -741,11 +748,11 @@ msgstr ""
 
 #: templates/content-single-product-register.php:30
 msgid "To register for this class complete the form below:"
-msgstr ""
+msgstr "Por favor, rellene los datos del participante que desea inscribir."
 
 #: templates/content-single-product-register.php:46
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #: templates/single-product/course-info.php:16
 #: templates/single-product/course-info.php:31
@@ -755,12 +762,12 @@ msgstr ""
 #: templates/single-product/course-info.php:30
 msgid "seat available"
 msgid_plural "seats available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "plaza disponible"
+msgstr[1] "plazas disponibles"
 
 #: templates/single-product/course-info.php:39
 msgid "Location:"
-msgstr ""
+msgstr "Ubicación:"
 
 #. Plugin Name of the plugin/theme
 msgid "ANDA.lu Woo Courses"
@@ -821,19 +828,19 @@ msgstr ""
 #: lib/fns/taxonomies.php:40
 msgctxt "Taxonomy Sub Categories"
 msgid "Sub Categories"
-msgstr ""
+msgstr "Sub Categorías"
 
 #: lib/fns/taxonomies.php:41
 msgctxt "Taxonomy Sub Category"
 msgid "Sub Category"
-msgstr ""
+msgstr "Sub Categoría"
 
 #: lib/fns/taxonomies.php:73
 msgctxt "Taxonomy Certifications"
 msgid "Certifications"
-msgstr ""
+msgstr "Certificaciones"
 
 #: lib/fns/taxonomies.php:74
 msgctxt "Taxonomy Certification"
 msgid "Certification"
-msgstr ""
+msgstr "Certificación"
