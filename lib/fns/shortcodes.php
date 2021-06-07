@@ -87,6 +87,9 @@ function elementor_public_classes( $atts ){
     if( empty( $product ) )
       return;
 
+    if( ! method_exists( $product, 'has_classes' ) )
+      return;
+
     $has_classes = $product->has_classes();
 
     if( ! $has_classes ){
