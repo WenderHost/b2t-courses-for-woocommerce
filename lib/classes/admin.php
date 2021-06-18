@@ -147,7 +147,7 @@ class Andalu_Woo_Courses_Admin {
 		// Extract first tabs
 		$first_tabs = [];
 		$first_tabs['general'] = $tabs['general'];
-		$first_tabs['general']['class'][] = 'show_if_course';
+		$first_tabs['general']['class'][] = 'show_if_course show_if_simple';
 		unset( $tabs['general'] );
 
 		// Add new tabs

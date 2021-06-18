@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.7  
-**Stable tag:** 2.8.0  
+**Stable tag:** 2.8.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,6 +22,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 ## Changelog ##
+
+### 2.8.1 ###
+* Adding `show_if_simple` to `Andalu_Woo_Courses_Admin::data_tabs()` so that the "General" tab will show for WooCommerce simple products.
 
 ### 2.8.0 ###
 * Recompiling Spanish translations to get the "Currently, we don't have any classes..." message into `languages/andalu_woo_courses-es_ES.mo`.
