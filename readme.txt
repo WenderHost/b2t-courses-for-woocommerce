@@ -3,7 +3,7 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 5.7
-Stable tag: 2.8.1
+Stable tag: 2.8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
 == Changelog ==
+
+= 2.8.2 =
+* Translate View cart to ver carrito. Only ES version.
 
 = 2.8.1 =
 * Adding `show_if_simple` to `Andalu_Woo_Courses_Admin::data_tabs()` so that the "General" tab will show for WooCommerce simple products.
