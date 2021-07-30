@@ -2,8 +2,8 @@
 **Contributors:** TheWebist  
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
-**Tested up to:** 5.7  
-**Stable tag:** 2.8.2  
+**Tested up to:** 5.8  
+**Stable tag:** 2.8.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -23,6 +23,8 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 
 ## Changelog ##
 
+### 2.8.3 ###
+* Adding `.confirmed` to Class Calendar rows.
 
 ### 2.8.2 ###
 * Translate View cart to ver carrito. Only ES version.

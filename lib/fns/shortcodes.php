@@ -282,6 +282,8 @@ function public_class_calendar( $atts ){
       if( $x % 2 )
         $class_data['css_classes'].= ' alt';
       $x++;
+      if( 'yes' == $confirmed )
+        $class_data['css_classes'].= ' confirmed';
 
       $start_date = get_post_meta( $class->ID, '_start_date', true );
       $start_date_obj = date_create( $start_date );
