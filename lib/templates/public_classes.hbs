@@ -7,7 +7,7 @@
       <div class="details">
         <div class="date">{{class_dates}}</div>
         <div class="time">{{times}} {{#if duration}}<br/> {{duration}}{{/if}}</div>
-        <div class="price">{{cost}}</div>
+        <div class="price">{{{../cost}}}</div>
         <a class="location-name" href="#location-{{ID}}-{{location.id}}">{{location.name}}</a>
         <div class="location-description" id="location-{{ID}}-{{location.id}}">{{{location.description}}}</div>
         <div class="register-link"><a class="button" href="{{register_link}}">{{../labels.button_label}}</a></div>
