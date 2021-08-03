@@ -23,6 +23,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 
 == Changelog ==
 
+= 2.8.4 =
+* Adding Price label to public classes.
+
 = 2.8.3 =
 * Adding `.confirmed` to Class Calendar rows.
 
