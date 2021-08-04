@@ -3,7 +3,7 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 5.8
-Stable tag: 2.8.5
+Stable tag: 2.8.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,14 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 - Line 11 Original: `var exec = require('sync-exec');`
 - Line 11 Revised: `var exec = require('child_process').execSync;`
 
+# Handlebars templating
+
+Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
+
 == Changelog ==
+
+= 2.8.6 =
+* Adding documentation for `render_template()` inside `lib/fns/handlebars.php`.
 
 = 2.8.5 =
 * Updating Handlebars `cost` variable to output HTML and reference the properties of the parent.

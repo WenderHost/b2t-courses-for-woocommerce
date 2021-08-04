@@ -2,6 +2,29 @@
 
 namespace AndaluWooCourses\handlebars;
 
+/**
+ * Renders a handlebars template.
+ *
+ * When looking for a handlebars template, this function will
+ * check your theme to see if it has an
+ * `andalu-woocources-templates/` directory. If not found, it
+ * will check this plugin's `lib/templates/` directory.
+ *
+ * You may specify your templates using the name of the
+ * template without the extension.
+ *
+ * IMPORTANT: This function compiles handlebars templates to
+ * PHP. Therefore, you should never edit the files in
+ * `lib/templates/compiled/`. To render a template, the
+ * code compares the timestamps of the handlesbars template
+ * and the compiled PHP template. If the handlebars template
+ * is newer, it re-renders the compiled PHP template.
+ *
+ * @param      string  $filename  The filename of the handlebars template inside `/lib/templates/`.
+ * @param      array   $data      An array of data to be rendered inside the handlebars template.
+ *
+ * @return     mixed   Returns the HTML string for your specifed template. Returns FALSE if your template is not found or emtpy.
+ */
 function render_template( $filename = '', $data = [] ){
   if( empty( $filename ) )
     return false;
