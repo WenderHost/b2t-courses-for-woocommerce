@@ -543,7 +543,7 @@ msgstr "Ver Calendario de Cursos"
 
 #: lib/fns/shortcodes.php:94
 msgid ""
-"Currently, we don't have any public sessions of this course scheduled. "
+"Currently, we don't have any public sessions of this course scheduled."
 "Please let us know if you are interested in adding a session."
 msgstr
 "Actualmente, no hay planificada ninguna sesión. Por favor, haznos saber si te interesaría que abriéramos una "
