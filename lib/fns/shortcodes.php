@@ -260,7 +260,11 @@ function public_class_calendar( $atts ){
   $data = [];
   $data['plugin_dir'] = plugin_dir_url( __FILE__ ) . '../../';
 
-  $classes = get_posts( $query_args );
+  if( false === ( $classes = get_transient( 'public_class_calendar' ) ) ){
+    $classes = get_posts( $query_args );
+    set_transient( 'public_class_calendar', $classes, HOUR_IN_SECONDS );
+  }
+
   if( is_array( $classes ) && 0 < count( $classes ) ){
     $x = 0;
     foreach( $classes as $class ){
