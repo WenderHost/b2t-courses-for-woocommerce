@@ -12,6 +12,7 @@ $atts = [
 	'confirmed',
 	'lang',
 	'cal',
+	'price',
 ];
 
 foreach( $atts as $att ){
@@ -93,6 +94,13 @@ if( ! empty( $end_date ) )
 					<td class="class_seats">
 						<label><?php _e( 'Seats available', 'andalu_woo_courses' ); ?>:</label>
 						<input type="number" class="class_seats" name="classes[<?php echo $i; ?>][seats]" value="<?php echo esc_attr( $seats ); ?>" />
+					</td>
+				</tr>
+				<tr>
+					<td class="class_price">
+						<label><?php _e( 'Class Price', 'andalu_woo_courses' ); ?>:</label>
+						<input type="text" class="class_price" name="classes[<?php echo $i; ?>][price]" value="<?php echo esc_attr( $price ); ?>" style="max-width: 200px;" />
+						<div style="display: block; clear: both;"><?php _e( 'If no price is entered here, the price entered under the General tab will apply.', 'andalu_woo_courses' ); ?></div>
 					</td>
 				</tr>
 				<tr>
