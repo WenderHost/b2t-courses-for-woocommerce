@@ -1,10 +1,15 @@
 <?php
+use function AndaluWooCourses\multilingual\{get_class_pricing,months_to_spanish};
+
 global $product;
 
 $class_slug = get_query_var( 'course_register' );
 $class_id = 'virtual' == $class_slug ? 0 : Andalu_Woo_Courses_Class::get_class_id( $class_slug );
 $class = $class_id ? wc_get_product( $class_id ) : false;
 $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
+if( $class_id ){
+	$class_price = get_post_meta( $class_id, '_price', true );
+}
 
 ?>
 <div class="product-info clearfix">
@@ -13,7 +18,15 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 
 	<?php if ( $virtual ) : ?>
 
-	<p><?php printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $product->get_price_html(), __( 'student', 'andalu_woo_courses' ) ); ?></p>
+	<p><?php
+		if( ! is_null( $class_price ) ){
+			$pricing_array = get_class_pricing( null, $class_id );
+			$pricing = $pricing_array['formatted']['current_price'];
+		} else {
+			$pricing = $product->get_price_html();
+		}
+		printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $pricing, __( 'student', 'andalu_woo_courses' ) );
+	?></p>
 
 	<?php
 		$term = get_term_by( 'slug', 'virtual', 'class_location' );
@@ -28,7 +41,14 @@ $virtual = ( 'virtual' == $class_slug || ( $class && $class->virtual ) );
 
 	<p><?php echo get_the_title( $class_id ); ?><br/><?php echo get_post_meta( $class_id, '_time', true ); ?><br />
 	<?php printf( '<strong>%d</strong> %s', $class->seats, _n( 'seat available', 'seats available', $class->seats, 'andalu_woo_courses' ) ); ?><br />
-	<?php printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $product->get_price_html(), __( 'student', 'andalu_woo_courses' ) ); ?></p>
+	<?php
+	if( ! is_null( $class_price ) ){
+		$pricing_array = get_class_pricing( null, $class_id );
+		$pricing = $pricing_array['formatted']['current_price'];
+	} else {
+		$pricing = $product->get_price_html();
+	}
+	printf( '<strong>%s</strong>: %s/%s', __( 'Price', 'andalu_woo_courses' ), $pricing, __( 'student', 'andalu_woo_courses' ) ); ?></p>
 
 	<?php
 		$location = get_term( $class->location );
