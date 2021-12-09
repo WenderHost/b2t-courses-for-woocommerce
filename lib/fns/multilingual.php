@@ -2,16 +2,27 @@
 
 namespace AndaluWooCourses\multilingual;
 
-function get_class_pricing( $course_id ){
+function get_class_pricing( $course_id, $class_id = null ){
+  $class_price = ( ! is_null( $class_id ) )? get_post_meta( $class_id, '_price', true ) : null ;
+
   $pricing = [];
   $course = wc_get_product( $course_id );
-  $current_price = ( method_exists( $course, 'get_price') )? $course->get_price() : '0.00' ;
-  $regular_price = ( method_exists( $course, 'get_regular_price') )? $course->get_regular_price() : '0.00' ;
-  $pricing = [
-    'current_price' => $current_price,
-    'regular_price' => $regular_price,
-  ];
-  $pricing['on_sale'] = ( $pricing['current_price'] != $pricing['regular_price'] )? true : false ;
+
+  if( ! is_null( $class_price ) ){
+    $pricing = [
+      'current_price' => $class_price,
+      'regular_price' => null,
+      'on_sale'       => false,
+    ];
+  } else {
+    $current_price = ( method_exists( $course, 'get_price') )? $course->get_price() : '0.00' ;
+    $regular_price = ( method_exists( $course, 'get_regular_price') )? $course->get_regular_price() : '0.00' ;
+    $pricing = [
+      'current_price' => $current_price,
+      'regular_price' => $regular_price,
+    ];
+    $pricing['on_sale'] = ( $pricing['current_price'] != $pricing['regular_price'] )? true : false ;
+  }
 
   $lang = get_locale();
   $pricing['symbol'] = ( 'es_ES' == $lang )? '€' : '$' ;
