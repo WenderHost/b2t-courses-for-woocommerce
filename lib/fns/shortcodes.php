@@ -130,6 +130,13 @@ function elementor_public_classes( $atts ){
 
       $class_data['ID'] = $class_id;
 
+      // Check for class price
+      $price = get_post_meta( $class_id, '_price', true );
+      if( $price ){
+        $class_price_array = get_class_pricing( null, $class_id );
+        $class_data['class_price'] = $class_price_array['formatted']['current_price'];
+      }
+
       $class_dates = date( $date_format, $class->start_timestamp );
       if ( ! empty( $class->end_timestamp ) ) { $class_dates .= ' - ' . date( $date_format, $class->end_timestamp ); }
       $class_dates = apply_filters( 'andalu_woo_courses_class_dates', $class_dates, $class->start_timestamp, $class->end_timestamp, $date_format );
@@ -260,9 +267,11 @@ function public_class_calendar( $atts ){
   $data = [];
   $data['plugin_dir'] = plugin_dir_url( __FILE__ ) . '../../';
 
-  if( false === ( $classes = get_transient( 'public_class_calendar' ) ) ){
+  if( false === ( $classes = get_transient( 'public_class_calendar' ) ) && ! WP_DEBUG ){
     $classes = get_posts( $query_args );
     set_transient( 'public_class_calendar', $classes, HOUR_IN_SECONDS );
+  } else {
+    $classes = get_posts( $query_args );
   }
 
   if( is_array( $classes ) && 0 < count( $classes ) ){
@@ -334,7 +343,7 @@ function public_class_calendar( $atts ){
       $class_data['register_url'] = \AndaluWooCourses\utilities\get_register_link( $class->post_parent, $class->ID );
 
       // Setup Pricing
-      $class_data['pricing'] = get_class_pricing( $class->post_parent );
+      $class_data['pricing'] = get_class_pricing( $class->post_parent, $class->ID );
 
       $class_obj = wc_get_product( $class->ID );
       $class_data['location'] = [
