@@ -30,6 +30,9 @@ class Andalu_Woo_Courses_Single {
 		// Add item data to the cart
 		add_filter( 'woocommerce_add_cart_item_data', __CLASS__ . '::add_cart_item_data', 10, 2 );
 
+		// Recalculate cart subtotals and totals
+		add_filter( 'woocommerce_before_calculate_totals', __CLASS__ . '::before_calculate_totals', 10, 1 );
+
 		// Validate when adding to cart
 		add_filter( 'woocommerce_add_to_cart_validation', __CLASS__ . '::validate_add_cart_item', 10, 3 );
 
@@ -712,10 +715,15 @@ class Andalu_Woo_Courses_Single {
 				$class_id = Andalu_Woo_Courses_Class::get_class_id( $post_data['course_registration'] );
 			}
 
+			// Get Class Price if exists
+			$class_price = get_post_meta( $class_id, '_price', true );
+
+
 			self::validate_registration_fields( $post_data );
 			if ( ! wc_notice_count( 'error' ) ) {
 				$cart_item_meta['course_registration'] = self::$posted;
 				if ( $class_id ) { $cart_item_meta['course_registration']['class'] = $class_id; }
+				$cart_item_meta['class_price'] = $class_price;
 
 				// Clear course registration fields
 				foreach( array( 'first_name', 'last_name', 'email', 'email_again' ) as $key ) {
@@ -725,6 +733,23 @@ class Andalu_Woo_Courses_Single {
 
 		}
 		return $cart_item_meta;
+	}
+
+	/**
+	 * Updates the price of a course product in the cart with a class price if one exists.
+	 *
+	 * @param      object  $cart_obj  The cart object
+	 */
+	public static function before_calculate_totals( $cart_obj ){
+		if( is_admin() && ! defined( 'DOING_AJAX' ) )
+			return;
+
+		foreach( $cart_obj->get_cart() as $key => $value ){
+			if( isset( $value['class_price'] ) ){
+				$price = $value['class_price'];
+				$value['data']->set_price( $price );
+			}
+		}
 	}
 
 	static function validate_add_cart_item( $passed, $product_id, $qty, $post_data = null ) {
