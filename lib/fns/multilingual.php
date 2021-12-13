@@ -8,7 +8,7 @@ function get_class_pricing( $course_id, $class_id = null ){
   $pricing = [];
   $course = wc_get_product( $course_id );
 
-  if( ! is_null( $class_price ) ){
+  if( ! is_null( $class_price ) && ! empty( $class_price ) ){
     $pricing = [
       'current_price' => $class_price,
       'regular_price' => null,
