@@ -8,7 +8,9 @@ class Andalu_Woo_Courses_Order {
 	static function init() {
 
 		// Add meta to order
-		add_action( 'woocommerce_new_order_item', __CLASS__ . '::order_item_meta', 10, 2 ); // 12/08/2021 (17:13) - changed hook from `woocommerce_add_order_item_meta`
+		// 12/08/2021 (17:13) - changed hook from `woocommerce_add_order_item_meta` due to deprecation warnings
+		// 01/18/2022 (09:41) - changed hook back to `woocommerce_new_order_item` b/c the new hook does not add class details to the order email
+		add_action( 'woocommerce_add_order_item_meta', __CLASS__ . '::order_item_meta', 10, 2 );
 
 		// Reduce seats when stock is reduced
 		add_action( 'woocommerce_payment_complete', __CLASS__ . '::reduce_order_seats' );

@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.8  
-**Stable tag:** 3.0.1  
+**Stable tag:** 3.0.2  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -26,6 +26,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 ## Changelog ##
+
+### 3.0.2 ###
+* BUGFIX: Reverting Course Order hook from `woocommerce_new_order_item` back to `woocommerce_add_order_item_meta` because the newer hook does not add the class data to the order.
 
 ### 3.0.1 ###
 * BUGFIX: Verifying `$class_price` is not empty in `get_class_pricing()`. Otherwise, class
