@@ -1,5 +1,5 @@
 *.sublime-*
-mailtrap.php
+mailtrap.*
 .vscode
 .sass-cache
 node_modules/
