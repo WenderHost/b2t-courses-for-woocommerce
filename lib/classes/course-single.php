@@ -29,9 +29,7 @@ class Andalu_Woo_Courses_Single {
 
 		// Add item data to the cart
 		add_filter( 'woocommerce_add_cart_item_data', __CLASS__ . '::add_cart_item_data', 10, 2 );
-
-		// Recalculate cart subtotals and totals
-		add_filter( 'woocommerce_before_calculate_totals', __CLASS__ . '::before_calculate_totals', 10, 1 );
+		add_filter( 'woocommerce_add_cart_item', __CLASS__ . '::add_cart_item', 15 );
 
 		// Validate when adding to cart
 		add_filter( 'woocommerce_add_to_cart_validation', __CLASS__ . '::validate_add_cart_item', 10, 3 );
@@ -736,20 +734,22 @@ class Andalu_Woo_Courses_Single {
 	}
 
 	/**
-	 * Updates the price of a course product in the cart with a class price if one exists.
+	 * Adds the class to the shopping cart setting the price according to the $class_price if one exists.
 	 *
-	 * @param      object  $cart_obj  The cart object
+	 * @param      array  $cart_item_data  The cart item data
+	 *
+	 * @return     array  The modified cart item.
 	 */
-	public static function before_calculate_totals( $cart_obj ){
-		if( is_admin() && ! defined( 'DOING_AJAX' ) )
-			return;
-
-		foreach( $cart_obj->get_cart() as $key => $value ){
-			if( isset( $value['class_price'] ) ){
-				$price = $value['class_price'];
-				$value['data']->set_price( $price );
-			}
+	public static function add_cart_item( $cart_item_data ){
+		if(
+			array_key_exists( 'class_price', $cart_item_data )
+			&& ! empty( $cart_item_data['class_price'] )
+			&& is_numeric( $cart_item_data['class_price'] )
+		){
+			$cart_item_data['data']->set_price( $cart_item_data['class_price'] );
 		}
+
+		return $cart_item_data;
 	}
 
 	static function validate_add_cart_item( $passed, $product_id, $qty, $post_data = null ) {
