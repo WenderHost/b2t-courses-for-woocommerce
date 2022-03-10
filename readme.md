@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.8  
-**Stable tag:** 3.0.2  
+**Stable tag:** 3.1.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -26,6 +26,11 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 ## Changelog ##
+
+### 3.1.0 ###
+* Setting `$class_price` whilst adding class to the WooCommerce Cart.
+* Updating Course Info display to show Course price when `$class_price` is $0.00.
+* Setting `ANDALU_DEV_ENV` and not expiring the cart whilst in dev env.
 
 ### 3.0.2 ###
 * BUGFIX: Reverting Course Order hook from `woocommerce_new_order_item` back to `woocommerce_add_order_item_meta` because the newer hook does not add the class data to the order.
