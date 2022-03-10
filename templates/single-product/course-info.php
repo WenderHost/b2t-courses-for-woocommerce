@@ -45,6 +45,8 @@ if( $class_id ){
 	if( ! is_null( $class_price ) ){
 		$pricing_array = get_class_pricing( null, $class_id );
 		$pricing = $pricing_array['formatted']['current_price'];
+		if( '$0.00' == $pricing )
+			$pricing = $product->get_price_html();
 	} else {
 		$pricing = $product->get_price_html();
 	}
