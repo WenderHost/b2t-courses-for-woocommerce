@@ -9,6 +9,7 @@ Author URI: http://anda.lu/design
 */
 define( 'ANDALU_DIR', dirname( __FILE__ ) );
 define( 'ANDALU_LANG', get_locale() );
+define( 'ANDALU_DEV_ENV', stristr( site_url(), '.local' ) );
 
 // Load Composer dependencies
 require_once('vendor/autoload.php');

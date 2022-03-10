@@ -16,7 +16,8 @@ class Andalu_Woo_Courses_Cart_Reserve {
 		add_filter( 'woocommerce_add_cart_item', __CLASS__ . '::add_cart_item', 90, 2 );
 
 		// Check for expired items in the cart
-		add_action( 'woocommerce_cart_loaded_from_session', __CLASS__ . '::expire_items' );
+		if( ! ANDALU_DEV_ENV )
+			add_action( 'woocommerce_cart_loaded_from_session', __CLASS__ . '::expire_items' );
 
 	}
 
