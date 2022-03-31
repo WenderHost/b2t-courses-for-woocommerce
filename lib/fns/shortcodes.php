@@ -350,7 +350,7 @@ function public_class_calendar( $atts ){
         'name'        => $class_obj->location_term->name,
         'slug'        => $class_obj->location_term->slug,
         'id'          => $class_obj->location_term->term_id,
-        'description' => apply_filters( 'the_content', $class_obj->location_term->description ),
+        'description' => $class_obj->location_term->description,
       ];
       $class_data['virtual'] = ( in_array( $class_obj->location_term->name, ['Live Virtual','OpenClass®'] ) )? true : false ;
 
