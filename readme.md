@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 4.5  
 **Tested up to:** 5.8  
-**Stable tag:** 3.1.0  
+**Stable tag:** 3.1.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -26,6 +26,10 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 ## Changelog ##
+
+### 3.1.1 ###
+* Removing `the_content` filter from Location description because it was outputing the wrong content.
+* Setting Class Calendar height to `auto` when showing a Location description.
 
 ### 3.1.0 ###
 * Setting `$class_price` whilst adding class to the WooCommerce Cart.
