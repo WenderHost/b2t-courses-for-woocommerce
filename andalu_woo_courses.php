@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: ANDA.lu Woo Courses
-Plugin URI: http://anda.lu/design
+Plugin URI: https://github.com/WenderHost/andalu_woo_courses
 Description: Adds a custom WC Product type called Courses
-Version: 3.1.1
+Version: 3.1.2
 Author: ANDA.lu
 Author URI: http://anda.lu/design
 */
