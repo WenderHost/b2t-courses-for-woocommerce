@@ -9,6 +9,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce extension that adds a "Course" product type with "Class" CPTs.
 
+# HowTo: Show Class Registration Forms
+
+To show the registration form for a class, the following conditions must be met in your setup:
+
+1. Your Elementor WooCommerce Product template must use the "Product Content" widget to display the course description.
+2. You must add `product-content` as the ID for the "Product Content" widget.
+
 # Instructions for Building Translations
 
 1. Run `grunt makepot` to generate `languages/andalu_woo_courses.pot`.
