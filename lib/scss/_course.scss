@@ -34,26 +34,49 @@
 
 .outline_duration{float:right; font-size:80%; font-weight:normal; line-height:2em}
 
+.course_registration{
+  .course_registration_form_fields{
+    /*width: 70%;
+    max-width: 760px;*/
+    margin: 1em auto;
+    padding:1em;
+    box-shadow:2px 2px 8px rgba(0,0,0,0.2);
 
-.course_registration label{min-width:160px}
-.course_registration label.checkbox{font-weight:normal}
-.course_registration input[type=checkbox]{position:relative}
-.course_registration .form-field{margin:1em 0}
+    button{
+      background-color: $b2tblue !important;
 
-.course_registration_form_fields{
-  width: 70%;
-  max-width: 760px;
-  margin: 1em auto;
-  padding:1em;
-  box-shadow:2px 2px 8px rgba(0,0,0,0.2);
-}
-.course_registration .product-info{
-  margin:1em 0;
-}
-.course_registration_form_fields .pull-right{
-  display: block;
-  text-align: right;
-  float: none;
+      &:hover{
+        background-color: $b2tlightblue !important;
+      }
+    }
+
+    .pull-right{
+      display: block;
+      text-align: right;
+      float: none;
+    }
+  }
+
+  .form-field{
+    margin:1em 0
+  }
+
+  label{
+    min-width:160px;
+
+    &.checkbox{
+      font-weight: normal;
+    }
+  }
+
+  input[type=checkbox]{
+    position:relative
+  }
+
+  .product-info{
+    margin:1em 0;
+  }
+
 }
 
 @media only screen and (max-width : 800px) {
