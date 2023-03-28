@@ -31,7 +31,7 @@
     font-family: 'futura-pt', sans-serif;
     text-decoration: none;
     padding: 4px 16px;
-    border: 2px solid $netmindblue;
+    border: 2px solid $b2tblue;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -39,11 +39,11 @@
 
     &:hover{
       color: #fff;
-      background-color: lighten($netmindblue,15%);
+      background-color: lighten($b2tblue,15%);
     }
 
     &.selected{
-      background-color: $netmindblue;
+      background-color: $b2tblue;
       color: #fff;
     }
 
