@@ -1,9 +1,9 @@
 === ANDA.lu Woo Courses ===
 Contributors: TheWebist
 Tags: comments, spam
-Requires at least: 4.5
-Tested up to: 5.8
-Stable tag: 3.1.2
+Requires at least: 5.5
+Tested up to: 6.1.1
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 == Changelog ==
+
+= 3.1.3 =
+* Updating Course Calendar "Register" buttons to have `border-radius: 0`.
 
 = 3.1.2 =
 * Updating Course Calendar colors to match B2T Training branding.
