@@ -13,7 +13,7 @@
   },
   "scripts": {
     "compile": "sass lib/scss/woo-courses.scss lib/css/woo-courses.css",
-    "development:browsersync": "browser-sync start --proxy 'https://netmind.local' --files 'lib/css/*.css' 'lib/js/*.js' 'lib/fns/*.php' 'lib/templates/*.hbs'",
+    "development:browsersync": "browser-sync start --proxy 'https://b2ttraining.local' --files 'lib/css/*.css' 'lib/js/*.js' 'lib/fns/*.php' 'lib/templates/*.hbs'",
     "development:sasswatch": "sass --watch lib/scss:lib/css",
     "production:sass": "sass --style=compressed --no-source-map lib/scss/woo-courses.scss lib/css/woo-courses.css",
     "dev": "npm-run-all -p development:*",
