@@ -240,7 +240,7 @@ function showHideLocation( detailsId ){
 	}
 
 	// Add shortcode for displaying class table
-	public static function public_classes( $atts, $content = "", $name ) {
+	public static function public_classes( $atts = [], $content = "", $name ) {
 		add_action( 'wp_footer', array( get_called_class(), 'get_location_js' ), 9999 );
 		ob_start();
 		echo '<div class="public_classes woocommerce">';
