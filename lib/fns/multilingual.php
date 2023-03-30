@@ -15,8 +15,8 @@ function get_class_pricing( $course_id, $class_id = null ){
       'on_sale'       => false,
     ];
   } else {
-    $current_price = ( method_exists( $course, 'get_price') )? $course->get_price() : '0.00' ;
-    $regular_price = ( method_exists( $course, 'get_regular_price') )? $course->get_regular_price() : '0.00' ;
+    $current_price = ( is_object( $course ) && method_exists( $course, 'get_price') )? $course->get_price() : '0.00' ;
+    $regular_price = ( is_object( $course ) && method_exists( $course, 'get_regular_price') )? $course->get_regular_price() : '0.00' ;
     $pricing = [
       'current_price' => $current_price,
       'regular_price' => $regular_price,
