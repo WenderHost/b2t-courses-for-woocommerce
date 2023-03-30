@@ -15,6 +15,7 @@ define( 'ANDALU_DEV_ENV', stristr( site_url(), '.local' ) );
 require_once('vendor/autoload.php');
 
 // Load Functions
+require_once('lib/fns/body-class.php');
 require_once('lib/fns/enqueues.php');
 require_once('lib/fns/handlebars.php');
 require_once('lib/fns/http_build_url.php');
