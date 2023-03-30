@@ -27,7 +27,7 @@
         {{{location.description}}}
       </div>
     </div>
-    <div class="col-md-2 time">{{times}}{{#if duration}}<br>{{{duration}}}{{/if}}</div>
+    <div class="col-md-2 time">{{#if times}}{{times}}<br>{{/if}}{{#if duration}}{{{duration}}}{{/if}}</div>
     <!--<div class="col-md duration">{{{duration}}}</div>-->
     <div class="col-md price{{#if pricing.on_sale}} onsale{{/if}}">
       {{#if pricing.on_sale}}
