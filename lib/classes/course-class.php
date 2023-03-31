@@ -15,6 +15,9 @@ class Andalu_Woo_Courses_Class {
 		add_action( 'init', __CLASS__ . '::location_taxonomy', 5 );
 		add_action( 'admin_menu', __CLASS__ . '::location_page');
 
+		// Filter the quantity column for class registrations in the cart:
+		add_filter( 'woocommerce_cart_item_quantity', __CLASS__ . '::filter_quantity_in_cart', 15, 3 );
+
 		// Add taxonomy fields
 		add_action( self::$location_taxonomy . '_term_new_form_tag', __CLASS__ . '::add_new_location' );
 		//add_action( self::$location_taxonomy . '_add_form_fields', __CLASS__ . '::add_location_fields', 10, 2 );
@@ -174,6 +177,22 @@ class Andalu_Woo_Courses_Class {
 		if ( ! empty( $_POST['location_lodging'] ) ) {
 			update_term_meta( $term_id, 'lodging', wp_kses_post( $_POST['location_lodging'] ) );
 		}
+	}
+
+	/**
+	 * Filters the product quantity column value in the shopping cart
+	 *
+	 * @param      string  $product_quantity  The product quantity
+	 * @param      string  $cart_item_key     The cart item key
+	 * @param      array  $cart_item         The cart item
+	 *
+	 * @return     string  The quantity column value
+	 */
+	public static function filter_quantity_in_cart( $product_quantity, $cart_item_key, $cart_item ){
+		$product = wc_get_product( $cart_item['product_id'] );
+		if( $product->is_type( 'course' ) )
+			$product_quantity = '<div class="course-quantity" style="text-align: center;">1</div>';
+		return $product_quantity;
 	}
 
 	// Get all locations
