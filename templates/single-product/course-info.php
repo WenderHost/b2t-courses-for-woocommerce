@@ -19,8 +19,24 @@ if( $class_id ){
 	<?php if ( $virtual ) : ?>
 
 	<p><?php
+		$start_date = get_post_meta( $class_id, '_start_date', true );
+		$end_date = get_post_meta( $class_id, '_end_date', true );
+
+		$startDateObj = new DateTime( $start_date );
+		if( ! empty( $end_date ) )
+			$endDateObj = new DateTime( $end_date );
+		$startDateFormat = ( empty( $end_date ) || $startDateObj->format('Y') != $endDateObj->format('Y') )? 'D, M j, Y' : 'D, M j';
+		$classDateStr = $startDateObj->format( $startDateFormat );
+		if( ! empty( $end_date ) )
+			$classDateStr.= ' &ndash; ' . $endDateObj->format('D, M j, Y');
+		$date_label_text = ( ! empty( $end_date ) )? 'Dates' : 'Date' ;
+		echo '<strong>' . $date_label_text . ':</strong> ' . $classDateStr . '<br>';
+
+		$location = $class->get_location();
+		echo '<strong>Location:</strong> ' . $location . '<br>';
+
 		if( ! is_null( $class_price ) ){
-			$pricing_array = get_class_pricing( null, $class_id );
+			$pricing_array = get_class_pricing( $product->get_id(), $class_id );
 			$pricing = $pricing_array['formatted']['current_price'];
 		} else {
 			$pricing = $product->get_price_html();
