@@ -35,7 +35,7 @@ class Andalu_Woo_Courses_Cart_Reserve {
 
 	public static function add_cart_item( $item, $key ) {
 		if ( isset( $item[ 'course_registration' ] ) ) {
-			$item['cart_expiry_time'] = time() + ( 15 * 60 ); // Expire in 15 minutes
+			$item['cart_expiry_time'] = time() + ( 30 * MINUTE_IN_SECONDS ); // Expire in 30 minutes
 		}
 		return $item;
 	}

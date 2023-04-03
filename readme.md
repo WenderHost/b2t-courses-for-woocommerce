@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 5.5  
 **Tested up to:** 6.2  
-**Stable tag:** 3.1.8  
+**Stable tag:** 3.1.9  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -33,6 +33,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 ## Changelog ##
+
+### 3.1.9 ###
+* Updating `add_cart_item()` to expire a product in 30 minutes instead of 15.
 
 ### 3.1.8 ###
 * Filtering `woocommerce_cart_item_quantity` to show "1" for the quantity value for class registrations in the WC Shopping Cart.

@@ -3,7 +3,7 @@
 Plugin Name: ANDA.lu Woo Courses
 Plugin URI: https://github.com/WenderHost/andalu_woo_courses
 Description: Adds a custom WC Product type called Courses
-Version: 3.1.8
+Version: 3.1.9
 Author: ANDA.lu
 Author URI: http://anda.lu/design
 */
