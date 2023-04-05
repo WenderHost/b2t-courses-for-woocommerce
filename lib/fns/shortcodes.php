@@ -364,14 +364,15 @@ function public_class_calendar( $atts ){
   //$html = '<pre>$classes_data = ' . print_r($classes_data, true ) . '</pre>';
 
   $data['labels'] = [
-    'dates'     => __( 'Dates', 'andalu_woo_courses' ),
-    'course'    => __( 'Course', 'andalu_woo_courses' ),
-    'location'  => __( 'Location', 'andalu_woo_courses' ),
-    'time'      => __( 'Time', 'andalu_woo_courses' ),
-    'duration'  => __( 'Duration', 'andalu_woo_courses' ),
-    'price'     => __( 'Price', 'andalu_woo_courses' ),
-    'language'  => __( 'Language', 'andalu_woo_courses' ),
-    'register'  => __( 'Register', 'andalu_woo_courses' ),
+    'dates'           => __( 'Dates', 'andalu_woo_courses' ),
+    'course'          => __( 'Course', 'andalu_woo_courses' ),
+    'location'        => __( 'Location', 'andalu_woo_courses' ),
+    'time'            => __( 'Time', 'andalu_woo_courses' ),
+    'duration'        => __( 'Duration', 'andalu_woo_courses' ),
+    'course_length'   => __( 'Course Length', 'andalu_woo_courses' ),
+    'price'           => __( 'Price', 'andalu_woo_courses' ),
+    'language'        => __( 'Language', 'andalu_woo_courses' ),
+    'register'        => __( 'Register', 'andalu_woo_courses' ),
     'legend' => [
       'confirmed' => __( 'Confirmed Class', 'andalu_woo_courses' ),
     ],
