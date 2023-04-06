@@ -44,7 +44,7 @@ class Andalu_Woo_Courses_Single {
 		add_action( 'woocommerce_cart_loaded_from_session', __CLASS__ . '::unavailable' );
 
 		// Override add to cart message
-		add_filter( 'wc_add_to_cart_message', __CLASS__ . '::add_to_cart_message', 20, 2 );
+		add_filter( 'wc_add_to_cart_message_html', __CLASS__ . '::add_to_cart_message', 20, 2 );
 	}
 
 	// Register rewrite rules for course registration
@@ -876,7 +876,7 @@ class Andalu_Woo_Courses_Single {
 
 			$added_text = sprintf( __( 'A "%1$s" registration for %2$s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->get_id() ), $name );
 			if ( ! $cart_redirect ) {
-				$added_text .= __( ' Add another student by entering his or her details below:', 'andalu_woo_courses' );
+				$added_text .= __( ' Add another student by entering his or her details below, or register for another class by visiting our <a href="' . site_url( '/services/public-class-schedule/' ) . '">Public Class Schedule</a>.', 'andalu_woo_courses' );
 			}
 
 			// Allow filtering of add course to cart message
