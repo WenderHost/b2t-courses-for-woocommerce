@@ -867,7 +867,7 @@ class Andalu_Woo_Courses_Single {
 	// Override add to cart message
 	public static function add_to_cart_message( $message, $products, $show_qty ) {
 		foreach( $products as $product_id => $quantity ):
-			$product = wp_get_product( $product_id );
+			$product = wc_get_product( $product_id );
 			$product_title = $product->get_title();
 			$product_type = $product->get_type();
 			if( 'course' == $product_type ):
@@ -878,7 +878,7 @@ class Andalu_Woo_Courses_Single {
 
 				$added_text = sprintf( __( 'A "%1$s" registration for %2$s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->get_id() ), $name );
 				if ( ! $cart_redirect ) {
-					$added_text .= __( ' Add another student by entering his or her details below, or register for another class by visiting our <a href="' . site_url( '/services/public-class-schedule/' ) . '">Public Class Schedule</a>.', 'andalu_woo_courses' );
+					$add_text .= sprintf( __( ' Add another student by entering his or her details below, or register for another class by visiting our <a href="%s">Public Class Schedule</a>.' ), 'andalu_woo_courses', site_url( '/services/public-class-schedule/' ) );
 				}
 
 				// Allow filtering of add course to cart message
