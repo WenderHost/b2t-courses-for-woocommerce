@@ -60,7 +60,7 @@ class Andalu_Woo_Courses_Order {
 	}
 
 	// Reduce seats when classes are ordered
-	public function reduce_order_seats( $order ) {
+	public static function reduce_order_seats( $order ) {
 		if ( ! is_object( $order ) ) { $order = wc_get_order( $order ); }
 
 		if ( 1 != get_post_meta( $order->id, '_order_seats_reduced', true ) && sizeof( $order->get_items() ) > 0 ) {
