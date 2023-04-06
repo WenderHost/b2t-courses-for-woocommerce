@@ -878,8 +878,7 @@ class Andalu_Woo_Courses_Single {
 
 				$added_text = sprintf( __( 'A "%1$s" registration for %2$s has been added to your cart.', 'andalu_woo_courses' ), get_the_title( $product->get_id() ), $name );
 				if ( ! $cart_redirect ) {
-					//$added_text .= sprintf( __( ' Add another student by entering his or her details below, or register for another class by visiting our <a href="%s">Public Class Schedule</a>.', 'andalu_woo_courses' ), site_url( '/services/public-class-schedule/' ) );
-					$added_text.= 'Add another student by entering his or her details below, or register for another class by visiting our <a href="' . site_url( '/services/public-class-schedule/' ) . '">Public Class Schedule</a>.';
+					$added_text .= sprintf( __( ' Add another student by entering his or her details below, or register for another class by visiting our <a href="%s">Public Class Schedule</a>.', 'andalu_woo_courses' ), site_url( '/services/public-class-schedule/' ) );
 				}
 
 				// Allow filtering of add course to cart message
@@ -890,7 +889,7 @@ class Andalu_Woo_Courses_Single {
 					$return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wp_get_referer() ? wp_get_referer() : home_url() );
 					$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( $return_to ), esc_html__( 'Continue Shopping', 'andalu_woo_courses' ), esc_html( $added_text ) );
 				} else {
-					$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View Cart', 'andalu_woo_courses' ), esc_html( $added_text ) );
+					$message = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View Cart', 'andalu_woo_courses' ), $added_text );
 				}
 			endif;
 		endforeach;
