@@ -866,9 +866,10 @@ class Andalu_Woo_Courses_Single {
 
 	// Override add to cart message
 	public static function add_to_cart_message( $message, $product ) {
-		if ( ! is_object( $product ) ) { $product = wc_get_product( $product ); }
+		if ( ! is_object( $product ) )
+			$product = wc_get_product( $product );
 
-		if ( $product->is_type( Andalu_Woo_Courses::$product_type ) ) {
+		if ( $product->is_type( 'course' ) ) {
 			$cart_redirect = ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) );
 
 			$name = empty( self::$posted['first_name'] ) ? '' : self::$posted['first_name'];
