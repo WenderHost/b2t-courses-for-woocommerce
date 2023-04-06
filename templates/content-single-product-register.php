@@ -27,7 +27,7 @@ do_action( 'woocommerce_before_single_course_register' );
 			if ( 'virtual' == get_query_var( 'course_register' ) && $product->has_child() ) {
 				do_action( 'woocommerce_course_virtual_registration_form' );
 			} else {
-				echo '<p>' . __( 'To register for this class complete the form below:', 'andalu_woo_courses' ) . '</p>';
+				echo sprintf( __( 'To register for this class complete the form below, or you may return to the <a href="%s">Public Class Schedule</a>.', 'andalu_woo_courses' ), site_url( '/services/public-class-schedule/' ) );
 			}
 		?>
 
