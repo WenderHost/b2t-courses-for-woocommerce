@@ -32,7 +32,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     if('es_ES' == ANDALU_LANG ){
         $url = '/es/calendario-cursos/';
     }else{
-        $url = '/course-calendar/';
+        $url = '/services/public-class-schedule/';
     }
 
     $inary=is_array($in);
