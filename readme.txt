@@ -3,7 +3,7 @@ Contributors: TheWebist
 Tags: comments, spam
 Requires at least: 5.5
 Tested up to: 6.2
-Stable tag: 3.2.4
+Stable tag: 3.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 == Changelog ==
+
+= 3.2.5 =
+* Updating address labels for Class Registration.
 
 = 3.2.4 =
 * Updating links to `/course-calendar/` to point to `/services/public-class-schedule/`.

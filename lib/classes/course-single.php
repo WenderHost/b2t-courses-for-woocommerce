@@ -216,16 +216,17 @@ class Andalu_Woo_Courses_Single {
 		];
 
 		$class = ( 'es_ES' == $locale )? ['form-row-first'] : ['form-row-wide','address-field'] ;
+		$class[] = ANDALU_LANG;
 		$fields['billing_city'] = [
-			'label'       => __( 'Town / City', 'andalu_woo_courses' ),
-			'placeholder' => __( 'Town / City', 'andalu_woo_courses' ),
+			'label'       => __( 'City', 'andalu_woo_courses' ),
+			'placeholder' => __( 'City', 'andalu_woo_courses' ),
 			'required'    => true,
 			'class'       => $class,
 		];
 
 		$class = ( 'es_ES' == $locale )? ['form-row-last', 'address-field'] : ['form-row-first', 'address-field' ] ;
 		$fields['billing_state'] = [
-			'label'       => __( 'State / County', 'andalu_woo_courses' ),
+			'label'       => __( 'State', 'andalu_woo_courses' ),
 			'type'        => 'state',
 			'required'    => (('es_ES' == ANDALU_LANG)? false : true ),
 			'class'       => $class,
@@ -233,8 +234,8 @@ class Andalu_Woo_Courses_Single {
 
 		$class = ( 'es_ES' == $locale )? ['form-row-first','address-field'] : ['form-row-last', 'address-field'] ;
 		$fields['billing_postcode'] = [
-			'label'       => __( 'Postcode / Zip', 'andalu_woo_courses' ),
-			'placeholder' => __( 'Postcode / Zip', 'andalu_woo_courses' ),
+			'label'       => __( 'Zip/Postal Code', 'andalu_woo_courses' ),
+			'placeholder' => __( 'Zip/Postal Code', 'andalu_woo_courses' ),
 			'required'    => (('es_ES' == ANDALU_LANG)? false : true ),
 			'class'       => $class,
 			'clear'       => true,
