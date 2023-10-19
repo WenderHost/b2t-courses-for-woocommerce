@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: ANDA.lu Woo Courses
-Plugin URI: https://github.com/WenderHost/andalu_woo_courses
+Plugin Name: B2T Courses for WooCommerce
+Plugin URI: https://github.com/WenderHost/B2T-Courses-for-WooCommerce
 Description: Adds a custom WC Product type called Courses
-Version: 3.2.5
-Author: ANDA.lu
-Author URI: http://anda.lu/design
+Version: 3.3.0
+Author: TheWebist
+Author URI: https://mwender.com
 */
 define( 'ANDALU_DIR', dirname( __FILE__ ) );
 define( 'ANDALU_LANG', get_locale() );
