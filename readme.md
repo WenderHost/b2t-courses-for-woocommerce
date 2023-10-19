@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 5.5  
 **Tested up to:** 6.2  
-**Stable tag:** 3.3.0  
+**Stable tag:** 3.3.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -33,6 +33,9 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 ## Changelog ##
+
+### 3.3.1 ###
+* Lowercasing remote repository URL.
 
 ### 3.3.0 ###
 * Renaming plugin to "B2T Courses for WooCommerce".
