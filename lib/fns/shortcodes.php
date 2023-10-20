@@ -19,21 +19,35 @@ function course_details( $atts ){
   if( empty( $product ) )
     return;
 
+  $product_id = $product->get_id();
+
   $data = [];
-  $data['duration'] = get_post_meta($product->get_id(), '_course_duration', true );
-  $data['reference'] = get_post_meta($product->get_id(), '_course_reference', true );
-  $data['delivery_mode'] = get_post_meta($product->get_id(), '_course_delivery_mode', true );
+  $data['duration'] = get_post_meta( $product_id, '_course_duration', true );
+  $data['reference'] = get_post_meta( $product_id, '_course_reference', true );
+  $data['delivery_mode'] = get_post_meta( $product_id, '_course_delivery_mode', true );
   if( is_array( $data['delivery_mode'] ) )
     $data['delivery_mode'] = implode(', ', $data['delivery_mode'] );
-  $data['certification'] = get_post_meta($product->get_id(), '_course_certification', true );
-  $data['certification_link'] = get_post_meta($product->get_id(), '_course_certification_link', true );
 
   // Get Print Version
-  $print_version = get_post_meta( $product->get_id(), 'print_version', true );
+  $print_version = get_post_meta( $product_id, 'print_version', true );
   if( is_numeric( $print_version ) ){
     $file_url = wp_get_attachment_url( $print_version );
     if( ! empty( $file_url ) )
       $data['print_version'] = $file_url;
+  }
+
+  // Get Certification Links
+  if( function_exists( 'have_rows' ) ){
+    if( have_rows( 'certification_links', $product_id ) ){
+      $certification_links = [];
+      while( have_rows( 'certification_links', $product_id ) ): the_row();
+        $certification_links[] = [
+          'text'  => get_sub_field( 'text' ),
+          'link'  => get_sub_field( 'link' ),
+        ];
+      endwhile;
+      $data['certification_links'] = $certification_links;
+    }
   }
 
   $data['labels'] = [

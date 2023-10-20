@@ -30,7 +30,13 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     );
     
     $inary=is_array($in);
-    return '<div class="widget course-details">
+    return '<style>
+.certification-links{
+  list-style: none;
+  padding: 0;
+}
+</style>
+<div class="widget course-details">
   <h3 class="widget-title">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['course_details'])) ? $in['labels']['course_details'] : null), ENT_QUOTES, 'UTF-8').'</h3>
 '.((LR::ifvar($cx, (($inary && isset($in['reference'])) ? $in['reference'] : null), false)) ? '  <div class="detail">
     <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['reference'])) ? $in['labels']['reference'] : null), ENT_QUOTES, 'UTF-8').'</h4>
@@ -44,9 +50,11 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['delivery_mode'])) ? $in['labels']['delivery_mode'] : null), ENT_QUOTES, 'UTF-8').'</h4>
     '.htmlspecialchars((string)(($inary && isset($in['delivery_mode'])) ? $in['delivery_mode'] : null), ENT_QUOTES, 'UTF-8').'
   </div>
-' : '').''.((LR::ifvar($cx, (($inary && isset($in['certification'])) ? $in['certification'] : null), false)) ? '  <div class="detail">
+' : '').''.((LR::ifvar($cx, (($inary && isset($in['certification_links'])) ? $in['certification_links'] : null), false)) ? '  <div class="detail">
     <h4>'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['certification'])) ? $in['labels']['certification'] : null), ENT_QUOTES, 'UTF-8').'</h4>
-    '.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), ENT_QUOTES, 'UTF-8').'">' : '').''.htmlspecialchars((string)(($inary && isset($in['certification'])) ? $in['certification'] : null), ENT_QUOTES, 'UTF-8').''.((LR::ifvar($cx, (($inary && isset($in['certification_link'])) ? $in['certification_link'] : null), false)) ? '</a>' : '').'
+    <ul class="certification-links">
+'.LR::sec($cx, (($inary && isset($in['certification_links'])) ? $in['certification_links'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '      <li><a href="'.htmlspecialchars((string)(($inary && isset($in['link'])) ? $in['link'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)(($inary && isset($in['text'])) ? $in['text'] : null), ENT_QUOTES, 'UTF-8').'</a></li>
+';}).'    </ul>
   </div>
 ' : '').'  <div class="buttons">
     <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['request_info'])) ? $in['labels']['request_info'] : null), ENT_QUOTES, 'UTF-8').'</a>

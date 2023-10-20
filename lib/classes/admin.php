@@ -241,17 +241,23 @@ class Andalu_Woo_Courses_Admin {
 						'placeholder' => _x( 'e.g. 4 days', 'example duration', 'andalu_woo_courses' ),
 					) );
 
+					/**
+					 * Deprecated
+					 *
+					 * To be removed. These have been replaced by an ACF Repeater Field:
+					 */
 					woocommerce_wp_text_input( array(
 						'id'          => '_course_certification',
-						'label'       => __( 'Certification', 'andalu_woo_courses' ),
+						'label'       => __( 'Certification (Deprecated)', 'andalu_woo_courses' ),
 						'placeholder' => _x( 'e.g. PRINCE2 Foundation Certification', 'example certification', 'andalu_woo_courses' ),
 					) );
 
 					woocommerce_wp_text_input( array(
 						'id'          => '_course_certification_link',
-						'label'       => __( 'Certification Link', 'andalu_woo_courses' ),
+						'label'       => __( 'Certification Link (Deprecated)', 'andalu_woo_courses' ),
 						'placeholder' => _x( 'e.g. https://example.com/certification', 'provide a link to the certification', 'andalu_woo_courses' ),
 					) );
+					// END - Deprecated
 
 					/*
 					woocommerce_wp_text_input( array(

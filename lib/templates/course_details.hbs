@@ -1,3 +1,9 @@
+<style>
+.certification-links{
+  list-style: none;
+  padding: 0;
+}
+</style>
 <div class="widget course-details">
   <h3 class="widget-title">{{labels.course_details}}</h3>
   {{#if reference}}
@@ -18,10 +24,14 @@
     {{delivery_mode}}
   </div>
   {{/if}}
-  {{#if certification}}
+  {{#if certification_links}}
   <div class="detail">
     <h4>{{labels.certification}}</h4>
-    {{# if certification_link}}<a href="{{certification_link}}">{{/if}}{{certification}}{{# if certification_link}}</a>{{/if}}
+    <ul class="certification-links">
+    {{#each certification_links}}
+      <li><a href="{{link}}">{{text}}</a></li>
+    {{/each}}
+    </ul>
   </div>
   {{/if}}
   <div class="buttons">
