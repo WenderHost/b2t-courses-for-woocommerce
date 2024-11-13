@@ -66,6 +66,45 @@ function course_details( $atts ){
 add_shortcode( 'course_details', __NAMESPACE__ . '\\course_details' );
 
 /**
+ * Shortcode to display the post title of a `course_class` CPT by matching URL segment.
+ *
+ * Usage: [class_dates_from_url]
+ *
+ * @return string The post title of the `course_class` CPT if found, or an error message.
+ */
+function class_dates_from_url() {
+  // Get the current URL.
+  $current_url = (is_ssl() ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+  // Parse the URL to get the last segment.
+  $parsed_url = parse_url($current_url);
+  $path = rtrim($parsed_url['path'], '/');
+  $segments = explode('/', $path);
+  $post_name = end($segments);
+
+  // Query the `course_class` CPT by `post_name`.
+  $args = [
+    'name'           => $post_name,
+    'post_type'      => 'course_class',
+    'post_status'    => 'inherit',
+    'posts_per_page' => 1,
+  ];
+  $query = new \WP_Query($args);
+
+  // Check if the post is found and return the post title.
+  if ($query->have_posts()) {
+    $query->the_post();
+    $post_title = get_the_title();
+    wp_reset_postdata();
+    return esc_html($post_title);
+  } else {
+    return "Class not found for {$post_name}";
+  }
+}
+add_shortcode('class_dates_from_url', __NAMESPACE__ . '\\class_dates_from_url');
+
+
+/**
  * Displays "Public Classes" widget in the sidebar of Course pages.
  *
  * @param      array  $atts {

@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 5.5  
 **Tested up to:** 6.2  
-**Stable tag:** 3.4.0  
+**Stable tag:** 3.5.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -33,6 +33,11 @@ Note: The first time I ran `grunt po2mo`, I got the error `Can not create sync-e
 Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` function to render their HTML. That function utilizes handlebars templates stored inside `lib/templates/`. For details on how `render_template()` works, please see the DocBlock for that function inside `lib/fns/handlebars.php`.
 
 ## Changelog ##
+
+### 3.5.0 ###
+* Adding "Class Full Message" option. Allows admins to create an Elementor template that replaces the output shown when a class is full.
+* `[class_dates_from_url]` shortcode for displaying the dates of a `course_class` when on a page that has the `course_class->post_name` as the last parameter.
+* Gravity Forms merge tag for `{class_dates}`.
 
 ### 3.4.0 ###
 * Adding new Certification ACF Repeater Field to "Additional Class Details" meta box.

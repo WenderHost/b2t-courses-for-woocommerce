@@ -3,7 +3,7 @@
 Plugin Name: B2T Courses for WooCommerce
 Plugin URI: https://github.com/WenderHost/b2t-courses-for-woocommerce
 Description: Adds a custom WC Product type called Courses
-Version: 3.4.0
+Version: 3.5.0
 Author: TheWebist
 Author URI: https://mwender.com
 */
@@ -18,6 +18,7 @@ require_once('vendor/autoload.php');
 require_once('lib/fns/acf.php');
 require_once('lib/fns/body-class.php');
 require_once('lib/fns/enqueues.php');
+require_once('lib/fns/gravityforms.php');
 require_once('lib/fns/handlebars.php');
 require_once('lib/fns/http_build_url.php');
 require_once('lib/fns/multilingual.php');
