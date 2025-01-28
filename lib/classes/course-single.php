@@ -197,6 +197,9 @@ class Andalu_Woo_Courses_Single {
 			'label'       => __( 'Title', 'andalu_woo_courses' ),
 			'class'       => array( 'form-row-wide' ),
 		];
+		$fields['shipping_note'] = [
+			'value'				=> '<h2 style="font-size: 24px; margin-bottom: .25em; margin-top: 1.5em;">Course Materials Shipping Address</h2><p style="margin-bottom: 0;">Physical course materials will be shipped to you prior to your class. Please provide the address where you\'d like these materials to be sent.</p>',
+		];
 		$fields['country'] = [
 			'label'       => __( 'Country', 'andalu_woo_courses' ),
 			'required'    => true,
@@ -286,8 +289,16 @@ class Andalu_Woo_Courses_Single {
 
 		<?php
 			foreach ( self::registration_fields() as $key => $field ) {
-				$value = ( isset( $_POST[ $key ] ) ? $_POST[ $key ] : ( $key == 'country' ? WC()->checkout->get_value( 'billing_country' ) : '' ) );
-				woocommerce_form_field( $key, $field, $value );
+				switch( $key ){
+					case 'shipping_note':
+						echo $field['value'];
+						break;
+
+					default:
+						$value = ( isset( $_POST[ $key ] ) ? $_POST[ $key ] : ( $key == 'country' ? WC()->checkout->get_value( 'billing_country' ) : '' ) );
+						woocommerce_form_field( $key, $field, $value );						
+				}
+
 			}
 		?>
 
