@@ -198,7 +198,7 @@ class Andalu_Woo_Courses_Single {
 			'class'       => array( 'form-row-wide' ),
 		];
 		$fields['shipping_note'] = [
-			'value'				=> '<h2 style="font-size: 24px; margin-bottom: .25em; margin-top: 1.5em;">Course Materials Shipping Address</h2><p style="margin-bottom: 0;">Physical course materials will be shipped to you prior to your class. Please provide the address where you\'d like these materials to be sent.</p>',
+			'value'				=> '<div class="class-details" style="margin-top: 1em;"><h2 style="color: #EA6A18; font-size: 1.5em;">Course Materials Shipping Address</h2><p>Physical course materials will be shipped to you prior to your class. Please provide the address where you\'d like these materials to be sent.</p></div>',
 		];
 		$fields['country'] = [
 			'label'       => __( 'Country', 'andalu_woo_courses' ),
