@@ -197,9 +197,21 @@ class Andalu_Woo_Courses_Single {
 			'label'       => __( 'Title', 'andalu_woo_courses' ),
 			'class'       => array( 'form-row-wide' ),
 		];
+		/*
 		$fields['shipping_note'] = [
 			'value'				=> '<div class="class-details" style="margin-top: 1em;"><h2 style="color: #EA6A18; font-size: 1.5em;">Course Materials Shipping Address</h2><p>Physical course materials will be shipped to you prior to your class. Please provide the address where you\'d like these materials to be sent.</p></div>',
 		];
+		/**/
+
+		$shipping_note = get_field( 'class_registration_shipping_address_note', 'option' );
+		if( ! empty( $shipping_note ) ){
+			$value = '<style>.shipping-note{margin-top: 1em;} .shipping-note h2{color: #EA6A18; font-size: 1.5em;}</style>';
+			$value.= '<div class="class-details shipping-note">' . $shipping_note . '</div>';
+			$fields['shipping_note'] = [
+				'value' => $value,
+			];
+		}
+
 		$fields['country'] = [
 			'label'       => __( 'Country', 'andalu_woo_courses' ),
 			'required'    => true,

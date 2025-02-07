@@ -3,7 +3,7 @@
 **Tags:** comments, spam  
 **Requires at least:** 6.3  
 **Tested up to:** 6.7  
-**Stable tag:** 3.5.2  
+**Stable tag:** 3.5.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -34,7 +34,11 @@ Many of the functions in `lib/fns/shortcodes.php` use the `render_template()` fu
 
 ## Changelog ##
 
+### 3.5.3 ###
+* Moving "Course Materials Shipping Note" to ACF Options Page Field.
+
 ### 3.5.2 ###
+* Additional styling for Course Materials note.
 
 ### 3.5.1 ###
 * Adding "Course Materials Shipping Address" note.
