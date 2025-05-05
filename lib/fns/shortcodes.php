@@ -50,7 +50,7 @@ function course_details( $atts ){
         ];
         if( 'iiba' == strtolower( $text ) ){
           $data['iiba_endorsed'] = true;
-          $data['iiba_img'] = plugin_dir_url( __FILE__ ) . '../img/b2t-iiba-endorsed-course_deep-teal_510x120.png';
+          $data['iiba_img'] = plugin_dir_url( __FILE__ ) . '../img/b2t-iiba-endorsed-course_510x120.png';
         }
 
         $x++;
