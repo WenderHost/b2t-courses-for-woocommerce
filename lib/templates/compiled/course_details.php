@@ -56,6 +56,9 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
 '.LR::sec($cx, (($inary && isset($in['certification_links'])) ? $in['certification_links'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '      <li><a href="'.htmlspecialchars((string)(($inary && isset($in['link'])) ? $in['link'] : null), ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars((string)(($inary && isset($in['text'])) ? $in['text'] : null), ENT_QUOTES, 'UTF-8').'</a></li>
 ';}).'    </ul>
   </div>
+' : '').''.((LR::ifvar($cx, (($inary && isset($in['iiba_endorsed'])) ? $in['iiba_endorsed'] : null), false)) ? '  <div class="">
+    <img src="'.htmlspecialchars((string)(($inary && isset($in['iiba_img'])) ? $in['iiba_img'] : null), ENT_QUOTES, 'UTF-8').'" alt="IIBA Certified Course" style="" />
+  </div>
 ' : '').'  <div class="buttons">
     <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['request_info'])) ? $in['labels']['request_info'] : null), ENT_QUOTES, 'UTF-8').'</a>
     '.((LR::ifvar($cx, (($inary && isset($in['print_version'])) ? $in['print_version'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['print_version'])) ? $in['print_version'] : null), ENT_QUOTES, 'UTF-8').'" class="print" target="_blank">Print</a>' : '').'

@@ -40,11 +40,20 @@ function course_details( $atts ){
   if( function_exists( 'have_rows' ) ){
     if( have_rows( 'certification_links', $product_id ) ){
       $certification_links = [];
+      $x = 0;
       while( have_rows( 'certification_links', $product_id ) ): the_row();
-        $certification_links[] = [
-          'text'  => get_sub_field( 'text' ),
-          'link'  => get_sub_field( 'link' ),
+        $text = get_sub_field( 'text' );
+        $link = get_sub_field( 'link' );
+        $certification_links[$x] = [
+          'text'  => $text,
+          'link'  => $link,
         ];
+        if( 'iiba' == strtolower( $text ) ){
+          $data['iiba_endorsed'] = true;
+          $data['iiba_img'] = plugin_dir_url( __FILE__ ) . '../img/b2t-iiba-endorsed-course_deep-teal_510x120.png';
+        }
+
+        $x++;
       endwhile;
       $data['certification_links'] = $certification_links;
     }
