@@ -57,7 +57,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
 ';}).'    </ul>
   </div>
 ' : '').''.((LR::ifvar($cx, (($inary && isset($in['iiba_endorsed'])) ? $in['iiba_endorsed'] : null), false)) ? '  <div class="">
-    <img src="'.htmlspecialchars((string)(($inary && isset($in['iiba_img'])) ? $in['iiba_img'] : null), ENT_QUOTES, 'UTF-8').'" alt="IIBA Certified Course" style="" />
+    <img src="'.htmlspecialchars((string)(($inary && isset($in['iiba_img'])) ? $in['iiba_img'] : null), ENT_QUOTES, 'UTF-8').'" alt="IIBA Training Partner Program Endorsed Course" style="" />
   </div>
 ' : '').'  <div class="buttons">
     <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OCIsInRvZ2dsZSI6ZmFsc2V9" class="button">'.htmlspecialchars((string)((isset($in['labels']) && is_array($in['labels']) && isset($in['labels']['request_info'])) ? $in['labels']['request_info'] : null), ENT_QUOTES, 'UTF-8').'</a>
